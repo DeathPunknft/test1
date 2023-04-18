@@ -276,7 +276,10 @@
             connectWallet(provider);
         });
         $("#mint").on("click", async () => {
-
+            
+            alert("event not started")
+            return;
+            
             if (wallet.address === walletPlaceholderText) {
                 connectWallet(provider)
                 return;
