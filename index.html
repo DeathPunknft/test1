@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <link rel="icon" href="../favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="author" content="zhy" />
+    <link rel="stylesheet" href="../Content/Styles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Content/Styles/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="../Scripts/jQuery/jquery.min.js"></script>
+    <script src="../Scripts/web3/web3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+
+    <title>DAN - Decentralized Asset NFT</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="body-bg-black">
+                <div class="navBar text-center">
+                    <div class="navBar-left">
+                        <img src='../Content/Images/dan.png' />
+                    </div>
+                    <div class="navBar-right text-right">
+                        <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
+                        <ul>
+                            <li>
+                                <a href="https://twitter.com/" target="_blank" class="social-link">
+                                    <img src='../Content/Images/twitter.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://discord.com/" target="_blank" class="social-link">
+                                    <img src='../Content/Images/discord.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://youtube.com/" target="_blank" class="social-link">
+                                    <img src='../Content/Images/youTube.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://telegram.org/" target="_blank" class="social-link">
+                                    <img src='../Content/Images/telegram.png' width="20px" height="20px" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-content">
+                    <div class="detail-content-left">
+                        <h1 class="heading">The first phase of the digital billboard NFT</h1>
+                        <p class="subheading">Hong Kong provides DAN with the opportunity to showcase the potential of
+                            this technology and promote its adoption in other markets worldwide.
+                            30000 digital billboard NFTs are ready to be launched, and the digital billboards are
+                            distributed in many different places in Hong Kong.</p>
+                        <!--  <h5 class="heading-2">Hong Kong's first Web 3.0 Decentralized store of value NFT staking.</h5> -->
+                       
+                        <div class="input-group">
+                            <button type="button" class="btn minus-btn">-</button>
+                            <input type="number" class="input-field qty-input" value="1" min="1" max="30">
+                            <button type="button" class="btn plus-btn">+</button>
+                        </div>
+                        <br>
+
+                        <button id="mint" type="button" class="primary-button w-button"
+                            data-toggle="popover">mint</button>
+
+                        <!--  <a id="mint" href="#lss-nfts" class="primary-button w-button">
+                        <span>
+                            mint
+                        </span>
+                        <em></em>
+                    </a>-->
+                        <!--<a class="opensea" href="https://testnets.opensea.io/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 100 100"><path fill="#2081E2" d="M100 50C100 77.6127 77.6127 100 50 100C22.3873 100 0 77.6127 0 50C0 22.3873 22.3873 0 50 0C77.6185 0 100 22.3873 100 50Z"/><path fill="#fff" d="M24.6679 51.6801L24.8836 51.341L37.8906 30.9932C38.0807 30.6953 38.5276 30.7261 38.6714 31.0497C40.8444 35.9196 42.7194 41.9762 41.841 45.7468C41.466 47.2982 40.4386 49.3992 39.2827 51.341C39.1338 51.6236 38.9694 51.901 38.7947 52.1681C38.7125 52.2914 38.5738 52.3633 38.4248 52.3633H25.048C24.6884 52.3633 24.4778 51.9729 24.6679 51.6801Z"/><path fill="#fff" d="M82.6444 55.461V58.6819C82.6444 58.8668 82.5314 59.0312 82.367 59.1031C81.3602 59.5346 77.9132 61.1168 76.48 63.11C72.8224 68.2008 70.0279 75.48 63.7812 75.48H37.721C28.4847 75.48 21 67.9697 21 58.7024V58.4045C21 58.1579 21.2003 57.9576 21.4469 57.9576H35.9745C36.2621 57.9576 36.4727 58.2247 36.4471 58.5072C36.3443 59.4524 36.519 60.4182 36.9659 61.2966C37.8289 63.0484 39.6166 64.1426 41.5481 64.1426H48.74V58.5278H41.6303C41.2656 58.5278 41.0499 58.1065 41.2605 57.8086C41.3375 57.6904 41.4249 57.5672 41.5173 57.4285C42.1903 56.473 43.1509 54.9884 44.1064 53.2983C44.7588 52.1579 45.3906 50.9404 45.8992 49.7178C46.002 49.4969 46.0841 49.2708 46.1663 49.0499C46.305 48.6595 46.4489 48.2948 46.5516 47.9301C46.6544 47.6218 46.7365 47.2982 46.8187 46.9951C47.0602 45.9574 47.1629 44.8581 47.1629 43.7177C47.1629 43.2708 47.1424 42.8033 47.1013 42.3564C47.0807 41.8684 47.0191 41.3803 46.9574 40.8923C46.9163 40.4608 46.8393 40.0344 46.7571 39.5875C46.6544 38.9351 46.5105 38.2879 46.3461 37.6354L46.2896 37.3889C46.1663 36.9419 46.0636 36.5156 45.9198 36.0687C45.5139 34.6662 45.0465 33.2998 44.5533 32.0207C44.3735 31.5121 44.168 31.0241 43.9625 30.5361C43.6595 29.8015 43.3512 29.1337 43.0687 28.5018C42.9249 28.2141 42.8016 27.9521 42.6783 27.685C42.5396 27.3819 42.3958 27.0788 42.2519 26.7912C42.1492 26.5703 42.031 26.3648 41.9488 26.1593L41.0704 24.536C40.9471 24.3151 41.1526 24.0531 41.394 24.1199L46.8907 25.6096H46.9061C46.9163 25.6096 46.9215 25.6148 46.9266 25.6148L47.6509 25.8151L48.4472 26.0412L48.74 26.1233V22.8562C48.74 21.2791 50.0037 20 51.5654 20C52.3462 20 53.0551 20.3185 53.5637 20.8373C54.0722 21.3562 54.3907 22.0651 54.3907 22.8562V27.7056L54.9764 27.8699C55.0226 27.8854 55.0688 27.9059 55.1099 27.9367C55.2538 28.0446 55.4592 28.2038 55.7212 28.3991C55.9267 28.5634 56.1476 28.7638 56.4147 28.9693C56.9438 29.3956 57.5757 29.9453 58.2692 30.5772C58.4541 30.7364 58.6339 30.9008 58.7983 31.0652C59.6922 31.8974 60.6939 32.8734 61.6494 33.9522C61.9165 34.2553 62.1785 34.5635 62.4456 34.8871C62.7127 35.2159 62.9953 35.5395 63.2418 35.8632C63.5655 36.2947 63.9148 36.7416 64.2179 37.2091C64.3617 37.43 64.5261 37.656 64.6648 37.8769C65.0552 38.4676 65.3994 39.079 65.7282 39.6903C65.8669 39.9728 66.0107 40.281 66.134 40.5841C66.4987 41.4009 66.7864 42.2331 66.9713 43.0653C67.0278 43.2451 67.0689 43.4403 67.0895 43.615V43.6561C67.1511 43.9026 67.1717 44.1646 67.1922 44.4317C67.2744 45.2845 67.2333 46.1372 67.0484 46.9951C66.9713 47.3599 66.8686 47.704 66.7453 48.0688C66.622 48.4181 66.4987 48.7828 66.3395 49.127C66.0313 49.841 65.6665 50.5551 65.235 51.2229C65.0963 51.4695 64.9319 51.7315 64.7675 51.9781C64.5877 52.24 64.4028 52.4866 64.2384 52.7281C64.0124 53.0363 63.771 53.3599 63.5244 53.6476C63.3035 53.9507 63.0775 54.2538 62.8309 54.5209C62.4867 54.9267 62.1579 55.312 61.8137 55.6819C61.6083 55.9233 61.3874 56.1699 61.1613 56.3908C60.9405 56.6373 60.7144 56.8582 60.5089 57.0637C60.1648 57.4079 59.8771 57.675 59.6356 57.8959L59.0706 58.4148C58.9884 58.4867 58.8805 58.5278 58.7675 58.5278H54.3907V64.1426H59.8976C61.1305 64.1426 62.3018 63.7059 63.247 62.9045C63.5706 62.622 64.9833 61.3994 66.6528 59.5552C66.7093 59.4935 66.7813 59.4473 66.8635 59.4268L82.0742 55.0295C82.3568 54.9473 82.6444 55.163 82.6444 55.461Z"/></svg>
+                    </a> -->
+
+                    </div>
+
+
+
+                    <div class="detail-content-right">
+                        <img src='../Content/Images/1.jpg' />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </script>
+</body>
+
+</html>
+<script type="text/javascript">
+
+
+    const minusBtn = document.querySelector('.minus-btn');
+    const plusBtn = document.querySelector('.plus-btn');
+    const qtyInput = document.querySelector('.qty-input');
+
+
+    minusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value > 1) {
+            qtyInput.value--;
+        }
+    });
+
+    plusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value < 5) {
+            qtyInput.value++;
+        }
+    });
+
+    var abi = [{
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"count",
+                "type":"uint256"
+            },
+            {
+                "internalType":"bytes32[]",
+                "name":"_proof",
+                "type":"bytes32[]"
+            }
+        ],
+        "name":"whitelistMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    }];
+    
+    var contract = "0xD5AA27910579798A0a7F0C58e8Bb08b731C482bb";
+
+    const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
+    var web3 = new Web3(provider);
+    var gasMultiple = 1.5;
+    var network = "testnet"; // network type
+    var net_data_map = {
+        testnet: {
+            chainId: "0x13881",
+            chainName: "Polygon Mumbai",
+            nativeCurrency: {
+                name: "MATIC",
+                symbol: "MATIC",
+                decimals: 18
+            },
+            rpcUrls: ["https://rpc.ankr.com/polygon_mumbai"],
+            blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
+        },
+        main: {
+            chainId: "0x89",
+            chainName: "Polygon Mainnet",
+            nativeCurrency: {
+                name: "MATIC",
+                symbol: "MATIC",
+                decimals: 18
+            },
+            rpcUrls: ["https://polygon.llamarpc.com"],
+            blockExplorerUrls: ["https://polygonscan.com/"]
+        }
+    }
+
+    var isConnect = window.localStorage.getItem("selectedWallet");
+    var walletPlaceholderText = "Connect Wallet";
+    var wallet = new Proxy({ address: walletPlaceholderText }, {
+        set(obj, prop, value) {
+            if (prop === "address") {
+                if (value && value != walletPlaceholderText) {
+                    $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
+                  
+                } else {
+                    $("#connect-wallet").html(walletPlaceholderText);
+                 
+                }
+            }
+            if (prop == "chainId") {
+                if (value !== net_data_map[network].chainId) {
+                    if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
+                        // add ethereum chain switch
+                        window.ethereum.request({
+                            method: "wallet_switchEthereumChain",
+                            "params": [
+                                {
+                                    "chainId": net_data_map[network].chainId,
+                                }
+                            ]
+                        })
+                    } else {
+                        window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [net_data_map[network], wallet.address]
+                        })
+                            .then((result) => { })
+                            .catch((error) => { })
+                    }
+
+                }
+
+            }
+            obj[prop] = value
+        }
+    });
+    var mintBtn = new Proxy({ disable: false }, {
+        set(obj, prop, value) {
+            obj[prop] = value
+        }
+    });
+    provider.on("accountsChanged", (accounts) => {
+        wallet.address = accounts[0] || walletPlaceholderText;
+    })
+    provider.on('disconnect', (error) => {
+        wallet.address = walletPlaceholderText
+    });
+    provider.on('chainChanged', (chainId) => {
+        wallet.chainId = chainId;
+        connectWallet(provider)
+    });
+    function connectWallet(provider) {
+        provider.enable().then((accounts) => {
+            wallet.address = accounts[0];
+            wallet.chainId = provider.chainId;
+            window.localStorage.setItem("selectedWallet", "INJECTED")
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+    
+
+    async function approve() {
+        let gasPrice = await web3.eth.getGasPrice();
+        const data = feeContract.methods.approve(contract, mintFee).encodeABI();
+        const gas = await web3.eth.estimateGas({
+            from: wallet.address,
+            to: fee_token[network].address,
+            data
+        })
+        try {
+            const result = await feeContract.methods.approve(contract, mintFee).send({
+                from: wallet.address,
+                to: fee_token[network].address,
+                gasPrice: parseInt(gasPrice * gasMultiple),
+                gas: parseInt(gas * gasMultiple)
+            });
+            wallet.approve = true;
+            Toastify({
+                text: "Approval successful",
+                className: "info",
+            }).showToast();
+            await allowance();
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    $(function () {
+        if (isConnect) {
+            connectWallet(provider);
+        };
+        $("#connect-wallet").on("click", () => {
+            connectWallet(provider);
+        });
+        $("#mint").on("click", async () => {
+
+            if (wallet.address === walletPlaceholderText) {
+                connectWallet(provider)
+                return;
+            }
+            let nftContract = new web3.eth.Contract(abi, contract);
+
+            try {
+
+                let address = wallet.address.toUpperCase();
+                let index = addressIsWL(address);
+                if (index == -1) {
+                    alert("not whitelist")
+                    return;
+                }
+
+                let hexProof = getHexProof(index);
+                console.log(hexProof)
+
+                if (!tree.verify(hexProof, leafNodes[index], root)) {
+                    alert("not whitelist");
+                    return;
+                }
+
+                $("#mint").addClass("loading").attr('disabled', true).text("Loading...");
+                const input = document.querySelector('.input-field.qty-input');
+                const mintValue = input.value;
+
+                var ref = getQueryString('ref');
+                if (typeof ref === 'undefined' || ref === null) {
+                    ref = wallet.address;
+                }
+
+                let gasPrice = await web3.eth.getGasPrice();
+                
+                if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                    gasPrice = wallet.gasPrice
+                }
+                
+               
+                nftContract.methods.whitelistMint(mintValue, hexProof).send({
+                    from: wallet.address,
+                    gasPrice: parseInt(gasPrice * gasMultiple)
+                    
+                    
+                }).then(async () => {
+                    mintBtn.disable = false;
+                    wallet.gasPrice = gasPrice; // save success gasPrice
+                    $("#mint").removeClass("loading").attr('disabled', false).text("Mint");
+                    await allowance();
+                    Toastify({
+                        text: "Mint successful",
+                        className: "info",
+                    }).showToast();
+                }).catch(async error => {
+                    console.log(error);
+                })
+            } catch (error) {
+                
+                console.log(error);
+                
+            }
+        })
+
+
+    })
+
+    function getQueryString(name) {
+        const url_string = document.location.toString();
+        const url = new URL(url_string);
+        console.log(url);
+        return url.searchParams.get(name);
+    }
+
+
+    const whiteListAddress = [
+        "0xc1c3d3E04987A880Bf067cF7C3aB5Ef85043Dd08",
+        "0xBA9A1eE9De4A8E1E42CB180F8a524A85fcF8Dd0a",
+        "0x60D11E784bc8e69D37919373292629f85E310DC7",
+        "0xA8904e87e314E50130D3d880e46a30CE4b39eAcF",
+        "0xdda310BcD7717e0E30fEFCbb8B062711b88056c7"
+    ];
+
+    var upperCaseWL = [];
+
+    for (var i = 0; i < whiteListAddress.length; i++) {
+        upperCaseWL[i] = whiteListAddress[i].toUpperCase();
+    }
+
+    console.log(upperCaseWL)
+
+    const leafNodes = whiteListAddress.map(addr => window.keccak256(addr));
+
+    const tree = new window.MerkleTree(leafNodes, window.keccak256, { sortPairs: true });
+
+    const root = tree.getHexRoot();
+
+    
+
+    function getHexProof(index) {
+
+        return tree.getHexProof(leafNodes[index]);
+    }
+
+    function addressIsWL(address) {
+
+        var index = upperCaseWL.indexOf(address);
+
+        return index;
+
+    }
+
+
+
+
+function isNotEmptyStr(s) {
+    if (typeof s == 'string' && s.length > 0) {
+        return true
+    }
+    return false
+}
+
+</script>
