@@ -63,9 +63,13 @@ label{font-weight: normal;}
     margin-right: 10px;
 }
 .nav-link {
-    color: #fff;
+    color: black;;
     font-size: 15px;
     margin-right: 15px;
+    background-color: #fff; 
+    border-radius: 18px; 
+    padding: 8px 18px; 
+    text-decoration: none; 
 }
 .nav-link>span{
 margin-left: 15px;
