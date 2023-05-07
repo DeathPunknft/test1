@@ -32,7 +32,7 @@
 
                         <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
 
-                        <span id="tribe">Tribe:0</span>
+                        <span id="tribe">Members:0</span>
                        
                         <ul>
                             <li>
@@ -77,8 +77,7 @@
                         <button id="mint" type="button" class="primary-button w-button"
                             data-toggle="popover">mint</button>
                             <br>
-                            <p class="subheading">MINT IS LIVE UNTIL 9 MAY 0300 GMT+8
-                                *It's important to note that while NFT owners receive a portion of the profits, they will not have ownership rights to the physical asset itself, which remains with the asset owner.</p>
+                            <p class="subheading">MINT will start on May 8th, It's important to note that while NFT owners receive a portion of the profits, they will not have ownership rights to the physical asset itself, which remains with the asset owner.</p>
 
                     </div>
 
@@ -101,7 +100,7 @@
 <script type="text/javascript">
 
     const affiliateListAddress = [
-        "0xc1c3d3E04987A880Bf067cF7C3aB5Ef85043Dd08",
+        "0xbFd13AD0e134A40eaBE0562033e8Cf25a5785402",
         "0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",
         "0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E",
         "0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",
@@ -198,7 +197,7 @@
         },
     }
 
-    var network = "testnet"; // network type
+    var network = "main"; // network type
     var net_data_map = {
         testnet: {
             chainId: "0x13881",
@@ -224,7 +223,7 @@
         }
     }
     var erc20Abi = [{ "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }];
-    var contract = "0xb59733De30a45033335A98f6561001258412bf75";
+    var contract = "0x9b5cc8939F1755CC4B901B00590C0a92C04D6a21";
     var mintFee = 210 * (10 ** fee_token[network].decimals) ; // mint fee
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
@@ -373,7 +372,7 @@
             let nftContract = new web3.eth.Contract(abi,contract);
             const result = await nftContract.methods.getReferralSize(address).call();
             console.log(result);
-            document.getElementById("tribe").innerText = "Tribe:" + result;
+            document.getElementById("tribe").innerText = "Members:" + result;
         } catch (err) {
             console.error(err);
         }
