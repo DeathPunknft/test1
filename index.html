@@ -32,7 +32,7 @@
 
                         <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
 
-                        <span id="tribe">Members:0</span>
+                        <span id="tribe">Quantity:0</span>
                        
                         <ul>
                             <li>
@@ -45,11 +45,7 @@
                                     <img src='./Content/Images/discord.png' width="20px" height="20px" />
                                 </a>
                             </li>
-                            <li>
-                                <a href="http://youtube.com/" target="_blank" class="social-link">
-                                    <img src='./Content/Images/youTube.png' width="20px" height="20px" />
-                                </a>
-                            </li>
+                            
                             <li>
                                 <a href="https://telegram.org/" target="_blank" class="social-link">
                                     <img src='./Content/Images/telegram.png' width="20px" height="20px" />
@@ -69,7 +65,7 @@
                         <br>
                         <div class="input-group">
                             <button type="button" class="btn minus-btn">-</button>
-                            <input type="number" class="input-field qty-input" value="1" min="1" max="30">
+                            <input type="number" class="input-field qty-input" value="1" min="1" max="10" disabled="disabled">
                             <button type="button" class="btn plus-btn">+</button>
                         </div>
                         <br>
@@ -114,13 +110,60 @@
         "0x2c4071676bE3a8bFC78e38FA20a6D63ee90B3A4d",
         "0x22f64C3AffbB0bDE5D21527D14636b4586155417",
         "0xfC4962f2Ce5Fae2eedF285342B0631362CF4B696",
-        "0x188AA630ED6CE2B3c31B7D50a6B1005779642eA6"
+        "0x188AA630ED6CE2B3c31B7D50a6B1005779642eA6",
+        "0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",
+        "0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",
+        "0xD2a497e89e0189aaE7202d091d4E20AaA2bC48C1",
+        "0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",
+        "0x778efbF66190f125f87B0784fAf71880a8d39a76",
+        "0xBaC981eD1d2E11c975BA6C40DA6F018869701F66",
+        "0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",
+        "0xD6772B00534987F6C9c89E62469504481ba0bd5f",
+        "0xdda310BcD7717e0E30fEFCbb8B062711b88056c7",
+        "0x97F821C8016536A210B8a7dBaa4Cb603E61577FB",
+        "0xe954e5c8df4eCD2fc5Aa724DF6F7b86986b28277"
         ];
+
+    const addressList = [
+        "0xbFd13AD0e134A40eaBE0562033e8",
+        "0x46E1Df538821D8FED7B6EB1B6859",
+        "0xfefd9e4939b1F4C6B66D60e7B429",
+        "0x8f7daFe4CE278939F392CeB2D18C",
+        "0xc6342369b9FcA4aF1A9009b63D5d",
+        "0x4bfBdb78D944CDc90665bB130fc5",
+        "0x4300016f3bBcAf6F79FBA5851a09",
+        "0x1F693D78D8048ce353765455e1cF",
+        "0x46Ee7e7873544b0eB07ad92e3379",
+        "0x590BF69D8F67519C58891BA89fb1",
+        "0xC7aadeDAA7caDc03e4858F522A3D",
+        "0x2c4071676bE3a8bFC78e38FA20a6",
+        "0x22f64C3AffbB0bDE5D21527D1463",
+        "0xfC4962f2Ce5Fae2eedF285342B06",
+        "0x188AA630ED6CE2B3c31B7D50a6B1",
+        "0x87039e570A43D762EFEf9024b979",
+        "0xF7271e80aBfeda1De947C33f8ccc",
+        "0xD2a497e89e0189aaE7202d091d4E",
+        "0x56e126ecfa28839a717d59b9D9ea",
+        "0x778efbF66190f125f87B0784fAf7",
+        "0xBaC981eD1d2E11c975BA6C40DA6F",
+        "0xF7271e80aBfeda1De947C33f8ccc",
+        "0xD6772B00534987F6C9c89E624695",
+        "0xdda310BcD7717e0E30fEFCbb8B06",
+        "0x97F821C8016536A210B8a7dBaa4C",
+        "0xe954e5c8df4eCD2fc5Aa724DF6F7"
+        ];    
 
     var upperCaseAffiliateListAddress = [];
 
     for (var i = 0; i < affiliateListAddress.length; i++) {
         upperCaseAffiliateListAddress[i] = affiliateListAddress[i].toUpperCase();
+    }
+
+    //Maximum number of affiliate members
+    const affiliateAddressSizeMap = new Map();
+
+    for(var i = 0; i <affiliateListAddress.length; i++){
+        affiliateAddressSizeMap.set(affiliateListAddress[i],200);
     }
 
     const minusBtn = document.querySelector('.minus-btn');
@@ -223,8 +266,10 @@
         }
     }
     var erc20Abi = [{ "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }];
-    var contract = "0xFD23E9e64197C7aE72714aF89cE10CcA36A292A8";
-    var mintFee = 1 * (10 ** fee_token[network].decimals) ; // mint fee
+    var contract = "0xf96E490e46A6eBC38e7C2B180ef2b0ED2481Efe6";
+    
+    
+    var mintFee = 210 * (10 ** fee_token[network].decimals); // mint fee
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
     var gasMultiple = 1.5;
@@ -341,6 +386,7 @@
     async function approve() {
         
         let gasPrice = await web3.eth.getGasPrice();
+        
         const data = feeContract.methods.approve(contract, mintFee).encodeABI();
         
         const gas = await web3.eth.estimateGas({
@@ -350,6 +396,9 @@
         })
         
         try {
+            const input = document.querySelector('.input-field.qty-input');
+            const mintValue = input.value;
+            mintFee = mintValue * mintFee;
             const result = await feeContract.methods.approve(contract, mintFee).send({
                 from: wallet.address,
                 to: fee_token[network].address,
@@ -374,9 +423,9 @@
             let nftContract = new web3.eth.Contract(abi,contract);
             const result = await nftContract.methods.getReferralSize(address).call();
             console.log(result);
-            document.getElementById("tribe").innerText = "Members:" + result;
+            document.getElementById("tribe").innerText = "Quantity:" + result;
         } catch (err) {
-            console.error(err);
+            console.log(err);
         }
     }
     
@@ -390,17 +439,65 @@
     });
     $("#mint").on("click", async ()=> {
 
+        var ref = getQueryString("ref");
+
+        console.log("ref = " + ref);
+
+        if(!isNotEmptyStr(ref)){
+
+            alert("Affiliate cannot be null");
+            mintBtn.disable = false;
+            return;
+        }
+
+    
+        let isMatch = false;
+        
+        for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
+            
+            if (ref.toUpperCase() === upperCaseAffiliateListAddress[i].substring(0,30)) {
+                    isMatch = true;
+                    let index = upperCaseAffiliateListAddress[i];
+                    ref = affiliateListAddress[i];
+                    break;
+                }
+            }
+        
+        if(!isMatch){
+
+            alert("Please fill in the correct affiliate address");
+            mintBtn.disable = false;
+            return;
+        }
+
+        //is maximum number of affiliate members
+        let nftContract = new web3.eth.Contract(abi,contract);
+        
+        const resultSize = await nftContract.methods.getReferralSize(ref).call();
+
+        console.log("size ="  + resultSize);
+
+        let size = affiliateAddressSizeMap.get(ref);
+
+        if(resultSize >= size){
+
+            alert("Affiliate members have reached the maximum number");
+            mintBtn.disable = false;
+            return;
+        }
+
         if (mintBtn.disable) return;
 
         mintBtn.disable = true;
-
-        $("#mint").addClass("loading");
         
+        $("#mint").text("loading");
+       
         if (!wallet.approve) {
             
             await approve();
+            
             mintBtn.disable = false;
-            $("#mint").removeClass("loading");
+            $("#mint").text("Mint");
             return;
         }
         
@@ -410,39 +507,15 @@
             return;
         }
         
-        let nftContract = new web3.eth.Contract(abi,contract);
-
-        const input = document.querySelector('.input-field.qty-input');
-        const mintValue = input.value;
-
+        
+        
         try {
-
-            var ref = getQueryString("ref");
-
-            const address = wallet.address;
-
-            console.log("ref = " + ref);
-
-            if(!isNotEmptyStr(ref)){
-
-                alert("Affiliate cannot be null");
-                mintBtn.disable = false;
-                return;
-            }
-
-            const index = refAddressAffiliateList(ref.toUpperCase());
-
-            if(index == -1){
-
-                alert("Please fill in the correct affiliate address");
-                mintBtn.disable = false;
-                return;
-            }
-            
             
             let gasPrice = await web3.eth.getGasPrice();
-            
+            const input = document.querySelector('.input-field.qty-input');
+            const mintValue = input.value;
             const data = nftContract.methods.mint(mintValue,ref).encodeABI();
+            
             const gas = await web3.eth.estimateGas({
                 from: wallet.address,
                 to: contract,
@@ -464,27 +537,45 @@
             }).then(async () => {
                 mintBtn.disable = false;
                 wallet.gasPrice = gasPrice; // save success gasPrice
-                $("#mint").removeClass("loading");
+                $("#mint").text("Mint");
                 await allowance();
+                alert("Mint successful");
                 Toastify({
                     text: "Mint successful",
                     className: "info",
                 }).showToast();
             }).catch(async error=>{
                 mintBtn.disable = false;
-                $("#mint").removeClass("loading");
+                $("#mint").text("Mint");
                 await allowance();
             })
         } catch(error) {
             console.log(error, '--error')
             mintBtn.disable = false;
-            $("#mint").removeClass("loading");
+            $("#mint").text("Mint");
             await allowance();
         }
     })
     
     
 })
+
+    function refIsAffiliateAddressList(ref){
+
+        let isMatch = false;
+
+        for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
+
+        if (shortenedEthAddress.startsWith(upperCaseAffiliateListAddress[i])) {
+                isMatch = true;
+                break;
+            }
+        }
+
+        return isMatch;
+    }
+
+    
 
 
     function refAddressAffiliateList(address) {
