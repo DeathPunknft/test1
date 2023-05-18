@@ -338,3 +338,13 @@ margin-left: 15px;
     -webkit-filter: brightness(90%);
     filter: brightness(90%);
   }
+
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar-right {
+    margin-left: -550px; 
+    margin-top: 10px;
+  }
