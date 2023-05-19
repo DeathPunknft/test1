@@ -100,61 +100,11 @@
 <script type="text/javascript">
 
     const affiliateListAddress = [
-        "0xbFd13AD0e134A40eaBE0562033e8Cf25a5785402",
-        "0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",
-        "0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E",
-        "0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",
-        "0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",
-        "0x4bfBdb78D944CDc90665bB130fc555d49B8d4c0b",
-        "0x4300016f3bBcAf6F79FBA5851a09f50048773592",
-        "0x1F693D78D8048ce353765455e1cF8F45740c8a7F",
-        "0x46Ee7e7873544b0eB07ad92e3379D0790C2e0A3B",
-        "0x590BF69D8F67519C58891BA89fb1768819866A2a",
-        "0xC7aadeDAA7caDc03e4858F522A3D2DA8123Ec9d9",
-        "0x2c4071676bE3a8bFC78e38FA20a6D63ee90B3A4d",
-        "0x22f64C3AffbB0bDE5D21527D14636b4586155417",
-        "0xfC4962f2Ce5Fae2eedF285342B0631362CF4B696",
-        "0x188AA630ED6CE2B3c31B7D50a6B1005779642eA6",
-        "0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",
-        "0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",
-        "0xD2a497e89e0189aaE7202d091d4E20AaA2bC48C1",
-        "0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",
-        "0x778efbF66190f125f87B0784fAf71880a8d39a76",
-        "0xBaC981eD1d2E11c975BA6C40DA6F018869701F66",
-        "0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",
-        "0xD6772B00534987F6C9c89E62469504481ba0bd5f",
-        "0xdda310BcD7717e0E30fEFCbb8B062711b88056c7",
-        "0x97F821C8016536A210B8a7dBaa4Cb603E61577FB",
-        "0xe954e5c8df4eCD2fc5Aa724DF6F7b86986b28277"
+        "0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E"
         ];
 
     const addressList = [
-        "0xbFd13AD0e134A40eaBE0562033e8",
-        "0x46E1Df538821D8FED7B6EB1B6859",
-        "0xfefd9e4939b1F4C6B66D60e7B429",
-        "0x8f7daFe4CE278939F392CeB2D18C",
-        "0xc6342369b9FcA4aF1A9009b63D5d",
-        "0x4bfBdb78D944CDc90665bB130fc5",
-        "0x4300016f3bBcAf6F79FBA5851a09",
-        "0x1F693D78D8048ce353765455e1cF",
-        "0x46Ee7e7873544b0eB07ad92e3379",
-        "0x590BF69D8F67519C58891BA89fb1",
-        "0xC7aadeDAA7caDc03e4858F522A3D",
-        "0x2c4071676bE3a8bFC78e38FA20a6",
-        "0x22f64C3AffbB0bDE5D21527D1463",
-        "0xfC4962f2Ce5Fae2eedF285342B06",
-        "0x188AA630ED6CE2B3c31B7D50a6B1",
-        "0x87039e570A43D762EFEf9024b979",
-        "0xF7271e80aBfeda1De947C33f8ccc",
-        "0xD2a497e89e0189aaE7202d091d4E",
-        "0x56e126ecfa28839a717d59b9D9ea",
-        "0x778efbF66190f125f87B0784fAf7",
-        "0xBaC981eD1d2E11c975BA6C40DA6F",
-        "0xF7271e80aBfeda1De947C33f8ccc",
-        "0xD6772B00534987F6C9c89E624695",
-        "0xdda310BcD7717e0E30fEFCbb8B06",
-        "0x97F821C8016536A210B8a7dBaa4C",
-        "0xe954e5c8df4eCD2fc5Aa724DF6F7"
+        "0xfefd9e4939b1F4C6B66D60e7B429"
         ];    
 
     var upperCaseAffiliateListAddress = [];
@@ -167,11 +117,10 @@
     const affiliateAddressSizeMap = new Map();
 
     for(var i = 0; i <affiliateListAddress.length; i++){
-        affiliateAddressSizeMap.set(affiliateListAddress[i],200);
+        affiliateAddressSizeMap.set(affiliateListAddress[i],1000);
     }
 
-    //add Maximum number of affiliate members
-    affiliateAddressSizeMap.set("0xdda310BcD7717e0E30fEFCbb8B062711b88056c7",10);
+    
 
 
     const minusBtn = document.querySelector('.minus-btn');
