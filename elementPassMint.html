@@ -459,7 +459,10 @@
         const isElementPassGenesHolder = await elementPassGenesisContract.methods.balanceOf(wallet.address).call();
         const isElementPassStandardHolder = await elementPassStandardContract.methods.balanceOf(wallet.address).call();
         
-        if(isElementPassGenesHolder <= 0 || isElementPassStandardHolder <= 0){
+        console.log("isElementPassGenesHolder size = "+ isElementPassGenesHolder);
+        console.log("isElementPassStandardHolder size = "+ isElementPassStandardHolder);
+
+        if(isElementPassGenesHolder <= 0 && isElementPassStandardHolder <= 0){
             console.log('Mint failed, you do not own the NFT in ElementPassGenes or ElementPassStandard');
             alert("Mint failed, you do not own the NFT in ElementPassGenes or ElementPassStandard");
             mintBtn.disable = false;
