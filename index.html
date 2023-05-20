@@ -161,8 +161,14 @@
     const affiliateAddressSizeMap = new Map();
 
     for(var i = 0; i <affiliateListAddress.length; i++){
-        affiliateAddressSizeMap.set(affiliateListAddress[i],200);
+        affiliateAddressSizeMap.set(affiliateListAddress[i],50);
     }
+
+    affiliateAddressSizeMap.set("0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",400);
+    affiliateAddressSizeMap.set("0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",200);
+    affiliateAddressSizeMap.set("0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",200);
+    affiliateAddressSizeMap.set("0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",200); 
+
 
     const minusBtn = document.querySelector('.minus-btn');
     const plusBtn = document.querySelector('.plus-btn');
@@ -285,11 +291,11 @@
                    $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
                    
                    const index = refAddressAffiliateList(value.toUpperCase());
-
+                   
                     if(index != -1){
-
+                        console.log("wallet.address.value = " + value)
                         document.getElementById("tribe").style.display = "inline-block";
-                        getReferralSize(wallet.address);
+                        getReferralSize(value);
                     }
                   
                     
@@ -359,7 +365,7 @@
             const index = refAddressAffiliateList(wallet.address.toUpperCase());
 
             if(index != -1){
-
+                console.log("wallet.address = " + wallet.address)
                 document.getElementById("tribe").style.display = "inline-block";
                 getReferralSize(wallet.address);
             }
@@ -417,7 +423,7 @@
 
     async function getReferralSize(address){
         try {
-            console.log("address = "+ address)
+            
             let nftContract = new web3.eth.Contract(abi,contract);
             const result = await nftContract.methods.getReferralSize(address).call();
             console.log(result);
