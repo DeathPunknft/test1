@@ -378,6 +378,7 @@ label {
 #connect-wallet {
   margin-top: -15px;
   background-color: white;
+  margin-right: 0;
 }
 
 h5 {
@@ -393,9 +394,14 @@ h5 {
 }
 
 .navbar-right {
-  margin-left: -550px;
+  margin-left: -600px;
   margin-top: 10px;
 }
 .navBar-leftContent {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+}
+.navBar-leftContent img {
+  width: 200px;
 }
