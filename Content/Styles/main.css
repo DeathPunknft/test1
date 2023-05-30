@@ -398,7 +398,7 @@ h5 {
   margin-top: 10px;
 }
 .navBar-leftContent {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
 }
