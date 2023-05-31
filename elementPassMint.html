@@ -466,7 +466,20 @@
             mintBtn.disable = false;
             return;
         }
+        
+        var now = new Date();
 
+        var target = new Date(2023, 4, 31, 21, 0, 0);
+
+        console.log("now = " + now);
+        console.log("target = " + target);
+        if (now < target) {
+            
+            alert("Mint failed, mint opening time is 9pm Hong Kong time on May 30, 2023");
+            mintBtn.disable = false;
+            return;
+        }
+    
     
         let isMatch = false;
         
