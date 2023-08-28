@@ -913,6 +913,11 @@
     });
     $("#mint").on("click", async ()=> {
 
+        alert("4000 early bird DA-AGE NFTs have been sold out, please pay attention to the next phase of mint activities");
+
+        mintBtn.disable = false;
+        return;
+
         var ref = getQueryString("ref");
 
         console.log("ref = " + ref);
