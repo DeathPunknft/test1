@@ -79,7 +79,7 @@
                                 <h5 >TOTAL: </h5><br/>
                                 <h5 id="total">210 USDT</h5>
                                 <div class="fn-label-icon"></div>
-                                <button id="mint" type="button" class="primary-button w-button" data -toggle="popover">mint</button>
+                                <button id="sold-out" type="button" class="primary-button w-button" data -toggle="popover">sold out</button>
                                 <p class="paragraph-7"><br />‍<br /><em class="italic-text">Ownership and Profit-Sharing: By participating in our profit-sharing model, 
                                     it is essential to understand that NFT holders do not acquire ownership rights to the physical assets involved. 
                                     The designated asset owner retains sole ownership of the assets. However, as an NFT holder, 
@@ -904,6 +904,11 @@
     }
     
 
+    $("#sold-out").on("click",()=> {
+
+        alert("4000 early bird DA-AGE NFTs have been sold out, please pay attention to the next phase of mint activities");
+    });
+    
     $(function(){
     if (isConnect) {
         connectWallet(provider);
