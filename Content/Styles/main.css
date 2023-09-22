@@ -405,3 +405,27 @@ h5 {
 .navBar-leftContent img {
   width: 200px;
 }
+
+#input-box {
+  width: 800px;
+  height: 400px;
+  font-size: 24px;
+  padding: 10px;
+  margin-left: 500px;
+}
+
+
+
+
+.airdrop-btn {
+  color: black;
+  font-size: 15px;
+  margin-right: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 12px 12px;
+  text-decoration: none;
+  margin-left: 500px;
+  margin-top: 20px;
+  background-size: cover;
+}
