@@ -223,43 +223,7 @@
 const prevButton = document.querySelector("#Prev");
 const nextButton = document.querySelector("#Next");
 
-var abi = [{
-        "inputs": [
-        {
-            "internalType": "uint256",
-            "name": "quantity",
-            "type": "uint256"
-        },
-        {
-            "internalType": "address",
-            "name": "_referrer",
-            "type": "address"
-        }
-        ],
-        "name": "mint",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs":[
-            {
-                "internalType":"address",
-                "name":"_referral",
-                "type":"address"
-            }
-        ],
-        "name":"getReferralSize",
-        "outputs":[
-            {
-                "internalType":"uint256",
-                "name":"",
-                "type":"uint256"
-            }
-        ],
-        "stateMutability":"view",
-        "type":"function"
-    }];
+
 
  var rwa_abi = [{
 		"inputs": [
@@ -330,7 +294,7 @@ var network = "main"; // network type
         "stateMutability":"nonpayable",
         "type":"function"
     }];
-    var wlPassContractAddress = "0x9d1E663f20B6D3bc93dfF39fD726844312b0c9a2";
+    var wlPassContractAddress = "0x3B56B4F6173Adf44e56A404535a91bc6abEAf97D";
 
     var wlAbi = [{
 		"inputs": [
@@ -362,7 +326,7 @@ var network = "main"; // network type
 		"type": "function"
 	}];
 
-    var wlContract = "0x96b15DD5c3088Df7ad9e7882e44d38D963D17998";
+    var wlContract = "0x91fD5C81407Bf9CCd160F5F6f2c74BdD0777B00b";
     
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
