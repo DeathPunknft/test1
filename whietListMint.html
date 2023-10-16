@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <link rel="icon" href="./favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="author" content="zhy" />
+    <link rel="stylesheet" href="./Content/Styles/mint.css">
+    <link rel="stylesheet" href="./Content/Styles/main.css">
+    <link rel="stylesheet" href="./Content/Styles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="./Scripts/jQuery/jquery.min.js"></script>
+    <script src="./Scripts/web3/web3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keccak256@latest/keccak256.js"></script>
+
+    <title>DA-AGE - Decentralized Asset NFT</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="body-bg-black">
+                <div class="navBar text-center">
+                    <div class="navBar-left">
+                        <a href="https://da-age.io/" target="_blank"><img src='./Content/Images/dan.png' /></a>
+                    </div>
+                    
+                    <div class="navBar-right text-right">
+
+                        <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
+                        <span id="count">MintPass:0</span>
+                        <span id="tribe">Quantity:0</span>
+
+                        
+                    </div>
+                </div>
+                <div class="fn-section-4 wf-section">
+                    <div class="fn-container-grid-2">
+                        <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923ed-305ff47e" class="fn-column-center-2">
+                            <h1 class="title-da-age">RWA DA AGE  PRESALE!</h1>
+                            <p class="fn-paragraph-2">Congratulations, you are one of the lucky few who made it to our
+                                WhiteList!<br />You are able to mint the RWAs at the price of
+                                240USDT.<br /><br />Experience the
+                                thrill of the unknown! After you mint your RWA, you will have to wait for the big reveal
+                                to find out
+                                which prime location and zone you have landed. With numerous prime locations to choose
+                                from, the
+                                exact location and zone you receive will be a surprise. So, keep your fingers crossed
+                                and hope for
+                                the best!u&#x27;ll receive. So, brace yourself and wish yourself the best of
+                                luck!<br /><br />‍</p>
+                            
+                        </div>
+                        <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923f8-305ff47e" class="fn-slide-item-wrapper">
+                            <img id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923f9-305ff47e" sizes="100vw"
+                                src="./Content/Images/1.jpg"
+                                loading="lazy"
+                                
+                                alt="" class="fn-slider-image" />
+                            <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923fa-305ff47e" class="fn-slider-column">
+                                <h3 class="fn-heading-3">Pre-Sale Mint</h3>
+                                <h5 >Mint Price:</h5><br/>
+                                <h5> 240 USDT</h5>
+                                <div class="fn-label-icon"></div>
+                                <div class="w-container">
+                                    <h5>NFT unit</h5>
+                                    <div class="input-group">
+                                        <button type="button" class="btn minus-btn">-</button>
+                                        <input type="number" class="input-field qty-input" value="1" min="1" max="10" disabled="disabled">
+                                        <button type="button"  class="btn plus-btn">+</button>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="fn-label-icon"></div>
+                                <h5 >TOTAL: </h5><br/>
+                                <h5 id="total">240 USDT</h5>
+                                <div class="fn-label-icon"></div>
+                                <button id="mint" type="button" class="primary-button w-button" data -toggle="popover">Mint</button>
+                                <p class="paragraph-7"><br />‍<br /><em class="italic-text">Ownership and Profit-Sharing: By participating in our profit-sharing model, 
+                                    it is essential to understand that NFT holders do not acquire ownership rights to the physical assets involved. 
+                                    The designated asset owner retains sole ownership of the assets. However, as an NFT holder, 
+                                    you have the opportunity to receive profits over a duration of 8 years. 
+                                    These profits enable you to partake in the earnings generated by the advertisement business, 
+                                    providing a rewarding investment experience within the specified timeframe. 
+                                    Please refer to the relevant agreements for comprehensive terms and conditions regarding the profit-sharing arrangement.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer wf-section">
+                    <div class="footer-container w-container">
+                        <div class="w-layout-grid footer-grid">
+                            <div class="footer-main-box"><a data-ix="logo" href="https://da-age.io/" target="_blank"
+                                    class="footer-logo w-nav-brand"><img
+                                        src="https://uploads-ssl.webflow.com/6421898f81ec56cd303380ec/642d5a98952aaf152d2447d9_DAAGE_sss_sss.png"
+                                        width="218" alt="" class="logo" /></a>
+                                <p class="paragraph large grey">Own your digital assets in the age of decentralization -
+                                    with DA AGE
+                                    (Starting from 2023)</p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="https://twitter.com/DA_AGE_EN" target="_blank" class="social-link">
+                                        <img src='./Content/Images/twitter.png' width="20px" height="20px" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://discord.com/invite/DA-AGE-Global" target="_blank" class="social-link">
+                                        <img src='./Content/Images/discord.png' width="20px" height="20px" />
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="https://www.da-age.io/" target="_blank" class="social-link">
+                                        <img src='./Content/Images/home.png' width="20px" height="20px" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </script>
+</body>
+
+</html>
+<script type="text/javascript">
+
+    const affiliateListAddress = [
+        "0xbFd13AD0e134A40eaBE0562033e8Cf25a5785402",
+        "0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",
+        "0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E",
+        "0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",
+        "0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",
+        "0x4300016f3bBcAf6F79FBA5851a09f50048773592",
+        "0x1F693D78D8048ce353765455e1cF8F45740c8a7F",
+        "0x46Ee7e7873544b0eB07ad92e3379D0790C2e0A3B",
+        "0x590BF69D8F67519C58891BA89fb1768819866A2a",
+        "0xC7aadeDAA7caDc03e4858F522A3D2DA8123Ec9d9",
+        "0x2c4071676bE3a8bFC78e38FA20a6D63ee90B3A4d",
+        "0x22f64C3AffbB0bDE5D21527D14636b4586155417",
+        "0xfC4962f2Ce5Fae2eedF285342B0631362CF4B696",
+        "0x188AA630ED6CE2B3c31B7D50a6B1005779642eA6",
+        "0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",
+        "0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",
+        "0xD2a497e89e0189aaE7202d091d4E20AaA2bC48C1",
+        "0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",
+        "0x778efbF66190f125f87B0784fAf71880a8d39a76",
+        "0xBaC981eD1d2E11c975BA6C40DA6F018869701F66",
+        "0xD6772B00534987F6C9c89E62469504481ba0bd5f",
+      //  "0xdda310BcD7717e0E30fEFCbb8B062711b88056c7",
+        "0x97F821C8016536A210B8a7dBaa4Cb603E61577FB",
+        "0xe954e5c8df4eCD2fc5Aa724DF6F7b86986b28277",
+        "0xcd64dd0Bfd7aba1c2fAaa33a6D771dC2F1B89270",
+        "0xF510b72eE51D3A27671f9F27C731087f0F0E6f3e",
+        "0x89B68Fd582CF87F100AE935F8d309Df1fd5EdA2C",
+        "0x8870a08AbF9601D91199cea295f70eCFb31a49B6",
+        "0x1aDd6D909dd348BCbb820AD9d16EC99A11fd9d93",
+        "0x9edC7Cf1895679dE3CD608fDa1D1F418dB2B3e25",
+        "0x3A801814774c34b988C78f29674CAE3a288AF2Fb",
+        "0x9cFcbaFe7d4770fA5DD4b3BF0fe6eebeB56251d7",
+        "0x7083185ddF2dd2c52575B8294Cb47b33b40959b0",
+        "0xBA9A1eE9De4A8E1E42CB180F8a524A85fcF8Dd0a",
+        "0x73B3eB15c0D21947FFb1fD1837354956c5aE5ceC",
+        "0x01674d06f53D36d63Eaf6b7865FfE091d903FF88",
+        "0xa9d5430A692C37A0C5eed7713aFf929fFE2f2461",
+        "0x6c399dED192E59d826096498860dFCb17a545951",
+        "0x0C21c310cFE34Ef37d955528Ba8A2c7529Bf4514",
+        "0xD700DD29Db62cc4BE0fd23A9a5BFBcDE4F805080",
+        "0x95dFBb7d544Fc78Ad1867E837CDCe6f3e951cB42",
+        "0xf788493208652809508807014967dbEF98a83304",
+        "0x0360C8fe57e769C73b011900ef74eC28f3b31b04",
+        "0xa3B26B40B6786ce41F127be533cAE6FcF8985dB0",
+        "0xA2c28F784b8ab91bB22ddB559b12a499a899D7BD",
+        "0x1CCb211b5708Be8B7D9410beEc35f97F2C9bC70E",
+        "0x134a347382f89CbB5Ee778D5b77175326428935e",
+        "0xb82B8dBD922245bBdDFB7f01Ff8729175f652F24",
+        "0xd53E34dc7c42847b9e877509f02B9AE07C688EeC",
+        "0xf207758377510337c54600bc7F83dB9850e70486",
+        "0xEc9E72c05Fa58E5E334c3e28Bd73872E00d278C8",
+
+        "0x671755011d43558C70b0cc795db23BE7E13D4959",
+        "0xdcBfD840d4963b69ACC69852055C8ba5aA73Dee2",
+        "0x00D63214BEA284C0c8c0a00e2B7347c03e72b34B",
+        "0xc14161C0aEdA82Ae25f384587aE3Ab9743A7dAfb",
+        "0x25Db744Ba2E72Ba3A9615301AeF394C70Ed2E0c8",
+        "0x5a5A4d9102bce80320fBe1c512cF0D02B6047de6",
+        "0x08380400696D1D0E432Ee4C173C6DFA70ceaD0Ed",
+        "0x69abc9Afb9BdDb043fDf26092426d84807455139",
+        "0x6969408c13cC41a34b1C9011596FbFec767Aa681",
+        "0xa398B30BaD7feE2FfeF7296E19afb532423Fe00c",
+        "0xe59c4ddC8f861e160259B955CEdc4De492F82865",
+        "0xc2d634E60E655a88d42882B1C555BBf2388bca5D",
+        "0xa59A03da5d29a2d098E9E448CD6f51DdCd02F2cd",
+        "0xd7d7662C936b521b28C4C3bD055a9eBd2499bC4C",
+        "0xeB05Fb156A923b0664E9794276f7730827308A14",
+        "0xb2E87990BF05594beABE9671123483EeAC42d9b9",
+        "0xAaBd12d64aEf63c14C60156C6e65A6836Ae77039",
+        "0x96151BB8FdcacBb9BdB5a7eFe3Ea1172e1FDa262",
+        "0x702B58F4Ea843d2246687F280832DF2D8f7583E0",
+        "0x70B12d02166e00A0FA33567DfeEB2e76618257f5",
+        "0xb37d4782D201Ba331fd845E7813A96B27D68C87f",
+        "0x3738768E9F99A32BdF77c531069D46cF3e4FCB51",
+        "0x0689C7E8434bCcCc033672e587C70831E4403362",
+        "0x7573f9709863a089474a4d2991000721F4996984",
+        "0x2898699675711A508aDae363eFa3AbCF8700d4B3",
+        "0xD4a77B4e51D2AF442FB704622DF3f9b76248cCd3",
+        "0x4f139c3Df0C39EE9E914D5E3241e755Ef9D93258",
+        "0xa045cD23edA28521D12083b845B5D307AC5A7183",
+        "0xDf5bb77f3BBA52A03923ADC7C4fa30D114775FdC",
+        "0xcb7e43b71e3d3d448792123B613b79c27A190f5f",
+        "0x969Bc14e4fC8c4F8Db8Ef973456815D463949ca1",
+        "0xb0DA10F65eCd330fF7bA6836a247B4019a167166",
+        "0x297AE8bC146F43383fe6a893403bE3345F14AA40",
+        "0xA998990869f1B200cFA348bF0167E080f7a53870",
+        "0xCd2395c3273be3e5e4061CfCDfD838Bf02B6Fb37",
+        "0xF363c564B0eAb84C1023c5CeF9De4999b1758D91",
+        "0xcEF9fCDd8E14a83b16ffa24425941D6602409061",
+        "0x9E7C1dbc5130AD1C6AC8294B126D865BE4A6526d",
+        "0xfC243a67659D969BA0373363550ce8debB2609A8",
+        "0x8f5a6e80731986D48aEc798e77F2C57a0592eB78",
+        "0xb2C952728E833a8a5655957365ac60b8c944A1B4",
+        "0xA8dA7d1473352c5dd7930e4Af24C78c5055C2B03",
+        "0x76125f1992598C8F0E5B34c6aCCE4075A359Bd98",
+        "0xfEBb25c93BFc974c3c53Af862B07567DD6075744",
+        "0x72bcf46dd2aF95C1E0F54cE2Cd3c53f83e5323FC",
+        "0xAbE317c63497C880bb14A3ABd144939f92A7C66f",
+        "0xFC2105B7Da97Ac9D03ABF548b50CbeFebfc551f4",
+        "0x24F7a7e7C1E91490f3c1e34F8b58658A5D551A1A",
+        "0x73b26A08d7835E6D74C662ed9Cb987Ba11be698E",
+        "0x68e2c2dB475014d63C706b9925A8365dE881de14",
+        "0xe82A4ACfad6D474AE316c916BB5EE4659810b5B5",
+        "0xC8eA1C8EC28c503F34fB5C11de302D6153F90d30",
+        "0x1e4Ee25a13b60583545f89e4dE8245D631e3F9A8",
+        "0x73b26A08d7835E6D74C662ed9Cb987Ba11be698E",
+        "0xbB24B5A4a30E82B0a0d773B68F4c29177BD589fC",
+
+        "0xc43373d87238dcfeadd1462dd5dc1454be34cda1",
+        "0x4c362CcBFc00711Cb38020eEcF8019B2523eC7fC",
+        "0x88D269AD486B1CFa932e1CEb9B44D19d441101ce",
+        "0xEf4fA6998548C535e93853Ed87ca2260F87157f8",
+        "0x8A55F42aF13B1ceCa51A3a74Fc89b9547f0d2468",
+        "0x462660cC681DBEeF056A3Fe2808f0833D2d47F87",
+        "0xD8aa2FCB6d00C5A83Cb9260f7B32a32353Ef1AD3",
+        "0xbb88F6D8875f59C9a931B27FEbb9b55ac3C3EDb1",
+        "0xEA376cd34bb67a4A8667CEE1F8f36e834977DDf9",
+        "0xDcB7c1744cf4257C352aB3f8d97A3Bd89A8D318A",
+
+        "0x48D373d91aB790692b8130fece1108973165b7D6",
+        "0xC315062bD700F03505f8147fa97c9ce45D9feFC8",
+        "0x24D6faEF770cC03Fa3CAb140129Fd8FD8f6a2124",
+        "0xc3Fdb6fE1AB3f8d4DDbdb18423B734652232F99F",
+        "0x6a435f1F14BcaF8151292bb450b3e817cb6c71BC",
+        "0xe70709b4728cfa57971b3324FE28e11FA990B074",
+
+        "0xdCFA5ff2c2AAe474E266cf02CD3C98FD08d5c203",
+        "0x2758665E5840B0Ee2C770B57743E85d4B65fef80",
+
+        "0x4A3eb37240f422f0F5875F7E273DA7e6b074dD29",
+        "0xB361222Cbd3c244d1D2B9d8B6Cf198401894074B",
+        "0x2fFED4c6cA2622f053C115C573E465fD87D631B5",
+        "0x0665e762c268D132dC45aD9a6ea44700EDAa0160",
+        "0x945E60F1ebb3aAc1AeF901b3a692d002aD6CE21f",
+
+        "0x3CE91f27325e31764fa764ADe1a107D08BFb2E5C",
+        "0xC3EA0d0B105605e8db9F6361A5a1ba99B8F9a5d2",
+
+        "0xe7Dd1144Ef5e64Dcd993b92055D119Cd9201FF33",
+        "0x2523FFEAfaa21F95E88214a32563EAC3f50842D1",
+        "0x64459d101be61490791c43669D4791Ac9998cA38",
+
+        "0xEaE8A02DA2b29a5aBe4652C2256E4Cbb92eF2B9e",
+        "0x9c11C60e7D17863439eA9892F656b75747E163aE",
+
+        "0xC58eC73EE37f0E5C79DFd6deaCf897a3Eea719c6",
+        "0x5DF69AE44B13BD05Da40380509173a25695D4F53",
+        "0x16F02D1687a93bdf6AF6bEdd8EC9aC5a6B8f6EDF",
+        "0xea8F2D70B1B385fC1dCA96C54e073F201C822B6f",
+        "0x7e4b81428395723cD080ec65ae4BEcBD0dEED944",
+        "0xF1f382DA1275E9Fea42d44c90B986F18Ddc7166D",
+        "0x618A52915A82aEe7286C902264f5899bb0a761EE",
+        "0xEEe493eEbD80Be6DBFD98bC5D0819121B15eCd42",
+
+        "0x2053f3Daa0Ae3Db6b62068f788993c2Be6b57c51",
+        "0x9Cd4641D9CBFb8870656AA2000C12546F32959E7",
+        "0xc715ec4c2Ca54a4217973e28e8048b83c3fB0385",
+        "0xEf506a4726a073b3FFa90bC9b5f425200E393caf",
+
+        "0x480AfD53DCd44C8582B9Fd302016659B2e0DDd45",
+        "0x7AACEc98e87Bdd3ca3D850415702b28dB67daf99",
+        "0xaf1067BCa0A716169F302CC06B22F29fd2eC9807",
+        "0xD945F06908136A2681B50DEB3e2642052A1e7742",
+
+        "0x2DdA8D8C8A0E3Df37B6416C575D3846B2837F060",
+
+        "0xFae716a8a9b2e26AFe7b2a75631f64016583e331",
+        "0x0Ec1F830707D0cFE4570863756914164A2C2C274",
+        "0x49f7F9651B02e79c0CD2897aF8596B6628bBa2e1",
+
+        "0xEF79D2Dc97CF0124B70C443b367EA320335A5511",
+        "0x96a69165d2659CCd8FB5d4e7A4abADc416DAF434",
+        "0x2f153b769968F21DF750af5903Ab5D2838955e57",
+        "0x80A6b66C828279F7d8DDA7fda7e95962034795aA",
+        "0xedd920E44Ef2173483D99E1B674BF285255cE46C",
+        "0xE1753f80EE4ed0AD5ae9AaBaf447675Ec66e76D3",
+        "0xC566f7F2c9539bb71410d622d57675e956108e81",
+
+        "0x0606F563E4259dF5AC1E0DBfb5DeA0488EFfB96a",
+        "0x522997e7f226e7024d60E632E59c4a67E30f54Ff",
+        "0x7059bA6283c0a5E0B341D9642C5B65C58c681951",
+
+        "0xfA28cF2527D33D782e016C30E7f281c96Ca5C48A",
+        "0x1Db8a4b356f434Dc5fC353436d837d2ebAB911A4",
+        "0x7793A67EbC88D4086c8e418092A7F242fCE29f0f",
+
+        "0x85D7e18b9fD5680747107cB95c77CcF0C132Be88",
+        "0x66d84aA9BD934C214dB5b9d11A15255696aaDd52",
+
+        "0xC2eee319930e4C07E0da03890112E0A42c7BD618",
+        "0x8963650C2f84fDeC4294Fe9A95b05BEc78F32dB7",
+        "0x2D55527a02a0Bcdd1B01663481Db7726Efab3784",
+        "0x94f6D1af28f7746adA48a5cB2C2C3cb2F1F30146",
+        "0x026180EC45B17Bd85754aa3e1d98750c9038cc75",
+
+        "0x51F4bDB96E0a88dde867f870eE22a30F779b4834",
+        "0x9Fd83E05a74449E9BC9242c5B405DFa0719C4818",
+        "0xa5309626b7340cD948dd18968814C65EA47ffCFD",
+
+        "0x2Cf7bdC1490207145A38aef07bB5d9294cb0612D",
+        "0xE1438fc41C0B464c29c0D2fCa1175B9e615589d9",
+        "0x2dD8DDC9A9460EaEaD3B8bc0d94438A88194ea86",
+        "0x0Fb9067A7Ab943827D7912A3F6616C40f676c0DF",
+        "0x285611C2F9952F42617b1e88345Fd6E0b16c2708",
+        "0x8C73F0Ec9ccA2BAE1798a4eFb017ea346983D133",
+        "0xab596F463dC676482604Db8Ed82dBc179b75B45b",
+        "0x668222Cb76fECB21218e91FeCB91C7a6e441099B",
+        "0xaf5Fe5999169d7c6A78b7521e7fe1Da5382a2ea7",
+
+        "0x6dEa827f72cb80dAaFC233a35E8e82670BB3Fb53",
+        "0xc1c3d3E04987A880Bf067cF7C3aB5Ef85043Dd08",
+        "0xdb97eeB06622fFEC3e7201e4023f21F463a5f077"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ];
+
+    const addressList = [
+        "0xbFd13AD0e134A40eaBE0562033e8",
+        "0x46E1Df538821D8FED7B6EB1B6859",
+        "0xfefd9e4939b1F4C6B66D60e7B429",
+        "0x8f7daFe4CE278939F392CeB2D18C",
+        "0xc6342369b9FcA4aF1A9009b63D5d",
+        "0x4300016f3bBcAf6F79FBA5851a09",
+        "0x1F693D78D8048ce353765455e1cF",
+        "0x46Ee7e7873544b0eB07ad92e3379",
+        "0x590BF69D8F67519C58891BA89fb1",
+        "0xC7aadeDAA7caDc03e4858F522A3D",
+        "0x2c4071676bE3a8bFC78e38FA20a6",
+        "0x22f64C3AffbB0bDE5D21527D1463",
+        "0xfC4962f2Ce5Fae2eedF285342B06",
+        "0x188AA630ED6CE2B3c31B7D50a6B1",
+        "0x87039e570A43D762EFEf9024b979",
+        "0xF7271e80aBfeda1De947C33f8ccc",
+        "0xD2a497e89e0189aaE7202d091d4E",
+        "0x56e126ecfa28839a717d59b9D9ea",
+        "0x778efbF66190f125f87B0784fAf7",
+        "0xBaC981eD1d2E11c975BA6C40DA6F",
+        "0xD6772B00534987F6C9c89E624695",
+        "0xdda310BcD7717e0E30fEFCbb8B06",
+        "0x97F821C8016536A210B8a7dBaa4C",
+        "0xe954e5c8df4eCD2fc5Aa724DF6F7",
+        "0xcd64dd0Bfd7aba1c2fAaa33a6D77",
+        "0xF510b72eE51D3A27671f9F27C731",
+        "0x89B68Fd582CF87F100AE935F8d30",
+        "0x8870a08AbF9601D91199cea295f7",
+        "0x1aDd6D909dd348BCbb820AD9d16E",
+        "0x9edC7Cf1895679dE3CD608fDa1D1",
+        "0x3A801814774c34b988C78f29674C",
+        "0x9cFcbaFe7d4770fA5DD4b3BF0fe6",
+        "0x7083185ddF2dd2c52575B8294Cb4",
+        "0xBA9A1eE9De4A8E1E42CB180F8a52",
+        "0x73B3eB15c0D21947FFb1fD183735",
+        "0x01674d06f53D36d63Eaf6b7865Ff",
+        "0xa9d5430A692C37A0C5eed7713aFf",
+        "0x6c399dED192E59d826096498860d",
+        "0x0C21c310cFE34Ef37d955528Ba8A",
+        "0xD700DD29Db62cc4BE0fd23A9a5BF",
+        "0x95dFBb7d544Fc78Ad1867E837CDC",
+        "0xf788493208652809508807014967",
+        "0x0360C8fe57e769C73b011900ef74",
+        "0xa3B26B40B6786ce41F127be533cA",
+        "0xA2c28F784b8ab91bB22ddB559b12",
+        "0x1CCb211b5708Be8B7D9410beEc35",
+        "0x134a347382f89CbB5Ee778D5b771",
+        "0xb82B8dBD922245bBdDFB7f01Ff87",
+        "0xd53E34dc7c42847b9e877509f02B",
+        "0xf207758377510337c54600bc7F83",
+        "0xEc9E72c05Fa58E5E334c3e28Bd73",
+
+        "0x671755011d43558C70b0cc795db2",
+        "0xdcBfD840d4963b69ACC69852055C",
+        "0x00D63214BEA284C0c8c0a00e2B73",
+        "0xc14161C0aEdA82Ae25f384587aE3",
+        "0x25Db744Ba2E72Ba3A9615301AeF3",
+        "0x5a5A4d9102bce80320fBe1c512cF",
+        "0x08380400696D1D0E432Ee4C173C6",
+        "0x69abc9Afb9BdDb043fDf26092426",
+        "0x6969408c13cC41a34b1C9011596F",
+        "0xa398B30BaD7feE2FfeF7296E19af",
+        "0xe59c4ddC8f861e160259B955CEdc",
+        "0xc2d634E60E655a88d42882B1C555",
+        "0xa59A03da5d29a2d098E9E448CD6f",
+        "0xd7d7662C936b521b28C4C3bD055a",
+        "0xeB05Fb156A923b0664E9794276f7",
+        "0xb2E87990BF05594beABE96711234",
+        "0xAaBd12d64aEf63c14C60156C6e65",
+        "0x96151BB8FdcacBb9BdB5a7eFe3Ea",
+        "0x702B58F4Ea843d2246687F280832",
+        "0x70B12d02166e00A0FA33567DfeEB",
+        "0xb37d4782D201Ba331fd845E7813A",
+        "0x3738768E9F99A32BdF77c531069D",
+        "0x0689C7E8434bCcCc033672e587C7",
+        "0x7573f9709863a089474a4d299100",
+        "0x2898699675711A508aDae363eFa3",
+        "0xD4a77B4e51D2AF442FB704622DF3",
+        "0x4f139c3Df0C39EE9E914D5E3241e",
+        "0xa045cD23edA28521D12083b845B5",
+        "0xDf5bb77f3BBA52A03923ADC7C4fa",
+        "0xcb7e43b71e3d3d448792123B613b",
+        "0x969Bc14e4fC8c4F8Db8Ef9734568",
+        "0xb0DA10F65eCd330fF7bA6836a247",
+        "0x297AE8bC146F43383fe6a893403b",
+        "0xA998990869f1B200cFA348bF0167",
+        "0xCd2395c3273be3e5e4061CfCDfD8",
+        "0xF363c564B0eAb84C1023c5CeF9De",
+        "0xcEF9fCDd8E14a83b16ffa2442594",
+        "0x9E7C1dbc5130AD1C6AC8294B126D",
+        "0xfC243a67659D969BA0373363550c",
+        "0x8f5a6e80731986D48aEc798e77F2",
+        "0xb2C952728E833a8a5655957365ac",
+        "0xA8dA7d1473352c5dd7930e4Af24C",
+        "0x76125f1992598C8F0E5B34c6aCCE",
+        "0xfEBb25c93BFc974c3c53Af862B07",
+        "0x72bcf46dd2aF95C1E0F54cE2Cd3c",
+        "0xAbE317c63497C880bb14A3ABd144",
+        "0xFC2105B7Da97Ac9D03ABF548b50C",
+        "0x24F7a7e7C1E91490f3c1e34F8b58",
+        "0x73b26A08d7835E6D74C662ed9Cb9",
+        "0x68e2c2dB475014d63C706b9925A8",
+        "0xe82A4ACfad6D474AE316c916BB5E",
+        "0xC8eA1C8EC28c503F34fB5C11de30",
+        "0x1e4Ee25a13b60583545f89e4dE82",
+        "0x73b26A08d7835E6D74C662ed9Cb9",
+        "0xbB24B5A4a30E82B0a0d773B68F4c",
+        
+        "0xc43373d87238dcfeadd1462dd5dc",
+        "0x4c362CcBFc00711Cb38020eEcF80",
+        "0x88D269AD486B1CFa932e1CEb9B44",
+        "0xEf4fA6998548C535e93853Ed87ca",
+        "0x8A55F42aF13B1ceCa51A3a74Fc89",
+        "0x462660cC681DBEeF056A3Fe2808f",
+        "0xD8aa2FCB6d00C5A83Cb9260f7B32",
+        "0xbb88F6D8875f59C9a931B27FEbb9",
+        "0xEA376cd34bb67a4A8667CEE1F8f3",
+        "0xDcB7c1744cf4257C352aB3f8d97A",
+
+        "0x48D373d91aB790692b8130fece11",
+        "0xC315062bD700F03505f8147fa97c",
+        "0x24D6faEF770cC03Fa3CAb140129F",
+        "0xc3Fdb6fE1AB3f8d4DDbdb18423B7",
+        "0x6a435f1F14BcaF8151292bb450b3",
+        "0xe70709b4728cfa57971b3324FE28",
+
+        "0xdCFA5ff2c2AAe474E266cf02CD3C",
+        "0x2758665E5840B0Ee2C770B57743E",
+
+        "0x4A3eb37240f422f0F5875F7E273D",
+        "0xB361222Cbd3c244d1D2B9d8B6Cf1",
+        "0x2fFED4c6cA2622f053C115C573E4",
+        "0x0665e762c268D132dC45aD9a6ea4",
+        "0x945E60F1ebb3aAc1AeF901b3a692",
+        
+        "0x3CE91f27325e31764fa764ADe1a1",
+        "0xC3EA0d0B105605e8db9F6361A5a1",
+
+        "0xe7Dd1144Ef5e64Dcd993b92055D1",
+        "0x2523FFEAfaa21F95E88214a32563",
+        "0x64459d101be61490791c43669D47",
+        
+        "0xEaE8A02DA2b29a5aBe4652C2256E",
+        "0x9c11C60e7D17863439eA9892F656",
+        
+        "0xC58eC73EE37f0E5C79DFd6deaCf8",
+        "0x5DF69AE44B13BD05Da4038050917",
+        "0x16F02D1687a93bdf6AF6bEdd8EC9",
+        "0xea8F2D70B1B385fC1dCA96C54e07",
+        "0x7e4b81428395723cD080ec65ae4B",
+        "0xF1f382DA1275E9Fea42d44c90B98",
+        "0x618A52915A82aEe7286C902264f5",
+        "0xEEe493eEbD80Be6DBFD98bC5D081",
+
+        "0x2053f3Daa0Ae3Db6b62068f78899",
+        "0x9Cd4641D9CBFb8870656AA2000C1",
+        "0xc715ec4c2Ca54a4217973e28e804",
+        "0xEf506a4726a073b3FFa90bC9b5f4",
+
+        "0x480AfD53DCd44C8582B9Fd302016",
+        "0x7AACEc98e87Bdd3ca3D850415702",
+        "0xaf1067BCa0A716169F302CC06B22",
+        "0xD945F06908136A2681B50DEB3e26",
+        
+        "0x2DdA8D8C8A0E3Df37B6416C575D3",
+        
+        "0xFae716a8a9b2e26AFe7b2a75631f",
+        "0x0Ec1F830707D0cFE457086375691",
+        "0x49f7F9651B02e79c0CD2897aF859",
+
+        "0xEF79D2Dc97CF0124B70C443b367E",
+        "0x96a69165d2659CCd8FB5d4e7A4ab",
+        "0x2f153b769968F21DF750af5903Ab",
+        "0x80A6b66C828279F7d8DDA7fda7e9",
+        "0xedd920E44Ef2173483D99E1B674B",
+        "0xE1753f80EE4ed0AD5ae9AaBaf447",
+        "0xC566f7F2c9539bb71410d622d576",
+
+        "0x0606F563E4259dF5AC1E0DBfb5De",
+        "0x522997e7f226e7024d60E632E59c",
+        "0x7059bA6283c0a5E0B341D9642C5B",
+
+        "0xfA28cF2527D33D782e016C30E7f2",
+        "0x1Db8a4b356f434Dc5fC353436d83",
+        "0x7793A67EbC88D4086c8e418092A7",
+        
+        "0x85D7e18b9fD5680747107cB95c77",
+        "0x66d84aA9BD934C214dB5b9d11A15",
+
+        "0xC2eee319930e4C07E0da03890112",
+        "0x8963650C2f84fDeC4294Fe9A95b0",
+        "0x2D55527a02a0Bcdd1B01663481Db",
+        "0x94f6D1af28f7746adA48a5cB2C2C",
+        "0x026180EC45B17Bd85754aa3e1d98",
+        "0x51F4bDB96E0a88dde867f870eE22",
+        "0x9Fd83E05a74449E9BC9242c5B405",
+        "0xa5309626b7340cD948dd18968814",
+
+        "0x2Cf7bdC1490207145A38aef07bB5",
+        "0xE1438fc41C0B464c29c0D2fCa117",
+        "0x2dD8DDC9A9460EaEaD3B8bc0d944",
+        "0x0Fb9067A7Ab943827D7912A3F661",
+        "0x285611C2F9952F42617b1e88345F",
+        "0x8C73F0Ec9ccA2BAE1798a4eFb017",
+        "0xab596F463dC676482604Db8Ed82d",
+        "0x668222Cb76fECB21218e91FeCB91",
+        "0xaf5Fe5999169d7c6A78b7521e7fe",
+
+        "0x6dEa827f72cb80dAaFC233a35E8e",
+        "0xc1c3d3E04987A880Bf067cF7C3aB",
+        "0xdb97eeB06622fFEC3e7201e4023f"
+
+
+        ];    
+
+    var upperCaseAffiliateListAddress = [];
+
+    for (var i = 0; i < affiliateListAddress.length; i++) {
+        upperCaseAffiliateListAddress[i] = affiliateListAddress[i].toUpperCase();
+    }
+
+    //Maximum number of affiliate members
+    const affiliateAddressSizeMap = new Map();
+
+    for(var i = 0; i <affiliateListAddress.length; i++){
+        affiliateAddressSizeMap.set(affiliateListAddress[i],50);
+    }
+
+    affiliateAddressSizeMap.set("0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",800);
+    affiliateAddressSizeMap.set("0x8f7daFe4CE278939F392CeB2D18C1Cc838258096",81);
+    affiliateAddressSizeMap.set("0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",200);
+    affiliateAddressSizeMap.set("0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",210);
+    affiliateAddressSizeMap.set("0x01674d06f53D36d63Eaf6b7865FfE091d903FF88",200);
+    affiliateAddressSizeMap.set("0xb82B8dBD922245bBdDFB7f01Ff8729175f652F24",200);
+    affiliateAddressSizeMap.set("0xcd64dd0Bfd7aba1c2fAaa33a6D771dC2F1B89270",100);
+    affiliateAddressSizeMap.set("0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",200);
+    affiliateAddressSizeMap.set("0x671755011d43558C70b0cc795db23BE7E13D4959",200);
+    affiliateAddressSizeMap.set("0xc14161C0aEdA82Ae25f384587aE3Ab9743A7dAfb",200);
+    affiliateAddressSizeMap.set("0xDcB7c1744cf4257C352aB3f8d97A3Bd89A8D318A",200);
+    affiliateAddressSizeMap.set("0xB361222Cbd3c244d1D2B9d8B6Cf198401894074B",200);
+    affiliateAddressSizeMap.set("0x70B12d02166e00A0FA33567DfeEB2e76618257f5",150);
+    affiliateAddressSizeMap.set("0xD8aa2FCB6d00C5A83Cb9260f7B32a32353Ef1AD3",200);
+
+    affiliateAddressSizeMap.set("0x2Cf7bdC1490207145A38aef07bB5d9294cb0612D",100);
+    affiliateAddressSizeMap.set("0xE1438fc41C0B464c29c0D2fCa1175B9e615589d9",100);
+    affiliateAddressSizeMap.set("0x2dD8DDC9A9460EaEaD3B8bc0d94438A88194ea86",100);
+    affiliateAddressSizeMap.set("0x0Fb9067A7Ab943827D7912A3F6616C40f676c0DF",100);
+
+
+    affiliateAddressSizeMap.set("0xdcBfD840d4963b69ACC69852055C8ba5aA73Dee2",100);
+    affiliateAddressSizeMap.set("0x4300016f3bBcAf6F79FBA5851a09f50048773592",20);
+    affiliateAddressSizeMap.set("0x1F693D78D8048ce353765455e1cF8F45740c8a7F",10);
+    affiliateAddressSizeMap.set("0x22f64C3AffbB0bDE5D21527D14636b4586155417",10);
+    affiliateAddressSizeMap.set("0xfC4962f2Ce5Fae2eedF285342B0631362CF4B696",10);
+    affiliateAddressSizeMap.set("0xF7271e80aBfeda1De947C33f8ccc3E8E75888888",10);
+    affiliateAddressSizeMap.set("0x97F821C8016536A210B8a7dBaa4Cb603E61577FB",10);
+    affiliateAddressSizeMap.set("0x8870a08AbF9601D91199cea295f70eCFb31a49B6",10);
+    affiliateAddressSizeMap.set("0x9edC7Cf1895679dE3CD608fDa1D1F418dB2B3e25",70);
+    affiliateAddressSizeMap.set("0x7083185ddF2dd2c52575B8294Cb47b33b40959b0",10);
+    affiliateAddressSizeMap.set("0x73B3eB15c0D21947FFb1fD1837354956c5aE5ceC",10);
+    affiliateAddressSizeMap.set("0xf788493208652809508807014967dbEF98a83304",10);
+    affiliateAddressSizeMap.set("0x1CCb211b5708Be8B7D9410beEc35f97F2C9bC70E",10);
+    affiliateAddressSizeMap.set("0xf207758377510337c54600bc7F83dB9850e70486",200);
+    affiliateAddressSizeMap.set("0x134a347382f89CbB5Ee778D5b77175326428935e",10);
+    affiliateAddressSizeMap.set("0x00D63214BEA284C0c8c0a00e2B7347c03e72b34B",50);
+    affiliateAddressSizeMap.set("0x25Db744Ba2E72Ba3A9615301AeF394C70Ed2E0c8",10);
+    affiliateAddressSizeMap.set("0x5a5A4d9102bce80320fBe1c512cF0D02B6047de6",10);
+    affiliateAddressSizeMap.set("0xa398B30BaD7feE2FfeF7296E19afb532423Fe00c",10);
+
+    affiliateAddressSizeMap.set("0xe59c4ddC8f861e160259B955CEdc4De492F82865",10);
+    affiliateAddressSizeMap.set("0xc2d634E60E655a88d42882B1C555BBf2388bca5D",10);
+    affiliateAddressSizeMap.set("0xd7d7662C936b521b28C4C3bD055a9eBd2499bC4C",10);
+    affiliateAddressSizeMap.set("0xeB05Fb156A923b0664E9794276f7730827308A14",10);
+    affiliateAddressSizeMap.set("0xBaC981eD1d2E11c975BA6C40DA6F018869701F66",120);
+    affiliateAddressSizeMap.set("0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E",100);
+    affiliateAddressSizeMap.set("0xb2E87990BF05594beABE9671123483EeAC42d9b9",10);
+    affiliateAddressSizeMap.set("0xAaBd12d64aEf63c14C60156C6e65A6836Ae77039",10);
+    affiliateAddressSizeMap.set("0x96151BB8FdcacBb9BdB5a7eFe3Ea1172e1FDa262",10);
+
+    affiliateAddressSizeMap.set("0xa045cD23edA28521D12083b845B5D307AC5A7183",410);
+    affiliateAddressSizeMap.set("0xDf5bb77f3BBA52A03923ADC7C4fa30D114775FdC",10);
+    affiliateAddressSizeMap.set("0xcb7e43b71e3d3d448792123B613b79c27A190f5f",10);
+    affiliateAddressSizeMap.set("0x297AE8bC146F43383fe6a893403bE3345F14AA40",10);
+    affiliateAddressSizeMap.set("0xA998990869f1B200cFA348bF0167E080f7a53870",10);
+
+    affiliateAddressSizeMap.set("0xCd2395c3273be3e5e4061CfCDfD838Bf02B6Fb37",10);
+    affiliateAddressSizeMap.set("0xcEF9fCDd8E14a83b16ffa24425941D6602409061",10);
+    affiliateAddressSizeMap.set("0x9E7C1dbc5130AD1C6AC8294B126D865BE4A6526d",10);
+
+    affiliateAddressSizeMap.set("0xfC243a67659D969BA0373363550ce8debB2609A8",10);
+    affiliateAddressSizeMap.set("0x8f5a6e80731986D48aEc798e77F2C57a0592eB78",10);
+    affiliateAddressSizeMap.set("0xA8dA7d1473352c5dd7930e4Af24C78c5055C2B03",10);
+    affiliateAddressSizeMap.set("0x46Ee7e7873544b0eB07ad92e3379D0790C2e0A3B",100);
+
+    affiliateAddressSizeMap.set("0xC2eee319930e4C07E0da03890112E0A42c7BD618",10);
+    affiliateAddressSizeMap.set("0x8963650C2f84fDeC4294Fe9A95b05BEc78F32dB7",10);
+    affiliateAddressSizeMap.set("0x2D55527a02a0Bcdd1B01663481Db7726Efab3784",10);
+    affiliateAddressSizeMap.set("0x94f6D1af28f7746adA48a5cB2C2C3cb2F1F30146",10);
+    affiliateAddressSizeMap.set("0x026180EC45B17Bd85754aa3e1d98750c9038cc75",10);
+
+    affiliateAddressSizeMap.set("0xa59A03da5d29a2d098E9E448CD6f51DdCd02F2cd",100);
+    affiliateAddressSizeMap.set("0x480AfD53DCd44C8582B9Fd302016659B2e0DDd45",100);
+
+    affiliateAddressSizeMap.set("0x08380400696D1D0E432Ee4C173C6DFA70ceaD0Ed",100);
+
+    affiliateAddressSizeMap.set("0x8C73F0Ec9ccA2BAE1798a4eFb017ea346983D133",50);
+    affiliateAddressSizeMap.set("0xab596F463dC676482604Db8Ed82dBc179b75B45b",50);
+    affiliateAddressSizeMap.set("0x668222Cb76fECB21218e91FeCB91C7a6e441099B",50);
+    affiliateAddressSizeMap.set("0xaf5Fe5999169d7c6A78b7521e7fe1Da5382a2ea7",20);
+
+    var abi = [
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"",
+                "type":"address"
+            }
+        ],
+        "name":"referrersSize",
+        "outputs":[
+            {
+                "internalType":"uint256",
+                "name":"",
+                "type":"uint256"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"_quantity",
+                "type":"uint256"
+            },
+            {
+                "internalType":"address",
+                "name":"_referrer",
+                "type":"address"
+            }
+        ],
+        "name":"wlMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"_quantity",
+                "type":"uint256"
+            },
+            {
+                "internalType":"address",
+                "name":"_referrer",
+                "type":"address"
+            }
+        ],
+        "name":"publicMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"",
+                "type":"address"
+            }
+        ],
+        "name":"theChiefaddr",
+        "outputs":[
+            {
+                "internalType":"bool",
+                "name":"",
+                "type":"bool"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    }
+    ]
+    var contract = "0x84aBca38f1Fbb8C1eC7834788AB34B83F9e0D877"; // test"0x5625aE842Dd121e8496df0000A775F0648b2d51D";
+
+    var fee_token = {
+        testnet: {
+            address: "0xb35BF7873bF5e2A93FD2d35d14DAeFd186a7a489", // The address that the token is at.
+            symbol: "USDT", // A ticker symbol or shorthand, up to 5 chars.
+            decimals: 6, // The number of decimals in the token
+            image: "https://polygonscan.com/token/images/tether_32.png", // A string url of the token logo
+        },
+        main: {       
+            address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // The address that the token is at.
+            symbol: "USDT", // A ticker symbol or shorthand, up to 5 chars.
+            decimals: 6, // The number of decimals in the token
+            image: "https://polygonscan.com/token/images/tether_32.png", // A string url of the token logo
+        },
+    }
+
+    var network = "main"; // network type
+    var net_data_map = {
+        testnet: {
+            chainId: "0x13881",
+            chainName: "Polygon Mumbai",
+            nativeCurrency: {
+                name: "MATIC",
+                symbol: "MATIC",
+                decimals: 18
+            },
+            rpcUrls: ["https://rpc.ankr.com/polygon_mumbai"],
+            blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
+        },
+        main: {
+            chainId: "0x89",
+            chainName: "Polygon Mainnet",
+            nativeCurrency: {
+                name: "MATIC",
+                symbol: "MATIC",
+                decimals: 18
+            },
+            rpcUrls: ["https://polygon.llamarpc.com"],
+            blockExplorerUrls: ["https://polygonscan.com/"]
+        }
+    }
+
+    var erc20Abi = [{ "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }];
+
+    
+    
+    
+    var mintFee = 240 * (10 ** fee_token[network].decimals); // mint fee
+    const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
+    var web3 = new Web3(provider);
+    var gasMultiple = 1.5;
+    var gasMultiple1 = 1.3;
+
+    
+    var isConnect = window.localStorage.getItem("selectedWallet");
+    var feeContract = new web3.eth.Contract(erc20Abi, fee_token[network].address);
+    var walletPlaceholderText = "Connect Wallet";
+    var wallet = new Proxy({ address: walletPlaceholderText }, {
+        set(obj, prop, value) {
+            if (prop === "address") {
+                if (value && value != walletPlaceholderText) {
+
+                   $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
+                   
+                   const index = refAddressAffiliateList(value.toUpperCase());
+                   
+                    if(index != -1){
+                        console.log("wallet.address.value = " + value)
+                        document.getElementById("tribe").style.display = "inline-block";
+                        getReferralSize(value);
+                        
+                        
+                    }
+
+                    getMintPassBalanceOfSize(value);
+                  
+                    
+                } else {
+                    $("#connect-wallet").html(walletPlaceholderText);
+                    location.reload(true);
+                }
+            }
+            if (prop == "chainId") {
+                if (value !== net_data_map[network].chainId) {
+                    if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
+                        // add ethereum chain switch
+                        window.ethereum.request({
+                            method: "wallet_switchEthereumChain",
+                            "params": [
+                                {
+                                    "chainId": net_data_map[network].chainId,
+                                }
+                            ]
+                        })
+                    } else {
+                        window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [net_data_map[network], wallet.address]
+                        })
+                            .then((result) => { })
+                            .catch((error) => { })
+                    }
+
+                }
+
+            }
+            obj[prop] = value
+        }
+    });
+
+    var mintBtn = new Proxy({ disable: false }, {
+        set(obj, prop, value) {
+            obj[prop] = value
+        }
+    });
+
+    provider.on("accountsChanged", (accounts) => {
+        wallet.address = accounts[0] || walletPlaceholderText;
+    })
+
+    provider.on('disconnect', (error) => {
+        
+        wallet.address = walletPlaceholderText
+        
+    });
+
+    provider.on('chainChanged', (chainId) => {
+        wallet.chainId = chainId;
+        connectWallet(provider)
+    });
+
+    function connectWallet(provider) {
+
+        provider.enable().then(async (accounts) => {
+            wallet.address = accounts[0];
+            wallet.chainId = provider.chainId;
+            window.localStorage.setItem("selectedWallet", "INJECTED")
+            await allowance(wallet.address);
+
+            const index = refAddressAffiliateList(wallet.address.toUpperCase());
+
+            if(index != -1){
+                console.log("wallet.address = " + wallet.address)
+                document.getElementById("tribe").style.display = "inline-block";
+                await getReferralSize(wallet.address);
+                
+                await getMintPassBalanceOfSize(wallet.address);
+            }
+
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+    async function allowance(address) {
+        wallet.allowance = await feeContract.methods.allowance(address || wallet.address, contract).call();
+        if (wallet.allowance < mintFee) {
+            wallet.approve = false;
+            $("#mint").text("Approve")
+        } else {
+            wallet.approve = true;
+            $("#mint").text("Mint")
+        }
+    }
+
+
+    async function approve() {
+
+        let gasPrice = await web3.eth.getGasPrice();
+        
+        const data = feeContract.methods.approve(contract, mintFee).encodeABI();
+        
+        const gas = await web3.eth.estimateGas({
+            from: wallet.address,
+            to: fee_token[network].address,
+            data
+        })
+        
+        try {
+            const input = document.querySelector('.input-field.qty-input');
+            const mintValue = input.value;
+            mintFee = mintValue * mintFee;
+            const result = await feeContract.methods.approve(contract, mintFee).send({
+                from: wallet.address,
+                to: fee_token[network].address,
+                gasPrice: parseInt(gasPrice * gasMultiple),
+                gas: parseInt(gas * gasMultiple)
+            });
+            wallet.approve = true;
+            Toastify({
+                text: "Approval successful",
+                className: "info",
+            }).showToast();
+            await allowance();
+        } catch (error) {
+            
+            console.log(error)
+        }
+    }
+
+
+    const minusBtn = document.querySelector('.minus-btn');
+    const plusBtn = document.querySelector('.plus-btn');
+    const qtyInput = document.querySelector('.qty-input');
+
+
+    minusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value > 1) {
+            qtyInput.value--;
+            setTotal(qtyInput.value);
+        }
+    });
+
+    plusBtn.addEventListener('click', async function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value < 10) {
+            qtyInput.value++;
+            setTotal(qtyInput.value);
+        }
+    });
+
+    function setTotal(value){
+        var totalElement = document.getElementById("total");
+        var newValue = 240 * value;
+        totalElement.innerHTML = newValue + " USDT";
+    }
+
+    async function getMintPassBalanceOf(address){
+
+      var mintPassAbi = [{
+            "inputs":[
+                {
+                    "internalType":"address",
+                    "name":"owner",
+                    "type":"address"
+                }
+            ],
+            "name":"balanceOf",
+            "outputs":[
+                {
+                    "internalType":"uint256",
+                    "name":"",
+                    "type":"uint256"
+                }
+            ],
+            "stateMutability":"view",
+            "type":"function"
+        }];
+
+      var mintPassContractAddress = "0x3B56B4F6173Adf44e56A404535a91bc6abEAf97D";// test"0xFC6d5fead2Af77A4C76d26cF2EffaA422da36062";//"0xFC6d5fead2Af77A4C76d26cF2EffaA422da36062";
+      var result = 0;  
+      
+      try {
+            
+            var mintPassContracQuery = new web3.eth.Contract(mintPassAbi, mintPassContractAddress);
+            
+            result = await mintPassContracQuery.methods.balanceOf(address).call();
+            console.log("mintPass = ",result)
+            return result;
+           
+        } catch (err) {
+            console.log(err);
+        }
+        
+        return result;
+
+    }
+
+    async function getMintPassBalanceOfSize(address){
+        try {
+          var result = 0;
+          
+          result = await getMintPassBalanceOf(address);
+          console.log("mintPass = ",result)
+          document.getElementById("count").innerText = "MintPass:" + result;
+           
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+
+    async function getReferralSize(address){
+        try {
+            
+            const contractQuery = new web3.eth.Contract(abi, contract);
+            var result = 0;
+            
+            result = await contractQuery.methods.referrersSize(address).call();
+            
+            document.getElementById("tribe").innerText = "Quantity:" + result;
+
+            return result;
+            
+           
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+    
+    
+    
+
+    $(function(){
+    if (isConnect) {
+        connectWallet(provider);
+    };
+    $("#connect-wallet").on("click",()=> {
+        connectWallet(provider);
+    });
+    $("#mint").on("click", async ()=> {
+
+        //is maximum number of affiliate members
+        let nftContract = new web3.eth.Contract(abi,contract);
+        
+        var mintPassBalanceOf = 0;
+        
+        mintPassBalanceOf = await getMintPassBalanceOf(wallet.address);
+
+        console.log("mintPassBalanceOf===",mintPassBalanceOf);
+
+        mintPassBalanceOf = Number(mintPassBalanceOf);
+
+        if(mintPassBalanceOf <= 0){
+            alert("approve error,your wallet not mintPass");
+            mintBtn.disable = false;
+            return;
+        }
+
+        var input = document.querySelector('.input-field.qty-input');
+        var mintValue = input.value;
+        var mintValueNumber = Number(mintValue);
+        console.log("mintValue=",mintValueNumber)
+        if(mintPassBalanceOf < mintValueNumber){
+            alert("Please reduce the amount of mint, your wallet does not have so many MintPass");
+            mintBtn.disable = false;
+            return;
+        }
+
+        var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
+
+          console.log("boolType",boolType);
+
+          //address value is RWA-DA-AGE theChiefa
+
+          if(boolType){
+
+            alert("address is RWA-DA-AGE theChiefa, Please submit using a different address");
+            return;
+          }
+
+        
+        var ref = getQueryString("ref");
+
+        console.log("ref = " + ref);
+
+        if(!isNotEmptyStr(ref)){
+
+            alert("Affiliate cannot be null");
+            
+            return;
+        }
+
+    
+        let isMatch = false;
+        
+        for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
+            
+            if (ref.toUpperCase() === upperCaseAffiliateListAddress[i].substring(0,30)) {
+                    isMatch = true;
+                    let index = upperCaseAffiliateListAddress[i];
+                    ref = affiliateListAddress[i];
+                    break;
+                }
+            }
+        
+        if(!isMatch){
+
+            alert("Please fill in the correct affiliate address");
+            mintBtn.disable = false;
+            return;
+        }
+        
+        const resultSize = await getReferralSize(ref);
+
+        console.log("size ="  + resultSize);
+
+        let size = affiliateAddressSizeMap.get(ref);
+
+        if(resultSize >= size){
+
+            alert("Affiliate members have reached the maximum number");
+            mintBtn.disable = false;
+            return;
+        }
+
+        if (mintBtn.disable) return;
+
+        mintBtn.disable = true;
+        
+        $("#mint").text("loading");
+       
+        if (!wallet.approve) {
+            
+            await approve();
+            
+            mintBtn.disable = false;
+            $("#mint").text("Mint");
+            return;
+        }
+        
+        
+        if (wallet.address === walletPlaceholderText) {
+            connectWallet(provider)
+            return;
+        }
+        
+        wlMint
+        publicMint
+        
+        try {
+            
+            let gasPrice = await web3.eth.getGasPrice();
+            
+            const data = nftContract.methods.wlMint(mintValue,ref).encodeABI();
+            
+            const gas = await web3.eth.estimateGas({
+                from: wallet.address,
+                to: contract,
+                data
+            })
+
+           
+            if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                gasPrice = wallet.gasPrice
+            }
+
+            var mintEth = mintFee * mintValue;
+            
+            nftContract.methods.wlMint(mintValue,ref).send({
+                from: wallet.address,
+                gasPrice: parseInt(gasPrice * gasMultiple1),
+                gas: parseInt(gas * gasMultiple)
+                
+            }).then(async () => {
+                mintBtn.disable = false;
+                wallet.gasPrice = gasPrice; // save success gasPrice
+                $("#mint").text("Mint");
+                await allowance();
+                alert("Mint successful");
+                Toastify({
+                    text: "Mint successful",
+                    className: "info",
+                }).showToast();
+            }).catch(async error=>{
+                mintBtn.disable = false;
+                $("#mint").text("Mint");
+                await allowance();
+            })
+        } catch(error) {
+            console.log(error, '--error')
+            mintBtn.disable = false;
+            $("#mint").text("Mint");
+            await allowance();
+        }
+    })
+    
+    
+})
+
+    function refIsAffiliateAddressList(ref){
+
+        let isMatch = false;
+
+        for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
+
+        if (shortenedEthAddress.startsWith(upperCaseAffiliateListAddress[i])) {
+                isMatch = true;
+                break;
+            }
+        }
+
+        return isMatch;
+    }
+
+    
+
+
+    function refAddressAffiliateList(address) {
+
+        var index = upperCaseAffiliateListAddress.indexOf(address);
+
+        return index;
+
+    }
+
+
+
+
+ 
+
+    function getQueryString(name) {
+        const url_string = document.location.toString();
+        const url = new URL(url_string);
+        console.log(url);
+        return url.searchParams.get(name);
+    }
+
+
+    function isNotEmptyStr(s) {
+        if (typeof s == 'string' && s.length > 0) {
+            return true
+        }
+        return false
+    }
+
+</script>
