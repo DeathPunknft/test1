@@ -801,7 +801,30 @@
     var erc20Abi = [{ "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }];
 
     
-    
+    var oldDaAgeContractABI = [
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"_referral",
+                "type":"address"
+            }
+        ],
+        "name":"getReferralSize",
+        "outputs":[
+            {
+                "internalType":"uint256",
+                "name":"",
+                "type":"uint256"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    }
+       
+            ];
+
+    var oldDaAgeContract = "0xf96E490e46A6eBC38e7C2B180ef2b0ED2481Efe6";
     
     var mintFee = 240 * (10 ** fee_token[network].decimals); // mint fee
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
@@ -1042,15 +1065,25 @@
 
 
 
-    async function getReferralSize(address){
+   async function getReferralSize(address){
         try {
             
             const contractQuery = new web3.eth.Contract(abi, contract);
+
             var result = 0;
             
             result = await contractQuery.methods.referrersSize(address).call();
+
             
-            document.getElementById("tribe").innerText = "Quantity:" + result;
+            var oldDaAgeResult = 0;
+
+            const oldDaAgeContractQuery = new web3.eth.Contract(oldDaAgeContractABI, oldDaAgeContract);
+
+            oldDaAgeResult = await oldDaAgeContractQuery.methods.getReferralSize(address).call();
+
+            var sum = parseInt(result) + parseInt(oldDaAgeResult);
+
+            document.getElementById("tribe").innerText = "Quantity:" + sum;
 
             return result;
             
