@@ -1,0 +1,1 @@
+var snapshot = [];// [{"address":"0xBA9A1eE9De4A8E1E42CB180F8a524A85fcF8Dd0a","tokenIds":["3","37"],"TV":"5.6","USDT":"3.5","HKRD":"27.3","PCS":"2","EHKD":"30.03","rewaed":3500000}]
