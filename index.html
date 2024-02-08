@@ -1687,7 +1687,7 @@ snapshotSizeMap.set("0x3B710B259DFc7Fbd1B76E5Eec45e7b4369d41655",0);
         let size = 0;
         size = affiliateAddressSizeMap.get(ref);
         console.log("size ="  + size);
-        if(resultSize >= size){
+        if((resultSize + mintValue) >= size){
 
             alert("Affiliate members have reached the maximum number");
             mintBtn.disable = false;
