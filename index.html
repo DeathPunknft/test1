@@ -927,6 +927,14 @@
     affiliateAddressSizeMap.set("0x808F2634d1679CB4016499B921e6593f754073C2",20);
     affiliateAddressSizeMap.set("0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",450);
 
+    affiliateAddressSizeMap.set("0x0Ec1F830707D0cFE4570863756914164A2C2C274",2);
+    affiliateAddressSizeMap.set("0x9F406cC3F64A44A74d9071EdFddf26b09Be39A02",10);
+    affiliateAddressSizeMap.set("0x4DfF4ca3CA03F796f82D66Ff069b0d77614A40aC",3);
+
+    affiliateAddressSizeMap.set("0xafBa13EE169a1F0Fd48617bcB497626A3C9F5428",3);
+    affiliateAddressSizeMap.set("0xD24dA79dDe01905839a1AcEF199021fbe017335f",3);
+    affiliateAddressSizeMap.set("0x819Bd3e404B9423D23526626C43E4EabCC3Ea060",3);
+
     const snapshotSizeMap = new Map();
     snapshotSizeMap.set("0xbFd13AD0e134A40eaBE0562033e8Cf25a5785402",0);
 snapshotSizeMap.set("0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",53);
@@ -1179,6 +1187,12 @@ snapshotSizeMap.set("0x4DfF4ca3CA03F796f82D66Ff069b0d77614A40aC",0);
 snapshotSizeMap.set("0xafBa13EE169a1F0Fd48617bcB497626A3C9F5428",0);
 snapshotSizeMap.set("0xD24dA79dDe01905839a1AcEF199021fbe017335f",0);
 snapshotSizeMap.set("0x3B710B259DFc7Fbd1B76E5Eec45e7b4369d41655",0);
+
+snapshotSizeMap.set("0x94277adbfca6846E2673a5307417EB8261dE0ecb",0);
+snapshotSizeMap.set("0x67067339BC70b5Bf7d9378FBf716e4792a81B663",0);
+snapshotSizeMap.set("0x792cd206630229254efA8568087d88B344224c55",0);
+snapshotSizeMap.set("0x819Bd3e404B9423D23526626C43E4EabCC3Ea060",0);
+snapshotSizeMap.set("0xFb3Dd609AE8478C5b326Fe28B03a47c13cb8212B",0);
 
     var abi = [
     {
@@ -1704,7 +1718,7 @@ snapshotSizeMap.set("0x3B710B259DFc7Fbd1B76E5Eec45e7b4369d41655",0);
         console.log("(resultSize + mintValue)"  + (result+ mintNumber));
         
         
-        if((result+ mintNumber) >= size){
+        if((result+ mintNumber) > size){
 
             alert("Affiliate members have reached the maximum number");
             mintBtn.disable = false;
