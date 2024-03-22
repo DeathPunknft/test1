@@ -1078,7 +1078,14 @@
                     for (var i = 0; i < stakingTokenIds.length; i++) {
                         var tokenId = stakingTokenIds[i];
                         var item = {}; 
-                        item.imgSrc = './Content/Styles/images/rwa.jpg';
+                        if(tokenId > 3999){
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+                        }else{
+                           var metaData = getDataByTokenId(Number(tokenId));
+                           var name = metaData.location_name;
+                           var zone = metaData.zone;
+                           item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+                        }
                         item.spanText = 'RWA #' + tokenId;
                         item.tokenId = tokenId;
                         data.push(item);
@@ -1402,7 +1409,14 @@
                   for (var i = 0; i < tokenIds.length; i++) {
                     var tokenId = tokenIds[i];
                     var item = {};
-                    item.imgSrc = './Content/Styles/images/rwa.jpg';
+                       if(tokenId > 3999){
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+                        }else{
+                           var metaData = getDataByTokenId(Number(tokenId));
+                           var name = metaData.location_name;
+                           var zone = metaData.zone;
+                           item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+                    }
                     item.spanText = 'RWA #' + tokenId;
                     data.push(item); 
                   }
@@ -1860,6 +1874,11 @@
       
             }      
         }   
+
+        function getDataByTokenId(tokenId) {
+        
+        return metaData.find(item => item.token_id === tokenId);
+    }
         
         
     </script>
