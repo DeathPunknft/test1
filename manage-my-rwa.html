@@ -2114,7 +2114,7 @@
                         gas: parseInt(gas * gasMultiple)
                         
                     }).then(async () => {
-                        usdtButton.value = 'Sold successfully, you will receive payment soon, <br> please check your wallet.';
+                        usdtButton.value = 'Collect my Time Points.';
                         
                         usdtButton.disabled = false;
                         Toastify({
@@ -2178,7 +2178,7 @@
         
         var type = await rewaedContract.methods.wlMintBalance(wallet.address);
         if(type){
-            usdtButton.value = 'Sold successfully, you will receive payment soon, \n please check your wallet.';
+            usdtButton.value = 'Collect my Time Points.';
         }
         
     } catch (error) {
