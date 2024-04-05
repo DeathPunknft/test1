@@ -1708,7 +1708,7 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
 
             var oldS1DaAgeResult = 0;
 
-            oldS1DaAgeResult = await oldS1DaAgeContractQuery.methods.getReferralSize(address).call();
+            oldS1DaAgeResult = await oldS1DaAgeContractQuery.methods.referrersSize(address).call();
 
 
             var sum = parseInt(result) + parseInt(oldDaAgeResult) + parseInt(oldS1DaAgeResult);
