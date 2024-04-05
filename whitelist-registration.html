@@ -170,7 +170,7 @@
                     <label for="address">Wallet Address (Polygon) (Mandatory)<br>*Please note that franchisee wallets are not eligible to mint DA-AGE RWA.<br></label>
                     <input type="text" class="w-input" maxlength="256" name="address" data-name="Address" placeholder="" id="address" required="">
 
-                    <button id="submit" class="submit-button w-button">it's over</button>
+                    <button id="submit" class="submit-button w-button">submit</button>
 
                 
                   <div class="success-message w-form-done">
@@ -246,7 +246,7 @@ const nextButton = document.querySelector("#Next");
 		"type": "function"
 	}];   
 
-  var rwa_contract = "0xbf48f62b685790015a24437db3773eabb97ca282"; //0xbf48f62b685790015a24437db3773eabb97ca282  rwa_main
+  var rwa_contract = "0x291B1BD67eC8D1E194dB36d92B17823186b54F44"; //0xbf48f62b685790015a24437db3773eabb97ca282  rwa_main
 
 
 var network = "main"; // network type
@@ -295,7 +295,7 @@ var network = "main"; // network type
         "stateMutability":"nonpayable",
         "type":"function"
     }];
-    var wlPassContractAddress = "0x3B56B4F6173Adf44e56A404535a91bc6abEAf97D";
+    var wlPassContractAddress = "0xc34D9842a9d6cD48b22f8880554eF019aC968471";
 
     var wlAbi = [{
 		"inputs": [
@@ -527,8 +527,6 @@ var network = "main"; // network type
 
      // event.preventDefault();
 
-      alert("it's over");
-      return;
 
       var addressInput = document.getElementById("address");
       var addressValue = addressInput.value;
