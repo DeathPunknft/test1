@@ -315,7 +315,7 @@ var network = "main"; // network type
 				"type": "uint256"
 			}
 		],
-		"name": "tokensOfOwnerIn",
+		"name": "tokensOfOwner",
 		"outputs": [
 			{
 				"internalType": "uint256[]",
@@ -422,7 +422,7 @@ var network = "main"; // network type
         try {
           console.log("wallet.address", wallet.address);
 
-          var tokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet.address, 0, 5380).call();
+          var tokenIds = await wlContractQuery.methods.tokensOfOwner(wallet.address).call();
           var data = [];
 
           for (var i = 0; i < tokenIds.length; i++) {
