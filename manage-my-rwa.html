@@ -1816,6 +1816,7 @@
             var result = snapshot.find(function(item) {
 
                 console.log("wallet.address",wallet.address)
+                console.log("tokenId===",tokenId)
                 return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
             console.log("result",result)
