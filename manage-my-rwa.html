@@ -2,7 +2,7 @@
 <!-- Last Published: Thu Nov 23 2023 13:19:52 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="http://da-age.io" data-wf-page="64c10870834e365b75c97b45" data-wf-site="6421898f81ec56cd303380ec">
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8"/>                                                               
         <title>DA-AGE Rewards - Home</title>
         <meta content="DA-AGE Rewards - Home" property="og:title"/>
         <meta content="DA-AGE Rewards - Home" property="twitter:title"/>
@@ -196,13 +196,15 @@
 #EHKD {
     grid-area: 4 / 1 / 5 / 3;
 }
+
+
 </style>
 
 
     
   </style>
     </head>
-   <body class="body-2">
+    <body class="body-2">
         <div data-w-id="7e6566d2-922c-c621-1b31-5927ada96992" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="fn-navbar-box-second-3 w-nav">
             <div class="fn-navbar-container-second-2">
                 <a href="#" class="fn-brand-box-4 w-nav-brand">
@@ -820,9 +822,9 @@
 
         var stakingAbi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"startTime","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"endTime","type":"uint256"}],"name":"StakingDetailsEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"endTime","type":"uint256"}],"name":"UnlockStakingEvent","type":"event"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getStakingNFTDetails","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_erc721Address","type":"address"}],"name":"setErc721TokenAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_stakeEnabled","type":"bool"}],"name":"setStakeState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_days","type":"uint256"}],"name":"stakingNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_tokenIds","type":"uint256[]"}],"name":"unStakingNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"}],"name":"withDrawAllNfts","outputs":[],"stateMutability":"nonpayable","type":"function"}];
     
-        var stakingAddress = "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";
+        var stakingAddress = "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";//main "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";
         
-        
+        // mian 0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8
         var network = "main"; // network type
         
             var net_data_map = {
@@ -933,7 +935,19 @@
         
                            $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
                            $("#connect").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
-                           updateADTimeValue();
+
+                           updateADTimeValue(value);
+                           
+                           
+                           //check
+                           var result = getAddressIsFranchisee(value);
+                           console.log(result)
+                           if(result){
+                              
+                              document.getElementById("reward_tp").style.display = "inline-block";
+                              document.getElementById("RWA_TP").style.display = "inline-block";
+                           }
+                           
                            
         
                         } else {
@@ -1036,17 +1050,25 @@
         }
 
         
-            function connectWallet(provider) {
-        
-                provider.enable().then(async (accounts) => {
-                    wallet.address = accounts[0];
-                    wallet.chainId = provider.chainId;
-                    window.localStorage.setItem("selectedWallet", "INJECTED")
-                    
-                }).catch(error => {
-                    console.log(error);
-                });
-            }
+        function connectWallet(provider) {
+    
+            provider.enable().then(async (accounts) => {
+                wallet.address = accounts[0];
+                wallet.chainId = provider.chainId;
+                window.localStorage.setItem("selectedWallet", "INJECTED")
+                
+                //check
+                var result = getAddressIsFranchisee(wallet.address);
+                
+                if(result){
+                    document.getElementById("reward_tp").style.display = "inline-block";
+                    document.getElementById("RWA_TP").style.display = "inline-block";
+                }
+                
+            }).catch(error => {
+                console.log(error);
+            });
+        }
 
             async function queryStakingNFT(){
 
@@ -1078,18 +1100,24 @@
                     const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
                     nextMonth.setHours(0, 0, 0, 0);
                     const timestamp = nextMonth.getTime()/ 1000;
-
+                    
                     for (var i = 0; i < stakingTokenIds.length; i++) {
                         var tokenId = stakingTokenIds[i];
+                        console.log("tokenId",tokenId);
                         var item = {}; 
+
                         if(tokenId > 3999){
                             item.imgSrc = './Content/Styles/images/rwa.jpg';
                         }else{
+
+                          
                            var metaData = getDataByTokenId(Number(tokenId));
+                           console.log(metaData);
                            var name = metaData.location_name;
                            var zone = metaData.zone;
                            item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
                         }
+                        
                         item.spanText = 'RWA #' + tokenId;
                         item.tokenId = tokenId;
                         data.push(item);
@@ -1413,14 +1441,18 @@
                   for (var i = 0; i < tokenIds.length; i++) {
                     var tokenId = tokenIds[i];
                     var item = {};
-                       if(tokenId > 3999){
+                    if(tokenId > 3999){
                             item.imgSrc = './Content/Styles/images/rwa.jpg';
                         }else{
+
+                          
                            var metaData = getDataByTokenId(Number(tokenId));
+                           console.log(metaData);
                            var name = metaData.location_name;
                            var zone = metaData.zone;
                            item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
-                    }
+                        }
+                        
                     item.spanText = 'RWA #' + tokenId;
                     data.push(item); 
                   }
@@ -1924,7 +1956,7 @@
 
     }
 
-        
+   
     </script>
 </html>
 
