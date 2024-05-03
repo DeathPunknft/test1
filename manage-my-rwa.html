@@ -2,7 +2,6 @@
 <!-- Last Published: Thu Nov 23 2023 13:19:52 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="http://da-age.io" data-wf-page="64c10870834e365b75c97b45" data-wf-site="6421898f81ec56cd303380ec">
     <head>
-        
         <meta charset="utf-8"/>                                                               
         <title>DA-AGE Rewards - Home</title>
         <meta content="DA-AGE Rewards - Home" property="og:title"/>
@@ -1079,7 +1078,7 @@
                 }
 
                 var tokenIds = await stakingContract.methods.getStakingNFTDetails(wallet.address).call();
-
+                
                 if (typeof tokenIds != "undefined" || tokenIds.length != 0){ 
 
                     var stakingTokenIds = tokenIds[0];
@@ -1125,7 +1124,8 @@
                         
                         endTime.push(stakingEndTime[i])
                     }
-            
+
+                        
                         
                         var parentElement = document.querySelector('.bg-secondary-staking');
             
@@ -1170,8 +1170,8 @@
 
                             
                             var state = checkSnapshot(data[i].tokenId);
-
-                            
+                            console.log("data[i].tokenId",  data[i].tokenId);
+                            console.log("state",  state);
                             var countdownElement1 = document.createElement('span');
                             countdownElement1.style.display = 'block';
                             countdownElement1.style.marginTop = '10px';
@@ -1191,7 +1191,7 @@
                             
                             countdownElement1.textContent = 'TP Calculating';
 
-                    /*        const today = new Date();
+                         /*   const today = new Date();
                             const dayOfMonth = today.getDate();
                            
                             if (dayOfMonth === 1) {
@@ -1416,6 +1416,8 @@
             async function fetchDataAndRender() {
                 try {
                   console.log("wallet.address", wallet.address);
+
+
                   queryStakingNFT();
                 
 
@@ -1814,9 +1816,9 @@
             var result = snapshot.find(function(item) {
                 return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
-            
+            console.log("result",result)
             if (result) {
-                
+                console.log("result",result)
                 return result.tokenIds.includes(tokenId);
             } else {
                 return false;
@@ -1956,6 +1958,9 @@
         });
 
     }
+
+
+    
 
    
     </script>
