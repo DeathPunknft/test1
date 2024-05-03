@@ -1188,7 +1188,7 @@
                             }else{
 
                             
-                            countdownElement1.textContent = 'Calculating';
+                            countdownElement1.textContent = 'TP Calculating';
 
                             const today = new Date();
                             const dayOfMonth = today.getDate();
@@ -1811,7 +1811,7 @@
         function checkSnapshot(tokenId){
             
             var result = snapshot.find(function(item) {
-                return item.address.toLowerCase.toString === wallet.address.toLowerCase.toString;
+                return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
             
             if (result) {
