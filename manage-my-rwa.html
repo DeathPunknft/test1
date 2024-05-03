@@ -1822,8 +1822,8 @@
             
             if (result) {
                console.log("result11111111111",result)
-               let arr =  Array.from(result.tokenIds);
-               return arr.includes(tokenId);
+              
+               return result.tokenIds.includes(tokenId);
             } else {
                 return false;
             }
