@@ -1170,8 +1170,7 @@
 
                             
                             var state = checkSnapshot(data[i].tokenId);
-                             console.log("data[i].tokenId",data[i].tokenId)
-                            console.log("state",state)
+                            
                             var countdownElement1 = document.createElement('span');
                             countdownElement1.style.display = 'block';
                             countdownElement1.style.marginTop = '10px';
@@ -1815,13 +1814,12 @@
             
             var result = snapshot.find(function(item) {
 
-                console.log("wallet.address",wallet.address);
-                console.log("wallet.address",wallet.address.toLowerCase().toString());
+               
                 return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
             
             if (result) {
-               console.log("result11111111111",result)
+              
               
                return result.tokenIds.includes(Number(tokenId));
             } else {
