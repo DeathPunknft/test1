@@ -1933,7 +1933,7 @@
 
                 const tpText = document.querySelectorAll('#total_TP');
                 tpText.forEach(element =>{
-                    element.innerText = element.innerText.replace('0', totalTP.toFixed(2));
+                    element.innerText = element.innerText.replace('0', totalTP.toFixed(1));
                 })
 
                 
@@ -1942,7 +1942,7 @@
 
                 totalTPTwo = totalTP + (totalTP * 0.1);
                 const totalTPTwoText =  document.getElementById("total_tp_two");
-                totalTPTwoText.innerText = totalTPTwoText.innerText.replace('0',totalTPTwo.toFixed(2));
+                totalTPTwoText.innerText = totalTPTwoText.innerText.replace('0',totalTPTwo.toFixed(1));
       
             }      
         }  
