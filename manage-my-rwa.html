@@ -1904,11 +1904,15 @@
                 total_pcs.forEach(element =>{
                     element.innerText = element.innerText.replace('0', totalPCS);
                 })
+            } 
 
-                
-                var franchiseeResult = getAddressIsFranchisee(address);
+             var franchiseeResult = getAddressIsFranchisee(address);
 
-                var tp = result.tp;
+                var tp = Number(0);
+
+                if(result){
+                    tp = result.tp;
+                }
 
                 var totalTP = Number(0);
 
@@ -1943,8 +1947,6 @@
                 totalTPTwo = totalTP + (totalTP * 0.1);
                 const totalTPTwoText =  document.getElementById("total_tp_two");
                 totalTPTwoText.innerText = totalTPTwoText.innerText.replace('0',totalTPTwo.toFixed(1));
-      
-            }      
         }  
         
         
