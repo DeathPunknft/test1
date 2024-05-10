@@ -551,7 +551,7 @@
                                                 <span class="w-form-label" for="checkbox-2">I agree to trade my RWA Advertising Time rights ONLY but not the RWA  itself. </span>
                                             </label>
                                             <div class="spacer-s-5"></div>  <!--Collect my Time Points -->
-                                            <input type="button" data-wait="Please wait..." class="submit-button-2 w-button" value="(Coming Soon)" id = "TP"/>
+                                            <input type="button" data-wait="Please wait..." class="submit-button-2 w-button" value="Collect my Time Poins" id = "register"/>
                                         </form>
                                         <div class="success-message-2 w-form-done">
                                             <div class="text-block-33">Please wait for this feature to be rolled out</div>
@@ -1964,7 +1964,284 @@
     }
 
 
+    var tpAbi = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "merkleRoot",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "queryRegister",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "register",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "_proof",
+				"type": "bytes32[]"
+			}
+		],
+		"name": "registers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+
+    var tpRegisterContractAddress = "0x1F07bE86c422f92584B27a5C583117a8769EB591";
+
+    //leafs
+    let leafs = [];
+    for (let k = 0; k < snapshotAddress.length; k++) {
+        let leaf = ethers.utils.solidityKeccak256(["address"], 
+        [
+            snapshotAddress[k].address
+        ]
+        );
+
+    leafs.push(leaf);
+    }
+
+    //tree
+    let tree = new MerkleTree(leafs, keccak256, { sort: true });
+
+    let root = tree.getHexRoot();
+
+    console.log("root",root);
+
+    function getHexProof(index) {
+        return tree.getHexProof(leafNodes[2]);
+    }
+
+
+    function getAddressIsSnapshot(address){
+
+        return snapshotAddress.findIndex(function(index) {
+        return address.toLowerCase().toString() === index.address.toLowerCase().toString();
+    });
+
+}
+
+$(function(){
+  
+  if (isConnect) {
+    connectWallet(provider);
+  };
+  $("#connect-wallet").on("click",()=> {
+    connectWallet(provider);
+  });
+  
+  $("#register").on("click", async ()=> {
+
+    var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
+
+    var claimed = await tpRegisterContract.methods.queryRegister(wallet.address).call();
+  
+      if(claimed){
+  
+          alert("Do not receive it repeatedly");
+  
+          return;
+      }
+
+     
+    $('#checkbox-error').hide();
+    $('#checkbox-2-error').hide();
+
     
+    if (!$('#checkbox').is(':checked')) {
+      
+      $('#checkbox-error').show();
+    } 
+    if (!$('#checkbox-2').is(':checked')) {
+      
+      $('#checkbox-2-error').show();
+    } 
+
+    
+    if ($('#checkbox').is(':checked') && $('#checkbox-2').is(':checked')) {
+
+        let index = getAddressIsSnapshot(wallet.address);
+      console.log("index"+ index)
+      if (index == -1) {
+          alert("Unfortunately, you are not eligible😭😭")
+          return;
+      }
+  
+      
+  
+      const hexProof = tree.getHexProof(leafs[index]);
+      console.log("hexProof ==" + hexProof);
+  
+      if (!tree.verify(hexProof, leafs[index], root)) {
+          alert("Unfortunately, you are not eligible😭😭");
+          return;
+      }
+  
+      
+      let gasPrice = await web3.eth.getGasPrice();
+      
+      const data = tpRegisterContract.methods.registers(hexProof).encodeABI();
+          
+      const gas = await web3.eth.estimateGas({
+          from: wallet.address,
+          to: tpRegisterContractAddress,
+          data
+      })
+  
+      
+      if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+          gasPrice = wallet.gasPrice
+      }
+      
+      $("#register").val("Loading");
+  
+      tpRegisterContract.methods.registers(hexProof).send({
+          from: wallet.address,
+          gasPrice: parseInt(gasPrice * gasMultiple),
+          gas: parseInt(gas * gasMultiple)
+          
+      }).then(async () => {
+        alert("register successfully")
+          Toastify({
+              text: "register successful",
+              className: "info",
+          }).showToast();
+
+          $("#register").val("successful");
+  
+          location.reload();
+
+
+  
+      }).catch(async error=>{
+        
+          console.log("error = ",error)
+          
+          const startIndex = error.message.indexOf("{");
+          const endIndex = error.message.lastIndexOf("}");
+  
+          const errorJSON = JSON.parse(error.message.substring(startIndex, endIndex + 1));
+  
+          const errorMessage = errorJSON.message;
+  
+          console.log(errorMessage);
+          alert("error : " + errorMessage + ",Please select again!");
+      })
+
+    }
+  
+    });
+  
+  }) 
+
+  async function queryRegister(address){
+
+    var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
+
+    var claimed = await tpRegisterContract.methods.queryRegister(address).call();
+
+    if(claimed){
+    
+        $("#register").val("Successful");
+    }     
+  }
+
 
    
     </script>
