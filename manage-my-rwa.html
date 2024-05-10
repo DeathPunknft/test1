@@ -1838,7 +1838,7 @@
 
 
 
-        function updateADTimeValue(address){
+                function updateADTimeValue(address){
             
             
             var result = snapshot.find(function(item) {
@@ -1912,7 +1912,7 @@
                
                 const total_pcs = document.querySelectorAll('#total_pcs');
                 total_pcs.forEach(element =>{
-                    element.innerText = element.innerText.replace('0', totalPCS);
+                    element.innerText =  totalPCS + " PCS";
                 })
       
             }  
@@ -1933,32 +1933,26 @@
                     var f_tp = franchiseeResult.tp;
                     
                     const rwaTP = document.getElementById("RWA_TP");
-                    rwaTP.innerText = rwaTP.innerText.replace('0', f_tp);
+                    rwaTP.innerText = f_tp + " TP";
 
                     totalTP = Number(f_tp)
                     
 
-                }else{
-
-                    tp = result.tp;
-                   
-                    
                 }
 
                 totalTP = Number(totalTP) + Number(tp);
+                console.log("totalTP",totalTP.toFixed(1))
 
                 const tpText = document.querySelectorAll('#total_TP');
                 tpText.forEach(element =>{
-                    element.innerText = element.innerText.replace('0', totalTP.toFixed(1));
+                    element.innerText = totalTP.toFixed(1) + " TP";
                 })
 
-                
-                const totalTPText =  document.getElementById("TP");
-                totalTPText.innerText = totalTPText.innerText.replace('0',tp);
-
+                $("#TP").text(tp + " TP")
+              
                 totalTPTwo = totalTP + (totalTP * 0.1);
                 const totalTPTwoText =  document.getElementById("total_tp_two");
-                totalTPTwoText.innerText = totalTPTwoText.innerText.replace('0',totalTPTwo.toFixed(1));
+                totalTPTwoText.innerText = totalTPTwo.toFixed(1) + " TP";
         }  
         
         
