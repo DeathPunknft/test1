@@ -540,6 +540,7 @@
                                     <div class="w-form">
                                         <form id="email-form" name="email-form" data-name="Email Form" method="get" data-wf-page-id="64c10870834e365b75c97b45" data-wf-element-id="c796d9f8-ccd3-0034-bfb4-65e970ec8d6d">
                                             <label class="w-checkbox">
+                                                <span id="checkbox-error" style="display: none; color: #df0;">Please check this box.</span>
                                                 <input type="checkbox" name="checkbox" id="checkbox" data-name="Checkbox" required="" class="w-checkbox-input"/>
                                                 <span class="w-form-label" for="checkbox">
                                                     I agree to use my one month Advertising Time rights to operate the Digital Billboard and get Time Points in return.<br/>
@@ -547,6 +548,7 @@
                                                 </span>
                                             </label>
                                             <label class="w-checkbox">
+                                                <span id="checkbox-2-error" style="display: none; color: #df0;">Please check this box.</span>
                                                 <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" required="" class="w-checkbox-input"/>
                                                 <span class="w-form-label" for="checkbox-2">I agree to trade my RWA Advertising Time rights ONLY but not the RWA  itself. </span>
                                             </label>
@@ -829,15 +831,15 @@
         
             var net_data_map = {
                 testnet: {
-                    chainId: "0x13881",
-                    chainName: "Polygon Mumbai",
+                    chainId: "0x13882",
+                    chainName: "Polygon Amoy",
                     nativeCurrency: {
                         name: "MATIC",
                         symbol: "MATIC",
                         decimals: 18
                     },
-                    rpcUrls: ["https://endpoints.omniatech.io/v1/matic/mumbai/public"],
-                    blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
+                    rpcUrls: ["https://rpc-amoy.polygon.technology"],
+                    blockExplorerUrls: ["https://amoy.polygonscan.com/"]
                 },
                 main: {
                     chainId: "0x89",
@@ -931,8 +933,9 @@
             var wallet = new Proxy({ address: walletPlaceholderText }, {
                 set(obj, prop, value) {
                     if (prop === "address") {
+
                         if (value && value != walletPlaceholderText) {
-        
+                            
                            $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
                            $("#connect").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
 
@@ -941,12 +944,15 @@
                            
                            //check
                            var result = getAddressIsFranchisee(value);
-                           console.log(result)
+
+                           
                            if(result){
                               
                               document.getElementById("reward_tp").style.display = "inline-block";
                               document.getElementById("RWA_TP").style.display = "inline-block";
                            }
+
+                           queryRegister(value);
                            
                            
         
@@ -1056,7 +1062,8 @@
                 wallet.address = accounts[0];
                 wallet.chainId = provider.chainId;
                 window.localStorage.setItem("selectedWallet", "INJECTED")
-                
+
+                queryRegister(wallet.address);
                 //check
                 var result = getAddressIsFranchisee(wallet.address);
                 
@@ -1170,7 +1177,8 @@
 
                             
                             var state = checkSnapshot(data[i].tokenId);
-                            
+                            console.log("data[i].tokenId",  data[i].tokenId);
+                            console.log("state",  state);
                             var countdownElement1 = document.createElement('span');
                             countdownElement1.style.display = 'block';
                             countdownElement1.style.marginTop = '10px';
@@ -1190,7 +1198,7 @@
                             
                             countdownElement1.textContent = 'TP Calculating';
 
-                          const today = new Date();
+                            const today = new Date();
                             const dayOfMonth = today.getDate();
                            
                             if (dayOfMonth === 1) {
@@ -1201,7 +1209,7 @@
 
                                 nextMonthNumber ++;
                                  
-                               /*       (function(countdownTime, countdownIndex) {
+                                 /*   (function(countdownTime, countdownIndex) {
                                         
                                         function updateCountdown() {
 
@@ -1225,9 +1233,9 @@
 
                                         
                                         setInterval(updateCountdown, 1000);
-                                    })(timestamp, i); */
+                                    })(timestamp, i);*/
 
-                                }  
+                                }   
 
                           }
 
@@ -1813,15 +1821,16 @@
         function checkSnapshot(tokenId){
             
             var result = snapshot.find(function(item) {
-
-               
+                console.log("wallet.address",wallet.address);
+                console.log("wallet.address",wallet.address.toLowerCase().toString());
                 return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
-            
+            console.log("result",result)
             if (result) {
-              
-              
-               return result.tokenIds.includes(Number(tokenId));
+                console.log("result",result)
+               
+                return result.tokenIds.includes(Number(tokenId));
+                              
             } else {
                 return false;
             }
@@ -1838,10 +1847,11 @@
             });
 
             
-           
+
+
             if (result) {
 
-                
+                console.log(result)
                 
                 location1 = ["A"];
                 zone = [1,2,3,4,5];
@@ -1904,9 +1914,11 @@
                 total_pcs.forEach(element =>{
                     element.innerText = element.innerText.replace('0', totalPCS);
                 })
-            } 
-
-             var franchiseeResult = getAddressIsFranchisee(address);
+      
+            }  
+            
+            
+            var franchiseeResult = getAddressIsFranchisee(address);
 
                 var tp = Number(0);
 
@@ -1964,6 +1976,7 @@
     }
 
 
+    
     var tpAbi = [
 	{
 		"anonymous": false,
@@ -2212,7 +2225,6 @@ $(function(){
       }).catch(async error=>{
         
           console.log("error = ",error)
-          
       })
 
     }
@@ -2232,7 +2244,6 @@ $(function(){
         $("#register").val("Successful");
     }     
   }
-
 
    
     </script>
