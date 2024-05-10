@@ -2213,15 +2213,6 @@ $(function(){
         
           console.log("error = ",error)
           
-          const startIndex = error.message.indexOf("{");
-          const endIndex = error.message.lastIndexOf("}");
-  
-          const errorJSON = JSON.parse(error.message.substring(startIndex, endIndex + 1));
-  
-          const errorMessage = errorJSON.message;
-  
-          console.log(errorMessage);
-          alert("error : " + errorMessage + ",Please select again!");
       })
 
     }
