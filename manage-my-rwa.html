@@ -1848,9 +1848,9 @@
 
                 var filterData = [];
                
-                result.tokenIds = JSON.parse(result.tokenIds);
+                var tokenIds = JSON.parse(result.tokenIds);
 
-                result.tokenIds.forEach(function(tokenId) {
+                tokenIds.forEach(function(tokenId) {
 
                 var data = metaData.find(function(item) {
                     return item.token_id.toString() === tokenId.toString();
