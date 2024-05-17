@@ -3341,5 +3341,47 @@ var franchisee =[
     },
     {
       "address": "0xd9447ef6732b32706be42e05926737fe0b664642"
+    },
+      
+      
+      
+      
+      
+      {
+      "address": "0xc8ea1c8ec28c503f34fb5c11de302d6153f90d30"
+    },
+    {
+      "address": "0xbB24B5A4a30E82B0a0d773B68F4c29177BD589fC"
+    },
+    {
+      "address": "0xea376cd34bb67a4a8667cee1f8f36e834977ddf9"
+    },
+    {
+      "address": "0x3ce91f27325e31764fa764ade1a107d08bfb2e5c"
+    },
+    {
+      "address": "0x285611c2f9952f42617b1e88345fd6e0b16c2708"
+    },
+    {
+      "address": "0xfefd9e4939b1f4c6b66d60e7b4292cf042e6147e"
+    },
+    {
+      "address": "0x8f7dafe4ce278939f392ceb2d18c1cc838258096"
+    },
+    {
+      "address": "0x1f693d78d8048ce353765455e1cf8f45740c8a7f"
+    },
+    {
+      "address": "0xc7aadedaa7cadc03e4858f522a3d2da8123ec9d9"
+    },
+    {
+      "address": "0xbac981ed1d2e11c975ba6c40da6f018869701f66"
+    },
+    {
+      "address": "0x3A801814774c34b988C78f29674CAE3a288AF2Fb"
+    },
+    {
+      "address": "0xd53e34dc7c42847b9e877509f02b9ae07c688eec"
     }
+      
   ];
