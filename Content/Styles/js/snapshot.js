@@ -3382,6 +3382,16 @@ var franchisee =[
     },
     {
       "address": "0xd53e34dc7c42847b9e877509f02b9ae07c688eec"
+    },
+
+
+
+    
+    {
+      "address": "0x70B12d02166e00A0FA33567DfeEB2e76618257f5"
+    },
+    {
+      "address": "0x0Db35C97adE95A573B0B436994C76bFcbd1DA897"
     }
       
   ];
