@@ -2235,7 +2235,10 @@ $(function(){
     var claimed = await tpRegisterContract.methods.queryRegister(address).call();
 
     if(claimed){
-    
+    	$('#w-form-label-box1').hide();
+        $('#w-form-label-box2').hide();
+        $('#checkbox').hide();
+        $('#checkbox-2').hide();
         $("#register").val("Successful");
     }     
   }
