@@ -952,13 +952,13 @@
                               document.getElementById("RWA_TP").style.display = "inline-block";
                            }
 
-                           var isRegister = queryRegister(wallet.address);
+                           var isRegister = queryRegister(value);
 
 			  console.log("isRegister :" + isRegister)
 		
 			  if(!isRegister){
 		
-			  updateADTimeValue(wallet.address);
+			  updateADTimeValue(value);
 		
 			 }
                            
