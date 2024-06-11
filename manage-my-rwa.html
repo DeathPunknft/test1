@@ -952,15 +952,7 @@
                               document.getElementById("RWA_TP").style.display = "inline-block";
                            }
 
-                           var isRegister = queryRegister(value);
-
-			  console.log("isRegister :" + isRegister)
-		
-			  if(!isRegister){
-		
-			  updateADTimeValue(value);
-		
-			 }
+                          await asyncOperation(value);
                            
                            
         
@@ -1080,15 +1072,7 @@
                     document.getElementById("RWA_TP").style.display = "inline-block";
                 }
 
-		var isRegister = await queryRegister(wallet.address);
-
-                console.log("isRegister1 :" + isRegister)
-
-                if(!isRegister){
-
-                 updateADTimeValue(wallet.address);
-
-                }
+		await asyncOperation(wallet.address);
                 
             }).catch(error => {
                 console.log(error);
@@ -2260,6 +2244,15 @@ $(function(){
         $("#register").val("Successful");
     }     
   }
+
+    async function asyncOperation(value) {
+    
+    var isRegister = await queryRegister(value);
+    console.log("isRegister :" + isRegister);
+    if (!isRegister) {
+        updateADTimeValue(value);
+    }
+}
 
    
     </script>
