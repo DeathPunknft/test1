@@ -939,7 +939,7 @@
                            $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
                            $("#connect").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
 
-                           updateADTimeValue(value);
+                           
                            
                            
                            //check
@@ -952,7 +952,15 @@
                               document.getElementById("RWA_TP").style.display = "inline-block";
                            }
 
-                           queryRegister(value);
+                           var isRegister = queryRegister(wallet.address);
+
+			  console.log("isRegister :" + isRegister)
+		
+			  if(!isRegister){
+		
+			  updateADTimeValue(wallet.address);
+		
+			 }
                            
                            
         
@@ -1063,13 +1071,23 @@
                 wallet.chainId = provider.chainId;
                 window.localStorage.setItem("selectedWallet", "INJECTED")
 
-                queryRegister(wallet.address);
+               
                 //check
                 var result = getAddressIsFranchisee(wallet.address);
                 
                 if(result){
                     document.getElementById("reward_tp").style.display = "inline-block";
                     document.getElementById("RWA_TP").style.display = "inline-block";
+                }
+
+		var isRegister = await queryRegister(wallet.address);
+
+                console.log("isRegister :" + isRegister)
+
+                if(!isRegister){
+
+                 updateADTimeValue(wallet.address);
+
                 }
                 
             }).catch(error => {
