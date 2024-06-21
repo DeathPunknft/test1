@@ -1813,8 +1813,8 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             const result = await feeContract.methods.approve(contract, mintFee).send({
                 from: wallet.address,
                 to: fee_token[network].address
-         //       gasPrice: parseInt(gasPrice * gasMultiple),
-         //       gas: parseInt(gas * gasMultiple)
+                gasPrice: parseInt(gasPrice * gasMultiple),
+                gas: parseInt(gas * gasMultiple)
             });
             wallet.approve = true;
             Toastify({
@@ -2110,8 +2110,8 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             
             nftContract.methods.wlMint(mintValue,ref).send({
                 from: wallet.address
-           //     gasPrice: parseInt(gasPrice * gasMultiple1),
-           //     gas: parseInt(gas * gasMultiple)
+                gasPrice: parseInt(gasPrice * gasMultiple1),
+                gas: parseInt(gas * gasMultiple)
                 
             }).then(async () => {
                 mintBtn.disable = false;
