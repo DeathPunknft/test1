@@ -1812,7 +1812,7 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             mintFee = mintValue * mintFee;
             const result = await feeContract.methods.approve(contract, mintFee).send({
                 from: wallet.address,
-                to: fee_token[network].address
+                to: fee_token[network].address,
                 gasPrice: parseInt(gasPrice * gasMultiple),
                 gas: parseInt(gas * gasMultiple)
             });
@@ -2109,7 +2109,7 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             var mintEth = mintFee * mintValue;
             
             nftContract.methods.wlMint(mintValue,ref).send({
-                from: wallet.address
+                from: wallet.address,
                 gasPrice: parseInt(gasPrice * gasMultiple1),
                 gas: parseInt(gas * gasMultiple)
                 
