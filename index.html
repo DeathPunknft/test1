@@ -1682,8 +1682,8 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
     var mintFee = 260 * (10 ** fee_token[network].decimals); // mint fee
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
-    var gasMultiple = 1.5;
-    var gasMultiple1 = 1.3;
+    var gasMultiple = 1.1;//1.5;
+    var gasMultiple1 = 1.1;//1.3;
 
     
     var isConnect = window.localStorage.getItem("selectedWallet");
