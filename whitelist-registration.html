@@ -441,7 +441,7 @@ var network = "main"; // network type
         try {
           console.log("wallet.address", wallet.address);
 
-          var tokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet.address,5382,14380).call();
+          var tokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet.address,5382,15000).call();
           var data = [];
 
           for (var i = 0; i < tokenIds.length; i++) {
