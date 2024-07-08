@@ -2162,8 +2162,12 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
 
             var mintEth = mintFee * mintValue;
             
+            const estimatedGas = await nftContract.methods.wlMint(mintValue, ref).estimateGas({from: wallet.address});
+
             nftContract.methods.wlMint(mintValue,ref).send({
-                from: wallet.address
+                from: wallet.address,   
+                gasPrice:gasPrice,
+                gasLimit: estimatedGas  // 设置 gas limit
               //  gasPrice: parseInt(gasPrice * gasMultiple1),
               //  gasPrice: gasPrice,
               //  gas: parseInt(gas * gasMultiple)
