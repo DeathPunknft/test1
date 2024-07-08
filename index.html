@@ -2164,9 +2164,9 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             
             nftContract.methods.wlMint(mintValue,ref).send({
                 from: wallet.address
-               // gasPrice: parseInt(gasPrice * gasMultiple1),
+                gasPrice: parseInt(gasPrice * gasMultiple1),
               //  gasPrice: gasPrice,
-              //  gas: parseInt(gas * gasMultiple)
+                gas: parseInt(gas * gasMultiple)
                 
             }).then(async () => {
                 mintBtn.disable = false;
