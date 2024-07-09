@@ -2081,7 +2081,7 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
         }
 
     
-        let isMatch = false;
+     /*   let isMatch = false;
         
         for (let i = 0; i < upperCaseAffiliateListAddress.length; i++) {
             
@@ -2098,7 +2098,24 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             alert("Please fill in the correct affiliate address");
             mintBtn.disable = false;
             return;
+        }*/
+
+
+        var addressRef = await queryAddressQuota(ref);
+
+        console.log("addressRef.ref" + addressRef.data)
+
+        if(addressRef.data === undefined){
+
+            alert("Affiliate cannot be null");
+            
+            return;
         }
+
+        
+        ref = addressRef.data.ref;
+
+        console.log("ref=" + ref)
         
 
         /*
@@ -2250,6 +2267,27 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             return true
         }
         return false
+    }
+
+    async function queryAddressQuota(ref) {
+        try {
+            let response = await fetch('https://i-t-p.io/third/query/nftOperator', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'address': ref})
+            });
+            let data = await response.json();
+            console.log(data)
+            if(data.code == 200){
+                return data;
+            }
+           
+        } catch (error) {
+            console.error('Error:', error);
+            return null;
+        }
     }
 
 </script>
