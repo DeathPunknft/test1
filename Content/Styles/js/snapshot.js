@@ -3567,6 +3567,9 @@ var franchisee =[
       "tokenIds": null,
       "tp": "0.90"
     },
+
+
+      /*
     {
       "address": "0xdcb7c1744cf4257c352ab3f8d97a3bd89a8d318a",
       "tokenIds": null,
@@ -3776,7 +3779,7 @@ var franchisee =[
       "address": "0xC315062bD700F03505f8147fa97c9ce45D9feFC8",
       "tokenIds": null,
       "tp": "0.00"
-    },
+    },*/
     {
       "address": "0xcc747c16d41ce20b38384bd40ad353b6314f28c8",
       "tokenIds": null,
