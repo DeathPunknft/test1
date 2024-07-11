@@ -743,10 +743,6 @@ var franchisee =[
   var  snapshot =
 
   [
-
-    
-
-
     {
       "address": "0x447072a300f29af23093bf970e2511f9da444184",
       "tokenIds": "[4524]",
@@ -760,7 +756,7 @@ var franchisee =[
     {
       "address": "0x149198bda85142911c87d3b85674dcf7b16458b0",
       "tokenIds": "[2235, 2239, 2240, 2242]",
-      "tp": "3.60"
+      "tp": "1.20"
     },
     {
       "address": "0x46ee7e7873544b0eb07ad92e3379d0790c2e0a3b",
@@ -795,7 +791,7 @@ var franchisee =[
     {
       "address": "0x31dcb6c4376bf4977f5a96e4cc7337590464e755",
       "tokenIds": "[1020, 1029, 1035, 1039]",
-      "tp": "6.80"
+      "tp": "3.40"
     },
     {
       "address": "0x8f0bc6f921cf7c6b4f060e1f60393577e0f27693",
@@ -815,12 +811,12 @@ var franchisee =[
     {
       "address": "0x8765b8221282d49ad345c3882c6af23eb3d9ee0e",
       "tokenIds": "[2528, 4200, 5246, 5247, 5248, 6402, 6404, 6406, 6470, 6596]",
-      "tp": "6.90"
+      "tp": "6.30"
     },
     {
       "address": "0xe81024b25403844cb3ade9f05bda0384569e1428",
       "tokenIds": "[3739]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x94fc0a8583af2fa5650751e73ba2db2cdbdcf6e2",
@@ -855,7 +851,7 @@ var franchisee =[
     {
       "address": "0x0eb653c3bda5b383077977e6e557e0817a9b73ec",
       "tokenIds": "[2332, 2715]",
-      "tp": "2.60"
+      "tp": "1.30"
     },
     {
       "address": "0xac55aafc99078843e05ff7b345f9a013ef96cddc",
@@ -870,7 +866,7 @@ var franchisee =[
     {
       "address": "0x09db8ff9c10f0231998d4222a4b8e6e71b7609dd",
       "tokenIds": "[1451, 4169, 4915]",
-      "tp": "2.70"
+      "tp": "1.50"
     },
     {
       "address": "0x2b2a0889a6c5ce710394d58cb1241e0c53bd177a",
@@ -940,12 +936,12 @@ var franchisee =[
     {
       "address": "0x47b66d0b511c0c77fb6ffafba4ca4e31123e149f",
       "tokenIds": "[865]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x8299f913c02cb7cc87cf0455c3487a5b93e964ea",
       "tokenIds": "[566, 2833, 2834, 4115]",
-      "tp": "3.30"
+      "tp": "1.50"
     },
     {
       "address": "0x60e6344bc3a94315d1137f44845eb3ea61d30d56",
@@ -970,7 +966,7 @@ var franchisee =[
     {
       "address": "0xccf7092828f0fe9041d6f2f72049fb5383410615",
       "tokenIds": "[2547, 2548, 2550, 2552]",
-      "tp": "3.60"
+      "tp": "1.80"
     },
     {
       "address": "0xa4a849a4308299ef1a119d86ae08c3b8b6cc0c2d",
@@ -985,7 +981,7 @@ var franchisee =[
     {
       "address": "0xd4fa16fbc3be4a165597da45a692504cefe5f5b1",
       "tokenIds": "[2405]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0x86bc1626d3eb216526cf9e51a48e35ddcac96e35",
@@ -1000,7 +996,7 @@ var franchisee =[
     {
       "address": "0x8aee93f8fd5bdd2398b2cb83ed13d507afe28377",
       "tokenIds": "[1790]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xc2d634e60e655a88d42882b1c555bbf2388bca5d",
@@ -1020,7 +1016,7 @@ var franchisee =[
     {
       "address": "0xbb4445e9baed87ad6890f81f2a6a0394b417a3c7",
       "tokenIds": "[2658]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x797bf7b66a5d73bdd082af828e80a19c073663b2",
@@ -1070,12 +1066,12 @@ var franchisee =[
     {
       "address": "0x24d6faef770cc03fa3cab140129fd8fd8f6a2124",
       "tokenIds": "[1628]",
-      "tp": "3.00"
+      "tp": "1.00"
     },
     {
       "address": "0xe51ebb45f1e50b9e37271e725e6457e54bb42dfa",
       "tokenIds": "[1922, 1923, 1926, 2289]",
-      "tp": "4.40"
+      "tp": "2.20"
     },
     {
       "address": "0x762cd9fa599276a86128599766d49b75a0b54813",
@@ -1115,7 +1111,7 @@ var franchisee =[
     {
       "address": "0x977ab88f663ff85fa38a50ecb9927c1d1d5576af",
       "tokenIds": "[3679, 3682]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0xb25319b258a1e5d1d4fa7c654deec719a6800c94",
@@ -1230,7 +1226,7 @@ var franchisee =[
     {
       "address": "0x026180ec45b17bd85754aa3e1d98750c9038cc75",
       "tokenIds": "[2509]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x7fc8573a9ab317fcb0c5d87be94b6cfb678ff11e",
@@ -1245,7 +1241,7 @@ var franchisee =[
     {
       "address": "0x0f35c76f1f6e7ffa82ff5b3251c74be66089fe19",
       "tokenIds": "[1047, 1050, 1053, 1055, 1059, 1060, 1062, 1064, 1066]",
-      "tp": "11.00"
+      "tp": "5.50"
     },
     {
       "address": "0x1185c3f27773032a7313518a8d2f6800c1464a7f",
@@ -1290,7 +1286,7 @@ var franchisee =[
     {
       "address": "0xe164fc5130870f33279e66c1a6b2b8bbffc8a6b2",
       "tokenIds": "[1897]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0x23e8cb85160876e19c1fe3a521668039b4c7829d",
@@ -1330,7 +1326,7 @@ var franchisee =[
     {
       "address": "0x3aed9dc658a7a09080b6cdd74f6d54a1215bb12c",
       "tokenIds": "[608, 4633, 4702, 7450]",
-      "tp": "3.90"
+      "tp": "2.90"
     },
     {
       "address": "0x6f62405343e48cef7fed23bbe8e3169f91b73ceb",
@@ -1345,7 +1341,7 @@ var franchisee =[
     {
       "address": "0x0afbd3c0608d86ddd150818b322cb490b0abf852",
       "tokenIds": "[1361]",
-      "tp": "1.80"
+      "tp": "0.60"
     },
     {
       "address": "0xd9d3b75d958c8ce2efd613532ff655de29e2cb7a",
@@ -1375,12 +1371,12 @@ var franchisee =[
     {
       "address": "0xddbc022f62be115b8ff26da581d890d584fa8734",
       "tokenIds": "[1567]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x32242496f16d8b6fd8ab9e398ec5fa49a17204c7",
       "tokenIds": "[1397, 1632, 1634, 2020, 2021, 2023, 2053]",
-      "tp": "8.80"
+      "tp": "4.40"
     },
     {
       "address": "0x462660cc681dbeef056a3fe2808f0833d2d47f87",
@@ -1395,7 +1391,7 @@ var franchisee =[
     {
       "address": "0x45884f9148a8bc218d3fd3bfb1f5f64d38b5ddd4",
       "tokenIds": "[1093]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xa398b30bad7fee2ffef7296e19afb532423fe00c",
@@ -1420,7 +1416,7 @@ var franchisee =[
     {
       "address": "0xe82a4acfad6d474ae316c916bb5ee4659810b5b5",
       "tokenIds": "[33, 980, 1677]",
-      "tp": "3.30"
+      "tp": "1.50"
     },
     {
       "address": "0xfb11f83f44ad142344b86737fc753375924a70bd",
@@ -1435,12 +1431,12 @@ var franchisee =[
     {
       "address": "0x6dea827f72cb80daafc233a35e8e82670bb3fb53",
       "tokenIds": "[1250]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xd8658dc1a78e6ef61696d51216739e12679923dd",
       "tokenIds": "[857]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x8806df43019e5743c51e488806956a5a558942d4",
@@ -1505,12 +1501,12 @@ var franchisee =[
     {
       "address": "0x4324afe0498653462c89b3d32b9a828c976bc831",
       "tokenIds": "[3589]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0xcbaa8c46b7be085d6106d437dbfb60d8aeff348a",
       "tokenIds": "[1763, 2544, 2561, 5684, 5686, 5694, 5695, 5696, 5697, 5698, 5699, 6838, 6841, 6845, 7257, 7259, 7263, 7264, 7265, 7266, 7267, 7270, 7277, 7414, 7416, 7418, 7428, 8352, 9163, 9165, 9167, 9196, 9198, 9199]",
-      "tp": "20.10"
+      "tp": "18.60"
     },
     {
       "address": "0xd69afe7a4d0875acccb2f6e406553c509b2110f3",
@@ -1525,7 +1521,7 @@ var franchisee =[
     {
       "address": "0x99a091871414c6daccf226fbeed492683825e79d",
       "tokenIds": "[3267]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x9932bb48505b0d32235fa148d2df49258c70a79f",
@@ -1555,7 +1551,7 @@ var franchisee =[
     {
       "address": "0x0760c88135b5083554e0a2aa6c30bc6baf73477a",
       "tokenIds": "[3938, 3942, 3946, 3949, 3953, 3954, 3961, 3962]",
-      "tp": "9.40"
+      "tp": "4.70"
     },
     {
       "address": "0xd1e6809eeda42ad2fefdf09d9af0f3a41d6e6259",
@@ -1580,7 +1576,7 @@ var franchisee =[
     {
       "address": "0x718776fec726c8d8d26a774275c4181ddc900cc6",
       "tokenIds": "[1614, 1615]",
-      "tp": "2.60"
+      "tp": "1.30"
     },
     {
       "address": "0x6b1f95bbfd5c899232b1b3e0865f276f980183e6",
@@ -1655,7 +1651,7 @@ var franchisee =[
     {
       "address": "0x92e9fe4d65d8e2483f53c08390be68dcac12de52",
       "tokenIds": "[1905, 1906, 1907]",
-      "tp": "5.70"
+      "tp": "1.90"
     },
     {
       "address": "0x4fd43b9059d440bf33cf11bf36efc6d672101c89",
@@ -1680,7 +1676,7 @@ var franchisee =[
     {
       "address": "0x0db35c97ade95a573b0b436994c76bfcbd1da897",
       "tokenIds": "[4181, 4481, 4482, 4492, 4493, 4495, 4498, 7052, 7054, 7060, 7069, 7076, 7856, 7858, 7859, 7860, 7864, 7865, 7867, 7868, 7869, 7870, 7881, 8193, 8197, 8198, 8199, 8201, 8205, 8207, 8209, 8211, 8215, 8221, 8225, 8230, 8282, 8647, 8649, 8651, 8652, 8654, 8657, 8659, 8660, 8661, 8667, 8669, 8671, 8672, 8680, 8682, 8688, 8689, 8690, 8691, 9313, 9314, 9317]",
-      "tp": "32.80"
+      "tp": "31.70"
     },
     {
       "address": "0xce964f7d056f0d3d5846e41e5f8a0bfd158a0612",
@@ -1715,12 +1711,12 @@ var franchisee =[
     {
       "address": "0x7793a67ebc88d4086c8e418092a7f242fce29f0f",
       "tokenIds": "[395, 396, 2356]",
-      "tp": "3.80"
+      "tp": "1.90"
     },
     {
       "address": "0x64c9c05e63365fcc0bc11495db0e8379a6881cde",
       "tokenIds": "[628]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xf5d69824b255b14bf8742a75599f08191f085532",
@@ -1730,7 +1726,7 @@ var franchisee =[
     {
       "address": "0x24ea59b4f42a6b52228221338c922b0628c80610",
       "tokenIds": "[3926, 3927, 3929]",
-      "tp": "4.40"
+      "tp": "2.20"
     },
     {
       "address": "0x4570b7da4de1de4428d1e207a632463460605439",
@@ -1750,7 +1746,7 @@ var franchisee =[
     {
       "address": "0x08380400696d1d0e432ee4c173c6dfa70cead0ed",
       "tokenIds": "[1830, 2639, 4132, 4819, 7406, 7407, 8785, 8792, 9003]",
-      "tp": "40.60"
+      "tp": "7.00"
     },
     {
       "address": "0xfa28cf2527d33d782e016c30e7f281c96ca5c48a",
@@ -1780,7 +1776,7 @@ var franchisee =[
     {
       "address": "0xc7bcef5d661b01997908da5c1d12501e8b301cc5",
       "tokenIds": "[1394]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xd50e0432f441b5a11e9dfc03c3406f455aaba335",
@@ -1790,7 +1786,7 @@ var franchisee =[
     {
       "address": "0x96a69165d2659ccd8fb5d4e7a4abadc416daf434",
       "tokenIds": "[2243, 2308]",
-      "tp": "6.80"
+      "tp": "1.60"
     },
     {
       "address": "0xc14161c0aeda82ae25f384587ae3ab9743a7dafb",
@@ -1920,7 +1916,7 @@ var franchisee =[
     {
       "address": "0x7e01407574c7bd40f1d1d57758c72b80a6c19fe3",
       "tokenIds": "[569]",
-      "tp": "3.00"
+      "tp": "1.00"
     },
     {
       "address": "0xc2de967536829beb0214562c808a4010938a5537",
@@ -1970,7 +1966,7 @@ var franchisee =[
     {
       "address": "0xba05bead2d0f65e9ab1a87c3157e407ef50fad27",
       "tokenIds": "[3138, 4134, 4136, 4138, 4141, 6112, 6117, 6120, 6121]",
-      "tp": "6.70"
+      "tp": "5.70"
     },
     {
       "address": "0x5900d6db337f10924a8fdf5df6f5ec8c409b29e4",
@@ -1980,7 +1976,7 @@ var franchisee =[
     {
       "address": "0x28735c8043cc7778fa810cba0153cd061f2c83d9",
       "tokenIds": "[3140]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0x35713f9ff237df65843ef088d4e87e808aadeae9",
@@ -2040,7 +2036,7 @@ var franchisee =[
     {
       "address": "0x5a9330841b716f43b5aa6e11bdf4df9e85be2b62",
       "tokenIds": "[1437]",
-      "tp": "1.80"
+      "tp": "0.60"
     },
     {
       "address": "0x0d05263c94e681702a618c4b2f2e16d9f62ae3ce",
@@ -2060,7 +2056,7 @@ var franchisee =[
     {
       "address": "0x4233f1cf3cd50318938cf6344fe008b01b3d03c9",
       "tokenIds": "[2030, 2038, 2039, 2353, 2391, 4814, 5511, 6631]",
-      "tp": "6.30"
+      "tp": "2.70"
     },
     {
       "address": "0xccc7d1987cb6301ed15fab6375858833c5bdf1d9",
@@ -2100,12 +2096,12 @@ var franchisee =[
     {
       "address": "0x588a3edfcf53e42160ae71c6525f3bf8fbaf6ffb",
       "tokenIds": "[1557, 1559, 1561, 1562]",
-      "tp": "2.40"
+      "tp": "1.20"
     },
     {
       "address": "0x3a6ad0756121c96a29e9b1b2aeaac36ca4bfba7a",
       "tokenIds": "[1911, 1913, 1914, 1916, 1917]",
-      "tp": "7.50"
+      "tp": "2.50"
     },
     {
       "address": "0xc8ea3c041c31b771acfff91516e1b00a19fd873c",
@@ -2125,7 +2121,7 @@ var franchisee =[
     {
       "address": "0x3bcc913a3b6e3091ec6ad9f5a649172984ee174b",
       "tokenIds": "[3151]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x6976fab0241b1543ca1d82d20085b55657eb7cda",
@@ -2150,7 +2146,7 @@ var franchisee =[
     {
       "address": "0xad870470917ea06c0fad92c7a71c50b57d7aa136",
       "tokenIds": "[2012, 2014, 2017]",
-      "tp": "3.00"
+      "tp": "1.50"
     },
     {
       "address": "0xcdb8b9df65a316027c93c8957dc119d91522e6b4",
@@ -2180,7 +2176,7 @@ var franchisee =[
     {
       "address": "0x0f4f02dd00d5ba293145742e9665b662bf3b9edc",
       "tokenIds": "[3891]",
-      "tp": "1.80"
+      "tp": "0.60"
     },
     {
       "address": "0x81b0ed272a2d59cd9db88865ee20ecb1d1cba944",
@@ -2205,7 +2201,7 @@ var franchisee =[
     {
       "address": "0xf8b0d85e8e0d1efd5f0e15dffeca0f9b99098f5e",
       "tokenIds": "[544]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0xeb538dc1999c80614fc396b607c1017088fb37ee",
@@ -2235,12 +2231,12 @@ var franchisee =[
     {
       "address": "0x8251d199427205bcf67a4e8dc8ac4dc1e9a5521b",
       "tokenIds": "[912]",
-      "tp": "2.00"
+      "tp": "1.00"
     },
     {
       "address": "0x71f52cb027e1c24729f743e512e1b0ce4c250f6d",
       "tokenIds": "[1643, 1654, 2506, 5382]",
-      "tp": "2.70"
+      "tp": "1.50"
     },
     {
       "address": "0xe37f2628521ccf625f467edaa20409130ee560de",
@@ -2250,7 +2246,7 @@ var franchisee =[
     {
       "address": "0xd945f06908136a2681b50deb3e2642052a1e7742",
       "tokenIds": "[2132, 2250, 2251]",
-      "tp": "4.40"
+      "tp": "0.90"
     },
     {
       "address": "0x67f34fb89755de55cb7c4ff4eafe833a59135d21",
@@ -2275,7 +2271,7 @@ var franchisee =[
     {
       "address": "0x2dda8d8c8a0e3df37b6416c575d3846b2837f060",
       "tokenIds": "[2106]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0x1657b92e40cbe4cdc93696ab0fca5b5091ce7b2a",
@@ -2310,12 +2306,12 @@ var franchisee =[
     {
       "address": "0x9f45d41b200206b239cac1109d66abe28a0f97df",
       "tokenIds": "[2065, 2066]",
-      "tp": "3.90"
+      "tp": "1.30"
     },
     {
       "address": "0x7e4b81428395723cd080ec65ae4becbd0deed944",
       "tokenIds": "[1988]",
-      "tp": "15.00"
+      "tp": "3.00"
     },
     {
       "address": "0x4335fecb76aec8812dbcd3cc7a33474e0ddc26f8",
@@ -2335,7 +2331,7 @@ var franchisee =[
     {
       "address": "0x9a119cfdbb157056c15b3122bf279fe153ca6063",
       "tokenIds": "[58]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xc6d6031dd665c257fe6d81318b1877a13949ae54",
@@ -2370,12 +2366,12 @@ var franchisee =[
     {
       "address": "0xe618a9b707d9a0412bbaa21cc2a032154a718f81",
       "tokenIds": "[778, 779]",
-      "tp": "4.00"
+      "tp": "2.00"
     },
     {
       "address": "0x134a347382f89cbb5ee778d5b77175326428935e",
       "tokenIds": "[1090]",
-      "tp": "1.20"
+      "tp": "0.30"
     },
     {
       "address": "0xb4fcaef545a2378dd1050d4e0e0f57e1ff2fb844",
@@ -2410,7 +2406,7 @@ var franchisee =[
     {
       "address": "0x189079e855dc953d7c52ce13d83e3f670b2e77e9",
       "tokenIds": "[1222, 1223]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0xaebf69993bd8dfe5fdcac9c5a3d4f55ef01e3d0a",
@@ -2435,7 +2431,7 @@ var franchisee =[
     {
       "address": "0xf511cd6eecc9d18f00b423b1d1f40a0afc29d01c",
       "tokenIds": "[1452]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0xbb8170e3480307d8e803b7b1a5c91dbac7736250",
@@ -2450,7 +2446,7 @@ var franchisee =[
     {
       "address": "0xecd61622c60ecf44bd26f049d1dadba226963772",
       "tokenIds": "[2313, 2314]",
-      "tp": "3.20"
+      "tp": "1.60"
     },
     {
       "address": "0xc4dc338df73012e9383c340db8950e69096bcca4",
@@ -2465,7 +2461,7 @@ var franchisee =[
     {
       "address": "0x083b148bc3a96adb440f30935b9aa3405b801ba6",
       "tokenIds": "[1648]",
-      "tp": "2.00"
+      "tp": "1.00"
     },
     {
       "address": "0x82e0001de55a34d1beb42bc89bdeb8d41bd119c9",
@@ -2495,12 +2491,12 @@ var franchisee =[
     {
       "address": "0xfceb82493c50c71dd5acd9058181c30d092374fe",
       "tokenIds": "[14, 39, 738, 8815]",
-      "tp": "3.30"
+      "tp": "1.80"
     },
     {
       "address": "0x3cddd199566eaed01501587fa530564f30261a84",
       "tokenIds": "[1861, 1864, 1867, 2316, 2318, 2322, 2323]",
-      "tp": "10.60"
+      "tp": "5.30"
     },
     {
       "address": "0xf7c5a0edf40a1d95b6b01f925a5beb8f9d5652e6",
@@ -2510,7 +2506,7 @@ var franchisee =[
     {
       "address": "0x8963650c2f84fdec4294fe9a95b05bec78f32db7",
       "tokenIds": "[2537]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0xf8a2f608b2d71a76c132fea6d1090c65b1bf67b4",
@@ -2540,7 +2536,7 @@ var franchisee =[
     {
       "address": "0x6a435f1f14bcaf8151292bb450b3e817cb6c71bc",
       "tokenIds": "[1377]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0x5bd29366f84b708ab5302a3d91a6faa3a3355a5d",
@@ -2575,7 +2571,7 @@ var franchisee =[
     {
       "address": "0x87039e570a43d762efef9024b9794d4fcc3f98f4",
       "tokenIds": "[1]",
-      "tp": "28.10"
+      "tp": "1.00"
     },
     {
       "address": "0xe02a1d9ad72602e2ab4c04a6cfb799cdfbdeaf94",
@@ -2600,7 +2596,7 @@ var franchisee =[
     {
       "address": "0x9fd83e05a74449e9bc9242c5b405dfa0719c4818",
       "tokenIds": "[3654]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0x9994aff288bd7daae6b0781a7b92118379ad3d67",
@@ -2620,7 +2616,7 @@ var franchisee =[
     {
       "address": "0xea8f2d70b1b385fc1dca96c54e073f201c822b6f",
       "tokenIds": "[1858]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xf995d82dd085c77a1bed5f1bb11c57430fedd8c2",
@@ -2650,7 +2646,7 @@ var franchisee =[
     {
       "address": "0xdf5bb77f3bba52a03923adc7c4fa30d114775fdc",
       "tokenIds": "[199, 212, 9227]",
-      "tp": "2.40"
+      "tp": "1.50"
     },
     {
       "address": "0x00c4c4018a12af09cea9405062fef3444db12ace",
@@ -2665,7 +2661,7 @@ var franchisee =[
     {
       "address": "0xa82d6279f2bca04e9afc2fb3865d01c176c983d2",
       "tokenIds": "[866, 4009, 4991, 4992, 4995, 4998, 5000, 5004, 5006, 5064, 5067, 5141, 5143, 7633, 7702, 7704, 7969, 7973, 7976, 7978, 7982, 7988, 7989, 7991, 7993, 7994, 8022, 8028, 8030, 8870, 8871]",
-      "tp": "17.30"
+      "tp": "17.00"
     },
     {
       "address": "0x2c8283302eacd5a15ef1960e9bf95dd79730c584",
@@ -2675,7 +2671,7 @@ var franchisee =[
     {
       "address": "0xda063c9aac5a52ae44db8bfe80a7d07b9e98fd97",
       "tokenIds": "[75, 76, 95, 352, 354, 355]",
-      "tp": "5.40"
+      "tp": "2.70"
     },
     {
       "address": "0xcd64dd0bfd7aba1c2faaa33a6d771dc2f1b89270",
@@ -2690,7 +2686,7 @@ var franchisee =[
     {
       "address": "0x15ec0a288c06790194560a340f2431b61e75af12",
       "tokenIds": "[2306]",
-      "tp": "3.00"
+      "tp": "1.50"
     },
     {
       "address": "0x1a0b77d8e316215554c7b1661cd7fbd36d8bf49c",
@@ -2700,7 +2696,7 @@ var franchisee =[
     {
       "address": "0x061bf21c86bfb94b2ef423023fef63edcb7fa492",
       "tokenIds": "[2089]",
-      "tp": "3.00"
+      "tp": "1.00"
     },
     {
       "address": "0xa221566d3d8b68b0b4b7e6e7e412ca18787898ce",
@@ -2750,7 +2746,7 @@ var franchisee =[
     {
       "address": "0x73b3eb15c0d21947ffb1fd1837354956c5ae5cec",
       "tokenIds": "[538]",
-      "tp": "3.00"
+      "tp": "1.00"
     },
     {
       "address": "0x253fdb19cb32b7a1e01d2d9723903d14c4eed7e3",
@@ -2895,7 +2891,7 @@ var franchisee =[
     {
       "address": "0x7083185ddf2dd2c52575b8294cb47b33b40959b0",
       "tokenIds": "[1481, 1484, 1486, 1500, 1512, 1513]",
-      "tp": "6.30"
+      "tp": "2.10"
     },
     {
       "address": "0xbfde8086b8eec591f9c139c92bc278469f1249f9",
@@ -2910,7 +2906,7 @@ var franchisee =[
     {
       "address": "0x54bec7930d3f70ef9fdabb06aed73b2085b9d557",
       "tokenIds": "[631]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x35a36b55c4ea1db4a9c899414eb0ca7abc5aea89",
@@ -2975,7 +2971,7 @@ var franchisee =[
     {
       "address": "0xe8c16c288039f04de10997cd398cb10662182009",
       "tokenIds": "[1159]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0xd78ca1d666bd5a36afa6ab51955137eae922d4c2",
@@ -3035,7 +3031,7 @@ var franchisee =[
     {
       "address": "0x80a6b66c828279f7d8dda7fda7e95962034795aa",
       "tokenIds": "[2265]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0x4f817014807fae13c861cba3440a442b2408525e",
@@ -3075,12 +3071,12 @@ var franchisee =[
     {
       "address": "0x16ddedfd622c07659ada47e2dbfc2a0842346532",
       "tokenIds": "[1440]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x54e593a7bd79b65314bbfd6f576b9e4b44a6207f",
       "tokenIds": "[2167, 2169, 2174, 2179, 2181, 2185, 2186]",
-      "tp": "4.80"
+      "tp": "2.40"
     },
     {
       "address": "0x53b0a81c6d497259622764903f9a4242a3e68bad",
@@ -3090,7 +3086,7 @@ var franchisee =[
     {
       "address": "0xdbccb41dd7b7166461c082f4bce2ac431771adf7",
       "tokenIds": "[849]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xd4a77b4e51d2af442fb704622df3f9b76248ccd3",
@@ -3110,7 +3106,7 @@ var franchisee =[
     {
       "address": "0xdeea26e97979a7a2ccb19f4d41ffa6483912c3eb",
       "tokenIds": "[2044]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x75154ed5cfa921330ce3e8063c39388fcfa9f41a",
@@ -3165,7 +3161,7 @@ var franchisee =[
     {
       "address": "0xdd15dd5c3785d16c238be8b9baccbcc210721f17",
       "tokenIds": "[2406]",
-      "tp": "0.90"
+      "tp": "0.30"
     },
     {
       "address": "0x3968b71d21599caf0526fe3706349c99466884c9",
@@ -3205,7 +3201,7 @@ var franchisee =[
     {
       "address": "0xe3e3ccd862ac5f181037f086fdcfb15a1f72c201",
       "tokenIds": "[3238]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0x9bba64ff032990cc40222b4b543fcd4de3378f00",
@@ -3225,7 +3221,7 @@ var franchisee =[
     {
       "address": "0xc2d67d5e1d053d28f5b0569dc91fd950343470ea",
       "tokenIds": "[2937]",
-      "tp": "0.60"
+      "tp": "0.30"
     },
     {
       "address": "0xadff78a6c59f1160d5921ef1e62d5896c4ac86c5",
@@ -3280,7 +3276,7 @@ var franchisee =[
     {
       "address": "0xa804ce32aacb17011ac1148f9457f443e3c54e44",
       "tokenIds": "[2369]",
-      "tp": "1.80"
+      "tp": "0.60"
     },
     {
       "address": "0xc27458489ce4af3735e7b93954dabe35ecf2405e",
@@ -3385,7 +3381,7 @@ var franchisee =[
     {
       "address": "0x8044d37da3a1ec6d3c8403ffd749f7afe08ca6fa",
       "tokenIds": "[3017, 3021]",
-      "tp": "1.80"
+      "tp": "0.90"
     },
     {
       "address": "0x73d54b711f9bb5386aac7628f17e182415b6bc17",
@@ -3410,17 +3406,17 @@ var franchisee =[
     {
       "address": "0xd43966b862ee0537f88a1b2e4e29505e61da4954",
       "tokenIds": "[3002]",
-      "tp": "1.20"
+      "tp": "0.60"
     },
     {
       "address": "0xfebb25c93bfc974c3c53af862b07567dd6075744",
       "tokenIds": "[2191]",
-      "tp": "7.30"
+      "tp": "0.30"
     },
     {
       "address": "0xfd964ea49bc647e26b9c43167587739b7836a6a8",
       "tokenIds": "[705]",
-      "tp": "3.00"
+      "tp": "1.00"
     },
     {
       "address": "0x594539802227a464ca01fd3b76b44c3ac68effb3",
@@ -3472,314 +3468,6 @@ var franchisee =[
       "tokenIds": "[309, 393, 423, 424, 437, 439, 440, 773, 1075, 1077, 1078, 1080, 1082, 1087, 1224, 1232, 1251, 1253, 1267, 1278, 1295, 1296, 1298, 1301, 3978]",
       "tp": "11.30"
     },
-    {
-      "address": "0xc8ea1c8ec28c503f34fb5c11de302d6153f90d30",
-      "tokenIds": null,
-      "tp": "0.30"
-    },
-    {
-      "address": "0xbB24B5A4a30E82B0a0d773B68F4c29177BD589fC",
-      "tokenIds": null,
-      "tp": "0.60"
-    },
-    {
-      "address": "0x1e4ee25a13b60583545f89e4de8245d631e3f9a8",
-      "tokenIds": null,
-      "tp": "0.90"
-    },
-    {
-      "address": "0x73b26a08d7835e6d74c662ed9cb987ba11be698e",
-      "tokenIds": null,
-      "tp": "0.90"
-    },
-    {
-      "address": "0x945e60f1ebb3aac1aef901b3a692d002ad6ce21f",
-      "tokenIds": null,
-      "tp": "0.90"
-    },
-    {
-      "address": "0x9c11c60e7d17863439ea9892f656b75747e163ae",
-      "tokenIds": null,
-      "tp": "1.20"
-    },
-    {
-      "address": "0xfae716a8a9b2e26afe7b2a75631f64016583e331",
-      "tokenIds": null,
-      "tp": "1.40"
-    },
-    {
-      "address": "0x49f7f9651b02e79c0cd2897af8596b6628bba2e1",
-      "tokenIds": null,
-      "tp": "0.90"
-    },
-    {
-      "address": "0x2f153b769968f21df750af5903ab5d2838955e57",
-      "tokenIds": null,
-      "tp": "0.60"
-    },
-    {
-      "address": "0xedd920e44ef2173483d99e1b674bf285255ce46c",
-      "tokenIds": null,
-      "tp": "2.40"
-    },
-    {
-      "address": "0x51f4bdb96e0a88dde867f870ee22a30f779b4834",
-      "tokenIds": null,
-      "tp": "1.80"
-    },
-    {
-      "address": "0xfefd9e4939b1f4c6b66d60e7b4292cf042e6147e",
-      "tokenIds": null,
-      "tp": "11.50"
-    },
-    {
-      "address": "0x8f7dafe4ce278939f392ceb2d18c1cc838258096",
-      "tokenIds": null,
-      "tp": "14.60"
-    },
-    {
-      "address": "0x1f693d78d8048ce353765455e1cf8f45740c8a7f",
-      "tokenIds": null,
-      "tp": "1.00"
-    },
-    {
-      "address": "0xd6772b00534987f6c9c89e62469504481ba0bd5f",
-      "tokenIds": null,
-      "tp": "1.00"
-    },
-    {
-      "address": "0x97f821c8016536a210b8a7dbaa4cb603e61577fb",
-      "tokenIds": null,
-      "tp": "1.50"
-    },
-    {
-      "address": "0xf510b72ee51d3a27671f9f27c731087f0f0e6f3e",
-      "tokenIds": null,
-      "tp": "0.30"
-    },
-    {
-      "address": "0x0c21c310cfe34ef37d955528ba8a2c7529bf4514",
-      "tokenIds": null,
-      "tp": "2.40"
-    },
-    {
-      "address": "0x25db744ba2e72ba3a9615301aef394c70ed2e0c8",
-      "tokenIds": null,
-      "tp": "0.90"
-    },
-
-
-      /*
-    {
-      "address": "0xdcb7c1744cf4257c352ab3f8d97a3bd89a8d318a",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x56e126ecfa28839a717d59b9d9eab53331e15cd9",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x8f6a3227f74e11a46ecf926528bd906eaa7dfba3",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x808F2634d1679CB4016499B921e6593f754073C2",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x70b12d02166e00a0fa33567dfeeb2e76618257f5",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x01674d06f53d36d63eaf6b7865ffe091d903ff88",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x2cf7bdc1490207145a38aef07bb5d9294cb0612d",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xb361222cbd3c244d1d2b9d8b6cf198401894074b",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xdcbfd840d4963b69acc69852055c8ba5aa73dee2",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xf207758377510337c54600bc7f83db9850e70486",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xf0caEd1F19C1B3d1CeDCE9b2A82e9BA4b77DD5ee",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x00D63214BEA284C0c8c0a00e2B7347c03e72b34B",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x9edc7cf1895679de3cd608fda1d1f418db2b3e25",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xbac981ed1d2e11c975ba6c40da6f018869701f66",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x4Ee441D77dF7d642E1834eF0125297351b2e791d",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x1a0048E0bbb48FaB2ADAC1575D17E1e962D618b8",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x0ec1f830707d0cfe4570863756914164a2c2c274",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x3ce91f27325e31764fa764ade1a107d08bfb2e5c",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xef506a4726a073b3ffa90bc9b5f425200e393caf",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x4300016f3bbcaf6f79fba5851a09f50048773592",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xafBa13EE169a1F0Fd48617bcB497626A3C9F5428",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xFC2105B7Da97Ac9D03ABF548b50CbeFebfc551f4",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x285611c2f9952f42617b1e88345fd6e0b16c2708",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xd53e34dc7c42847b9e877509f02b9ae07c688eec",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xea376cd34bb67a4a8667cee1f8f36e834977ddf9",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x6c399ded192e59d826096498860dfcb17a545951",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x37f1bd45b0CcE77E30B335cCAfe3447DD196B949",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x4DfF4ca3CA03F796f82D66Ff069b0d77614A40aC",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x2d55527a02a0bcdd1b01663481db7726efab3784",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x945c9F417755574a2388A37Bd979c950559Bf30A",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x3a801814774c34b988c78f29674cae3a288af2fb",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x422890b833897BC4567523d31922a0e27829257C",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x67067339BC70b5Bf7d9378FBf716e4792a81B663",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x801840bf173637550be609BF07265Afc4CE82726",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xA8dA7d1473352c5dd7930e4Af24C78c5055C2B03",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xbfd13ad0e134a40eabe0562033e8cf25a5785402",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xc14161c0aeda82ae25f384587ae3ab9743a9dafb",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xf7271e80abfeda1de947c33f8ccc3e8e75888888",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x68e2c2dB475014d63C706b9925A8365dE881de14",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x94f6D1af28f7746adA48a5cB2C2C3cb2F1F30146",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0x4bfBdb78D944CDc90665bB130fc555d49B8d4c0b",
-      "tokenIds": null,
-      "tp": "0.00"
-    },
-    {
-      "address": "0xC315062bD700F03505f8147fa97c9ce45D9feFC8",
-      "tokenIds": null,
-      "tp": "0.00"
-    },*/
     {
       "address": "0xcc747c16d41ce20b38384bd40ad353b6314f28c8",
       "tokenIds": null,
