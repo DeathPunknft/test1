@@ -1754,7 +1754,7 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
 
                    $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
                    
-                   const index = refAddressAffiliateList(value.toUpperCase());
+                 /*  const index = refAddressAffiliateList(value.toUpperCase());
                    
                     if(index != -1){
                         console.log("wallet.address.value = " + value)
@@ -1762,7 +1762,7 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
                         getReferralSize(value);
                         
                         
-                    }
+                    }*/
 
                     getMintPassBalanceOfSize(value);
                   
@@ -1829,14 +1829,16 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
             window.localStorage.setItem("selectedWallet", "INJECTED")
             await allowance(wallet.address);
 
-            const index = refAddressAffiliateList(wallet.address.toUpperCase());
+            await getMintPassBalanceOfSize(wallet.address);
 
-            if(index != -1){
+            const type = await addresIsAffiliateList(wallet.address);
+                   
+            if(type){
+                
                 console.log("wallet.address = " + wallet.address)
                 document.getElementById("tribe").style.display = "inline-block";
                 await getReferralSize(wallet.address);
-                
-                await getMintPassBalanceOfSize(wallet.address);
+
             }
 
         }).catch(error => {
@@ -2250,7 +2252,21 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
     }
 
 
+    async function addresIsAffiliateList(value){
 
+        var data = await queryAddressQuota(value);
+
+        if(data === undefined){
+            
+            return false;
+        }
+
+        if(data.code === 200){
+            return true;
+        }
+
+        return false;
+    }
 
  
 
