@@ -2029,6 +2029,9 @@ snapshotSizeMap.set("0x71F52cB027e1C24729f743E512e1b0cE4C250f6d",0);
     });
     $("#mint").on("click", async ()=> {
 
+        alert("S2 Whitelist Mint has ended,please wait for the public casting function to be opened");
+        return;
+
         //is maximum number of affiliate members
         let nftContract = new web3.eth.Contract(abi,contract);
         
