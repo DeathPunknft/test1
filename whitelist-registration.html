@@ -170,7 +170,7 @@
                     <label for="address">Wallet Address (Polygon) (Mandatory)<br>*Please note that franchisee wallets are not eligible to mint DA-AGE RWA.<br></label>
                     <input type="text" class="w-input" maxlength="256" name="address" data-name="Address" placeholder="" id="address" required="">
 
-                    <button id="submit" class="submit-button w-button">ended</button>
+                    <button id="submit" class="submit-button w-button">submit</button>
 
                 
                   <div class="success-message w-form-done">
@@ -246,7 +246,7 @@ const nextButton = document.querySelector("#Next");
 		"type": "function"
 	}];   
 
-  var rwa_contract = "0x291B1BD67eC8D1E194dB36d92B17823186b54F44"; //0xbf48f62b685790015a24437db3773eabb97ca282  rwa_main
+  var rwa_contract = "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";//S2 "0x291B1BD67eC8D1E194dB36d92B17823186b54F44"; //0xbf48f62b685790015a24437db3773eabb97ca282  rwa_main
 
 
 var network = "main"; // network type
@@ -295,7 +295,7 @@ var network = "main"; // network type
         "stateMutability":"nonpayable",
         "type":"function"
     }];
-    var wlPassContractAddress = "0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8";
+    var wlPassContractAddress = "0xe596B26F8014135F01412f5eaE6582Be1C310Bc0"; //"0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8"; old main
 
     var wlAbi = [{
         "inputs": [
@@ -441,7 +441,7 @@ var network = "main"; // network type
         try {
           console.log("wallet.address", wallet.address);
 
-          var tokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet.address,5382,15000).call();
+          var tokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet.address,5382,20000).call();
           var data = [];
 
           for (var i = 0; i < tokenIds.length; i++) {
@@ -544,9 +544,7 @@ var network = "main"; // network type
 
     $("#submit").on("click", async (event)=> {
 
-     // event.preventDefault();
-      alert("S2 Whitelist registration has ended")
-      return;
+     
 
       var addressInput = document.getElementById("address");
       var addressValue = addressInput.value;
