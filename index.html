@@ -80,7 +80,7 @@
                                 <h5 >TOTAL: </h5><br/>
                                 <h5 id="total">260 USDT</h5>
                                 <div class="fn-label-icon"></div>
-                                <button id="mint" type="button" class="primary-button w-button" data -toggle="popover">mint</button>
+                                <button id="mint" type="button" class="primary-button w-button" data -toggle="popover">Sold Out</button>
                                 <p class="paragraph-7"><br />‍<br /><em class="italic-text">Ownership and Profit-Sharing: By participating in our profit-sharing model, 
                                     it is essential to understand that RWA holders do not acquire ownership rights to the physical assets involved. 
                                     The designated asset owner retains sole ownership of the assets. However, as an RWA holder, 
@@ -2500,8 +2500,8 @@ snapshotSizeMap.set("0xe676A7a524836F3509D1449343432177F398a5c9",0);
     });
     $("#mint").on("click", async ()=> {
 
-   //     alert("S2 Whitelist Mint has ended,please wait for the public casting function to be opened");
-   //     return;
+        alert("S2 is sold out, please wait for S3 to start");
+        return;
 
         //is maximum number of affiliate members
         let nftContract = new web3.eth.Contract(abi,contract);
