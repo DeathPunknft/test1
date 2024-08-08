@@ -1833,8 +1833,16 @@
             if (result) {
                 console.log("result",result)
 		    
-                result.tokenIds = JSON.parse(result.tokenIds);
-                return result.tokenIds.includes(Number(tokenId));
+                const parsedResult = JSON.parse(result.tokenIds);
+  
+                
+                const tokenIdsString = parsedResult.tokenIds;
+                
+                
+                const tokenIdsArray = JSON.parse(tokenIdsString);
+                
+                
+                return tokenIdsArray.includes(Number(tokenId));
                               
             } else {
                 return false;
