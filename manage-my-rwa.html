@@ -1825,11 +1825,11 @@
         function checkSnapshot(tokenId){
             
             var result = snapshot.find(function(item) {
-                console.log("wallet.address",wallet.address);
-                console.log("wallet.address",wallet.address.toLowerCase().toString());
+               
+                
                 return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
-            console.log("result",result)
+            
             if (result) {
                 console.log("result",result)
                
