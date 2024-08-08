@@ -1832,7 +1832,7 @@
             
             if (result) {
                 console.log("result",result)
-               
+                result.tokenIds = JSON.parse(result.token_ids);
                 return result.tokenIds.includes(Number(tokenId));
                               
             } else {
