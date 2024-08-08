@@ -1842,7 +1842,7 @@
 
 
 
-                function updateADTimeValue(address){
+               function updateADTimeValue(address){
             
             
             var result = snapshot.find(function(item) {
@@ -1857,7 +1857,7 @@
 
                 console.log(result)
                 
-                location1 = ["A"];
+                location1 = ["A","B"];
                 zone = [1,2,3,4,5];
 
                 var filterData = [];
@@ -1884,7 +1884,7 @@
 
                     for(var y = 0; y < zone.length; y ++){
 
-                        var filteredTokenIds = filterData.filter(function(item) {
+                       /* var filteredTokenIds = filterData.filter(function(item) {
                             
                         return item.location_name === location1[i] && item.zone == zone[y];
 
@@ -1892,6 +1892,19 @@
 
                         return item.token_id;
 
+                        });
+                        */
+                        var filteredTokenIds = filterData.filter(function(item) {
+
+                            if (item.location_name === location1[i] && item.zone == zone[y]) {
+                                if (location1[i] === "B") {
+                                    return item.token_id < 4000;
+                                }
+                                return true;
+                            }
+                            return false;
+                        }).map(function(item) {
+                            return item.token_id;
                         });
 
                         console.log(filteredTokenIds);
