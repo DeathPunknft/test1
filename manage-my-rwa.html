@@ -2152,6 +2152,10 @@ $(function(){
   
   $("#register").on("click", async ()=> {
 
+	  console.log("Waiting for collection");
+
+    		return;
+
     var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
 
     var claimed = await tpRegisterContract.methods.queryRegister(wallet.address).call();
