@@ -1,812 +1,810 @@
 var franchisee = [
-    {
-      "address": "0x46e1df538821d8fed7b6eb1b68597d59b1bfc1b5",
-      "tp": 295.01,
-      "rwa_tp": 620.05
-    },
-    {
-      "address": "0x671755011d43558c70b0cc795db23be7e13d4959",
-      "tp": 141.84,
-      "rwa_tp": 277.55
-    },
-    {
-      "address": "0xc6342369b9fca4af1a9009b63d5d9656ab02937d",
-      "tp": 116.04,
-      "rwa_tp": 244.45
-    },
-    {
-      "address": "0x87039e570A43D762EFEf9024b9794d4fcc3f98f4",
-      "tp": 97.2,
-      "rwa_tp": 214.8
-    },
-    {
-      "address": "0xdcb7c1744cf4257c352ab3f8d97a3bd89a8d318a",
-      "tp": 83.79,
-      "rwa_tp": 173.0
-    },
-    {
-      "address": "0x56e126ecfa28839a717d59b9d9eab53331e15cd9",
-      "tp": 77.27,
-      "rwa_tp": 189.5
-    },
-    {
-      "address": "0xeADB8B5aAF6C34701289cc24415452D6183a5d0a",
-      "tp": 61.47,
-      "rwa_tp": 136.0
-    },
-    {
-      "address": "0x480afd53dcd44c8582b9fd302016659b2e0ddd45",
-      "tp": 59.9,
-      "rwa_tp": 113.3
-    },
-    {
-      "address": "0xD4a77B4e51D2AF442FB704622DF3f9b76248cCd3",
-      "tp": 56.25,
-      "rwa_tp": 113.9
-    },
-    {
-      "address": "0xd8aa2fcb6d00c5a83cb9260f7b32a32353ef1ad3",
-      "tp": 55.35,
-      "rwa_tp": 107.0
-    },
-    {
-      "address": "0x01674d06f53d36d63eaf6b7865ffe091d903ff88",
-      "tp": 54.0,
-      "rwa_tp": 110.0
-    },
-    {
-      "address": "0x08380400696d1d0e432ee4c173c6dfa70cead0ed",
-      "tp": 51.73,
-      "rwa_tp": 104.35
-    },
-    {
-      "address": "0x0Db35C97adE95A573B0B436994C76bFcbd1DA897",
-      "tp": 51.11,
-      "rwa_tp": 100.91
-    },
-    {
-      "address": "0xb82B8dBD922245bBdDFB7f01Ff8729175f652F24",
-      "tp": 48.43,
-      "rwa_tp": 103.56
-    },
-    {
-      "address": "0x70b12d02166e00a0fa33567dfeeb2e76618257f5",
-      "tp": 47.97,
-      "rwa_tp": 95.0
-    },
-    {
-      "address": "0x69abc9afb9bddb043fdf26092426d84807455139",
-      "tp": 46.06,
-      "rwa_tp": 97.3
-    },
-    {
-      "address": "0x24f7a7e7c1e91490f3c1e34f8b58658a5d551a1a",
-      "tp": 66.0,
-      "rwa_tp": 135.9
-    },
-    {
-      "address": "0x88a02152b1b9a80b034ec07d6361ce587f8978fd",
-      "tp": 43.13,
-      "rwa_tp": 90.6
-    },
-    {
-      "address": "0xc14161C0aEdA82Ae25f384587aE3Ab9743A7dAfb",
-      "tp": 39.78,
-      "rwa_tp": 85.0
-    },
-    {
-      "address": "0xa59a03da5d29a2d098e9e448cd6f51ddcd02f2cd",
-      "tp": 39.51,
-      "rwa_tp": 88.0
-    },
-    {
-      "address": "0x0fb9067a7ab943827d7912a3f6616c40f676c0df",
-      "tp": 39.15,
-      "rwa_tp": 77.0
-    },
-    {
-      "address": "0xe1438fc41c0b464c29c0d2fca1175b9e615589d9",
-      "tp": 36.9,
-      "rwa_tp": 71.0
-    },
-    {
-      "address": "0x85C5d8ba9d574f20C68A740F020E823451F0F3aC",
-      "tp": 36.82,
-      "rwa_tp": 67.8
-    },
-    {
-      "address": "0x2dd8ddc9a9460eaead3b8bc0d94438a88194ea86",
-      "tp": 36.09,
-      "rwa_tp": 67.0
-    },
-    {
-      "address": "0xa045cd23eda28521d12083b845b5d307ac5a7183",
-      "tp": 36.01,
-      "rwa_tp": 76.35
-    },
-    {
-      "address": "0x8f6a3227f74e11a46ecf926528bd906eaa7dfba3",
-      "tp": 35.21,
-      "rwa_tp": 75.6
-    },
-    {
-      "address": "0x2cf7bdc1490207145a38aef07bb5d9294cb0612d",
-      "tp": 32.22,
-      "rwa_tp": 63.0
-    },
-    {
-      "address": "0xb361222cbd3c244d1d2b9d8b6cf198401894074b",
-      "tp": 30.73,
-      "rwa_tp": 61.25
-    },
-    {
-      "address": "0x8f7dafe4ce278939f392ceb2d18c1cc838258096",
-      "tp": 28.44,
-      "rwa_tp": 55.0
-    },
-    {
-      "address": "0x808F2634d1679CB4016499B921e6593f754073C2",
-      "tp": 28.06,
-      "rwa_tp": 70.15
-    },
-    {
-      "address": "0xdcbfd840d4963b69acc69852055c8ba5aa73dee2",
-      "tp": 27.99,
-      "rwa_tp": 66.0
-    },
-    {
-      "address": "0xF773009dcc9751b06F53B694DeD60CF220cdE691",
-      "tp": 25.23,
-      "rwa_tp": 51.75
-    },
-    {
-      "address": "0xf207758377510337c54600bc7f83db9850e70486",
-      "tp": 25.2,
-      "rwa_tp": 50.0
-    },
-    {
-      "address": "0xcd64dd0Bfd7aba1c2fAaa33a6D771dC2F1B89270",
-      "tp": 25.11,
-      "rwa_tp": 56.03
-    },
-    {
-      "address": "0xfefd9e4939b1f4c6b66d60e7b4292cf042e6147e",
-      "tp": 22.77,
-      "rwa_tp": 49.15
-    },
-    {
-      "address": "0x00D63214BEA284C0c8c0a00e2B7347c03e72b34B",
-      "tp": 19.71,
-      "rwa_tp": 40.0
-    },
-    {
-      "address": "0xc7aadedaa7cadc03e4858f522a3d2da8123ec9d9",
-      "tp": 17.76,
-      "rwa_tp": 35.84
-    },
-    {
-      "address": "0x9edc7cf1895679de3cd608fda1d1f418db2b3e25",
-      "tp": 16.92,
-      "rwa_tp": 37.0
-    },
-    {
-      "address": "0xf0caEd1F19C1B3d1CeDCE9b2A82e9BA4b77DD5ee",
-      "tp": 15.75,
-      "rwa_tp": 31.0
-    },
-    {
-      "address": "0x46ee7e7873544b0eb07ad92e3379d0790c2e0a3b",
-      "tp": 15.44,
-      "rwa_tp": 26.42
-    },
-    {
-      "address": "0xbac981ed1d2e11c975ba6c40da6f018869701f66",
-      "tp": 14.85,
-      "rwa_tp": 29.0
-    },
-    {
-      "address": "0x7aacec98e87bdd3ca3d850415702b28db67daf99",
-      "tp": 14.76,
-      "rwa_tp": 24.0
-    },
-    {
-      "address": "0x8C73F0Ec9ccA2BAE1798a4eFb017ea346983D133",
-      "tp": 13.16,
-      "rwa_tp": 27.35
-    },
-    {
-      "address": "0x188aa630ed6ce2b3c31b7d50a6b1005779642ea6",
-      "tp": 11.22,
-      "rwa_tp": 23.6
-    },
-    {
-      "address": "0xCbAa8C46B7bE085d6106d437dbfb60d8aeFF348a",
-      "tp": 10.44,
-      "rwa_tp": 22.0
-    },
-    {
-      "address": "0xc2d634E60E655a88d42882B1C555BBf2388bca5D",
-      "tp": 10.35,
-      "rwa_tp": 21.0
-    },
-    {
-      "address": "0xab596F463dC676482604Db8Ed82dBc179b75B45b",
-      "tp": 10.08,
-      "rwa_tp": 24.0
-    },
-    {
-      "address": "0xfebb25c93bfc974c3c53af862b07567dd6075744",
-      "tp": 9.62,
-      "rwa_tp": 18.15
-    },
-    {
-      "address": "0x627f3584946295CaD2102C635Ac83DDc67576022",
-      "tp": 9.36,
-      "rwa_tp": 19.0
-    },
-    {
-      "address": "0x4Ee441D77dF7d642E1834eF0125297351b2e791d",
-      "tp": 8.82,
-      "rwa_tp": 16.0
-    },
-    {
-      "address": "0xa82D6279F2bca04e9AFC2FB3865d01C176c983D2",
-      "tp": 8.82,
-      "rwa_tp": 18.0
-    },
-    {
-      "address": "0x4cE6fd211902999D02dB58a84a0E10B5239C7c57",
-      "tp": 8.78,
-      "rwa_tp": 20.3
-    },
-    {
-      "address": "0x96151bb8fdcacbb9bdb5a7efe3ea1172e1fda262",
-      "tp": 8.55,
-      "rwa_tp": 17.0
-    },
-    {
-      "address": "0x43eC11E3748B7af76b695Bda4dBd5248b3B390A0",
-      "tp": 8.28,
-      "rwa_tp": 15.0
-    },
-    {
-      "address": "0xc3fdb6fe1ab3f8d4ddbdb18423b734652232f99f",
-      "tp": 8.01,
-      "rwa_tp": 21.0
-    },
-    {
-      "address": "0xe59c4ddc8f861e160259b955cedc4de492f82865",
-      "tp": 8.01,
-      "rwa_tp": 18.0
-    },
-    {
-      "address": "0xd945f06908136a2681b50deb3e2642052a1e7742",
-      "tp": 7.94,
-      "rwa_tp": 20.45
-    },
-    {
-      "address": "0x51f4bdb96e0a88dde867f870ee22a30f779b4834",
-      "tp": 7.65,
-      "rwa_tp": 14.0
-    },
-    {
-      "address": "0x3ce91f27325e31764fa764ade1a107d08bfb2e5c",
-      "tp": 7.47,
-      "rwa_tp": 14.0
-    },
-    {
-      "address": "0xfA28cF2527D33D782e016C30E7f281c96Ca5C48A",
-      "tp": 7.38,
-      "rwa_tp": 15.0
-    },
-    {
-      "address": "0x285611c2f9952f42617b1e88345fd6e0b16c2708",
-      "tp": 7.29,
-      "rwa_tp": 12.0
-    },
-    {
-      "address": "0xeae8a02da2b29a5abe4652c2256e4cbb92ef2b9e",
-      "tp": 7.02,
-      "rwa_tp": 15.0
-    },
-    {
-      "address": "0xcb7e43b71e3d3d448792123b613b79c27a190f5f",
-      "tp": 6.57,
-      "rwa_tp": 15.0
-    },
-    {
-      "address": "0xef506a4726a073b3ffa90bc9b5f425200e393caf",
-      "tp": 6.21,
-      "rwa_tp": 13.0
-    },
-    {
-      "address": "0x827555E799b48248Cc2e0E516041e7E84e5B9d1e",
-      "tp": 5.85,
-      "rwa_tp": 11.0
-    },
-    {
-      "address": "0x598803ab53Aeb14624d2551300e562b7DC5d36aF",
-      "tp": 5.67,
-      "rwa_tp": 15.0
-    },
-    {
-      "address": "0xe954e5c8df4eCD2fc5Aa724DF6F7b86986b28277",
-      "tp": 5.22,
-      "rwa_tp": 9.0
-    },
-    {
-      "address": "0x1a0048E0bbb48FaB2ADAC1575D17E1e962D618b8",
-      "tp": 5.13,
-      "rwa_tp": 14.0
-    },
-    {
-      "address": "0xc715ec4c2ca54a4217973e28e8048b83c3fb0385",
-      "tp": 4.81,
-      "rwa_tp": 8.6
-    },
-    {
-      "address": "0x0ec1f830707d0cfe4570863756914164a2c2c274",
-      "tp": 4.75,
-      "rwa_tp": 12.25
-    },
-    {
-      "address": "0xaf1067bca0a716169f302cc06b22f29fd2ec9807",
-      "tp": 4.5,
-      "rwa_tp": 11.0
-    },
-    {
-      "address": "0x9c11c60e7d17863439ea9892f656b75747e163ae",
-      "tp": 4.41,
-      "rwa_tp": 6.0
-    },
-    {
-      "address": "0x8F0Bc6F921CF7c6b4f060E1F60393577E0F27693",
-      "tp": 4.14,
-      "rwa_tp": 8.0
-    },
-    {
-      "address": "0xedd920e44ef2173483d99e1b674bf285255ce46c",
-      "tp": 4.05,
-      "rwa_tp": 10.0
-    },
-    {
-      "address": "0xafBa13EE169a1F0Fd48617bcB497626A3C9F5428",
-      "tp": 3.96,
-      "rwa_tp": 7.0
-    },
-    {
-      "address": "0x4300016f3bbcaf6f79fba5851a09f50048773592",
-      "tp": 3.87,
-      "rwa_tp": 10.0
-    },
-    {
-      "address": "0x4C009c863ABeB5f645e42544eB01cAbE2564aE3d",
-      "tp": 3.87,
-      "rwa_tp": 7.0
-    },
-    {
-      "address": "0x81b0Ed272A2d59CD9Db88865EE20EcB1d1CbA944",
-      "tp": 3.78,
-      "rwa_tp": 10.0
-    },
-    {
-      "address": "0x6c399ded192e59d826096498860dfcb17a545951",
-      "tp": 3.6,
-      "rwa_tp": 6.0
-    },
-    {
-      "address": "0x0c21c310cfe34ef37d955528ba8a2c7529bf4514",
-      "tp": 3.24,
-      "rwa_tp": 7.0
-    },
-    {
-      "address": "0xeee493eebd80be6dbfd98bc5d0819121b15ecd42",
-      "tp": 3.24,
-      "rwa_tp": 7.0
-    },
-    {
-      "address": "0xea376cd34bb67a4a8667cee1f8f36e834977ddf9",
-      "tp": 2.97,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0xFC2105B7Da97Ac9D03ABF548b50CbeFebfc551f4",
-      "tp": 2.97,
-      "rwa_tp": 7.0
-    },
-    {
-      "address": "0x3f165346b96760dfc673C0494ae63e59e6FC7C92",
-      "tp": 2.79,
-      "rwa_tp": 6.0
-    },
-    {
-      "address": "0x7e4b81428395723cd080ec65ae4becbd0deed944",
-      "tp": 2.7,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x8b3E20eCe417d15D6c28933265426F1784644589",
-      "tp": 2.61,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0x206d8E29515D1d1192f873e65355853B073Cd81d",
-      "tp": 2.43,
-      "rwa_tp": 7.0
-    },
-    {
-      "address": "0x462660cC681DBEeF056A3Fe2808f0833D2d47F87",
-      "tp": 2.43,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0x73b26a08d7835e6d74c662ed9cb987ba11be698e",
-      "tp": 2.43,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0x134a347382f89cbb5ee778d5b77175326428935e",
-      "tp": 2.25,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0xfae716a8a9b2e26afe7b2a75631f64016583e331",
-      "tp": 2.25,
-      "rwa_tp": 4.0
-    },
-    {
-      "address": "0x89b26Babdd7C2aF7dD5a3E613d915E601b4AE5A2",
-      "tp": 2.16,
-      "rwa_tp": 6.0
-    },
-    {
-      "address": "0x4DfF4ca3CA03F796f82D66Ff069b0d77614A40aC",
-      "tp": 2.07,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0x945e60f1ebb3aac1aef901b3a692d002ad6ce21f",
-      "tp": 1.97,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0x078052d178914b6225759cDDc89F39Aac4FfDE05",
-      "tp": 1.96,
-      "rwa_tp": 5.1
-    },
-    {
-      "address": "0xd53e34dc7c42847b9e877509f02b9ae07c688eec",
-      "tp": 1.89,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0x25db744ba2e72ba3a9615301aef394c70ed2e0c8",
-      "tp": 1.62,
-      "rwa_tp": 5.0
-    },
-    {
-      "address": "0x24d6faef770cc03fa3cab140129fd8fd8f6a2124",
-      "tp": 1.44,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x6591F323E192B1cC15afE7f84AD803971817de17",
-      "tp": 1.44,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x945c9F417755574a2388A37Bd979c950559Bf30A",
-      "tp": 1.44,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xef4fa6998548c535e93853ed87ca2260f87157f8",
-      "tp": 1.44,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0x49f7f9651b02e79c0cd2897af8596b6628bba2e1",
-      "tp": 1.35,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0x4c362ccbfc00711cb38020eecf8019b2523ec7fc",
-      "tp": 1.35,
-      "rwa_tp": 4.0
-    },
-    {
-      "address": "0x66d84aa9bd934c214db5b9d11a15255696aadd52",
-      "tp": 1.35,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x8870a08abf9601d91199cea295f70ecfb31a49b6",
-      "tp": 1.35,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x9F406cC3F64A44A74d9071EdFddf26b09Be39A02",
-      "tp": 1.35,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0xbb88f6d8875f59c9a931b27febb9b55ac3c3edb1",
-      "tp": 1.35,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x73b3eb15c0d21947ffb1fd1837354956c5ae5cec",
-      "tp": 1.17,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xec9e72c05fa58e5e334c3e28bd73872e00d278c8",
-      "tp": 1.17,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x0FcdB01287F8FBce0d86598f121a2a3BCC546339",
-      "tp": 1.08,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x1e4ee25a13b60583545f89e4de8245d631e3f9a8",
-      "tp": 1.08,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0x37f1bd45b0CcE77E30B335cCAfe3447DD196B949",
-      "tp": 1.08,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0xd7d7662c936b521b28c4c3bd055a9ebd2499bc4c",
-      "tp": 1.08,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0x94f6d1af28f7746ada48a5cb2c2c3cb2f1f30146",
-      "tp": 0.92,
-      "rwa_tp": 1.7
-    },
-    {
-      "address": "0x1f693d78d8048ce353765455e1cf8f45740c8a7f",
-      "tp": 0.9,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x3a801814774c34b988c78f29674cae3a288af2fb",
-      "tp": 0.9,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x56D1DBEE4F5479553e4c5a74cBeb46164e6Bb79b",
-      "tp": 0.9,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x96a69165d2659ccd8fb5d4e7a4abadc416daf434",
-      "tp": 0.9,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xa3b26b40b6786ce41f127be533cae6fcf8985db0",
-      "tp": 0.9,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xd6772b00534987f6c9c89e62469504481ba0bd5f",
-      "tp": 0.9,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x1db8a4b356f434dc5fc353436d837d2ebab911a4",
-      "tp": 0.81,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x97f821c8016536a210b8a7dbaa4cb603e61577fb",
-      "tp": 0.81,
-      "rwa_tp": 3.0
-    },
-    {
-      "address": "0xa2c28f784b8ab91bb22ddb559b12a499a899d7bd",
-      "tp": 0.81,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xb37d4782D201Ba331fd845E7813A96B27D68C87f",
-      "tp": 0.81,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xe82a4acfad6d474ae316c916bb5ee4659810b5b5",
-      "tp": 0.81,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xf7271e80abfeda1de947c33f8ccc3e8e75888888",
-      "tp": 0.81,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xc315062bd700f03505f8147fa97c9ce45d9fefc8",
-      "tp": 0.62,
-      "rwa_tp": 1.15
-    },
-    {
-      "address": "0x7793a67ebc88d4086c8e418092a7f242fce29f0f",
-      "tp": 0.58,
-      "rwa_tp": 1.1
-    },
-    {
-      "address": "0x1ccb211b5708be8b7d9410beec35f97f2c9bc70e",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x2d55527a02a0bcdd1b01663481db7726efab3784",
-      "tp": 0.54,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x2f153b769968f21df750af5903ab5d2838955e57",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x422890b833897BC4567523d31922a0e27829257C",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x48d373d91ab790692b8130fece1108973165b7d6",
-      "tp": 0.54,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x5Cc6F29B1058Ad7e844acE21DB36ee099F428E1A",
-      "tp": 0.54,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0x67067339BC70b5Bf7d9378FBf716e4792a81B663",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x7083185ddf2dd2c52575b8294cb47b33b40959b0",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x8a55f42af13b1ceca51a3a74fc89b9547f0d2468",
-      "tp": 0.54,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xA8dA7d1473352c5dd7930e4Af24C78c5055C2B03",
-      "tp": 0.54,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xabe317c63497c880bb14a3abd144939f92a7c66f",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xb0da10f65ecd330ff7ba6836a247b4019a167166",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xbB24B5A4a30E82B0a0d773B68F4c29177BD589fC",
-      "tp": 0.54,
-      "rwa_tp": 2.0
-    },
-    {
-      "address": "0xc14161c0aeda82ae25f384587ae3ab9743a9dafb",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xc3ea0d0b105605e8db9f6361a5a1ba99b8f9a5d2",
-      "tp": 0.54,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x4bfBdb78D944CDc90665bB130fc555d49B8d4c0b",
-      "tp": 0.4,
-      "rwa_tp": 1.15
-    },
-    {
-      "address": "0x026180ec45b17bd85754aa3e1d98750c9038cc75",
-      "tp": 0.28,
-      "rwa_tp": 1.05
-    },
-    {
-      "address": "0x22f64c3affbb0bde5d21527d14636b4586155417",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x2503111CA332Bb2Ab00f0fefd4458dfDB14f3D83",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x5df69ae44b13bd05da40380509173a25695d4f53",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x7059ba6283c0a5e0b341d9642c5b65c58c681951",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x801840bf173637550be609BF07265Afc4CE82726",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x80a6b66c828279f7d8dda7fda7e95962034795aa",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x8963650c2f84fdec4294fe9a95b05bec78f32db7",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x9fd83e05a74449e9bc9242c5b405dfa0719c4818",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xaabd12d64aef63c14c60156c6e65a6836ae77039",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xbfd13ad0e134a40eabe0562033e8cf25a5785402",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xc2eee319930e4c07e0da03890112e0a42c7bd618",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xc8ea1c8ec28c503f34fb5c11de302d6153f90d30",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xea8f2d70b1b385fc1dca96c54e073f201c822b6f",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xf510b72ee51d3a27671f9f27c731087f0f0e6f3e",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0xfc4962f2ce5fae2eedf285342b0631362cf4b696",
-      "tp": 0.27,
-      "rwa_tp": 1.0
-    },
-    {
-      "address": "0x68e2c2dB475014d63C706b9925A8365dE881de14",
-      "tp": 0.08,
-      "rwa_tp": 0.3
-    }
-  ]
-
-
+  {
+    "address": "0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5",
+    "tp": 315.41,
+    "rwa_tp": 620.05
+  },
+  {
+    "address": "0x671755011d43558C70b0cc795db23BE7E13D4959",
+    "tp": 154.32,
+    "rwa_tp": 277.55
+  },
+  {
+    "address": "0xc6342369b9FcA4aF1A9009b63D5d9656Ab02937D",
+    "tp": 134.35,
+    "rwa_tp": 266.15
+  },
+  {
+    "address": "0x56e126ecfa28839a717d59b9D9eaB53331e15Cd9",
+    "tp": 127.31,
+    "rwa_tp": 281.0
+  },
+  {
+    "address": "0x24F7a7e7C1E91490f3c1e34F8b58658A5D551A1A",
+    "tp": 112.26,
+    "rwa_tp": 208.95
+  },
+  {
+    "address": "0x87039e570a43d762efef9024b9794d4fcc3f98f4",
+    "tp": 104.98,
+    "rwa_tp": 214.8
+  },
+  {
+    "address": "0xdcb7c1744cf4257c352ab3f8d97a3bd89a8d318a",
+    "tp": 88.85,
+    "rwa_tp": 173.0
+  },
+  {
+    "address": "0xeADB8B5aAF6C34701289cc24415452D6183a5d0a",
+    "tp": 68.3,
+    "rwa_tp": 136.0
+  },
+  {
+    "address": "0x480AfD53DCd44C8582B9Fd302016659B2e0DDd45",
+    "tp": 65.12,
+    "rwa_tp": 113.3
+  },
+  {
+    "address": "0xD4a77B4e51D2AF442FB704622DF3f9b76248cCd3",
+    "tp": 62.22,
+    "rwa_tp": 113.9
+  },
+  {
+    "address": "0xd8aa2fcb6d00c5a83cb9260f7b32a32353ef1ad3",
+    "tp": 59.76,
+    "rwa_tp": 107.0
+  },
+  {
+    "address": "0x01674d06f53d36d63eaf6b7865ffe091d903ff88",
+    "tp": 56.64,
+    "rwa_tp": 110.0
+  },
+  {
+    "address": "0x0Db35C97adE95A573B0B436994C76bFcbd1DA897",
+    "tp": 56.58,
+    "rwa_tp": 100.57
+  },
+  {
+    "address": "0x08380400696D1D0E432Ee4C173C6DFA70ceaD0Ed",
+    "tp": 55.92,
+    "rwa_tp": 104.35
+  },
+  {
+    "address": "0xb82B8dBD922245bBdDFB7f01Ff8729175f652F24",
+    "tp": 53.46,
+    "rwa_tp": 106.67
+  },
+  {
+    "address": "0x70b12d02166e00a0fa33567dfeeb2e76618257f5",
+    "tp": 50.95,
+    "rwa_tp": 95.0
+  },
+  {
+    "address": "0x69abc9Afb9BdDb043fDf26092426d84807455139",
+    "tp": 50.72,
+    "rwa_tp": 97.3
+  },
+  {
+    "address": "0x88a02152b1b9a80b034ec07d6361ce587f8978fd",
+    "tp": 45.39,
+    "rwa_tp": 90.6
+  },
+  {
+    "address": "0xc14161C0aEdA82Ae25f384587aE3Ab9743A7dAfb",
+    "tp": 42.06,
+    "rwa_tp": 85.0
+  },
+  {
+    "address": "0xa59a03da5d29a2d098e9e448cd6f51ddcd02f2cd",
+    "tp": 41.69,
+    "rwa_tp": 88.0
+  },
+  {
+    "address": "0x0fb9067a7ab943827d7912a3f6616c40f676c0df",
+    "tp": 41.46,
+    "rwa_tp": 77.0
+  },
+  {
+    "address": "0x85C5d8ba9d574f20C68A740F020E823451F0F3aC",
+    "tp": 40.91,
+    "rwa_tp": 67.8
+  },
+  {
+    "address": "0xe1438fc41c0b464c29c0d2fca1175b9e615589d9",
+    "tp": 39.25,
+    "rwa_tp": 71.0
+  },
+  {
+    "address": "0x8f6a3227f74e11a46ecf926528bd906eaa7dfba3",
+    "tp": 39.12,
+    "rwa_tp": 75.6
+  },
+  {
+    "address": "0xa045cD23edA28521D12083b845B5D307AC5A7183",
+    "tp": 38.67,
+    "rwa_tp": 76.35
+  },
+  {
+    "address": "0x2dd8ddc9a9460eaead3b8bc0d94438a88194ea86",
+    "tp": 37.84,
+    "rwa_tp": 67.0
+  },
+  {
+    "address": "0x2cf7bdc1490207145a38aef07bb5d9294cb0612d",
+    "tp": 33.62,
+    "rwa_tp": 63.0
+  },
+  {
+    "address": "0xB361222Cbd3c244d1D2B9d8B6Cf198401894074B",
+    "tp": 32.38,
+    "rwa_tp": 61.25
+  },
+  {
+    "address": "0xcd64dd0Bfd7aba1c2fAaa33a6D771dC2F1B89270",
+    "tp": 31.34,
+    "rwa_tp": 66.38
+  },
+  {
+    "address": "0x808F2634d1679CB4016499B921e6593f754073C2",
+    "tp": 31.18,
+    "rwa_tp": 70.15
+  },
+  {
+    "address": "0x46Ee7e7873544b0eB07ad92e3379D0790C2e0A3B",
+    "tp": 30.47,
+    "rwa_tp": 54.07
+  },
+  {
+    "address": "0x8f7dafe4ce278939f392ceb2d18c1cc838258096",
+    "tp": 30.14,
+    "rwa_tp": 55.0
+  },
+  {
+    "address": "0xdcbfd840d4963b69acc69852055c8ba5aa73dee2",
+    "tp": 29.79,
+    "rwa_tp": 66.0
+  },
+  {
+    "address": "0xF773009dcc9751b06F53B694DeD60CF220cdE691",
+    "tp": 28.04,
+    "rwa_tp": 51.75
+  },
+  {
+    "address": "0xf207758377510337c54600bc7f83db9850e70486",
+    "tp": 27.25,
+    "rwa_tp": 50.0
+  },
+  {
+    "address": "0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E",
+    "tp": 24.1,
+    "rwa_tp": 49.15
+  },
+  {
+    "address": "0x00D63214BEA284C0c8c0a00e2B7347c03e72b34B",
+    "tp": 20.82,
+    "rwa_tp": 40.0
+  },
+  {
+    "address": "0xC7aadeDAA7caDc03e4858F522A3D2DA8123Ec9d9",
+    "tp": 20.01,
+    "rwa_tp": 37.63
+  },
+  {
+    "address": "0x9edc7cf1895679de3cd608fda1d1f418db2b3e25",
+    "tp": 17.76,
+    "rwa_tp": 37.0
+  },
+  {
+    "address": "0xf0caEd1F19C1B3d1CeDCE9b2A82e9BA4b77DD5ee",
+    "tp": 17.5,
+    "rwa_tp": 31.0
+  },
+  {
+    "address": "0x7aacec98e87bdd3ca3d850415702b28db67daf99",
+    "tp": 15.8,
+    "rwa_tp": 24.0
+  },
+  {
+    "address": "0xbac981ed1d2e11c975ba6c40da6f018869701f66",
+    "tp": 15.55,
+    "rwa_tp": 29.0
+  },
+  {
+    "address": "0x8C73F0Ec9ccA2BAE1798a4eFb017ea346983D133",
+    "tp": 14.62,
+    "rwa_tp": 27.35
+  },
+  {
+    "address": "0x188AA630ED6CE2B3c31B7D50a6B1005779642eA6",
+    "tp": 11.64,
+    "rwa_tp": 23.6
+  },
+  {
+    "address": "0xCbAa8C46B7bE085d6106d437dbfb60d8aeFF348a",
+    "tp": 11.6,
+    "rwa_tp": 22.0
+  },
+  {
+    "address": "0xc2d634E60E655a88d42882B1C555BBf2388bca5D",
+    "tp": 11.5,
+    "rwa_tp": 21.0
+  },
+  {
+    "address": "0xab596F463dC676482604Db8Ed82dBc179b75B45b",
+    "tp": 11.2,
+    "rwa_tp": 24.0
+  },
+  {
+    "address": "0x627f3584946295CaD2102C635Ac83DDc67576022",
+    "tp": 10.4,
+    "rwa_tp": 19.0
+  },
+  {
+    "address": "0xfEBb25c93BFc974c3c53Af862B07567DD6075744",
+    "tp": 10.02,
+    "rwa_tp": 18.15
+  },
+  {
+    "address": "0x4Ee441D77dF7d642E1834eF0125297351b2e791d",
+    "tp": 9.8,
+    "rwa_tp": 16.0
+  },
+  {
+    "address": "0xa82D6279F2bca04e9AFC2FB3865d01C176c983D2",
+    "tp": 9.8,
+    "rwa_tp": 18.0
+  },
+  {
+    "address": "0x4cE6fd211902999D02dB58a84a0E10B5239C7c57",
+    "tp": 9.76,
+    "rwa_tp": 20.3
+  },
+  {
+    "address": "0x96151bb8fdcacbb9bdb5a7efe3ea1172e1fda262",
+    "tp": 9.5,
+    "rwa_tp": 17.0
+  },
+  {
+    "address": "0x43eC11E3748B7af76b695Bda4dBd5248b3B390A0",
+    "tp": 9.2,
+    "rwa_tp": 15.0
+  },
+  {
+    "address": "0xe59c4ddc8f861e160259b955cedc4de492f82865",
+    "tp": 8.75,
+    "rwa_tp": 18.0
+  },
+  {
+    "address": "0xD945F06908136A2681B50DEB3e2642052A1e7742",
+    "tp": 8.6,
+    "rwa_tp": 20.45
+  },
+  {
+    "address": "0xc3fdb6fe1ab3f8d4ddbdb18423b734652232f99f",
+    "tp": 8.5,
+    "rwa_tp": 21.0
+  },
+  {
+    "address": "0x51f4bdb96e0a88dde867f870ee22a30f779b4834",
+    "tp": 8.32,
+    "rwa_tp": 14.0
+  },
+  {
+    "address": "0xfA28cF2527D33D782e016C30E7f281c96Ca5C48A",
+    "tp": 8.2,
+    "rwa_tp": 15.0
+  },
+  {
+    "address": "0x3ce91f27325e31764fa764ade1a107d08bfb2e5c",
+    "tp": 8.11,
+    "rwa_tp": 14.0
+  },
+  {
+    "address": "0x285611c2f9952f42617b1e88345fd6e0b16c2708",
+    "tp": 7.83,
+    "rwa_tp": 12.0
+  },
+  {
+    "address": "0xeae8a02da2b29a5abe4652c2256e4cbb92ef2b9e",
+    "tp": 7.58,
+    "rwa_tp": 15.0
+  },
+  {
+    "address": "0xcb7e43b71e3d3d448792123b613b79c27a190f5f",
+    "tp": 7.3,
+    "rwa_tp": 15.0
+  },
+  {
+    "address": "0xef506a4726a073b3ffa90bc9b5f425200e393caf",
+    "tp": 6.72,
+    "rwa_tp": 13.0
+  },
+  {
+    "address": "0x827555E799b48248Cc2e0E516041e7E84e5B9d1e",
+    "tp": 6.5,
+    "rwa_tp": 11.0
+  },
+  {
+    "address": "0x598803ab53Aeb14624d2551300e562b7DC5d36aF",
+    "tp": 6.3,
+    "rwa_tp": 15.0
+  },
+  {
+    "address": "0x1a0048E0bbb48FaB2ADAC1575D17E1e962D618b8",
+    "tp": 5.7,
+    "rwa_tp": 14.0
+  },
+  {
+    "address": "0xe954e5c8df4eCD2fc5Aa724DF6F7b86986b28277",
+    "tp": 5.61,
+    "rwa_tp": 9.0
+  },
+  {
+    "address": "0x0Ec1F830707D0cFE4570863756914164A2C2C274",
+    "tp": 5.28,
+    "rwa_tp": 12.25
+  },
+  {
+    "address": "0xc715ec4c2Ca54a4217973e28e8048b83c3fB0385",
+    "tp": 5.26,
+    "rwa_tp": 8.6
+  },
+  {
+    "address": "0xaf1067bca0a716169f302cc06b22f29fd2ec9807",
+    "tp": 4.79,
+    "rwa_tp": 11.0
+  },
+  {
+    "address": "0x9c11c60e7d17863439ea9892f656b75747e163ae",
+    "tp": 4.78,
+    "rwa_tp": 6.0
+  },
+  {
+    "address": "0x8F0Bc6F921CF7c6b4f060E1F60393577E0F27693",
+    "tp": 4.6,
+    "rwa_tp": 8.0
+  },
+  {
+    "address": "0xafBa13EE169a1F0Fd48617bcB497626A3C9F5428",
+    "tp": 4.4,
+    "rwa_tp": 7.0
+  },
+  {
+    "address": "0xedd920e44ef2173483d99e1b674bf285255ce46c",
+    "tp": 4.38,
+    "rwa_tp": 10.0
+  },
+  {
+    "address": "0x4C009c863ABeB5f645e42544eB01cAbE2564aE3d",
+    "tp": 4.3,
+    "rwa_tp": 7.0
+  },
+  {
+    "address": "0x81b0Ed272A2d59CD9Db88865EE20EcB1d1CbA944",
+    "tp": 4.2,
+    "rwa_tp": 10.0
+  },
+  {
+    "address": "0x4300016f3bbcaf6f79fba5851a09f50048773592",
+    "tp": 3.96,
+    "rwa_tp": 10.0
+  },
+  {
+    "address": "0x6c399ded192e59d826096498860dfcb17a545951",
+    "tp": 3.72,
+    "rwa_tp": 6.0
+  },
+  {
+    "address": "0xeee493eebd80be6dbfd98bc5d0819121b15ecd42",
+    "tp": 3.6,
+    "rwa_tp": 7.0
+  },
+  {
+    "address": "0x0c21c310cfe34ef37d955528ba8a2c7529bf4514",
+    "tp": 3.36,
+    "rwa_tp": 7.0
+  },
+  {
+    "address": "0xFC2105B7Da97Ac9D03ABF548b50CbeFebfc551f4",
+    "tp": 3.3,
+    "rwa_tp": 7.0
+  },
+  {
+    "address": "0xea376cd34bb67a4a8667cee1f8f36e834977ddf9",
+    "tp": 3.21,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0x3f165346b96760dfc673C0494ae63e59e6FC7C92",
+    "tp": 3.1,
+    "rwa_tp": 6.0
+  },
+  {
+    "address": "0x8b3E20eCe417d15D6c28933265426F1784644589",
+    "tp": 2.9,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0x206d8E29515D1d1192f873e65355853B073Cd81d",
+    "tp": 2.7,
+    "rwa_tp": 7.0
+  },
+  {
+    "address": "0x7e4b81428395723cd080ec65ae4becbd0deed944",
+    "tp": 2.7,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x73b26a08d7835e6d74c662ed9cb987ba11be698e",
+    "tp": 2.61,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0x462660cC681DBEeF056A3Fe2808f0833D2d47F87",
+    "tp": 2.58,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0x134a347382f89cbb5ee778d5b77175326428935e",
+    "tp": 2.44,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0xfae716a8a9b2e26afe7b2a75631f64016583e331",
+    "tp": 2.44,
+    "rwa_tp": 4.0
+  },
+  {
+    "address": "0x89b26Babdd7C2aF7dD5a3E613d915E601b4AE5A2",
+    "tp": 2.4,
+    "rwa_tp": 6.0
+  },
+  {
+    "address": "0x4DfF4ca3CA03F796f82D66Ff069b0d77614A40aC",
+    "tp": 2.3,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0x078052d178914b6225759cDDc89F39Aac4FfDE05",
+    "tp": 2.18,
+    "rwa_tp": 5.1
+  },
+  {
+    "address": "0x945E60F1ebb3aAc1AeF901b3a692d002aD6CE21f",
+    "tp": 2.07,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0xd53e34dc7c42847b9e877509f02b9ae07c688eec",
+    "tp": 1.89,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0x25db744ba2e72ba3a9615301aef394c70ed2e0c8",
+    "tp": 1.71,
+    "rwa_tp": 5.0
+  },
+  {
+    "address": "0x6591F323E192B1cC15afE7f84AD803971817de17",
+    "tp": 1.6,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x945c9F417755574a2388A37Bd979c950559Bf30A",
+    "tp": 1.6,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x24d6faef770cc03fa3cab140129fd8fd8f6a2124",
+    "tp": 1.5,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x4c362ccbfc00711cb38020eecf8019b2523ec7fc",
+    "tp": 1.5,
+    "rwa_tp": 4.0
+  },
+  {
+    "address": "0x66d84aa9bd934c214db5b9d11a15255696aadd52",
+    "tp": 1.5,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x8870a08abf9601d91199cea295f70ecfb31a49b6",
+    "tp": 1.5,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x9F406cC3F64A44A74d9071EdFddf26b09Be39A02",
+    "tp": 1.5,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0xbb88f6d8875f59c9a931b27febb9b55ac3c3edb1",
+    "tp": 1.5,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xef4fa6998548c535e93853ed87ca2260f87157f8",
+    "tp": 1.47,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0x49f7f9651b02e79c0cd2897af8596b6628bba2e1",
+    "tp": 1.41,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0xec9e72c05fa58e5e334c3e28bd73872e00d278c8",
+    "tp": 1.3,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x0FcdB01287F8FBce0d86598f121a2a3BCC546339",
+    "tp": 1.2,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x37f1bd45b0CcE77E30B335cCAfe3447DD196B949",
+    "tp": 1.2,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0x73b3eb15c0d21947ffb1fd1837354956c5ae5cec",
+    "tp": 1.2,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x1e4ee25a13b60583545f89e4de8245d631e3f9a8",
+    "tp": 1.11,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0xd7d7662c936b521b28c4c3bd055a9ebd2499bc4c",
+    "tp": 1.11,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0x94f6D1af28f7746adA48a5cB2C2C3cb2F1F30146",
+    "tp": 1.02,
+    "rwa_tp": 1.7
+  },
+  {
+    "address": "0x56D1DBEE4F5479553e4c5a74cBeb46164e6Bb79b",
+    "tp": 1.0,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xa3b26b40b6786ce41f127be533cae6fcf8985db0",
+    "tp": 1.0,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x1f693d78d8048ce353765455e1cf8f45740c8a7f",
+    "tp": 0.9,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x3a801814774c34b988c78f29674cae3a288af2fb",
+    "tp": 0.9,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x96a69165d2659ccd8fb5d4e7a4abadc416daf434",
+    "tp": 0.9,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xd6772b00534987f6c9c89e62469504481ba0bd5f",
+    "tp": 0.9,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xa2c28f784b8ab91bb22ddb559b12a499a899d7bd",
+    "tp": 0.9,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0xb37d4782D201Ba331fd845E7813A96B27D68C87f",
+    "tp": 0.87,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0xe82a4acfad6d474ae316c916bb5ee4659810b5b5",
+    "tp": 0.87,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x1db8a4b356f434dc5fc353436d837d2ebab911a4",
+    "tp": 0.84,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x97f821c8016536a210b8a7dbaa4cb603e61577fb",
+    "tp": 0.84,
+    "rwa_tp": 3.0
+  },
+  {
+    "address": "0xf7271e80abfeda1de947c33f8ccc3e8e75888888",
+    "tp": 0.84,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0xC315062bD700F03505f8147fa97c9ce45D9feFC8",
+    "tp": 0.68,
+    "rwa_tp": 1.15
+  },
+  {
+    "address": "0x7793A67EbC88D4086c8e418092A7F242fCE29f0f",
+    "tp": 0.64,
+    "rwa_tp": 1.1
+  },
+  {
+    "address": "0x2d55527a02a0bcdd1b01663481db7726efab3784",
+    "tp": 0.6,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x422890b833897BC4567523d31922a0e27829257C",
+    "tp": 0.6,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x5Cc6F29B1058Ad7e844acE21DB36ee099F428E1A",
+    "tp": 0.6,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x67067339BC70b5Bf7d9378FBf716e4792a81B663",
+    "tp": 0.6,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x7083185ddf2dd2c52575b8294cb47b33b40959b0",
+    "tp": 0.6,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x8a55f42af13b1ceca51a3a74fc89b9547f0d2468",
+    "tp": 0.6,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0xabe317c63497c880bb14a3abd144939f92a7c66f",
+    "tp": 0.6,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xA8dA7d1473352c5dd7930e4Af24C78c5055C2B03",
+    "tp": 0.57,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0x1ccb211b5708be8b7d9410beec35f97f2c9bc70e",
+    "tp": 0.54,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x2f153b769968f21df750af5903ab5d2838955e57",
+    "tp": 0.54,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x48d373d91ab790692b8130fece1108973165b7d6",
+    "tp": 0.54,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0xb0da10f65ecd330ff7ba6836a247b4019a167166",
+    "tp": 0.54,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xbB24B5A4a30E82B0a0d773B68F4c29177BD589fC",
+    "tp": 0.54,
+    "rwa_tp": 2.0
+  },
+  {
+    "address": "0xc14161c0aeda82ae25f384587ae3ab9743a9dafb",
+    "tp": 0.54,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xc3ea0d0b105605e8db9f6361a5a1ba99b8f9a5d2",
+    "tp": 0.54,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x4bfBdb78D944CDc90665bB130fc555d49B8d4c0b",
+    "tp": 0.44,
+    "rwa_tp": 1.15
+  },
+  {
+    "address": "0x026180EC45B17Bd85754aa3e1d98750c9038cc75",
+    "tp": 0.31,
+    "rwa_tp": 1.05
+  },
+  {
+    "address": "0x22f64c3affbb0bde5d21527d14636b4586155417",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x2503111CA332Bb2Ab00f0fefd4458dfDB14f3D83",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x5df69ae44b13bd05da40380509173a25695d4f53",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x7059ba6283c0a5e0b341d9642c5b65c58c681951",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x801840bf173637550be609BF07265Afc4CE82726",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x80a6b66c828279f7d8dda7fda7e95962034795aa",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xc2eee319930e4c07e0da03890112e0a42c7bd618",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xea8f2d70b1b385fc1dca96c54e073f201c822b6f",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xfc4962f2ce5fae2eedf285342b0631362cf4b696",
+    "tp": 0.3,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x8963650c2f84fdec4294fe9a95b05bec78f32db7",
+    "tp": 0.27,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x9fd83e05a74449e9bc9242c5b405dfa0719c4818",
+    "tp": 0.27,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xaabd12d64aef63c14c60156c6e65a6836ae77039",
+    "tp": 0.27,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xbfd13ad0e134a40eabe0562033e8cf25a5785402",
+    "tp": 0.27,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xc8ea1c8ec28c503f34fb5c11de302d6153f90d30",
+    "tp": 0.27,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0xf510b72ee51d3a27671f9f27c731087f0f0e6f3e",
+    "tp": 0.27,
+    "rwa_tp": 1.0
+  },
+  {
+    "address": "0x68e2c2dB475014d63C706b9925A8365dE881de14",
+    "tp": 0.08,
+    "rwa_tp": 0.3
+  }
+]
 
 
 
@@ -853,7 +851,7 @@ var franchisee = [
     {
       "address": "0x46ee7e7873544b0eb07ad92e3379d0790c2e0a3b",
       "tokenIds": "[1069]",
-      "tp": "0.30"
+      "tp": "30.77"
     },
     {
       "address": "0x9b8b5ffbc61ee49910b12416c1aa9c9d6273670c",
@@ -868,7 +866,7 @@ var franchisee = [
     {
       "address": "0xaabd12d64aef63c14c60156c6e65a6836ae77039",
       "tokenIds": "[204, 205, 206, 1158]",
-      "tp": "1.80"
+      "tp": "2.07"
     },
     {
       "address": "0xebb00c6bd53e62bc8f1471df11933e42e06df666",
@@ -893,7 +891,7 @@ var franchisee = [
     {
       "address": "0x8f0bc6f921cf7c6b4f060e1f60393577e0f27693",
       "tokenIds": "[4732, 4737, 4739, 4742, 4743, 4745, 4747, 4749, 4756, 4759, 4760, 4761, 4762, 4785, 4786, 4787, 4788, 4789, 4797, 4798, 4799, 4802, 4804, 4805, 4853, 4854, 4855, 4856, 4857, 5430, 5431, 6365, 6366]",
-      "tp": "11.40"
+      "tp": "16.00"
     },
     {
       "address": "0x6dc142ee594a58cf95ee2759afca2f732fdf8d0d",
@@ -933,7 +931,7 @@ var franchisee = [
     {
       "address": "0x4300016f3bbcaf6f79fba5851a09f50048773592",
       "tokenIds": "[246]",
-      "tp": "0.30"
+      "tp": "4.26"
     },
     {
       "address": "0x803801def77bc8652326021a2c979e472492a7db",
@@ -968,7 +966,7 @@ var franchisee = [
     {
       "address": "0x6591f323e192b1cc15afe7f84ad803971817de17",
       "tokenIds": "[4453, 9013]",
-      "tp": "0.60"
+      "tp": "2.20"
     },
     {
       "address": "0xf5c545f99975319c126fd19fb64fd5ca28fb215c",
@@ -1008,7 +1006,7 @@ var franchisee = [
     {
       "address": "0xeae8a02da2b29a5abe4652c2256e4cbb92ef2b9e",
       "tokenIds": "[682, 683, 728, 729, 730, 731, 1608, 1609, 1610]",
-      "tp": "4.70"
+      "tp": "12.28"
     },
     {
       "address": "0xc1724098a159e010e9406df5d5f652c0574f074f",
@@ -1088,12 +1086,12 @@ var franchisee = [
     {
       "address": "0xe1438fc41c0b464c29c0d2fca1175b9e615589d9",
       "tokenIds": "[3240]",
-      "tp": "0.30"
+      "tp": "39.55"
     },
     {
       "address": "0x2d55527a02a0bcdd1b01663481db7726efab3784",
       "tokenIds": "[2513]",
-      "tp": "0.30"
+      "tp": "0.90"
     },
     {
       "address": "0x3ba9e59a527b6f85234f9e59f6d52d9cf260280a",
@@ -1163,7 +1161,7 @@ var franchisee = [
     {
       "address": "0xc2d634e60e655a88d42882b1c555bbf2388bca5d",
       "tokenIds": "[828, 4675, 4678, 5222, 5276, 5279, 5943, 5944, 5947, 6227, 6288, 6289, 6290, 6713]",
-      "tp": "7.10"
+      "tp": "18.60"
     },
     {
       "address": "0x96452e38656e74fadbda0bb0a4b9dba647783b6a",
@@ -1213,7 +1211,7 @@ var franchisee = [
     {
       "address": "0xb0da10f65ecd330ff7ba6836a247b4019a167166",
       "tokenIds": "[181, 182, 185, 1152]",
-      "tp": "2.90"
+      "tp": "3.44"
     },
     {
       "address": "0x49136b844753195105b05828421db6f8544b16e0",
@@ -1233,7 +1231,7 @@ var franchisee = [
     {
       "address": "0xbb88f6d8875f59c9a931b27febb9b55ac3c3edb1",
       "tokenIds": "[505, 509, 1401, 1402]",
-      "tp": "3.40"
+      "tp": "4.90"
     },
     {
       "address": "0x3e09d6e82e96fb2738e81d50c32f5c3fc2b7a239",
@@ -1258,7 +1256,7 @@ var franchisee = [
     {
       "address": "0x24d6faef770cc03fa3cab140129fd8fd8f6a2124",
       "tokenIds": "[1628]",
-      "tp": "1.00"
+      "tp": "2.50"
     },
     {
       "address": "0xe51ebb45f1e50b9e37271e725e6457e54bb42dfa",
@@ -1283,7 +1281,7 @@ var franchisee = [
     {
       "address": "0xb37d4782d201ba331fd845e7813a96b27d68c87f",
       "tokenIds": "[162]",
-      "tp": "0.30"
+      "tp": "1.17"
     },
     {
       "address": "0xdf8adea3662af9192794c07aa64184ed91d7ec4b",
@@ -1338,7 +1336,7 @@ var franchisee = [
     {
       "address": "0xd8aa2fcb6d00c5a83cb9260f7b32a32353ef1ad3",
       "tokenIds": "[445, 447, 448, 449, 450, 451, 526, 527, 530, 531, 534, 535, 536, 537, 1422, 1887, 1888, 1889, 1894, 2192, 2194, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2204, 2206, 2207, 2208, 2211, 2268, 2269, 2270, 2273, 2274, 2275, 2276, 2277, 2294, 2296, 2298, 2299, 2300, 2301, 2302, 2725, 2726, 2728, 2731, 2732, 2734, 2735, 2736, 2737, 2738, 2740, 2742, 2743, 2744, 2745, 2747, 2748, 2749, 2750, 2752, 2753, 2755, 2756, 2757, 2758, 2761, 2796, 2797, 2798, 2801, 2802, 3097, 3098, 3232, 3233, 3236, 3860, 4109, 4110, 5058, 5860, 6624, 6637, 6642, 6643, 6644, 6645, 6646, 6648, 6676, 6677, 6679, 6681, 6685, 6686, 6805, 6812, 6814, 6819, 6820, 6821, 6964, 6966, 6968, 6973, 7827, 7828, 7830, 8422, 8424, 8425, 8426, 8427, 8795]",
-      "tp": "68.90"
+      "tp": "128.66"
     },
     {
       "address": "0x19fffec29ee8ef2a4e30f9429c28c292a0b5ccfb",
@@ -1403,7 +1401,7 @@ var franchisee = [
     {
       "address": "0xe954e5c8df4ecd2fc5aa724df6f7b86986b28277",
       "tokenIds": "[869, 871, 873, 874, 2408, 2409, 2410, 2411]",
-      "tp": "5.20"
+      "tp": "10.81"
     },
     {
       "address": "0x19f752f1d0a9d64d721458b5f44c3f4df3658be4",
@@ -1463,17 +1461,17 @@ var franchisee = [
     {
       "address": "0xeadb8b5aaf6c34701289cc24415452d6183a5d0a",
       "tokenIds": "[5555, 5597, 5604, 5607, 5608, 6237, 6242, 6243, 6246, 6247, 7369, 7370, 7373, 7377, 7378, 7380, 7385, 7387, 7394, 7397, 7400, 7402, 7404, 7547, 7551, 7552, 7557, 7559, 7565, 7567, 7568, 7570, 7571, 7572, 7573, 7574, 8295, 8296, 8299, 8302, 8305, 8309, 8310, 8311, 8463, 8813, 8830, 8862]",
-      "tp": "27.00"
+      "tp": "95.30"
     },
     {
       "address": "0x078052d178914b6225759cddc89f39aac4ffde05",
       "tokenIds": "[5311, 5317, 5323, 7996]",
-      "tp": "2.20"
+      "tp": "4.38"
     },
     {
       "address": "0x026180ec45b17bd85754aa3e1d98750c9038cc75",
       "tokenIds": "[2509]",
-      "tp": "0.30"
+      "tp": "0.61"
     },
     {
       "address": "0xac9e56b4f78aba782738f052cf1652fc2307d5ae",
@@ -1503,7 +1501,7 @@ var franchisee = [
     {
       "address": "0x598803ab53aeb14624d2551300e562b7dc5d36af",
       "tokenIds": "[7600, 9205, 9207, 9208]",
-      "tp": "1.80"
+      "tp": "8.10"
     },
     {
       "address": "0xf63e7d6d07bae9970410a9fab9037ad78c2caec6",
@@ -1568,7 +1566,7 @@ var franchisee = [
     {
       "address": "0x1db8a4b356f434dc5fc353436d837d2ebab911a4",
       "tokenIds": "[2653]",
-      "tp": "0.60"
+      "tp": "1.44"
     },
     {
       "address": "0x9a527d34c2924f9b300c3e57e3bdc381281fec64",
@@ -1623,7 +1621,7 @@ var franchisee = [
     {
       "address": "0x4c009c863abeb5f645e42544eb01cabe2564ae3d",
       "tokenIds": "[4443, 7132, 7133, 7139, 7140, 7143, 7147, 7148, 7151, 7155, 7230, 8135, 8411, 8417, 9255, 9259, 9260, 9319]",
-      "tp": "9.20"
+      "tp": "13.50"
     },
     {
       "address": "0x341628eda51356e8b870184cb87eb30b1751526a",
@@ -1673,12 +1671,12 @@ var franchisee = [
     {
       "address": "0xdcbfd840d4963b69acc69852055c8ba5aa73dee2",
       "tokenIds": "[174, 176]",
-      "tp": "1.20"
+      "tp": "30.99"
     },
     {
       "address": "0x462660cc681dbeef056a3fe2808f0833d2d47f87",
       "tokenIds": "[611, 614, 2078, 2079, 2080, 2081, 2082]",
-      "tp": "3.60"
+      "tp": "6.18"
     },
     {
       "address": "0xeab0fedd5a670d195f0746511c50e5f8a1f7f74a",
@@ -1708,12 +1706,12 @@ var franchisee = [
     {
       "address": "0x96151bb8fdcacbb9bdb5a7efe3ea1172e1fda262",
       "tokenIds": "[741, 1162, 2336, 4831, 4834, 4835, 4838, 4840, 4841, 4844, 4847, 4851, 7594, 7595]",
-      "tp": "8.00"
+      "tp": "17.50"
     },
     {
       "address": "0xe82a4acfad6d474ae316c916bb5ee4659810b5b5",
       "tokenIds": "[33, 980, 1677]",
-      "tp": "1.50"
+      "tp": "2.37"
     },
     {
       "address": "0xfb11f83f44ad142344b86737fc753375924a70bd",
@@ -1723,7 +1721,7 @@ var franchisee = [
     {
       "address": "0xc3fdb6fe1ab3f8d4ddbdb18423b734652232f99f",
       "tokenIds": "[2129, 2130]",
-      "tp": "0.60"
+      "tp": "9.10"
     },
     {
       "address": "0x6dea827f72cb80daafc233a35e8e82670bb3fb53",
@@ -1808,7 +1806,7 @@ var franchisee = [
     {
       "address": "0x8b3e20ece417d15d6c28933265426f1784644589",
       "tokenIds": "[1969, 1970, 1974, 4792, 4793, 5202, 5488, 5489, 5514, 5515, 6479, 6601, 6602, 6603]",
-      "tp": "7.50"
+      "tp": "10.40"
     },
     {
       "address": "0xb05b8d125d5423e59527da344e423b97b3e2de9c",
@@ -1823,7 +1821,7 @@ var franchisee = [
     {
       "address": "0xcbaa8c46b7be085d6106d437dbfb60d8aeff348a",
       "tokenIds": "[1763, 2542, 2544, 2560, 2561, 2562, 5684, 5686, 5694, 5695, 5696, 5697, 5698, 5699, 6838, 6841, 6845, 7257, 7259, 7263, 7264, 7265, 7266, 7267, 7270, 7277, 7414, 7416, 7418, 7428, 8352, 9163, 9165, 9167, 9196, 9198, 9199]",
-      "tp": "19.80"
+      "tp": "31.40"
     },
     {
       "address": "0xb6408264febda115d61efba002e403542086f40e",
@@ -1853,12 +1851,12 @@ var franchisee = [
     {
       "address": "0x85c5d8ba9d574f20c68a740f020e823451f0f3ac",
       "tokenIds": "[540, 3631, 3907, 3914, 4671, 4672, 5383]",
-      "tp": "3.40"
+      "tp": "44.31"
     },
     {
       "address": "0x671755011d43558c70b0cc795db23be7e13d4959",
       "tokenIds": "[144, 145, 146, 147, 150, 1140, 1759, 2031, 2381, 2570, 2572, 2716, 2717, 2771, 2883, 2884, 2931, 2932, 2948, 2949, 2950, 2951, 2954, 2956, 3007, 3009, 3010, 3027, 3029, 3030, 3031, 3032, 3033, 3035, 3036, 3099, 3105, 3106, 3107, 3110, 3112, 3113, 3114, 3115, 3116, 3118, 3119, 3121, 3122, 3123, 3124, 3125, 3126, 3128, 3130, 3131, 3132, 3133, 3134, 3135, 3199, 3201, 3578, 3579, 3581, 3600, 3602, 3603, 3604, 3605, 3606, 3607, 3608, 3609, 3610, 3614, 3616, 3617, 3619, 3620, 3634, 3635, 3636, 3638, 3882, 3908, 4066, 4674, 4809, 4812, 5517, 5518, 5552, 5840, 5842, 6650, 7185, 7186, 7188, 7203, 7204, 7543, 7833, 8009, 8353, 8450, 8756, 8757, 8770, 8772, 8949, 9023]",
-      "tp": "62.80"
+      "tp": "217.13"
     },
     {
       "address": "0x2eaf58829d2fc2d5109b6d0450f1b9ed81322816",
@@ -1918,7 +1916,7 @@ var franchisee = [
     {
       "address": "0x5cc6f29b1058ad7e844ace21db36ee099f428e1a",
       "tokenIds": "[4322, 7658]",
-      "tp": "1.30"
+      "tp": "1.90"
     },
     {
       "address": "0x0a8683c3b94820ffdfdac7a2f70be8790491884b",
@@ -1948,7 +1946,7 @@ var franchisee = [
     {
       "address": "0x9f406cc3f64a44a74d9071edfddf26b09be39a02",
       "tokenIds": "[4894, 4895, 4896, 4897, 4898, 4900, 4901, 4902, 5796]",
-      "tp": "2.40"
+      "tp": "3.90"
     },
     {
       "address": "0x3492b2ec55fcd8d8f34525f32903a24a114c0e64",
@@ -1958,7 +1956,7 @@ var franchisee = [
     {
       "address": "0x188aa630ed6ce2b3c31b7d50a6b1005779642ea6",
       "tokenIds": "[1576]",
-      "tp": "0.30"
+      "tp": "11.94"
     },
     {
       "address": "0x464a81d823755d6702074db9f11b8a50fea75d0c",
@@ -2023,7 +2021,7 @@ var franchisee = [
     {
       "address": "0x0db35c97ade95a573b0b436994c76bfcbd1da897",
       "tokenIds": "[4181, 4481, 4482, 4492, 4493, 4495, 4498, 7052, 7054, 7060, 7069, 7076, 7856, 7858, 7859, 7860, 7864, 7865, 7867, 7868, 7869, 7870, 7881, 8193, 8197, 8198, 8199, 8201, 8205, 8207, 8209, 8211, 8215, 8221, 8225, 8230, 8282, 8647, 8649, 8651, 8652, 8654, 8657, 8659, 8660, 8661, 8667, 8669, 8671, 8672, 8680, 8682, 8688, 8689, 8690, 8691, 9313, 9314, 9317]",
-      "tp": "31.70"
+      "tp": "88.28"
     },
     {
       "address": "0xce964f7d056f0d3d5846e41e5f8a0bfd158a0612",
@@ -2078,7 +2076,7 @@ var franchisee = [
     {
       "address": "0x7793a67ebc88d4086c8e418092a7f242fce29f0f",
       "tokenIds": "[48, 395, 396, 397, 398, 2356, 5911]",
-      "tp": "4.00"
+      "tp": "4.64"
     },
     {
       "address": "0x64c9c05e63365fcc0bc11495db0e8379a6881cde",
@@ -2118,12 +2116,12 @@ var franchisee = [
     {
       "address": "0x08380400696d1d0e432ee4c173c6dfa70cead0ed",
       "tokenIds": "[1830, 2056, 2639, 4132, 4819, 7406, 7407, 8785, 8792, 9003]",
-      "tp": "7.30"
+      "tp": "63.22"
     },
     {
       "address": "0xfa28cf2527d33d782e016c30e7f281c96ca5c48a",
       "tokenIds": "[453, 1242, 1544, 1678, 1680, 1684, 1688, 1694, 1696, 1703, 1707, 1712, 1713, 1714, 1715, 1717, 1719, 1720, 1721, 1722, 1726, 1727, 1928, 2427, 2428, 2480, 2488]",
-      "tp": "17.60"
+      "tp": "25.80"
     },
     {
       "address": "0xd570f296b6c3f600e000ad1d23b79b457d09c36d",
@@ -2183,7 +2181,7 @@ var franchisee = [
     {
       "address": "0x96a69165d2659ccd8fb5d4e7a4abadc416daf434",
       "tokenIds": "[2243, 2308]",
-      "tp": "1.60"
+      "tp": "2.50"
     },
     {
       "address": "0xeb9b0c434b91c2f8f5e2e80eafdbdebc42f4a2e3",
@@ -2198,7 +2196,7 @@ var franchisee = [
     {
       "address": "0xc14161c0aeda82ae25f384587ae3ab9743a7dafb",
       "tokenIds": "[1156]",
-      "tp": "0.60"
+      "tp": "42.66"
     },
     {
       "address": "0x524188a77ad373d8fa14dbb67d4af6ab18b5e553",
@@ -2213,7 +2211,7 @@ var franchisee = [
     {
       "address": "0x627f3584946295cad2102c635ac83ddc67576022",
       "tokenIds": "[4720, 4722, 6946, 6947, 7284, 7285, 7286, 8144]",
-      "tp": "5.50"
+      "tp": "15.90"
     },
     {
       "address": "0x705e4650a99438286dc263790cc0c9c8484ca80e",
@@ -2233,7 +2231,7 @@ var franchisee = [
     {
       "address": "0xf773009dcc9751b06f53b694ded60cf220cde691",
       "tokenIds": "[1553, 4452]",
-      "tp": "0.60"
+      "tp": "28.64"
     },
     {
       "address": "0x41965816e37bec2b7478c06fc0db20075f269a95",
@@ -2243,7 +2241,7 @@ var franchisee = [
     {
       "address": "0x89b26babdd7c2af7dd5a3e613d915e601b4ae5a2",
       "tokenIds": "[8881, 9172, 9175, 9177, 9185]",
-      "tp": "2.40"
+      "tp": "4.80"
     },
     {
       "address": "0x4230eafd8d37d1e18257577c2fdc14167abc2c0d",
@@ -2268,7 +2266,7 @@ var franchisee = [
     {
       "address": "0x56d1dbee4f5479553e4c5a74cbeb46164e6bb79b",
       "tokenIds": "[5462, 5464]",
-      "tp": "1.60"
+      "tp": "2.60"
     },
     {
       "address": "0xa5309626b7340cd948dd18968814c65ea47ffcfd",
@@ -2283,7 +2281,7 @@ var franchisee = [
     {
       "address": "0x2dd8ddc9a9460eaead3b8bc0d94438a88194ea86",
       "tokenIds": "[3241, 3451]",
-      "tp": "0.60"
+      "tp": "38.44"
     },
     {
       "address": "0x5fa0d3acdbf6c50c88e99caf9359c693ad9d10c1",
@@ -2378,12 +2376,12 @@ var franchisee = [
     {
       "address": "0x480afd53dcd44c8582b9fd302016659b2e0ddd45",
       "tokenIds": "[565, 1566, 1673, 1675, 2331, 3141, 3741, 3742, 3830, 3831, 3990]",
-      "tp": "7.20"
+      "tp": "72.32"
     },
     {
       "address": "0x206d8e29515d1d1192f873e65355853b073cd81d",
       "tokenIds": "[4281, 4283, 4285, 4287, 5074, 5079, 5080, 7117, 7119, 7121, 7239, 7240, 7241, 7444, 8496, 8497, 8499, 8501, 8504, 8960, 8969]",
-      "tp": "6.30"
+      "tp": "9.00"
     },
     {
       "address": "0x3c19284a2f268b29a64103ce2f2812f01c1679b9",
@@ -2443,7 +2441,7 @@ var franchisee = [
     {
       "address": "0xd7d7662c936b521b28c4c3bd055a9ebd2499bc4c",
       "tokenIds": "[245, 543, 552]",
-      "tp": "1.90"
+      "tp": "3.01"
     },
     {
       "address": "0x6967983490898240dd09a33f610e9c78ee2e7193",
@@ -2463,7 +2461,7 @@ var franchisee = [
     {
       "address": "0x2503111ca332bb2ab00f0fefd4458dfdb14f3d83",
       "tokenIds": "[4267]",
-      "tp": "0.30"
+      "tp": "0.60"
     },
     {
       "address": "0xf1c847734d8717db941e4a19874fc2f4800551be",
@@ -2488,7 +2486,7 @@ var franchisee = [
     {
       "address": "0xedd920e44ef2173483d99e1b674bf285255ce46c",
       "tokenIds": "[2266]",
-      "tp": "1.00"
+      "tp": "5.38"
     },
     {
       "address": "0x1338b0b4a8942de4d04d6f4f82677c12d2a83c13",
@@ -2508,7 +2506,7 @@ var franchisee = [
     {
       "address": "0x0fcdb01287f8fbce0d86598f121a2a3bcc546339",
       "tokenIds": "[4393, 4400, 4401, 4403, 4404, 4406, 4410, 4411, 4412, 4414, 4415, 4420, 5069, 5071, 5072, 5078, 5083, 5088]",
-      "tp": "4.90"
+      "tp": "6.10"
     },
     {
       "address": "0x5a9330841b716f43b5aa6e11bdf4df9e85be2b62",
@@ -2533,7 +2531,7 @@ var franchisee = [
     {
       "address": "0xfae716a8a9b2e26afe7b2a75631f64016583e331",
       "tokenIds": "[2264]",
-      "tp": "0.30"
+      "tp": "2.74"
     },
     {
       "address": "0x2636233cbac9bb3a215a544c778386e22227c26a",
@@ -2618,7 +2616,7 @@ var franchisee = [
     {
       "address": "0x0fb9067a7ab943827d7912a3f6616c40f676c0df",
       "tokenIds": "[3242, 3552]",
-      "tp": "0.90"
+      "tp": "42.36"
     },
     {
       "address": "0x29ff96e3efe14dc874cb1a722692b668a9b7a6ea",
@@ -2633,7 +2631,7 @@ var franchisee = [
     {
       "address": "0x8c73f0ec9cca2bae1798a4efb017ea346983d133",
       "tokenIds": "[1942, 1944, 1946, 3684, 3690, 3704, 3707, 3710, 3712, 3714, 3715, 3722, 3723, 3777, 4012, 4334, 4337, 7690, 7691, 7693]",
-      "tp": "11.00"
+      "tp": "25.62"
     },
     {
       "address": "0x3bcc913a3b6e3091ec6ad9f5a649172984ee174b",
@@ -2658,7 +2656,7 @@ var franchisee = [
     {
       "address": "0x46e1df538821d8fed7b6eb1b68597d59b1bfc1b5",
       "tokenIds": "[71, 96, 100, 260, 262, 263, 278, 280, 281, 283, 285, 286, 287, 288, 289, 479, 480, 481, 482, 483, 485, 488, 835, 844, 1014, 1131, 1132, 1146, 1490, 1492, 1493, 1494, 1495, 1496, 1498, 1503, 1508, 1509, 1511, 1516, 1517, 1520, 2213, 2216, 2217, 2218, 2219, 2222, 2223, 2225, 2938, 2940, 2944, 2945, 2946, 2959, 2960, 2961, 2963, 2964, 2966, 2967, 2968, 2969, 2970, 2971, 2973, 2975, 2977, 2979, 2981, 2984, 2985, 2986, 2988, 2989, 2990, 2991, 2994, 2995, 4022, 4026, 4029, 8545, 8546, 8547, 8549, 8550, 8552, 8563, 8565, 8567, 8568, 8569, 8571, 8572, 8574, 8575, 8576, 8589, 8592, 8593, 9028, 9029, 9071, 9074, 9077, 9130, 9131]",
-      "tp": "56.80"
+      "tp": "372.21"
     },
     {
       "address": "0xbf926951c14072b7497a699317adfcbb0cd68e19",
@@ -2708,7 +2706,7 @@ var franchisee = [
     {
       "address": "0x81b0ed272a2d59cd9db88865ee20ecb1d1cba944",
       "tokenIds": "[5241]",
-      "tp": "0.30"
+      "tp": "4.50"
     },
     {
       "address": "0x8d671072606504de3a381d6c48559b00f6866c2d",
@@ -2768,7 +2766,7 @@ var franchisee = [
     {
       "address": "0xd945f06908136a2681b50deb3e2642052a1e7742",
       "tokenIds": "[2132, 2245, 2246, 2250, 2251]",
-      "tp": "1.50"
+      "tp": "10.10"
     },
     {
       "address": "0x1eef2f574fd07b28d879ce72d153c730fb5c883e",
@@ -2818,7 +2816,7 @@ var franchisee = [
     {
       "address": "0xc6342369b9fca4af1a9009b63d5d9656ab02937d",
       "tokenIds": "[461, 491, 656, 658, 845, 2665, 2672, 3866, 3869, 3999, 8704, 8711, 8713, 8716, 8718, 8778, 8824, 8914, 9048, 9049, 9082, 9095, 9148, 9375, 9378]",
-      "tp": "11.20"
+      "tp": "145.55"
     },
     {
       "address": "0xc7f55356e2d944089c00306735c456122ef1ad27",
@@ -2848,7 +2846,7 @@ var franchisee = [
     {
       "address": "0x7e4b81428395723cd080ec65ae4becbd0deed944",
       "tokenIds": "[1988]",
-      "tp": "3.00"
+      "tp": "5.70"
     },
     {
       "address": "0x4335fecb76aec8812dbcd3cc7a33474e0ddc26f8",
@@ -2898,7 +2896,7 @@ var franchisee = [
     {
       "address": "0x43ec11e3748b7af76b695bda4dbd5248b3b390a0",
       "tokenIds": "[5657, 5754, 7343]",
-      "tp": "0.90"
+      "tp": "10.10"
     },
     {
       "address": "0xd8aba912f94d8cce18d643bdbeb9922fa95e1404",
@@ -2918,7 +2916,7 @@ var franchisee = [
     {
       "address": "0x134a347382f89cbb5ee778d5b77175326428935e",
       "tokenIds": "[1090]",
-      "tp": "0.30"
+      "tp": "2.74"
     },
     {
       "address": "0xb4fcaef545a2378dd1050d4e0e0f57e1ff2fb844",
@@ -2953,7 +2951,7 @@ var franchisee = [
     {
       "address": "0xa045cd23eda28521d12083b845b5d307ac5a7183",
       "tokenIds": "[499, 500, 502, 1755, 1756, 2414, 2839, 2840, 2841, 2843, 2845, 2846, 2847, 2850, 2851, 2852, 2853, 2854, 2855, 2856, 2857, 2858, 2860, 2861, 2862, 2864, 2867, 2870, 2872, 2873, 2874, 2875, 2876, 2877, 2878, 2879, 2880, 2881, 3059, 3061, 3265, 3266, 3917, 3918, 4078, 4291, 4293, 4598, 4599, 4927, 4929, 4930, 6733, 6734, 6739, 6740, 6742, 6744, 6746, 6748, 6749, 6750, 6824, 7020, 7022, 7438, 7679, 8060]",
-      "tp": "36.40"
+      "tp": "75.07"
     },
     {
       "address": "0x1433d14d4d3852135e23e0bd66f0bf4e0da27ee3",
@@ -2963,7 +2961,7 @@ var franchisee = [
     {
       "address": "0x48d373d91ab790692b8130fece1108973165b7d6",
       "tokenIds": "[987, 989, 990, 991, 992, 993, 2351, 2352]",
-      "tp": "4.00"
+      "tp": "4.54"
     },
     {
       "address": "0x12211059ffc705ce759fe5d4c8458e3f72f10b41",
@@ -3053,7 +3051,7 @@ var franchisee = [
     {
       "address": "0x24f7a7e7c1e91490f3c1e34f8b58658a5d551a1a",
       "tokenIds": "[1311, 3697, 3698, 3871, 3872, 3922, 3923, 3984, 4001, 4002, 4013, 4167, 4544, 5613, 7061, 7062, 7065, 8040, 8043, 8044, 8046, 8047, 8048, 8049, 8050, 8051, 8053, 8065, 8066, 8068, 8071, 8074, 8155, 8156, 8158, 8161, 8163, 8235, 8237, 8467, 8700, 8701, 8841, 8849, 8865, 8888, 8895, 9005, 9122, 9124, 9134, 9135, 9136, 9159, 9298, 9301, 9302, 9304, 9305, 9307, 9327, 9328, 9329, 9332]",
-      "tp": "13.20"
+      "tp": "125.46"
     },
     {
       "address": "0x792cd206630229254efa8568087d88b344224c55",
@@ -3093,7 +3091,7 @@ var franchisee = [
     {
       "address": "0x8963650c2f84fdec4294fe9a95b05bec78f32db7",
       "tokenIds": "[2537]",
-      "tp": "0.30"
+      "tp": "0.57"
     },
     {
       "address": "0xf8a2f608b2d71a76c132fea6d1090c65b1bf67b4",
@@ -3118,7 +3116,7 @@ var franchisee = [
     {
       "address": "0xb82b8dbd922245bbddfb7f01ff8729175f652f24",
       "tokenIds": "[1163, 1164, 1168, 1177, 1179, 1182, 1185, 1187, 1188, 1189, 1197, 1198, 1200, 1203, 1207, 1212]",
-      "tp": "10.00"
+      "tp": "63.46"
     },
     {
       "address": "0x3c3bc19d5d1adc6b4f5405ce30bf91711d29a2cc",
@@ -3158,7 +3156,7 @@ var franchisee = [
     {
       "address": "0xe59c4ddc8f861e160259b955cedc4de492f82865",
       "tokenIds": "[168, 169, 2510, 2512, 2886, 3162, 3227, 3229, 4957, 5044, 5045, 5049, 5050, 5051]",
-      "tp": "3.90"
+      "tp": "12.65"
     },
     {
       "address": "0xee7c1b273e14dcf4ff6dc886d40a08744921da55",
@@ -3173,7 +3171,7 @@ var franchisee = [
     {
       "address": "0x87039e570a43d762efef9024b9794d4fcc3f98f4",
       "tokenIds": "[1, 2]",
-      "tp": "1.30"
+      "tp": "106.28"
     },
     {
       "address": "0xe02a1d9ad72602e2ab4c04a6cfb799cdfbdeaf94",
@@ -3188,7 +3186,7 @@ var franchisee = [
     {
       "address": "0xa8da7d1473352c5dd7930e4af24c78c5055c2b03",
       "tokenIds": "[1543]",
-      "tp": "0.30"
+      "tp": "0.87"
     },
     {
       "address": "0x52f4cc407badbb88bd4ad0d053b3f2adc156d6d6",
@@ -3198,12 +3196,12 @@ var franchisee = [
     {
       "address": "0xc7aadedaa7cadc03e4858f522a3d2da8123ec9d9",
       "tokenIds": "[310, 1122, 1123, 1125, 1983, 2347, 3022, 3853, 8780]",
-      "tp": "4.60"
+      "tp": "24.61"
     },
     {
       "address": "0x9fd83e05a74449e9bc9242c5b405dfa0719c4818",
       "tokenIds": "[3654]",
-      "tp": "0.30"
+      "tp": "0.57"
     },
     {
       "address": "0x9994aff288bd7daae6b0781a7b92118379ad3d67",
@@ -3223,7 +3221,7 @@ var franchisee = [
     {
       "address": "0xea8f2d70b1b385fc1dca96c54e073f201c822b6f",
       "tokenIds": "[1858]",
-      "tp": "0.30"
+      "tp": "0.60"
     },
     {
       "address": "0xf995d82dd085c77a1bed5f1bb11c57430fedd8c2",
@@ -3273,7 +3271,7 @@ var franchisee = [
     {
       "address": "0xa82d6279f2bca04e9afc2fb3865d01c176c983d2",
       "tokenIds": "[581, 866, 3598, 4009, 4991, 4992, 4995, 4998, 5000, 5004, 5006, 5064, 5067, 5141, 5143, 7633, 7702, 7704, 7969, 7973, 7976, 7978, 7982, 7988, 7989, 7991, 7993, 7994, 8022, 8028, 8030, 8870, 8871]",
-      "tp": "17.60"
+      "tp": "27.40"
     },
     {
       "address": "0x2c8283302eacd5a15ef1960e9bf95dd79730c584",
@@ -3298,12 +3296,12 @@ var franchisee = [
     {
       "address": "0x4c362ccbfc00711cb38020eecf8019b2523ec7fc",
       "tokenIds": "[454, 456, 457, 592, 593, 594, 1400, 2121, 2122, 7193]",
-      "tp": "5.20"
+      "tp": "6.70"
     },
     {
       "address": "0xcd64dd0bfd7aba1c2faaa33a6d771dc2f1b89270",
       "tokenIds": "[389, 518, 812, 1380, 1381, 1384, 1387, 1388, 1389, 1391, 1432]",
-      "tp": "6.10"
+      "tp": "37.44"
     },
     {
       "address": "0x15ec0a288c06790194560a340f2431b61e75af12",
@@ -3398,7 +3396,7 @@ var franchisee = [
     {
       "address": "0x73b3eb15c0d21947ffb1fd1837354956c5ae5cec",
       "tokenIds": "[538]",
-      "tp": "1.00"
+      "tp": "2.20"
     },
     {
       "address": "0x253fdb19cb32b7a1e01d2d9723903d14c4eed7e3",
@@ -3463,7 +3461,7 @@ var franchisee = [
     {
       "address": "0x827555e799b48248cc2e0e516041e7e84e5b9d1e",
       "tokenIds": "[659, 660, 4038, 4040, 4042, 4046, 4049, 4083, 4310, 4342, 4347, 4730, 5835, 5914, 5917, 6020, 6021, 6023, 6027, 6208, 6524, 8433, 8435]",
-      "tp": "13.70"
+      "tp": "20.20"
     },
     {
       "address": "0x35220552161167d3e47208e44a91550cf53d356e",
@@ -3478,7 +3476,7 @@ var franchisee = [
     {
       "address": "0xeee493eebd80be6dbfd98bc5d0819121b15ecd42",
       "tokenIds": "[539, 1744, 1745, 1747, 1776, 1780, 1784, 1785, 1837, 1844, 1850, 2075, 2087, 6214, 6216, 7897]",
-      "tp": "8.50"
+      "tp": "12.10"
     },
     {
       "address": "0x88d269ad486b1cfa932e1ceb9b44d19d441101ce",
@@ -3498,7 +3496,7 @@ var franchisee = [
     {
       "address": "0x3f165346b96760dfc673c0494ae63e59e6fc7c92",
       "tokenIds": "[8644]",
-      "tp": "0.30"
+      "tp": "3.40"
     },
     {
       "address": "0x0f41eb7004591f9afe8d9d5c817e8350fba8aebe",
@@ -3568,12 +3566,12 @@ var franchisee = [
     {
       "address": "0x1ccb211b5708be8b7d9410beec35f97f2c9bc70e",
       "tokenIds": "[1007]",
-      "tp": "0.60"
+      "tp": "1.14"
     },
     {
       "address": "0x7083185ddf2dd2c52575b8294cb47b33b40959b0",
       "tokenIds": "[470, 1481, 1483, 1484, 1485, 1486, 1487, 1500, 1512, 1513, 1514, 2415]",
-      "tp": "4.80"
+      "tp": "5.40"
     },
     {
       "address": "0xbfde8086b8eec591f9c139c92bc278469f1249f9",
@@ -3663,7 +3661,7 @@ var franchisee = [
     {
       "address": "0x8a55f42af13b1ceca51a3a74fc89b9547f0d2468",
       "tokenIds": "[647, 648, 2085, 2086]",
-      "tp": "1.80"
+      "tp": "2.40"
     },
     {
       "address": "0xe8c16c288039f04de10997cd398cb10662182009",
@@ -3723,12 +3721,12 @@ var franchisee = [
     {
       "address": "0xa59a03da5d29a2d098e9e448cd6f51ddcd02f2cd",
       "tokenIds": "[165, 166, 177, 562, 1161, 1536, 1537, 1736, 1737, 1739, 1741, 1824, 1825, 1826, 1827, 1828, 1829, 1831, 1832, 2148, 2152, 2154, 2567, 2589, 2590, 2591, 2592, 2593, 2594, 2595, 2596, 2597, 2599, 2602, 2712, 2713, 3023, 3024, 3049, 3052, 3055, 3056, 3057, 3058, 3070, 3071, 3072, 3074, 3075, 3076, 3077, 3078, 3080, 3081, 3082, 3083, 3085, 3087, 3094, 3179, 3180, 3181, 3182, 3183, 3184, 3185, 3655, 3659, 3661, 3663, 3664, 3912, 5028, 8032, 8429, 8469, 8477, 8851, 8859, 8867]",
-      "tp": "38.80"
+      "tp": "80.49"
     },
     {
       "address": "0x66d84aa9bd934c214db5b9d11a15255696aadd52",
       "tokenIds": "[2429, 2430, 2431, 2432, 2433, 2441, 2442, 2445, 2446, 2447, 2450, 2451, 2452, 2455, 2456, 2459, 2460, 2462, 2495, 2496, 2498, 2499, 2500, 2501, 2502, 2530]",
-      "tp": "14.70"
+      "tp": "16.20"
     },
     {
       "address": "0x3bdb9bdbf88a24dc27f33a124128273a14f22661",
@@ -3743,7 +3741,7 @@ var franchisee = [
     {
       "address": "0x80a6b66c828279f7d8dda7fda7e95962034795aa",
       "tokenIds": "[2265]",
-      "tp": "0.60"
+      "tp": "0.90"
     },
     {
       "address": "0x4f817014807fae13c861cba3440a442b2408525e",
@@ -3758,7 +3756,7 @@ var franchisee = [
     {
       "address": "0x69abc9afb9bddb043fdf26092426d84807455139",
       "tokenIds": "[153, 156, 702, 1302, 1303, 1366, 1539, 1598, 1599, 1765, 1766, 1767, 1768, 1769, 2027, 4188, 4686, 4687, 4689, 4973, 4980, 5224, 5227, 5228, 5229, 5231, 5261, 5262, 5271, 5275, 5485, 5634, 5637, 5640, 5648, 5649, 5650, 5651, 5652, 5653, 6756, 6760, 7339, 9320]",
-      "tp": "24.10"
+      "tp": "74.82"
     },
     {
       "address": "0xa7695a75f2de33a97e1bc678dd1ca7f085e51083",
@@ -3768,7 +3766,7 @@ var franchisee = [
     {
       "address": "0xcb7e43b71e3d3d448792123b613b79c27a190f5f",
       "tokenIds": "[82, 83, 85, 1153, 1742, 2709, 4032, 5012, 5013, 5476, 6064, 6065, 6066, 6067, 8274, 8280, 8362, 8639]",
-      "tp": "7.90"
+      "tp": "15.20"
     },
     {
       "address": "0x5075b21f4f935fcaef36dcab5bbe985ade497cda",
@@ -3828,7 +3826,7 @@ var franchisee = [
     {
       "address": "0xd4a77b4e51d2af442fb704622df3f9b76248ccd3",
       "tokenIds": "[159, 203, 1151, 1439, 4062, 4117, 5611, 6516, 6831, 6832, 6834, 7008, 7012, 7643, 7646, 8013, 8016, 8033, 8284]",
-      "tp": "8.80"
+      "tp": "71.02"
     },
     {
       "address": "0x55d60f69286b8c1f0e3286c9b5b0830a28fdae9e",
@@ -4058,12 +4056,12 @@ var franchisee = [
     {
       "address": "0xc3ea0d0b105605e8db9f6361a5a1ba99b8f9a5d2",
       "tokenIds": "[463, 819, 1869]",
-      "tp": "2.20"
+      "tp": "2.74"
     },
     {
       "address": "0xfc4962f2ce5fae2eedf285342b0631362cf4b696",
       "tokenIds": "[292]",
-      "tp": "0.30"
+      "tp": "0.60"
     },
     {
       "address": "0xd5bd1aff951158110bae4a4ea06105ba954c2e78",
@@ -4153,12 +4151,12 @@ var franchisee = [
     {
       "address": "0xef4fa6998548c535e93853ed87ca2260f87157f8",
       "tokenIds": "[666, 667, 2098, 2099]",
-      "tp": "1.20"
+      "tp": "2.67"
     },
     {
       "address": "0x808f2634d1679cb4016499b921e6593f754073c2",
       "tokenIds": "[4064]",
-      "tp": "0.00"
+      "tp": "31.18"
     },
     {
       "address": "0xcf5009df23718a58ac1633fe52d9613f091cc431",
@@ -4168,7 +4166,7 @@ var franchisee = [
     {
       "address": "0x4ce6fd211902999d02db58a84a0e10b5239c7c57",
       "tokenIds": "[5522, 5524, 5534, 5536, 5538, 5539, 6296, 6300, 7326, 7328, 7538, 8116, 8315]",
-      "tp": "5.70"
+      "tp": "15.46"
     },
     {
       "address": "0x8b0c662c15ff0bcf95eba2ba86ce53f215837fb9",
@@ -4263,7 +4261,7 @@ var franchisee = [
     {
       "address": "0xfebb25c93bfc974c3c53af862b07567dd6075744",
       "tokenIds": "[2191, 3039, 3040]",
-      "tp": "1.20"
+      "tp": "11.22"
     },
     {
       "address": "0xfd964ea49bc647e26b9c43167587739b7836a6a8",
@@ -4308,7 +4306,7 @@ var franchisee = [
     {
       "address": "0xab596f463dc676482604db8ed82dbc179b75b45b",
       "tokenIds": "[675, 1641, 2465, 2466, 2468, 2469, 2471, 2472, 2473, 2474, 2475, 2476, 2477, 2505, 2577, 2578, 2656, 2657, 2810, 2811, 3144, 3145, 3148, 3149, 3150, 3175, 3176, 3873, 3874, 6219, 7728, 7729, 7730, 7731, 7732, 7736, 7737, 7751, 7752, 7753, 7754, 7755, 7756, 7757, 7758, 7791, 7792, 7793, 7796, 7797, 7799, 7800, 7832, 8164, 8165, 8166, 8373, 8987]",
-      "tp": "24.60"
+      "tp": "35.80"
     },
     {
       "address": "0x6cb3ed671f4eeb0cbdca74aac8361fc39e4ce246",
@@ -4325,7 +4323,6 @@ var franchisee = [
       "tokenIds": "[306, 309, 393, 422, 423, 424, 430, 431, 432, 437, 439, 440, 773, 788, 1075, 1077, 1078, 1080, 1082, 1087, 1224, 1225, 1226, 1228, 1232, 1251, 1253, 1267, 1269, 1270, 1271, 1274, 1278, 1295, 1296, 1298, 1301, 1375, 1376, 1424, 1425, 1434, 1436, 1526, 1959, 1961, 1963, 1964, 1968, 3978]",
       "tp": "21.20"
     }
-    
   ]
 
   
