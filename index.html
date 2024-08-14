@@ -2684,10 +2684,12 @@ snapshotSizeMap.set("0xe676A7a524836F3509D1449343432177F398a5c9",0);
 
         console.log("ref=" + ref)
 
-         const result = isAddressInArray(addressList, ref);
+        const result = isAddressInArray(addressNoList, ref);
+
+        console.log("result+",result)
 
         if(result){
-            console.log('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage S3. As a result, the RWA issuance function for the chain shop will be disabled.'); 
+            alert('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage S3. As a result, the RWA issuance function for the chain shop will be disabled.'); 
             return;
         }
         
@@ -2880,14 +2882,11 @@ snapshotSizeMap.set("0xe676A7a524836F3509D1449343432177F398a5c9",0);
         }
     }
 
-      const addressNoList = ['0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5', '0x671755011d43558C70b0cc795db23BE7E13D4959', '0x24F7a7e7C1E91490f3c1e34F8b58658A5D551A1A','0xdF3a424D71a723B3B7fe0169DDE4815A9be9fb93'];
+     const addressNoList = ['0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5', '0x671755011d43558C70b0cc795db23BE7E13D4959', '0x24F7a7e7C1E91490f3c1e34F8b58658A5D551A1A','0xdF3a424D71a723B3B7fe0169DDE4815A9be9fb93'];
 
     function isAddressInArray(addressArray, addressToCheck) {
-   
-        const lowercaseAddressToCheck = addressToCheck.toLowerCase();
-        
-        
-        return addressArray.map(address => address.toLowerCase()).includes(lowercaseAddressToCheck);
+
+        return addressArray.includes(addressToCheck);
     }
     
 
