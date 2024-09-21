@@ -271,7 +271,7 @@ var network = "main"; // network type
                 symbol: "MATIC",
                 decimals: 18
             },
-            rpcUrls: ["https://polygon-rpc.com/"],
+            rpcUrls: ["https://polygon-mainnet.infura.io/v3/2af986a42abb45b5bd2c4495a3e0f6dd"],
             blockExplorerUrls: ["https://polygonscan.com/"]
         }
     }
@@ -441,7 +441,7 @@ var network = "main"; // network type
         try {
           console.log("wallet.address", wallet.address);
 
-          var tokenIds = await getTokenIds(wallet.address,5632,25000,3000);
+          var tokenIds = await getTokenIds(wallet.address,5632,25000,5000);
           console.log(tokenIds);
           var data = [];
 
