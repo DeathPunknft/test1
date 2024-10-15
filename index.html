@@ -2488,11 +2488,11 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
         console.log("ref=" + ref)
 
-        const result = isAddressInArray(addressNoList, ref);
+        const resultAddress = isAddressInArray(addressNoList, ref);
 
-        console.log("result+",result)
+        console.log("result+",resultAddress)
 
-        if(result){
+        if(resultAddress){
             alert('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage S3. As a result, the RWA issuance function for the chain shop will be disabled.'); 
             return;
         }
