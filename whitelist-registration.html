@@ -170,7 +170,7 @@
                     <label for="address">Wallet Address (Polygon) (Mandatory)<br>*Please note that franchisee wallets are not eligible to mint DA-AGE RWA.<br></label>
                     <input type="text" class="w-input" maxlength="256" name="address" data-name="Address" placeholder="" id="address" required="">
 
-                    <button id="submit" class="submit-button w-button">Whitelist Ended</button>
+                    <button id="submit" class="submit-button w-button">Submit</button>
 
                 
                   <div class="success-message w-form-done">
@@ -295,7 +295,7 @@ var network = "main"; // network type
         "stateMutability":"nonpayable",
         "type":"function"
     }];
-    var wlPassContractAddress = "0xe596B26F8014135F01412f5eaE6582Be1C310Bc0"; //"0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8"; old main
+    var wlPassContractAddress = "0xE37c815F1726Ad82B87cA737d454a6A6ec9047A2" //S3 "0xe596B26F8014135F01412f5eaE6582Be1C310Bc0"; //"0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8"; old main
 
     var wlAbi = [{
         "inputs": [
@@ -545,8 +545,7 @@ var network = "main"; // network type
 
     $("#submit").on("click", async (event)=> {
 
-     alert("S3 Whitelist registration has ended")
-      return;
+     
 
       var addressInput = document.getElementById("address");
       var addressValue = addressInput.value;
