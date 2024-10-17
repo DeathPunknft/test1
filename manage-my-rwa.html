@@ -1960,18 +1960,18 @@
                 }
 
                 totalTP = Number(totalTP) + Number(tp);
-                console.log("totalTP",totalTP.toFixed(1))
+                console.log("totalTP",totalTP.toFixed(2))
 
                 const tpText = document.querySelectorAll('#total_TP');
                 tpText.forEach(element =>{
-                    element.innerText = totalTP.toFixed(1) + " TP";
+                    element.innerText = totalTP.toFixed(2) + " TP";
                 })
 
                 $("#TP").text(tp + " TP")
               
                 totalTPTwo = totalTP + (totalTP * 0.1);
                 const totalTPTwoText =  document.getElementById("total_tp_two");
-                totalTPTwoText.innerText = totalTPTwo.toFixed(1) + " TP";
+                totalTPTwoText.innerText = totalTPTwo.toFixed(2) + " TP";
         }  
         
         
