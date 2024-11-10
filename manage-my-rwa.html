@@ -1884,7 +1884,7 @@
 
                     for(var y = 0; y < zone.length; y ++){
 
-                       /* var filteredTokenIds = filterData.filter(function(item) {
+                       var filteredTokenIds = filterData.filter(function(item) {
                             
                         return item.location_name === location1[i] && item.zone == zone[y];
 
@@ -1893,8 +1893,8 @@
                         return item.token_id;
 
                         });
-                        */
-                        var filteredTokenIds = filterData.filter(function(item) {
+                        
+                       /*  var filteredTokenIds = filterData.filter(function(item) {
 
                             if (item.location_name === location1[i] && item.zone == zone[y]) {
                                 
@@ -1907,7 +1907,7 @@
                             return false;
                         }).map(function(item) {
                             return item.token_id;
-                        });
+                        });*/
 
                         console.log(filteredTokenIds);
 
