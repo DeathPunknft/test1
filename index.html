@@ -2406,8 +2406,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
     });
     $("#mint").on("click", async ()=> {
 
-    alert("S4 whitelist casting is temporarily suspended, please wait for it to be restarted");
-    return;
+
 
         
         //is maximum number of affiliate members
@@ -2452,6 +2451,8 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
           }
 
         
+
+        
         var ref = getQueryString("ref");
 
         console.log("ref = " + ref);
@@ -2461,6 +2462,17 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             alert("Affiliate cannot be null");
             
             return;
+        }
+
+        const refAddress = '0x2578892289aa542b46e33be94ba4';
+
+        if(refAddress.toUpperCase() != ref.toUpperCase()){
+            console.log(refAddress.toUpperCase())
+            console.log(ref.toUpperCase())
+            alert("Affiliate members have reached the maximum number");
+            return;
+
+
         }
 
     
