@@ -2412,7 +2412,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
         //is maximum number of affiliate members
         let nftContract = new web3.eth.Contract(abi,contract);
         
-        var mintPassBalanceOf = 0;
+     /*   var mintPassBalanceOf = 0;
         
         mintPassBalanceOf = await getMintPassBalanceOf(wallet.address);
 
@@ -2431,7 +2431,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             alert("Please reduce the amount of mint, your wallet does not have so many MintPass");
             mintBtn.disable = false;
             return;
-        } 
+        } */
 
         var input = document.querySelector('.input-field.qty-input');
         var mintValue = input.value;
@@ -2580,7 +2580,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             
             let gasPrice = await web3.eth.getGasPrice();
             
-            const data = nftContract.methods.wlMint(mintValue,ref).encodeABI();
+            const data = nftContract.methods.publicMint(mintValue,ref).encodeABI();
             
             const gas = await web3.eth.estimateGas({
                 from: wallet.address,
@@ -2595,9 +2595,9 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
             var mintEth = mintFee * mintValue;
             
-            const estimatedGas = await nftContract.methods.wlMint(mintValue, ref).estimateGas({from: wallet.address});
+            const estimatedGas = await nftContract.methods.publicMint(mintValue, ref).estimateGas({from: wallet.address});
 
-            nftContract.methods.wlMint(mintValue,ref).send({
+            nftContract.methods.publicMint(mintValue,ref).send({
                 from: wallet.address,   
                 gasPrice:gasPrice,
                 gasLimit: estimatedGas  // 设置 gas limit
