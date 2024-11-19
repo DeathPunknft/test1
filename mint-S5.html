@@ -2348,7 +2348,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             
             result = await contractQuery.methods.referrersSize(address).call();
 
-            
+          /*  
             var oldDaAgeResult = 0;
 
             const oldDaAgeContractQuery = new web3.eth.Contract(oldDaAgeContractABI, oldDaAgeContract);
@@ -2397,6 +2397,11 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             var sum = parseInt(result) + parseInt(oldDaAgeResult) + parseInt(oldS1DaAgeResult) + parseInt(oldS2DaAgeResult) + parseInt(oldS3DaAgeResult) + parseInt(oldS4DaAgeResult);
 
             console.log(result + oldDaAgeResult + oldS2DaAgeResult +  oldS3DaAgeResult);
+
+            */
+
+            var sum = result;
+            console.log('sum = ' +sum);
 
             document.getElementById("tribe").innerText = "Quantity:" + sum;
 
