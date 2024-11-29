@@ -441,7 +441,7 @@ var network = "main"; // network type
         try {
           console.log("wallet.address", wallet.address);
 
-          var tokenIds = await getTokenIds(wallet.address,14891,55000,3000);
+          var tokenIds = await getTokenIds(wallet.address,14890,55000,3000);
           console.log(tokenIds);
           var data = [];
 
@@ -721,7 +721,7 @@ async function getTokenIds(wallet, startId, endId, batchSize) {
         const batchEndId = Math.min(i + batchSize - 1, endId);
         try {
             console.log(`Fetching tokens from ${i} to ${batchEndId}`);
-            const batchTokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet, i+1, batchEndId+1).call();
+            const batchTokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet, i, batchEndId+1).call();
             allTokenIds = allTokenIds.concat(batchTokenIds);
         } catch (error) {
             console.error(`Error fetching batch ${i} to ${batchEndId}:`, error);
