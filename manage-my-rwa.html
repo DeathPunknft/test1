@@ -2233,8 +2233,23 @@
             
 
 
-           processResultS1(result);
-           processResultS2(result);
+            var resultS1 = processResultS1(result);
+            var resultS2 = processResultS2(result);
+
+            // Update DOM for S1
+            updateDOM(resultS1.filterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
+
+            // Update DOM for S2
+            updateDOM(resultS2.filterData, ["C"], [1, 2, 3, 4, 5]);
+
+            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS;
+
+            // Update the total PCS in the DOM
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element => {
+
+                element.innerText = combinedTotalPCS + " PCS";
+            });
             
             
             var franchiseeResult = getAddressIsFranchisee(address);
@@ -2276,34 +2291,11 @@
 
 
 
-	    function processResultS1(result) {
-
-
-        if (result && result.tokenIds != null) {
-            console.log('resultS1:' + result);
-
-            location1 = ["A", "B", "C"];
-            zone = [1, 2, 3, 4, 5];
-
-            var filterData = [];
-            var tokenIds = JSON.parse(result.tokenIds);
-
-            tokenIds.forEach(function(tokenId) {
-                var data = metaData.find(function(item) {
-                    return item.token_id.toString() === tokenId.toString();
-                });
-
-                if (data) {
-                    filterData.push(data);
-                }
-            });
-
-            var totalPCS = Number(0);
-
-            for (var i = 0; i < location1.length; i++) {
+	     function updateDOM(filterData, location, zone) {
+            for (var i = 0; i < location.length; i++) {
                 for (var y = 0; y < zone.length; y++) {
                     var filteredTokenIds = filterData.filter(function(item) {
-                        return item.location_name === location1[i] && item.zone == zone[y];
+                        return item.location_name === location[i] && item.zone == zone[y];
                     }).map(function(item) {
                         return item.token_id;
                     });
@@ -2311,120 +2303,68 @@
                     console.log(filteredTokenIds);
 
                     if (filteredTokenIds.length != 0) {
-                        totalPCS = totalPCS + filteredTokenIds.length;
-                        const elements = document.querySelectorAll('#My-RWAs-Zone' + zone[y] + '-L' + location1[i]);
+                        const elements = document.querySelectorAll('#My-RWAs-Zone' + zone[y] + '-L' + location[i]);
                         elements.forEach(element => {
-                            element.textContent = filteredTokenIds.length + ' PCS';
+                        
+                            var newValue = filteredTokenIds.length ;
+
+                            element.textContent = newValue + ' PCS';
                             element.className = 'heading-16-copy';
                         });
                     }
                 }
             }
-
-            const total_pcs = document.querySelectorAll('#total_pcs');
-            total_pcs.forEach(element => {
-                element.innerText = totalPCS + " PCS";
-            });
-        }
     }
 
+        function processResultS1(result) {
+            if (result && result.tokenIds != null) {
+                console.log('resultS1:' + result);
 
-    function processResultS2(resultS2) {
+                location1 = ["A", "B", "C"];
+                zone = [1, 2, 3, 4, 5];
 
-        if (resultS2 && resultS2.s2TokenIds != null) {
+                var filterData = [];
+                var tokenIds = JSON.parse(result.tokenIds);
 
-            console.log('resultS2: ' +  resultS2)
-
-            location1 = ["C"];
-            zone = [1,2,3,4,5];
-
-            var filterData = [];
-
-            var tokenIds = JSON.parse(resultS2.s2TokenIds);
-
-            tokenIds.forEach(function(tokenId) {
-
-            var data = metaDataS2.find(function(item) {
-                return item.token_id.toString() === tokenId.toString();
-            });
-
-
-            if (data) {
-                filterData.push(data);
-            }
-            });
-
-
-
-            var totalPCS = Number(0);
-
-            for(var i = 0; i < location1.length; i++){
-
-                for(var y = 0; y < zone.length; y ++){
-
-                    var filteredTokenIds = filterData.filter(function(item) {
-                        
-                    return item.location_name === location1[i] && item.zone == zone[y];
-
-                    }).map(function(item) {
-
-                    return item.token_id;
-
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaData.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
                     });
-                
 
-                    console.log(filteredTokenIds);
-
-                    if(filteredTokenIds.length != 0){
-                        
-                        totalPCS  = totalPCS + filteredTokenIds.length;
-                        const elements = document.querySelectorAll('#My-RWAs-Zone'+zone[y]+'-L'+location1[i]);
-                        elements.forEach(element => {
-
-                            var originalText = element.textContent;
-                            var originalValue = parseInt(originalText) || 0; 
-
-                            var newValue = filteredTokenIds.length;
-                        
-                        if (resultS2.tokenIds != null) {
-
-                            newValue = filteredTokenIds.length + originalValue;
-
-                        }
-                        
-
-                        console.log('filteredTokenIds.length' + filteredTokenIds.length);
-                        console.log( 'originalValue = ' +  originalValue );
-                        element.textContent = newValue + ' PCS';
-                        element.className = 'heading-16-copy';
-                    });
-                        
+                    if (data) {
+                        filterData.push(data);
                     }
+                });
 
-                }
+                return { filterData: filterData, totalPCS: filterData.length };
             }
+            return { filterData: [], totalPCS: 0 };
+        }
 
+        function processResultS2(resultS2) {
+            if (resultS2 && resultS2.s2TokenIds != null) {
+                console.log('resultS2: ' + resultS2);
 
+                location1 = ["C"];
+                zone = [1, 2, 3, 4, 5];
 
-            const total_pcs = document.querySelectorAll('#total_pcs');
-            total_pcs.forEach(element =>{
-                
-                var originalText = element.innerText;
-                var originalValue = parseInt(originalText) || 0; 
-                var newValue = totalPCS;
-                if (resultS2.tokenIds != null) {
+                var filterData = [];
+                var tokenIds = JSON.parse(resultS2.s2TokenIds);
 
-                    newValue = totalPCS + originalValue;
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaDataS2.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
+                    });
 
-                }
+                    if (data) {
+                        filterData.push(data);
+                    }
+                });
 
-                element.innerText = newValue + " PCS";
-            })
-
-            }  
-
-
-    }
+                return { filterData: filterData, totalPCS: filterData.length };
+            }
+            return { filterData: [], totalPCS: 0 };
+        }
         
         
     function getDataByTokenId(tokenId) {
