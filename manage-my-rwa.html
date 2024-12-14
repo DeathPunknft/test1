@@ -2210,7 +2210,7 @@
                 return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
             });
             
-            if (result) {
+            if (result && result.tokenIds != null) {
                 console.log("result",result)
 		    
                 return result.tokenIds.includes(Number(tokenId));
@@ -2233,88 +2233,8 @@
             
 
 
-            if (result) {
-
-                console.log(result)
-                
-                location1 = ["A","B","C"];
-                zone = [1,2,3,4,5];
-
-                var filterData = [];
-               
-                var tokenIds = JSON.parse(result.tokenIds);
-
-                tokenIds.forEach(function(tokenId) {
-
-                var data = metaData.find(function(item) {
-                    return item.token_id.toString() === tokenId.toString();
-                });
-
-
-                if (data) {
-                    filterData.push(data);
-                }
-                });
-
-                
-
-                var totalPCS = Number(0);
-
-                for(var i = 0; i < location1.length; i++){
-
-                    for(var y = 0; y < zone.length; y ++){
-
-                        var filteredTokenIds = filterData.filter(function(item) {
-                            
-                        return item.location_name === location1[i] && item.zone == zone[y];
-
-                        }).map(function(item) {
-
-                        return item.token_id;
-
-                        });
-                       
-                     /*   var filteredTokenIds = filterData.filter(function(item) {
-
-                            if (item.location_name === location1[i] && item.zone == zone[y]) {
-                                
-                                if (location1[i] === "C") {
-                                    return item.token_id < 4000;
-                                }
-                                
-                                return true;
-                            }
-                            return false;
-                        }).map(function(item) {
-                            return item.token_id;
-                        });*/
-
-                        console.log(filteredTokenIds);
-
-                        if(filteredTokenIds.length != 0){
-                            
-                            totalPCS  = totalPCS + filteredTokenIds.length;
-                            const elements = document.querySelectorAll('#My-RWAs-Zone'+zone[y]+'-L'+location1[i]);
-                            elements.forEach(element =>{
-                               
-                            element.textContent = filteredTokenIds.length + ' PCS';
-                            element.className = 'heading-16-copy';
-
-                            })
-                            
-                        }
-
-                    }
-                }
-
-               
-               
-                const total_pcs = document.querySelectorAll('#total_pcs');
-                total_pcs.forEach(element =>{
-                    element.innerText =  totalPCS + " PCS";
-                })
-      
-            }  
+           processResultS1(result);
+           processResultS2(result);
             
             
             var franchiseeResult = getAddressIsFranchisee(address);
@@ -2353,6 +2273,158 @@
                 const totalTPTwoText =  document.getElementById("total_tp_two");
                 totalTPTwoText.innerText = totalTPTwo.toFixed(1) + " TP";
         }  
+
+
+
+	    function processResultS1(result) {
+
+
+        if (result && result.tokenIds != null) {
+            console.log('resultS1:' + result);
+
+            location1 = ["A", "B", "C"];
+            zone = [1, 2, 3, 4, 5];
+
+            var filterData = [];
+            var tokenIds = JSON.parse(result.tokenIds);
+
+            tokenIds.forEach(function(tokenId) {
+                var data = metaData.find(function(item) {
+                    return item.token_id.toString() === tokenId.toString();
+                });
+
+                if (data) {
+                    filterData.push(data);
+                }
+            });
+
+            var totalPCS = Number(0);
+
+            for (var i = 0; i < location1.length; i++) {
+                for (var y = 0; y < zone.length; y++) {
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        return item.location_name === location1[i] && item.zone == zone[y];
+                    }).map(function(item) {
+                        return item.token_id;
+                    });
+
+                    console.log(filteredTokenIds);
+
+                    if (filteredTokenIds.length != 0) {
+                        totalPCS = totalPCS + filteredTokenIds.length;
+                        const elements = document.querySelectorAll('#My-RWAs-Zone' + zone[y] + '-L' + location1[i]);
+                        elements.forEach(element => {
+                            element.textContent = filteredTokenIds.length + ' PCS';
+                            element.className = 'heading-16-copy';
+                        });
+                    }
+                }
+            }
+
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element => {
+                element.innerText = totalPCS + " PCS";
+            });
+        }
+    }
+
+
+    function processResultS2(resultS2) {
+
+        if (resultS2 && resultS2.s2TokenIds != null) {
+
+            console.log('resultS2: ' +  resultS2)
+
+            location1 = ["C"];
+            zone = [1,2,3,4,5];
+
+            var filterData = [];
+
+            var tokenIds = JSON.parse(resultS2.s2TokenIds);
+
+            tokenIds.forEach(function(tokenId) {
+
+            var data = metaDataS2.find(function(item) {
+                return item.token_id.toString() === tokenId.toString();
+            });
+
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+
+
+            var totalPCS = Number(0);
+
+            for(var i = 0; i < location1.length; i++){
+
+                for(var y = 0; y < zone.length; y ++){
+
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        
+                    return item.location_name === location1[i] && item.zone == zone[y];
+
+                    }).map(function(item) {
+
+                    return item.token_id;
+
+                    });
+                
+
+                    console.log(filteredTokenIds);
+
+                    if(filteredTokenIds.length != 0){
+                        
+                        totalPCS  = totalPCS + filteredTokenIds.length;
+                        const elements = document.querySelectorAll('#My-RWAs-Zone'+zone[y]+'-L'+location1[i]);
+                        elements.forEach(element => {
+
+                            var originalText = element.textContent;
+                            var originalValue = parseInt(originalText) || 0; 
+
+                            var newValue = filteredTokenIds.length;
+                        
+                        if (resultS2.tokenIds != null) {
+
+                            newValue = filteredTokenIds.length + originalValue;
+
+                        }
+                        
+
+                        console.log('filteredTokenIds.length' + filteredTokenIds.length);
+                        console.log( 'originalValue = ' +  originalValue );
+                        element.textContent = newValue + ' PCS';
+                        element.className = 'heading-16-copy';
+                    });
+                        
+                    }
+
+                }
+            }
+
+
+
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element =>{
+                
+                var originalText = element.innerText;
+                var originalValue = parseInt(originalText) || 0; 
+                var newValue = totalPCS;
+                if (resultS2.tokenIds != null) {
+
+                    newValue = totalPCS + originalValue;
+
+                }
+
+                element.innerText = newValue + " PCS";
+            })
+
+            }  
+
+
+    }
         
         
     function getDataByTokenId(tokenId) {
