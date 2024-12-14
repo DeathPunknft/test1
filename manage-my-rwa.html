@@ -2236,11 +2236,9 @@
             var resultS1 = processResultS1(result);
             var resultS2 = processResultS2(result);
 
-            // Update DOM for S1
-            updateDOM(resultS1.filterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
+	    var combinedFilterData = resultS1.filterData.concat(resultS2.filterData);
 
-            // Update DOM for S2
-            updateDOM(resultS2.filterData, ["C"], [1, 2, 3, 4, 5]);
+            updateDOM(combinedFilterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
 
             var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS;
 
