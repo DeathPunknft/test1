@@ -42,10 +42,10 @@
                 <div class="fn-section-4 wf-section">
                     <div class="fn-container-grid-2">
                         <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923ed-305ff47e" class="fn-column-center-2">
-                            <h1 class="title-da-age">S5 RWA DA AGE PRESALE!</h1>
+                            <h1 class="title-da-age">S9 RWA DA AGE PRESALE!</h1>
                             <p class="fn-paragraph-2">Congratulations, you are one of the lucky few who made it to our
                                 WhiteList!<br />You are able to mint the RWAs at the price of
-                                320USDT.<br /><br />Experience the
+                                260USDT.<br /><br />Experience the
                                 thrill of the unknown! After you mint your RWA, you will have to wait for the big reveal
                                 to find out
                                 which prime location and zone you have landed. With numerous prime locations to choose
@@ -58,14 +58,14 @@
                         </div>
                         <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923f8-305ff47e" class="fn-slide-item-wrapper">
                             <img id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923f9-305ff47e" 
-                                src="./Content/Images/RWA-S5.jpg"
+                                src="./Content/Images/RWA_S1.png"
                                 loading="lazy"
                                 
                                 alt="" class="fn-slider-image" />
                             <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923fa-305ff47e" class="fn-slider-column">
-                                <h3 class="fn-heading-3">S5 RWA Mint</h3>
+                                <h3 class="fn-heading-3">S9 RWA Mint</h3>
                                 <h5 >Mint Price:</h5><br/>
-                                <h5> 320 USDT</h5>
+                                <h5> 260 USDT</h5>
                                 <div class="fn-label-icon"></div>
                                 <div class="w-container">
                                     <h5>RWA unit</h5>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="fn-label-icon"></div>
                                 <h5 >TOTAL: </h5><br/>
-                                <h5 id="total">320 USDT</h5>
+                                <h5 id="total">260 USDT</h5>
                                 <div class="fn-label-icon"></div>
                                 <button id="mint" type="button" class="primary-button w-button" data -toggle="popover">mint</button>
                                 <p class="paragraph-7"><br />‍<br /><em class="italic-text">Ownership and Profit-Sharing: By participating in our profit-sharing model, 
@@ -2094,7 +2094,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
     var oldDaAgeContract = "0xf96E490e46A6eBC38e7C2B180ef2b0ED2481Efe6";
     
-    var mintFee = 320 * (10 ** fee_token[network].decimals); // mint fee
+    var mintFee = 260 * (10 ** fee_token[network].decimals); // mint fee
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
     var gasMultiple = 1.5;//1.5;
@@ -2279,7 +2279,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
     function setTotal(value){
         var totalElement = document.getElementById("total");
-        var newValue = 320 * value;
+        var newValue = 260 * value;
         totalElement.innerHTML = newValue + " USDT";
     }
 
@@ -2528,7 +2528,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
         console.log("result+",resultAddress)
 
         if(resultAddress){
-            alert('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage S5. As a result, the RWA issuance function for the chain shop will be disabled.'); 
+            alert('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage S9. As a result, the RWA issuance function for the chain shop will be disabled.'); 
             return;
         }
         
