@@ -20,8 +20,9 @@
         <script src="./Scripts/jQuery/jquery.min.js"></script>
         <script src="./Content/Styles/js/metaData.js"></script>
         <script src="./Content/Styles/js/metaDataS2.js"></script>
+        <script src="./Content/Styles/js/metaDataS3.js"></script>
         <script src="./Content/Styles/js/snapshot.js"></script>
-        <script src="./Scripts/web3/toastify.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="./Scripts/web3/keccak256.js"></script>
         <script src="./Scripts/web3/merkletree.js"></script>
         <script src="./Content/Styles/js/ethers.5.2.js"></script>
@@ -391,7 +392,8 @@
                                 </select>
                                 <select id="select3" class="select-3" style="width: 150px;margin-top: 10px;">
                                     <option value="0">S1</option>
-                                    <option value="1">S2</option>    
+                                    <option value="1">S2</option>   
+                                    <option value="2">S3</option>     
                                 </select>
                             
                                 <a href="#" id="selectedButton" class="button-06 w-button" style="margin-top: 10px;">Load My RWA</a>
@@ -839,7 +841,7 @@
         var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
 
         
-        paragraph.textContent = paragraph.textContent.replace(/31st Dec 2023/g, lastDay + "th " + getMonthName(currentDate.getMonth()) + " " + currentDate.getFullYear());
+        paragraph.textContent = paragraph.textContent.replace(/31st Dec 2025/g, lastDay + "th " + getMonthName(currentDate.getMonth()) + " " + currentDate.getFullYear());
 
         
         function getMonthName(monthIndex) {
@@ -857,6 +859,8 @@
         var stakingAddress = "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";//main "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";
 
         var stakingS2Address = "0x96B9c08828E4B102a73002DDDC2CFa4566C25ed8" //test "0xb76A61A38081e7F7FFBEB606975e215c5A766413"; 
+
+        var stakingS3Address = "0x1076B68c65c6D70804121221ca303AC5B95b3E40"
         
         // mian 0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8
         var network = "main"; // network type
@@ -881,7 +885,7 @@
                         symbol: "MATIC",
                         decimals: 18
                     },
-                    rpcUrls: ["https://polygon-rpc.com/"],
+                    rpcUrls: ["https://polygon-mainnet.g.alchemy.com/v2/-flnXcVm0YimAZz8_jcGiOpQPs1KEgxJ"],
                     blockExplorerUrls: ["https://polygonscan.com/"]
                 }
             }
@@ -949,6 +953,8 @@
             var nftContractAddress = "0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f";
 
             var nftS2ContractAddress = "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";
+
+            var nftS3ContractAddress = "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";
             
             const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
             var web3 = new Web3(provider);
@@ -959,10 +965,14 @@
 
             var nftS2Contract = new web3.eth.Contract(nftAbi, nftS2ContractAddress);
 
+            var nftS3Contract = new web3.eth.Contract(nftAbi, nftS3ContractAddress);
+
             
             var stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress);
 
             var stakingS2Contract = new web3.eth.Contract(stakingAbi, stakingS2Address);
+
+            var stakingS3Contract = new web3.eth.Contract(stakingAbi, stakingS3Address);
         
             var isConnect = window.localStorage.getItem("selectedWallet");
             
@@ -990,7 +1000,7 @@
                               document.getElementById("RWA_TP").style.display = "inline-block";
                            }
 
-                        //   asyncOperation(value);
+                         //  asyncOperation(value);
                            
                            
         
@@ -1077,6 +1087,21 @@
             }
 
 
+
+            async function allowanceS3(toekenId) {
+
+                var address = await nftS3Contract.methods.getApproved(toekenId).call();
+                console.log('allowanceS3 address = '+ address)
+                if (address != stakingS3Address) {
+                    wallet.approve = false;
+                    $("#submit").text("Approve")
+                } else {
+                    wallet.approve = true;
+                    $("#submit").text("ADD")
+                }
+            }
+
+
             async function approve(tokenId) {
                 
                 let gasPrice = await web3.eth.getGasPrice();
@@ -1141,9 +1166,42 @@
                 console.log(error)
             }
         }
+
+
+        async function approveS3(tokenId) {
+                
+                let gasPrice = await web3.eth.getGasPrice();
+                
+                const data = nftS3Contract.methods.approve(stakingS3Address, tokenId).encodeABI();
+                console.log('111')
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: nftS3ContractAddress,
+                    data
+                })
+                
+                try {
+                    console.log('222')
+                    const result = await nftS3Contract.methods.approve(stakingS3Address, tokenId).send({
+                        from: wallet.address,
+                        to: nftS3ContractAddress,
+                        gasPrice: parseInt(gasPrice * gasMultiple),
+                        gas: parseInt(gas * gasMultiple)
+                    });
+                    wallet.approve = true;
+                    Toastify({
+                        text: "Approval Successful",
+                        className: "info",
+                    }).showToast();
+                    await allowance(tokenId);
+            } catch (error) {
+                
+                console.log(error)
+            }
+        }
         
         function connectWallet(provider) {
-    
+            console.log("connectWallet called");
             provider.enable().then(async (accounts) => {
                 wallet.address = accounts[0];
                 wallet.chainId = provider.chainId;
@@ -1157,9 +1215,9 @@
                     document.getElementById("reward_tp").style.display = "inline-block";
                     document.getElementById("RWA_TP").style.display = "inline-block";
                 }
-
+                console.log("Calling asyncOperation");
 		        await asyncOperation(wallet.address);
-                
+                console.log("asyncOperation completed");
             }).catch(error => {
                 console.log(error);
             });
@@ -1175,9 +1233,11 @@
 
                      tokenIds = await queryStakingNFTDetails();
 
-                }else{
+                }else if(rwaType === '1') {
 
                      tokenIds = await queryStakingS2NFTDetails();
+                }else {
+                     tokenIds = await queryStakingS3NFTDetails();
                 }
 
 
@@ -1228,7 +1288,7 @@
                             var name = metaData.location_name;
                             var zone = metaData.zone;
                             item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
-                        }else{
+                        }else if(rwaType === '1'){
 
                             var metaData = getDataByS2TokenId(Number(tokenId));
 
@@ -1246,6 +1306,23 @@
                             }
 
                             
+
+                        }else{
+
+                            var metaData = getDataByS3TokenId(Number(tokenId));
+
+                            if(metaData === undefined){
+
+                                item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                            }else{
+
+                                console.log(metaData);
+                                var name = metaData.location_name;
+                                var zone = metaData.zone;
+                                item.imgSrc = './Content/Styles/images/S3/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+
+                            }
 
                         }
                         
@@ -1299,9 +1376,9 @@
                            
                             countdownElements.push(countdownElement);
 
-                            
-                            var state = checkSnapshot(data[i].tokenId);
                             console.log("data[i].tokenId",  data[i].tokenId);
+                            var state = checkSnapshot(data[i].tokenId);
+                            
                             console.log("state",  state);
                             var countdownElement1 = document.createElement('span');
                             countdownElement1.style.display = 'block';
@@ -1502,7 +1579,7 @@
                     console.log("one catch = ",error);
                 })
 
-            }else{
+            }else if(rwaType === '1'){
 
 
 
@@ -1540,6 +1617,49 @@
                     inputElement.textContent  = 'Unlock';
 
                 
+                    fetchDataAndRender();
+
+                }).catch(async error=>{
+                    console.log("one catch = ",error);
+                })
+
+
+            }else {
+
+                const data = stakingS3Contract.methods.unStakingNFT(tokenIds).encodeABI();
+
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: stakingS3Address,
+                    data
+                })
+
+
+                if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                    gasPrice = wallet.gasPrice
+                }
+
+
+
+                stakingS3Contract.methods.unStakingNFT(tokenIds).send({
+                    from: wallet.address,
+                    gasPrice: parseInt(gasPrice * gasMultiple1),
+                    gas: parseInt(gas * gasMultiple)
+                    
+                }).then(async () => {
+                    
+                    
+                    Toastify({
+                        text: "unLock RWA Successful",
+                        className: "info",
+                    }).showToast();
+
+                    var inputElement = document.getElementById('unLockNFT');
+
+                    
+                    inputElement.textContent  = 'Unlock';
+
+
                     fetchDataAndRender();
 
                 }).catch(async error=>{
@@ -1630,7 +1750,7 @@
 
                             }
 
-                    }else{
+                    }else if(rwaType === '1'){
 
                         tokenIds = await queryS2TokensOfOwner();
 
@@ -1639,6 +1759,17 @@
                         if(location != 0 || zone != 0){
 
                             tokenIds = filterS2Data(location,zone,tokenIds);
+
+                        }
+                    }else if(rwaType === '2'){
+
+                        tokenIds = await queryS3TokensOfOwner();
+
+                        console.log("tokenIds==",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterS3Data(location,zone,tokenIds);
 
                         }
                     }
@@ -1663,7 +1794,7 @@
                         var zone = metaData.zone;
                         item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
 
-                    }else{
+                    }else if(rwaType === '1'){
 
                         var metaData = getDataByS2TokenId(Number(tokenId));
                         console.log(metaData);
@@ -1679,6 +1810,21 @@
                         }
 
 
+
+                    }else {
+
+                        var metaData = getDataByS3TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S3/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+
+                        }
 
                     }
                         
@@ -1937,7 +2083,7 @@
                     }
 
 
-                }else{
+                }else if(rwaType === '1'){
 
                         var metaData = getDataByS2TokenId(Number(tokenId));
                         console.log(metaData);
@@ -2035,7 +2181,7 @@
                 
                                 
                                 inputElement.textContent  = 'ADD';
-                                await allowance(tokenId);
+                                await allowanceS2(tokenId);
                                 
                                 
                             })
@@ -2052,8 +2198,123 @@
                         }
 
 
-                }
-                
+                }else {
+
+                    var metaData = getDataByS3TokenId(Number(tokenId));
+                    console.log(metaData);
+                    if(metaData === undefined){
+
+                        mintBtn.disable = false;
+                        console.log('S3 metaData === undefined', tokenId)
+                        alert('This S3 RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                        return;
+
+                    }
+
+
+                    await allowanceS3(tokenId);
+
+                    $("#submit").text("Loading");
+
+
+
+                    if (!wallet.approve) {
+                        
+                        await approveS3(tokenId);
+                        
+                        mintBtn.disable = false;
+                        $("#submit").text("ADD");
+                        return;
+                    }
+
+
+                    if (wallet.address === walletPlaceholderText) {
+                        connectWallet(provider)
+                        return;
+                    }
+
+                    try {
+                        
+                        mintBtn.disable = true;
+                        let gasPrice = await web3.eth.getGasPrice();
+
+                        
+                        var daysDiff = getDays();
+
+                        console.log("tokenId = " + tokenId)
+                        console.log("daysDiff = " + daysDiff)
+                        
+
+                        const data =  stakingS3Contract.methods.stakingNFT(tokenId,daysDiff).encodeABI();
+                        
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingS3Address,
+                            data
+                        })
+
+
+                        if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                            gasPrice = wallet.gasPrice
+                        }
+                        
+                        stakingS3Contract.methods.stakingNFT(tokenId,daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                            
+                        }).then(async () => {
+                            mintBtn.disable = false;
+                            wallet.gasPrice = gasPrice; // save success gasPrice
+                        
+
+                            
+                            $('submit').text('ADD');
+                            
+                            alert("ADD Successful");
+
+                            console.log("load...data")
+                            var parentElement = document.querySelector('.bg-secondary');
+                            var liElements = parentElement.getElementsByClassName('imgClass');
+
+                            
+                            while (liElements.length > 0) {
+                            parentElement.removeChild(liElements[0]);
+                            }
+                            
+                            fetchDataAndRender();
+                            await allowanceS3(tokenId);
+                            Toastify({
+                                text: "Submit Successful",
+                                className: "info",
+                            }).showToast();
+
+                        }).catch(async error=>{
+                            mintBtn.disable = false;
+                            
+                            var inputElement = document.getElementById('submit');
+
+                            
+                            inputElement.textContent  = 'ADD';
+                            await allowance(tokenId);
+                            
+                            
+                        })
+                    } catch(error) {
+                        console.log(error, '--error')
+                        mintBtn.disable = false;
+                        
+                        var inputElement = document.getElementById('submit');
+
+                        
+                        inputElement.textContent  = 'ADD';
+                        
+                                    
+                    }
+
+
+                    }
+                                    
                 
             })
             
@@ -2125,12 +2386,20 @@
             return await nftS2Contract.methods.tokensOfOwner(wallet.address).call();
         }
 
+        async function queryS3TokensOfOwner(){
+            return await nftS3Contract.methods.tokensOfOwner(wallet.address).call();
+        }
+
         async function queryStakingNFTDetails(){
             return await stakingContract.methods.getStakingNFTDetails(wallet.address).call();
         }
 
         async function queryStakingS2NFTDetails(){
             return await stakingS2Contract.methods.getStakingNFTDetails(wallet.address).call();
+        }
+
+        async function queryStakingS3NFTDetails(){
+            return await stakingS3Contract.methods.getStakingNFTDetails(wallet.address).call();
         }
 
         function filterData(location,zone,tokenIds){
@@ -2170,38 +2439,74 @@
 
         function filterS2Data(location,zone,tokenIds){
 
-        //  console.log(typeof zone);
+            //  console.log(typeof zone);
 
-        var filterData = [];
+            var filterData = [];
 
-        tokenIds.forEach(function(tokenId) {
-        var data = metaDataS2.find(function(item) {
-            return item.token_id.toString() === tokenId;
-        });
-
-        if (data) {
-            filterData.push(data);
-        }
-        });
-
-        var filterTokenIds = [];
-        console.log(typeof zone)
-        var filterTokenIds = filterData.filter(function(item) {
-
-            if( zone === "0"){
-                return item.location_name === location;
-            }else if(location === "0"){
-                return item.zone === Number(zone);
-            }else{
-                return item.location_name === location && item.zone == zone;
-            }
-            }).map(function(item) {
-            return item.token_id;
+            tokenIds.forEach(function(tokenId) {
+            var data = metaDataS2.find(function(item) {
+                return item.token_id.toString() === tokenId;
             });
 
-        return filterTokenIds;
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+            var filterTokenIds = [];
+            console.log(typeof zone)
+            var filterTokenIds = filterData.filter(function(item) {
+
+                if( zone === "0"){
+                    return item.location_name === location;
+                }else if(location === "0"){
+                    return item.zone === Number(zone);
+                }else{
+                    return item.location_name === location && item.zone == zone;
+                }
+                }).map(function(item) {
+                return item.token_id;
+                });
+
+            return filterTokenIds;
 
         }
+
+
+        function filterS3Data(location,zone,tokenIds){
+
+            //  console.log(typeof zone);
+
+            var filterData = [];
+
+            tokenIds.forEach(function(tokenId) {
+            var data = metaDataS3.find(function(item) {
+                return item.token_id.toString() === tokenId;
+            });
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+            var filterTokenIds = [];
+            console.log(typeof zone)
+            var filterTokenIds = filterData.filter(function(item) {
+
+                if( zone === "0"){
+                    return item.location_name === location;
+                }else if(location === "0"){
+                    return item.zone === Number(zone);
+                }else{
+                    return item.location_name === location && item.zone == zone;
+                }
+                }).map(function(item) {
+                return item.token_id;
+                });
+
+            return filterTokenIds;
+
+            }
 
         function checkSnapshot(tokenId){
             
@@ -2230,17 +2535,17 @@
                 return address.toLowerCase().toString() === item.address.toLowerCase().toString();
             });
 
-            
-
 
             var resultS1 = processResultS1(result);
             var resultS2 = processResultS2(result);
+            var resultS3 = processResultS2(result);
 
-	    var combinedFilterData = resultS1.filterData.concat(resultS2.filterData);
+            //合并 filterData 和 totalPCS
+            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData);
 
             updateDOM(combinedFilterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
 
-            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS;
+            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS;
 
             // Update the total PCS in the DOM
             const total_pcs = document.querySelectorAll('#total_pcs');
@@ -2248,6 +2553,9 @@
 
                 element.innerText = combinedTotalPCS + " PCS";
             });
+            
+
+            
             
             
             var franchiseeResult = getAddressIsFranchisee(address);
@@ -2288,8 +2596,7 @@
         }  
 
 
-
-	     function updateDOM(filterData, location, zone) {
+        function updateDOM(filterData, location, zone) {
             for (var i = 0; i < location.length; i++) {
                 for (var y = 0; y < zone.length; y++) {
                     var filteredTokenIds = filterData.filter(function(item) {
@@ -2363,6 +2670,185 @@
             }
             return { filterData: [], totalPCS: 0 };
         }
+
+
+        function processResultS3(resultS3) {
+            if (resultS3 && resultS3.s3TokenIds != null) {
+                console.log('resultS2: ' + resultS3);
+
+                location1 = ["C"];
+                zone = [1, 2, 3, 4, 5];
+
+                var filterData = [];
+                var tokenIds = JSON.parse(resultS3.s3TokenIds);
+
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaDataS3.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
+                    });
+
+                    if (data) {
+                        filterData.push(data);
+                    }
+                });
+
+                return { filterData: filterData, totalPCS: filterData.length };
+            }
+            return { filterData: [], totalPCS: 0 };
+        }
+
+
+/*
+    function processResultS1(result) {
+
+
+        if (result && result.tokenIds != null) {
+            console.log('resultS1:' + result);
+
+            location1 = ["A", "B", "C"];
+            zone = [1, 2, 3, 4, 5];
+
+            var filterData = [];
+            var tokenIds = JSON.parse(result.tokenIds);
+
+            tokenIds.forEach(function(tokenId) {
+                var data = metaData.find(function(item) {
+                    return item.token_id.toString() === tokenId.toString();
+                });
+
+                if (data) {
+                    filterData.push(data);
+                }
+            });
+
+            var totalPCS = Number(0);
+
+            for (var i = 0; i < location1.length; i++) {
+                for (var y = 0; y < zone.length; y++) {
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        return item.location_name === location1[i] && item.zone == zone[y];
+                    }).map(function(item) {
+                        return item.token_id;
+                    });
+
+                    console.log(filteredTokenIds);
+
+                    if (filteredTokenIds.length != 0) {
+                        totalPCS = totalPCS + filteredTokenIds.length;
+                        const elements = document.querySelectorAll('#My-RWAs-Zone' + zone[y] + '-L' + location1[i]);
+                        elements.forEach(element => {
+                            element.textContent = filteredTokenIds.length + ' PCS';
+                            element.className = 'heading-16-copy';
+                        });
+                    }
+                }
+            }
+
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element => {
+                element.innerText = totalPCS + " PCS";
+            });
+        }
+    }
+
+
+    function processResultS2(resultS2) {
+
+        if (resultS2 && resultS2.s2TokenIds != null) {
+
+            console.log('resultS2: ' +  resultS2)
+
+            location1 = ["C"];
+            zone = [1,2,3,4,5];
+
+            var filterData = [];
+
+            var tokenIds = JSON.parse(resultS2.s2TokenIds);
+
+            tokenIds.forEach(function(tokenId) {
+
+            var data = metaDataS2.find(function(item) {
+                return item.token_id.toString() === tokenId.toString();
+            });
+
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+
+
+            var totalPCS = Number(0);
+
+            for(var i = 0; i < location1.length; i++){
+
+                for(var y = 0; y < zone.length; y ++){
+
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        
+                    return item.location_name === location1[i] && item.zone == zone[y];
+
+                    }).map(function(item) {
+
+                    return item.token_id;
+
+                    });
+                
+
+                    console.log(filteredTokenIds);
+
+                    if(filteredTokenIds.length != 0){
+                        
+                        totalPCS  = totalPCS + filteredTokenIds.length;
+                        const elements = document.querySelectorAll('#My-RWAs-Zone'+zone[y]+'-L'+location1[i]);
+                        elements.forEach(element => {
+
+                            var originalText = element.textContent;
+                            var originalValue = parseInt(originalText) || 0; 
+
+                            var newValue = filteredTokenIds.length;
+                        
+                        if (resultS2.tokenIds != null) {
+
+                            newValue = filteredTokenIds.length + originalValue;
+
+                        }
+                        
+
+                        console.log('filteredTokenIds.length' + filteredTokenIds.length);
+                        console.log( 'originalValue = ' +  originalValue );
+                        element.textContent = newValue + ' PCS';
+                        element.className = 'heading-16-copy';
+                    });
+                        
+                    }
+
+                }
+            }
+
+
+
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element =>{
+                
+                var originalText = element.innerText;
+                var originalValue = parseInt(originalText) || 0; 
+                var newValue = totalPCS;
+                if (resultS2.tokenIds != null) {
+
+                    newValue = totalPCS + originalValue;
+
+                }
+
+                element.innerText = newValue + " PCS";
+            })
+
+            }  
+
+
+    }
+*/
         
         
     function getDataByTokenId(tokenId) {
@@ -2373,6 +2859,11 @@
     function getDataByS2TokenId(tokenId) {
         console.log('S2: ' + tokenId);
         return metaDataS2.find(item => item.token_id === tokenId);
+    }
+
+    function getDataByS3TokenId(tokenId) {
+        console.log('S3: ' + tokenId);
+        return metaDataS3.find(item => item.token_id === tokenId);
     }
 
     function getAddressIsFranchisee(address){
@@ -2504,7 +2995,7 @@
 	}
 ];
 
-    var tpRegisterContractAddress = "0x950565b20F8D57a776fa43Ab6AcF01e22de71c61" //8 "0xCd2D3278FF5F6f51C388Bd44baf9fA844707780e" // 7 "0x06a479b4241a8818021280fCc63533180Bd77A91" //6 "0x474Cc392887d0156faE4c17b1766714Aef999f17" //5 "0xB0C2148C633B4413f87b20AABdd8d9b4Ce489fC1" //4 "0x0b5479775703ECe6e16037179ED19eac2a575a7E"  //3 "0x36a26B7f89cB5f6FDC755FDfA26E099aa82b2C48"; //2 "0xd13ed21C0316f4bCb089D4c105feB9d6f637d5eA";  //1 main old "0x1F07bE86c422f92584B27a5C583117a8769EB591";
+    var tpRegisterContractAddress = "0x950565b20F8D57a776fa43Ab6AcF01e22de71c61" // "0xCd2D3278FF5F6f51C388Bd44baf9fA844707780e" //7 "0x06a479b4241a8818021280fCc63533180Bd77A91" //6 "0x474Cc392887d0156faE4c17b1766714Aef999f17" //5 "0xB0C2148C633B4413f87b20AABdd8d9b4Ce489fC1" //4 "0x0b5479775703ECe6e16037179ED19eac2a575a7E"  //3 "0x36a26B7f89cB5f6FDC755FDfA26E099aa82b2C48"; //2 "0xd13ed21C0316f4bCb089D4c105feB9d6f637d5eA";  //1 main old "0x1F07bE86c422f92584B27a5C583117a8769EB591";
 
     //leafs
     let leafs = [];
