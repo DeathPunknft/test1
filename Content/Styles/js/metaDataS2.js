@@ -1,11 +1,11 @@
 var metaDataS2 = [
     {
-      "token_id": 2182,
+      "token_id": 1,
       "location_name": "C",
       "zone": 3
     },
     {
-      "token_id": 2183,
+      "token_id": 2,
       "location_name": "C",
       "zone": 5
     },
