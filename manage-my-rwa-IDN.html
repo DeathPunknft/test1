@@ -1,0 +1,3169 @@
+<!DOCTYPE html>
+<!-- Last Published: Thu Nov 23 2023 13:19:52 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="http://da-age.io" data-wf-page="64c10870834e365b75c97b45" data-wf-site="6421898f81ec56cd303380ec">
+    <head>
+        <meta charset="utf-8"/>                                                               
+        <title>DA-AGE Rewards - Home</title>
+        <meta content="DA-AGE Rewards - Home" property="og:title"/>
+        <meta content="DA-AGE Rewards - Home" property="twitter:title"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <link href="./Content/Styles/scking/css/sacking.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link href="./Content/Styles/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+        <link href="./Content/Styles/images/webclip.png" rel="apple-touch-icon"/>
+        <link rel="alternate" hreflang="en" href="https://www.da-age.io">
+        <link rel="alternate" hreflang="zh" href="https://zh.da-age.io">
+        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+        <script src="./Scripts/web3/web3.min.js"></script>
+        <script src="./Scripts/jQuery/jquery.min.js"></script>
+        <script src="./Content/Styles/js/metaDataS5.js"></script>
+        <script src="./Content/Styles/js/metaDataS2.js"></script>
+        <script src="./Content/Styles/js/metaDataS3.js"></script>
+      <!--  <script src="./Content/Styles/js/snapshot.js"></script> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="./Scripts/web3/keccak256.js"></script>
+        <script src="./Scripts/web3/merkletree.js"></script>
+        <script src="./Content/Styles/js/ethers.5.2.js"></script>
+        <script>
+            Weglot.initialize({
+                api_key: 'wg_fec8c057afeab8ee9b278e80d67c74d42'
+            });
+        </script>
+
+<style>
+    .container-fluid {
+      color:#fff;
+    }
+    .container {
+      margin-right: auto!important;
+      padding: 0px;
+    }
+    .container ul {
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 10;
+      padding: 0px;
+    }
+    .container ul li {
+      display: flex;
+      flex-direction: column;
+      margin:0 10px 10px;
+      align-items: center;
+      flex: 0 0 calc(100%/3 - 20px);
+    }
+    .container ul li span {
+      color:#fff;
+      margin-top: 10px;
+    }
+    .pages {
+      width: 300px;
+      margin:40px auto 0;
+      margin-right: auto!important;
+      display: flex;
+      justify-content: center;
+      margin-left: 100px;
+    }
+    .pages button {
+      margin:0 10px;
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color:#000;
+      
+    }
+    .imgClass img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s;
+    }
+    .imgClass img:hover {
+      transform: scale(0.9);
+    }
+
+    #selectedButton{
+        background-color: #df0;
+        color:black;
+    }
+
+    #connect-wallet {
+        grid-area: span 1 / span 1 / span 1 / span 1;
+        align-self: center;
+    }
+
+
+
+    .select-1 {
+    border: 1px solid var(--yellow);
+    background-color: var(--nav-bar);
+    border-radius: 9px;
+    justify-content: flex-start;
+    margin-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    text-align: left;
+    padding: 9px,10px;
+    width: 129.86px;
+    height: 40px;
+}
+
+.select-2 {
+    border: 1px solid var(--yellow);
+    background-color: var(--nav-bar);
+    border-radius: 9px;
+    justify-content: flex-start;
+    margin-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    text-align: left;
+    padding: 9px,10px;
+    width: 98px;
+    height: 40px;   
+}
+
+.select-3 {
+    border: 1px solid var(--yellow);
+    background-color: var(--nav-bar);
+    border-radius: 9px;
+    justify-content: flex-start;
+    margin-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    text-align: left;
+    padding: 9px,10px;
+    width: 98px;
+    height: 40px;   
+}
+
+
+
+
+.button-06 {
+    border: 1px solid var(--yellow);
+    background-color: var(--nav-bar);
+    border-radius: 20px;
+    justify-content: flex-start;
+    margin-right: 8px;
+    padding: 10px 10px;
+    display: inline-block;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    width: 129.86px;
+    height: 40px;
+    color:black;
+}
+
+
+.button-6 {
+    border: 1px solid var(--yellow);
+    background-color: var(--nav-bar);
+    border-radius: 20px;
+    justify-content: flex-start;
+    margin-right: 8px;
+    padding: 10px 10px;
+    display: inline-block;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    width: 73px;
+    height: 40px;
+}
+
+ #w-node-d3581b41-8606-941f-4cb7-6db948465a6a-75c97b45 {
+    grid-area: span 1 / span 3 / span 1 / span 3;
+}
+.div-block-35-copy {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 17px;
+    overflow: hidden;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+
+.load {
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow);
+    color: var(--black);
+    text-align: center;
+    border-radius: 15px;
+    justify-content: flex-start;
+    margin-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+}
+
+#HKRD {
+    grid-area: 4 / 1 / 5 / 3;
+}
+
+#EHKD {
+    grid-area: 4 / 1 / 5 / 3;
+}
+
+
+</style>
+
+
+    
+  </style>
+    </head>
+    <body class="body-2">
+        <div data-w-id="7e6566d2-922c-c621-1b31-5927ada96992" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="fn-navbar-box-second-3 w-nav">
+            <div class="fn-navbar-container-second-2">
+                <a href="#" class="fn-brand-box-4 w-nav-brand">
+                    <img src="./Content/Styles/images/DAAGE_sss_sss.png" loading="lazy" alt=""/>
+                </a>
+                <nav role="navigation" class="fn-navbar-menu-box-second-2 w-nav-menu">
+                    <div class="fn-navbar-menu-wrapper-second-2">
+                        <div class="fn-navbar-links-wrapper-2">
+                            <a href="#Marketplace" aria-current="page" class="fn-navbar-link-second-2 w-nav-link w--current">Earn Time Points</a>
+                            <a href="#Round" class="fn-navbar-link-second-2 last-link-on-mobile w-nav-link">RWA Bonus Points Reward</a>
+                            <div data-delay="0" data-hover="true" data-w-id="7e6566d2-922c-c621-1b31-5927ada9699d" class="fn-dorpdown-link-2 w-dropdown">
+                                <div class="fn-navbar-link-second-2 w-dropdown-toggle">
+                                    <div>Handbook</div>
+                                    <div class="fn-dropdown-link-icon-2 w-embed">
+                                        <svg width="12" height="8" viewBox="0 0 186 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M-0.000732891 11.7072C-0.000732771 8.96624 1.04327 6.21424 3.14827 4.11424C7.34227 -0.0797578 14.1293 -0.0797575 18.3233 4.11424L92.6703 78.4663L167.022 4.11425C171.216 -0.0797507 178.009 -0.0797504 182.197 4.11425C186.391 8.30825 186.391 15.1013 182.197 19.2943L100.263 101.228C96.0693 105.422 89.2763 105.422 85.0883 101.228L3.14928 19.2942C1.04927 17.2012 -0.000733011 14.4542 -0.000732891 11.7072Z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="fn-navbar-link-list-2 first-look w-dropdown-list">
+                                    <a href="/marketplace/introduction-to-rwa-time-point-handbook.html" class="fn-dropdown-list-link-2 w-dropdown-link">Introduction to RWA Time Point Handbook</a>
+                                    <a href="/marketplace/rwa-time-point-calculation-handbook.html" class="fn-dropdown-list-link-2 w-dropdown-link">RWA Time Point Calculation Handbook</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="fn-button-wrapper-4">
+                            <a id="connect-wallet" href="javascript:void(0);" class="fn-button-5 w-button">Connect Wallet</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="fn-menu-button-second-2 w-nav-button">
+                    <div class="nav-menu-button-wrap-2">
+                        <div class="fn-nav-line-8 green-line"></div>
+                        <div class="fn-nav-line-5 green-line"></div>
+                        <div class="fn-nav-line-7 green-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fn-section-8">
+            <div class="fn-container-grid-4">
+                <div id="w-node-_5447f468-c654-1261-4904-5458ba23bec4-75c97b45" class="fh-hero-image-wrapper-second-2">
+                    <img sizes="(max-width: 479px) 35.421875px, (max-width: 767px) 17vw, (max-width: 991px) 6vw, 542px" srcset="https://assets-global.website-files.com/6421898f81ec56cd303380ec/650d53ba590ae74a25839027_DA_AGE_KEY2-p-500.jpg 500w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/650d53ba590ae74a25839027_DA_AGE_KEY2-p-800.jpg 800w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/650d53ba590ae74a25839027_DA_AGE_KEY2-p-1080.jpg 1080w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/650d53ba590ae74a25839027_DA_AGE_KEY2.jpg 1202w" src="https://assets-global.website-files.com/6421898f81ec56cd303380ec/650d53ba590ae74a25839027_DA_AGE_KEY2.jpg" loading="lazy" alt="" class="fn-cover-image-2"/>
+                </div>
+                <div id="w-node-_5447f468-c654-1261-4904-5458ba23bec6-75c97b45" class="fn-column-3">
+                    <h1 class="fn-heading-13">Earn DA-AGE RWA Time Points</h1>
+                    <p class="fn-paragraph">
+                        RWA holder can earn Time Points each month, manage your RWA and earn your Time Points now!
+                    </p>
+                    <div class="fn-button-wrapper-3">
+                        <a href="#Connect" id="w-node-_5447f468-c654-1261-4904-5458ba23becc-75c97b45" class="fn-button-3 w-button">Manage my RWA</a>
+                        <a href="/marketplace/introduction-to-rwa-time-point-handbook.html" id="w-node-_5447f468-c654-1261-4904-5458ba23bece-75c97b45" class="fn-button-secondery-4 w-button">How it Works</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Connect" class="fn-section-9">
+            <div class="fn-container">
+                <div class="fn-cta-banner-dark">
+                    <div id="w-node-aba0456c-82e9-3197-76de-9ccc6dc4a34e-75c97b45" class="fn-banner-dark-column">
+                        <h1 class="fn-heading-2-copy">Earn Your RWA Time Points  </h1>
+                        <p class="fn-paragraph">Follow the step below to earn your Time Points:  </p>
+                        <div class="w-layout-grid grid-3">
+                            <div id="w-node-aba0456c-82e9-3197-76de-9ccc6dc4a354-75c97b45" class="fn-features-icon w-embed">
+                                <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.406 4.08626L10.406 0.0862548C10.278 0.0293847 10.1395 0 9.9995 0C9.85946 0 9.72097 0.0293847 9.593 0.0862548L0.593 4.08626C0.573 4.09525 0.559 4.11025 0.539 4.12125C0.511 4.13525 0.481 4.14425 0.455 4.16125C0.433 4.17625 0.416 4.19526 0.395 4.21126C0.321903 4.26558 0.257789 4.33104 0.205 4.40526C0.185 4.43326 0.164 4.45825 0.146 4.48625C0.116237 4.5391 0.0908196 4.59429 0.0699999 4.65125C0.0609999 4.67825 0.047 4.70326 0.039 4.73026C0.0138855 4.81809 0.000766547 4.90891 0 5.00025V15.0003C0 15.3963 0.232 15.7533 0.594 15.9143L9.594 19.9143C9.724 19.9723 9.862 20.0003 10 20.0003C10.1392 19.9967 10.2762 19.964 10.402 19.9043L10.406 19.9143L19.406 15.9143C19.5829 15.8358 19.7332 15.7077 19.8386 15.5454C19.9441 15.3832 20.0002 15.1938 20 15.0003V5.00025C20.0002 4.80674 19.9441 4.61735 19.8386 4.4551C19.7332 4.29284 19.5829 4.16471 19.406 4.08626ZM10 2.09525L16.538 5.00025L10 7.90525L8.692 7.32425L3.463 5.00025L10 2.09525ZM11 17.4613V9.65025L18 6.53925V14.3513L11 17.4613Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h4 id="w-node-aba0456c-82e9-3197-76de-9ccc6dc4a355-75c97b45" class="heading-5">Step 1 : Connect your wallet </h4>
+                            <a href="javascript:void(0);"  id = "connect" class="fn-button-4 w-button">Connect</a>
+                            <div id="w-node-aba0456c-82e9-3197-76de-9ccc6dc4a359-75c97b45" class="fn-features-icon w-embed">
+                                <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.406 4.08626L10.406 0.0862548C10.278 0.0293847 10.1395 0 9.9995 0C9.85946 0 9.72097 0.0293847 9.593 0.0862548L0.593 4.08626C0.573 4.09525 0.559 4.11025 0.539 4.12125C0.511 4.13525 0.481 4.14425 0.455 4.16125C0.433 4.17625 0.416 4.19526 0.395 4.21126C0.321903 4.26558 0.257789 4.33104 0.205 4.40526C0.185 4.43326 0.164 4.45825 0.146 4.48625C0.116237 4.5391 0.0908196 4.59429 0.0699999 4.65125C0.0609999 4.67825 0.047 4.70326 0.039 4.73026C0.0138855 4.81809 0.000766547 4.90891 0 5.00025V15.0003C0 15.3963 0.232 15.7533 0.594 15.9143L9.594 19.9143C9.724 19.9723 9.862 20.0003 10 20.0003C10.1392 19.9967 10.2762 19.964 10.402 19.9043L10.406 19.9143L19.406 15.9143C19.5829 15.8358 19.7332 15.7077 19.8386 15.5454C19.9441 15.3832 20.0002 15.1938 20 15.0003V5.00025C20.0002 4.80674 19.9441 4.61735 19.8386 4.4551C19.7332 4.29284 19.5829 4.16471 19.406 4.08626ZM10 2.09525L16.538 5.00025L10 7.90525L8.692 7.32425L3.463 5.00025L10 2.09525ZM11 17.4613V9.65025L18 6.53925V14.3513L11 17.4613Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h4 id="w-node-aba0456c-82e9-3197-76de-9ccc6dc4a35a-75c97b45" class="heading-5">Step 2: Press &quot;Load My RWA,&quot;then select and add your RWA to the pool to calculate Time Points.</h4>
+                            <div id="w-node-_7b0df2d3-7aed-08ef-101b-ce1ed0b3c40a-75c97b45" class="fn-features-icon w-embed">
+                                <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.406 4.08626L10.406 0.0862548C10.278 0.0293847 10.1395 0 9.9995 0C9.85946 0 9.72097 0.0293847 9.593 0.0862548L0.593 4.08626C0.573 4.09525 0.559 4.11025 0.539 4.12125C0.511 4.13525 0.481 4.14425 0.455 4.16125C0.433 4.17625 0.416 4.19526 0.395 4.21126C0.321903 4.26558 0.257789 4.33104 0.205 4.40526C0.185 4.43326 0.164 4.45825 0.146 4.48625C0.116237 4.5391 0.0908196 4.59429 0.0699999 4.65125C0.0609999 4.67825 0.047 4.70326 0.039 4.73026C0.0138855 4.81809 0.000766547 4.90891 0 5.00025V15.0003C0 15.3963 0.232 15.7533 0.594 15.9143L9.594 19.9143C9.724 19.9723 9.862 20.0003 10 20.0003C10.1392 19.9967 10.2762 19.964 10.402 19.9043L10.406 19.9143L19.406 15.9143C19.5829 15.8358 19.7332 15.7077 19.8386 15.5454C19.9441 15.3832 20.0002 15.1938 20 15.0003V5.00025C20.0002 4.80674 19.9441 4.61735 19.8386 4.4551C19.7332 4.29284 19.5829 4.16471 19.406 4.08626ZM10 2.09525L16.538 5.00025L10 7.90525L8.692 7.32425L3.463 5.00025L10 2.09525ZM11 17.4613V9.65025L18 6.53925V14.3513L11 17.4613Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h4 id="w-node-b204b586-044c-3b3e-bef8-caea7d972c65-75c97b45" class="heading-5">Step 3: Choose Your Preferred Method to Collect Your Time Points.</h4>
+                        </div>
+                    </div>
+                    <img id="w-node-aba0456c-82e9-3197-76de-9ccc6dc4a35e-75c97b45" sizes="(max-width: 767px) 100vw, (max-width: 991px) 36vw, (max-width: 1439px) 37vw, 481.609375px" src="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca214e7f3a06091821784_finally3-01.png" loading="lazy" alt="" srcset="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca214e7f3a06091821784_finally3-01-p-500.png 500w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca214e7f3a06091821784_finally3-01.png 751w" class="fn-cta-banner-dark-image"/>
+                </div>
+            </div>
+        </div>
+        <div class="section-3">
+            <div class="brix---container-default-3 w-container">
+                <div class="brix---inner-container-700px-center">
+                    <div data-w-id="40de4c3f-0dfc-98c3-7aa1-4f4c602e7235" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="brix---text-center-2">
+                        <div>DA-AGE RWA</div>
+                        <div class="brix---color-neutral-803">
+                            <h1 class="heading-8">Manage my RWA</h1>
+                            <p class="paragraph-33">
+                                Choose and Submit your RWAs to the Pool for Time Point calculation.<br/>You can mange your RWAs from below:
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-layout-grid grid-4">
+                    <div id="w-node-_40de4c3f-0dfc-98c3-7aa1-4f4c602e7272-75c97b45" class="div-block-20">
+                        <div class="fn-features-icon-2 w-embed">
+                            <svg width="100%" height="100%" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.2565 6.962C20.7305 7.582 20.7305 8.419 20.2565 9.038C18.7635 10.987 15.1815 15 10.9995 15C6.81752 15 3.23552 10.987 1.74252 9.038C1.51191 8.74113 1.38672 8.37592 1.38672 8C1.38672 7.62408 1.51191 7.25887 1.74252 6.962C3.23552 5.013 6.81752 1 10.9995 1C15.1815 1 18.7635 5.013 20.2565 6.962V6.962Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11 11C12.6569 11 14 9.65685 14 8C14 6.34315 12.6569 5 11 5C9.34315 5 8 6.34315 8 8C8 9.65685 9.34315 11 11 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="brix---mg-bottom-8px">
+                                <div class="text-block-15">No. of RWA in the pool used to calculate Time Point of next month for 30 days</div>
+                            </div>
+                            <div class="brix---color-accent-2">
+                                <div id = "this-month" class="text-block-13">0</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div id="w-node-_40de4c3f-0dfc-98c3-7aa1-4f4c602e7284-75c97b45" class="div-block-20">
+                        <div class="fn-features-icon-2 w-embed">
+                            <svg width="100%" height="100%" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.66 4.26005C17.66 4.19005 17.56 4.12005 17.51 4.05005L17.42 3.95005C17.1872 3.66255 16.8934 3.4303 16.56 3.27005L10.16 0.270055C9.80566 0.10677 9.42015 0.0222168 9.03 0.0222168C8.63985 0.0222168 8.25434 0.10677 7.9 0.270055L1.5 3.27005C1.16826 3.43302 0.875075 3.66484 0.64 3.95005L0.52 4.00005C0.461831 4.06018 0.411437 4.12738 0.37 4.20005C0.131436 4.57727 0.00326453 5.01375 0 5.46005V12.5201C0.00133799 12.997 0.139644 13.4636 0.398468 13.8642C0.657292 14.2649 1.02574 14.5828 1.46 14.7801L7.86 17.7801C8.21569 17.9448 8.60299 18.0302 8.995 18.0302C9.38701 18.0302 9.77431 17.9448 10.13 17.7801L16.53 14.7801C16.9631 14.5856 17.3315 14.2715 17.592 13.8746C17.8524 13.4778 17.994 13.0147 18 12.5401V5.46005C17.9949 5.03701 17.8775 4.62291 17.66 4.26005ZM8.71 2.06005C8.80155 2.02043 8.90024 1.99998 9 1.99998C9.09976 1.99998 9.19845 2.02043 9.29 2.06005L14.62 4.54005L9 7.15005L3.38 4.54005L8.71 2.06005ZM2.3 13.0001C2.21293 12.9663 2.1379 12.9074 2.08447 12.8308C2.03104 12.7542 2.00163 12.6634 2 12.5701V6.10005L8 8.89005V15.6101L2.3 13.0001ZM15.69 13.0001L10 15.6101V8.89005L16 6.10005V12.5401C16.0023 12.6394 15.9737 12.737 15.9182 12.8194C15.8626 12.9018 15.7829 12.9649 15.69 13.0001Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <div class="div-block-23">
+                            <div class="brix---mg-bottom-8px">
+                                <div class="text-block-15">No. of RWAs locked in the pool are being calculated Time Points</div>
+                            </div>
+                            <div class="brix---color-accent-2">
+                                <div id = "next-month" class="text-block-13">0</div>
+                            </div>
+                        </div>
+                        <div class="div-block-22"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section-4">
+            <div class="div-block-28">
+                <div class="w-layout-grid grid-7">
+
+                     <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f8942d9-75c97b45" class="div-block-29">
+                        <h4 id = "myRWA" class="heading-11">My RWA  (0) </h4> 
+                        </br>
+			<div id="w-node-_10fda5b0-2ab4-6d85-3d7b-eb05f936f871-75c97b45"><p class="paragraph-38">*Please note that you MUST click the ADD button twice to add the RWA to the pool, the first click is to approve it, and after it approved, the second click is to add the RWA to the pool.</p></div>
+
+                        <div class="w-layout-grid grid-8" class="div-block-29-copy">
+                            
+                            <div id="w-node-d3581b41-8606-941f-4cb7-6db948465a6a-75c97b45" class="div-block-35-copy">
+                                <select id="select1" class="select-1" style="width: 150px;margin-top: 10px;">
+                                    <option value="0">Location</option>
+                                    <option value="A">Location A</option>
+                                    <option value="B">Location B</option>
+                                    <option value="C">Location C</option>
+                                </select>
+                                <select id="select2" class="select-2" style="width: 150px;margin-top: 10px;">
+                                    <option value="0">Zone</option>
+                                    <option value="1">Zone 1</option>
+                                    <option value="2">Zone 2</option>
+                                    <option value="3">Zone 3</option>
+                                    <option value="4">Zone 4</option>
+                                    <option value="5">Zone 5</option>      
+                                </select>
+                                <select id="select3" class="select-3" style="width: 150px;margin-top: 10px;">
+                                    <option value="0">S5</option>
+                                       
+                                </select>
+                            
+                                <a href="#" id="selectedButton" class="button-06 w-button" style="margin-top: 10px;">Load My RWA</a>
+                                <div style="flex: 1;text-align: right;">
+                                    <button id="submit" href="#" class="button-6 w-button" style="margin-top: 10px;">ADD</button>
+                                </div>
+                                
+                            </div>
+                            <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f8942e0-75c97b45">
+                                <div class="horizontal-line design-system"></div>
+                            </div>
+                            <div class="container mt-3" style="grid-area: span 1 / span 3 / span 1 / span 3;">
+                                <ul id = "myHolderList" class="d-flex flex-row bg-secondary mb-4">
+                                </ul>
+                            </div>
+                          
+                            <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f89432a-75c97b45">
+                                <div class="horizontal-line design-system"></div>
+                            </div>
+                            <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f89432c-75c97b45">
+                                <p class="paragraph-38">Action Deadlines:To ensure that participants &#x27;desired actions (additions) align with the time points calculation and distribution cycle, it is essential to complete them before our specific date of the month. Any actions taken after this deadline will be considered for the following month. <br/>
+                                    <br/>
+                                    RWA withdrawals are only available during the specified date period of the month. You must take action during the specified date period of the month. After this date, RWAs in your pool will be considered for continued calculations of Time Points. <br/>
+                                </p>                            
+                            </div>
+                        </div>
+                    </div> 
+                    <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f894331-75c97b45" class="div-block-33">
+                        <div class="w-layout-grid grid-8">
+                            <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f894333-75c97b45" class="div-block-35">
+                                <h4 id = "stakingTokenIdSize" class="heading-11"> My RWA Pool </br>Locked up RWA for Calculation of Time Points</h4>
+                            </div>
+                            <p id="w-node-e84787ff-f1f9-0c32-665e-bb50de6aabdc-75c97b45" class="paragraph-37">Your RWA will be lockup for 30 days, you may not able to withdraw your RWA before the unlock date. You can withdraw your RWA on the withdrawal period. </p>
+                            <div id="w-node-_71cceb31-6c2f-8129-e344-f4058f894336-75c97b45">
+                                <div class="horizontal-line design-system"></div>
+                            </div>
+
+                            <div class="container mt-3" style="grid-area: span 1 / span 3 / span 1 / span 3;">
+                                <ul id = "myList" class="d-flex flex-row bg-secondary-staking mb-4">
+                                </ul>
+                            </div>
+                            
+                         
+                            <div id="w-node-_8e5ee0e4-2954-6461-14c8-a353bb7faadc-75c97b45" class="div-block-35">
+                                <h6>Select the RWA to be unlocked. Please note that this feature is only available during the withdrawal period of the month.</h6>
+                                <a href="#" id = "unLockNFT" class="button-6 w-button">Unlock </a>
+                            </div>
+                            <div id="w-node-c5429d7a-2bed-8934-7751-6c83bf575712-75c97b45">
+                                <div class="horizontal-line design-system"></div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="Marketplace" class="fn-section-410">
+            <div class="fn-container-grid-14">
+                <div id="w-node-_2820db29-b425-1d03-3905-a6fb0541483d-75c97b45" class="fn-column-center-7">
+                    <h2 class="fn-heading-32">Earn Time Points</h2>
+                    <p class="fn-paragraph-11">Choose your way to collect your RWA Time Point now!</p>
+                </div>
+
+
+
+                
+                <div id="w-node-_2820db29-b425-1d03-3905-a6fb05414842-75c97b45" data-current="Monthly" data-easing="ease" data-duration-in="300" data-duration-out="100" class="fn-pricing-tabs-2 w-tabs">
+                    <div class="fn-pricing-tabs-menu-2 w-tab-menu">
+                        <a data-w-tab="Monthly" class="fn-pricing-tabs-link-left-2 w-inline-block w-tab-link w--current">
+                            <div class="text-block-30" id = "total_TP">
+                                Time Points <br/>
+                                0 TP<br/>
+                            </div>
+                        </a>
+                        <a data-w-tab="Yearly" class="fn-pricing-tabs-link-right-2 w-inline-block w-tab-link">
+                            <div class="text-block-31">
+                                Top-Up Card (max+10% TP)<br/>Coming Soon
+                            </div>
+                        </a>
+                        <a data-w-tab="credit card" class="fn-pricing-tabs-link-right-2-copy w-inline-block w-tab-link">
+                            <div class="text-block-32">
+                                Coming soon<br/>‍
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fn-pricing-tabs-content-2 w-tab-content">
+                        <div data-w-tab="Monthly" class="fn-pricing-tabs-content-wrapper-2 w-tab-pane w--tab-active">
+                            <div class="fn-pricing-tabs-grid-2">
+                                <div id="w-node-_2820db29-b425-1d03-3905-a6fb0541484d-75c97b45" class="fn-classic-pricing-card-5">
+                                    <h3>Your monthly RWA Time Points:</h3>
+                                    <div class="fn-pricing-info-wrapper-2">
+                                        <div class="fn-pricing-icon-4 w-embed">
+                                            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M47.9542 11.663C47.9542 11.4734 47.6833 11.2839 47.5479 11.0943L47.3042 10.8234C46.6736 10.0448 45.8781 9.41576 44.975 8.98177L27.6417 0.856774C26.682 0.414545 25.6379 0.185547 24.5812 0.185547C23.5246 0.185547 22.4805 0.414545 21.5208 0.856774L4.1875 8.98177C3.28903 9.42313 2.49499 10.051 1.85833 10.8234L1.53333 10.9589C1.37579 11.1217 1.23931 11.3037 1.12708 11.5005C0.480974 12.5221 0.133841 13.7043 0.125 14.913V34.0339C0.128624 35.3257 0.503202 36.5892 1.20418 37.6743C1.90517 38.7594 2.90305 39.6203 4.07917 40.1547L21.4125 48.2797C22.3758 48.726 23.4248 48.9572 24.4865 48.9572C25.5481 48.9572 26.5971 48.726 27.5604 48.2797L44.8937 40.1547C46.0666 39.6282 47.0645 38.7773 47.7699 37.7025C48.4753 36.6276 48.8587 35.3736 48.875 34.088V14.913C48.8611 13.7673 48.5434 12.6458 47.9542 11.663ZM23.7146 5.70469C23.9625 5.59736 24.2298 5.54199 24.5 5.54199C24.7702 5.54199 25.0375 5.59736 25.2854 5.70469L39.7208 12.4214L24.5 19.4901L9.27917 12.4214L23.7146 5.70469ZM6.35417 35.3339C6.11837 35.2424 5.91515 35.0828 5.77044 34.8754C5.62573 34.668 5.54608 34.4221 5.54167 34.1693V16.6464L21.7917 24.2026V42.4026L6.35417 35.3339ZM42.6188 35.3339L27.2083 42.4026V24.2026L43.4583 16.6464V34.088C43.4645 34.357 43.3871 34.6214 43.2367 34.8445C43.0863 35.0676 42.8704 35.2386 42.6188 35.3339Z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="heading-24" id = "total_TP">0 TP</h3>
+                                        </div>
+                                    </div>
+                                    <div class="fn-heading-29">Empower Your RWA: Earn Time Points Effortlessly</div>
+                                    <blockquote class="block-quote-4">HK (RD) will launch very soon! Stay tuned! </blockquote>
+                                    <div class="fn-pricing-line-4"></div>
+                                    <ol role="list" class="fn-list-4">
+					<li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-24">RWA holders own the advertising time rights of digital advertising billboards, but do not own physical advertising billboards.</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4">
+                                                <div class="fn-list-checkmark-4"></div>
+                                            </div>
+                                            <div class="text-block-25">Selected RWAs will be locked in the pool for calculation, with advertising time points automatically calculated for RWA holders each month. Users must collect their own time points every month, otherwise the time points will be cancelled. </div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-27">For new users, all owned RWAs that were never added to the pool or transferred will retain rights to the first 6-month collection time point. If a user ever adds any RWA to the pool, they will not be considered a new user.</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-29">The total time point will be calculated based on the number, location, and area of ​​RWAs you have.</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-29">The time points you accumulate can be accumulated for up to 1 year for redemption. If you do not redeem the time points after 1 year, they will be cancelled.</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-29">If you sell or transfer your RWA to another wallet, your time points will not accrue.</div>
+                                        </li>
+                                    </ol>
+                                    <div class="spacer-s-5"></div>
+                                    <div class="sizing-2"></div>
+                                </div>
+                                <div id="w-node-_2820db29-b425-1d03-3905-a6fb05414871-75c97b45" class="fn-feature-pricing-card-7">
+                                    <div class="my-rwa">My RWAs</div>
+                                    <div class="w-layout-grid grid-10">
+                                        <h5 id="w-node-_3fe65e3d-18c5-799a-2d4d-9ca2cd1e2d81-75c97b45" class="heading-23">RWA</h5>
+                                        <h6 id="w-node-_92d26bd2-760d-a166-a5ea-50d180a85a3a-75c97b45" class="heading-14-copy">Location A</h6>
+                                        <h6 id="w-node-_5f16934b-8a3d-c002-e98e-0490a26b6bb4-75c97b45" class="heading-14-copy">Location B</h6>
+                                        <h6 id="w-node-_2eac04a7-c281-2c5c-7126-63b5d7fe9070-75c97b45" class="heading-14-copy">Location C</h6>
+                                        <h6 id="w-node-b1c8a1bd-e293-ba42-b6eb-42926080335b-75c97b45" class="heading-22-copy">ZONE 1 </h6>
+                                        <h5 id="My-RWAs-Zone1-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone1-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone1-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-b484c1bb-5426-7075-c6b6-cfd99a6090f5-75c97b45" class="heading-22-copy">Zone 2</h6>
+                                        <h5 id="My-RWAs-Zone2-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone2-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone2-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-fb852e6d-cc08-9727-c29f-e400a4500288-75c97b45" class="heading-22-copy">ZOne 3</h6>
+                                        <h5 id="My-RWAs-Zone3-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone3-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone3-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-_773a8b8c-7404-ac1b-fae1-9d27fd69c3aa-75c97b45" class="heading-22-copy">Zone 4</h6>
+                                        <h5 id="My-RWAs-Zone4-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone4-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone4-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-_90a8437c-ce5f-0195-1768-0fe649b27852-75c97b45" class="heading-22-copy">Zone 5</h6>
+                                        <h5 id="My-RWAs-Zone5-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone5-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone5-LC" class="heading-16">0 PCS</h5>
+                                    </div>
+                                    <div class="fn-pricing-line-4"></div>
+                                    <div class="w-layout-grid grid-11-copy">
+                                        <h5 id="w-node-b20573c8-f3f6-394a-3660-48a626695629-75c97b45" class="total-rwa">TOTAL RWA Locked</h5>
+                                        <h5 id="total_pcs" class="total-rwa-number" >0 PCS</h5>
+                                        <h5 id="w-node-_426d6c5f-81bf-223d-aeb4-763ce7ea3a42-75c97b45" class="total-rwa">RWA Time POINTS</h5>
+                                        <h5 id="TP" class="total-rwa-number">0 TP</h5>
+                                        <h5 id="reward_tp" class="total-rwa" style="display: none;">contributor reward tp</h5>
+                                        <h5 id="RWA_TP" class="total-rwa-number" style="display: none;">0 tp</h5>
+                                        <h5 id="w-node-_0aff56d6-b173-8715-8b18-1913801c7bbc-75c97b45" class="total-rwa">TOTAL TIME POINTs</h5>
+                                        <h5 id="total_TP" class="total-rwa-number-copy">0 TP</h5>
+                                        <p id="w-node-_2e689970-ab83-42f3-8e8e-8bd73beb81f2-75c97b45" class="paragraph-32">* When HK (RD) is launched, you can choose this currency.</p>
+                                    </div>
+                                    <div class="spacer-s-5"></div>
+                                    <div class="w-form">
+                                        <form id="email-form" name="email-form" data-name="Email Form" method="get" data-wf-page-id="64c10870834e365b75c97b45" data-wf-element-id="c796d9f8-ccd3-0034-bfb4-65e970ec8d6d">
+                                            <label class="w-checkbox">
+                                                <span id="checkbox-error" style="display: none; color: #df0;">Please check this box.</span>
+                                                <input type="checkbox" name="checkbox" id="checkbox" data-name="Checkbox" required="" class="w-checkbox-input"/>
+                                                <span class="w-form-label" for="checkbox">
+                                                    I agree to use my one month Advertising Time rights to operate the Digital Billboard and get Time Points in return.<br/>
+                                                    <br/>
+                                                </span>
+                                            </label>
+                                            <label class="w-checkbox">
+                                                <span id="checkbox-2-error" style="display: none; color: #df0;">Please check this box.</span>
+                                                <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" required="" class="w-checkbox-input"/>
+                                                <span class="w-form-label" for="checkbox-2">I agree to trade my RWA Advertising Time rights ONLY but not the RWA  itself. </span>
+                                            </label>
+                                            <div class="spacer-s-5"></div>  <!--Collect my Time Points -->
+                                           <input type="button" data-wait="Please wait..." class="submit-button-2 w-button" value="Collect my Time Points" id = "register"/>
+                                        </form>
+                                        <div class="success-message-2 w-form-done">
+                                            <div class="text-block-33">Please wait for this feature to be rolled out</div>
+                                        </div>
+                                        <div class="error-message-2 w-form-fail">
+                                            <div class="text-block-34">Please wait for this feature to be rolled out</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-w-tab="Yearly" class="fn-pricing-tabs-content-wrapper-2 w-tab-pane">
+                            <div class="fn-pricing-tabs-grid-2">
+                                <div id="w-node-_7cc1ef8b-a55a-d534-b51a-d234515e2ddf-75c97b45" class="fn-classic-pricing-card-5">
+                                    <h3>Earn up to 10% Extra Time Point:</h3>
+                                    <div class="fn-pricing-info-wrapper-2">
+                                        <div class="fn-pricing-icon-4 w-embed">
+                                            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M47.9542 11.663C47.9542 11.4734 47.6833 11.2839 47.5479 11.0943L47.3042 10.8234C46.6736 10.0448 45.8781 9.41576 44.975 8.98177L27.6417 0.856774C26.682 0.414545 25.6379 0.185547 24.5812 0.185547C23.5246 0.185547 22.4805 0.414545 21.5208 0.856774L4.1875 8.98177C3.28903 9.42313 2.49499 10.051 1.85833 10.8234L1.53333 10.9589C1.37579 11.1217 1.23931 11.3037 1.12708 11.5005C0.480974 12.5221 0.133841 13.7043 0.125 14.913V34.0339C0.128624 35.3257 0.503202 36.5892 1.20418 37.6743C1.90517 38.7594 2.90305 39.6203 4.07917 40.1547L21.4125 48.2797C22.3758 48.726 23.4248 48.9572 24.4865 48.9572C25.5481 48.9572 26.5971 48.726 27.5604 48.2797L44.8937 40.1547C46.0666 39.6282 47.0645 38.7773 47.7699 37.7025C48.4753 36.6276 48.8587 35.3736 48.875 34.088V14.913C48.8611 13.7673 48.5434 12.6458 47.9542 11.663ZM23.7146 5.70469C23.9625 5.59736 24.2298 5.54199 24.5 5.54199C24.7702 5.54199 25.0375 5.59736 25.2854 5.70469L39.7208 12.4214L24.5 19.4901L9.27917 12.4214L23.7146 5.70469ZM6.35417 35.3339C6.11837 35.2424 5.91515 35.0828 5.77044 34.8754C5.62573 34.668 5.54608 34.4221 5.54167 34.1693V16.6464L21.7917 24.2026V42.4026L6.35417 35.3339ZM42.6188 35.3339L27.2083 42.4026V24.2026L43.4583 16.6464V34.088C43.4645 34.357 43.3871 34.6214 43.2367 34.8445C43.0863 35.0676 42.8704 35.2386 42.6188 35.3339Z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="heading-26">0 HK(RD)</h3>
+                                        </div>
+                                    </div>
+                                    <div class="fn-heading-29">
+                                        DA AGE member <br/>TOP-UP CARD
+                                    </div>
+                                    <p class="paragraph-31">You can use the stored credit on your DA AGE member Top-up card to shop at stores that display the DA AGE logo. Enjoy shopping with DA AGE at many different locations, including convenience stores, restaurants, and shopping malls.</p>
+                                    <blockquote class="block-quote-4">HK(RD) will launch very soon! Stay tuned! </blockquote>
+                                    <div class="fn-pricing-line-4"></div>
+                                    <ol role="list" class="fn-list-4">
+                                       <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-24">RWA holders own the advertising time rights of digital advertising billboards, but do not own physical advertising billboards.</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4">
+                                                <div class="fn-list-checkmark-4"></div>
+                                            </div>
+                                            <div class="text-block-25">Selected RWAs will be locked in the pool for calculation, with advertising time points automatically calculated for RWA holders every month. RWAs that have never been added to the pool or transfer will retain the right to collect time points for the first 6 months. </div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-27">The total time point will be calculated based on the number, location, and area of ​​RWAs you have</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-29">Your time points calculated in the pool can be accumulated for up to 1 year and will be cancelled after 1 year if you do not collect the time points to your account.</div>
+                                        </li>
+                                        <li class="fn-list-item-4">
+                                            <div class="fn-list-checkmark-4"></div>
+                                            <div class="text-block-29">If you sell or transfer your RWA to another wallet, your time points will not accrue.</div>
+                                        </li>
+                                    </ol>
+                                    <div class="spacer-s-5"></div>
+                                    <div class="sizing-2"></div>
+                                </div>
+                                <div id="w-node-_7cc1ef8b-a55a-d534-b51a-d234515e2e0c-75c97b45" class="fn-feature-pricing-card-7">
+                                    <div class="my-rwa">My RWAs</div>
+                                    <div class="w-layout-grid grid-10">
+                                        <h5 id="w-node-_533f1463-5c7d-cc41-d665-cc254b18018b-75c97b45" class="heading-23">RWA</h5>
+                                        <h6 id="w-node-_533f1463-5c7d-cc41-d665-cc254b18018d-75c97b45" class="heading-14-copy">Location A</h6>
+                                        <h6 id="w-node-_533f1463-5c7d-cc41-d665-cc254b18018f-75c97b45" class="heading-14-copy">Location B</h6>
+                                        <h6 id="w-node-_533f1463-5c7d-cc41-d665-cc254b180191-75c97b45" class="heading-14-copy">Location C</h6>
+                                        <h6 id="w-node-b1c8a1bd-e293-ba42-b6eb-42926080335b-75c97b45" class="heading-22-copy">ZONE 1 </h6>
+                                        <h5 id="My-RWAs-Zone1-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone1-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone1-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-b484c1bb-5426-7075-c6b6-cfd99a6090f5-75c97b45" class="heading-22-copy">Zone 2</h6>
+                                        <h5 id="My-RWAs-Zone2-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone2-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone2-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-fb852e6d-cc08-9727-c29f-e400a4500288-75c97b45" class="heading-22-copy">ZOne 3</h6>
+                                        <h5 id="My-RWAs-Zone3-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone3-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone3-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-_773a8b8c-7404-ac1b-fae1-9d27fd69c3aa-75c97b45" class="heading-22-copy">Zone 4</h6>
+                                        <h5 id="My-RWAs-Zone4-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone4-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone4-LC" class="heading-16">0 PCS</h5>
+                                        <h6 id="w-node-_90a8437c-ce5f-0195-1768-0fe649b27852-75c97b45" class="heading-22-copy">Zone 5</h6>
+                                        <h5 id="My-RWAs-Zone5-LA" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone5-LB" class="heading-16">0 PCS</h5>
+                                        <h5 id="My-RWAs-Zone5-LC" class="heading-16">0 PCS</h5>
+                                    </div>
+                                    <div class="fn-pricing-line-4"></div>
+                                    <div class="w-layout-grid grid-11">
+                                        <h5 id="w-node-_7cc1ef8b-a55a-d534-b51a-d234515e2e26-75c97b45" class="total-rwa">TOTAL RWA Locked</h5>
+                                        <h5 id="total_pcs" class="total-rwa-number">0 PCS</h5>
+                                        <h5 id="w-node-_477320c4-694b-dcdd-bf02-d26fd9737c2d-75c97b45" class="total-rwa">Total AD Time POINT</h5>
+                                        <h5 id="total_tp_two" class="total-rwa-number">0 TP</h5>
+                                        <h5 id="w-node-_8442214b-2542-5da1-b8ff-7fe114303424-75c97b45" class="total-rwa-number-copy"></h5>
+                                        <h5 id="w-node-_61170690-427c-ef55-3345-f007520e9ef2-75c97b45" class="total-rwa">Estimated Value</h5>
+                                    </div>
+                                    <div class="spacer-s-5"></div>
+                                    <div class="w-form">
+                                        <form id="email-form" name="email-form" data-name="Email Form" method="get" data-wf-page-id="64c10870834e365b75c97b45" data-wf-element-id="7cc1ef8b-a55a-d534-b51a-d234515e2e34">
+                                            <label class="w-checkbox">
+                                                <input type="checkbox" name="checkbox-3" id="checkbox-3" data-name="Checkbox 3" class="w-checkbox-input"/>
+                                                <span class="w-form-label" for="checkbox-3">
+                                                    I agree to use my one month Advertising Time rights to operate the Digital Billboard and get Time Point in return.<br/>‍
+                                                </span>
+                                            </label>
+                                            <label class="w-checkbox">
+                                                <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"/>
+                                                <span class="w-form-label" for="checkbox-2">
+                                                    I agree to trade my RWA Advertising TIme rights ONLY but not the RWA  itself.<br/>‍
+                                                </span>
+                                            </label>
+                                            <div class="spacer-s-5"></div>
+                                            <input type="button" data-wait="Please wait..." class="submit-button-2-copy w-button" value="(Coming soon)" id = "hkrd"/>
+                                        </form>
+                                        <div class="success-message-2 w-form-done">
+                                            <div class="text-block-33">Please wait for this feature to be rolled out</div>
+                                        </div>
+                                        <div class="error-message-2 w-form-fail">
+                                            <div class="text-block-34">Please wait for this feature to be rolled out.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-w-tab="credit card" class="w-tab-pane">
+                            <h1 class="heading-19">
+                                STAY TUNED!<br/>Something Exciting is coming soon! 
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div id="Round" class="fn-section-9 overflow-none">
+            <div class="fn-container">
+                <div class="fn-cta-banner">
+                    <div class="fn-cta-banner-column">
+                        <h1 class="fn-heading-14">
+                            Bonus Points Reward
+                        </h1>
+                        <p class="fn-paragraph-dark">Collect More RWAs and earn extra Time Points!</p>
+                        <a href="#" class="fn-button-dark-2 w-button">Coming Soon</a>
+                    </div>
+                    <img class="fn-banner-image-one" src="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca2578812f16ecc9bf37c_clock3s.png" alt="" style="opacity:0" sizes="(max-width: 991px) 100vw, 250px" data-w-id="00f04e0e-b7b2-e8e9-fd06-534b7098486b" loading="lazy" srcset="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca2578812f16ecc9bf37c_clock3s-p-500.png 500w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca2578812f16ecc9bf37c_clock3s.png 768w"/>
+                    <img class="fn-banner-image-two" src="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca2503cd08cfc68192d20_clock626s.png" alt="" style="opacity:0" sizes="(max-width: 991px) 100vw, 172px" data-w-id="00f04e0e-b7b2-e8e9-fd06-534b7098486c" loading="lazy" srcset="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca2503cd08cfc68192d20_clock626s-p-500.png 500w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca2503cd08cfc68192d20_clock626s.png 768w"/>
+                    <img class="fn-banner-image-three" src="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca267692fd6a2c6c3fbf3_clock2s.png" alt="" style="opacity:0" sizes="(max-width: 991px) 100vw, 246px" data-w-id="00f04e0e-b7b2-e8e9-fd06-534b7098486d" loading="lazy" srcset="https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca267692fd6a2c6c3fbf3_clock2s-p-500.png 500w, https://assets-global.website-files.com/6421898f81ec56cd303380ec/655ca267692fd6a2c6c3fbf3_clock2s.png 768w"/>
+                </div>
+            </div>
+        </div>
+        <div id="FAQ" class="fn-section-9">
+            <div class="fn-container-grid2">
+                <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef353-75c97b45" class="fn-column-4">
+                    <h1 class="heading-6">FAQ</h1>
+                </div>
+                <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef356-75c97b45" class="fn-faq-classic-wrapper">
+                    <div class="fn-faq-item-toggle">
+                        <div class="fn-faq-intro">
+                            <div class="fn-heading-5-no-margin">What is the deadline for taking action to collect RWA Time Points?</div>
+                            <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef35b-75c97b45" class="fn-faq-arrow-down w-embed">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15ZM15.9375 8.4375C15.9375 8.18886 15.8387 7.9504 15.6629 7.77459C15.4871 7.59877 15.2486 7.5 15 7.5C14.7514 7.5 14.5129 7.59877 14.3371 7.77459C14.1613 7.9504 14.0625 8.18886 14.0625 8.4375L14.0625 19.2994L10.0387 15.2738C9.86271 15.0977 9.62395 14.9988 9.375 14.9988C9.12605 14.9988 8.88729 15.0977 8.71125 15.2738C8.53521 15.4498 8.43632 15.6885 8.43632 15.9375C8.43632 16.1865 8.53521 16.4252 8.71125 16.6012L14.3363 22.2262C14.4233 22.3136 14.5268 22.3828 14.6407 22.4301C14.7546 22.4773 14.8767 22.5017 15 22.5017C15.1233 22.5017 15.2454 22.4773 15.3593 22.4301C15.4732 22.3828 15.5767 22.3136 15.6637 22.2262L21.2887 16.6012C21.4648 16.4252 21.5637 16.1865 21.5637 15.9375C21.5637 15.6885 21.4648 15.4498 21.2887 15.2738C21.1127 15.0977 20.874 14.9988 20.625 14.9988C20.376 14.9988 20.1373 15.0977 19.9613 15.2738L15.9375 19.2994L15.9375 8.4375Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="spacer-s-2"></div>
+                        <p class="fn-paragraph-no-margin-2">It is essential to complete any actions (such as adding RWAs to the pool) before the specific date of the month. Any actions taken after this deadline will be considered for the following month. </p>
+                    </div>
+                    <div class="fn-faq-item-toggle">
+                        <div class="fn-faq-intro">
+                            <div class="fn-heading-5-no-margin">Can you explain the process of selling AD Time Value?</div>
+                            <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef363-75c97b45" class="fn-faq-arrow-down w-embed">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15ZM15.9375 8.4375C15.9375 8.18886 15.8387 7.9504 15.6629 7.77459C15.4871 7.59877 15.2486 7.5 15 7.5C14.7514 7.5 14.5129 7.59877 14.3371 7.77459C14.1613 7.9504 14.0625 8.18886 14.0625 8.4375L14.0625 19.2994L10.0387 15.2738C9.86271 15.0977 9.62395 14.9988 9.375 14.9988C9.12605 14.9988 8.88729 15.0977 8.71125 15.2738C8.53521 15.4498 8.43632 15.6885 8.43632 15.9375C8.43632 16.1865 8.53521 16.4252 8.71125 16.6012L14.3363 22.2262C14.4233 22.3136 14.5268 22.3828 14.6407 22.4301C14.7546 22.4773 14.8767 22.5017 15 22.5017C15.1233 22.5017 15.2454 22.4773 15.3593 22.4301C15.4732 22.3828 15.5767 22.3136 15.6637 22.2262L21.2887 16.6012C21.4648 16.4252 21.5637 16.1865 21.5637 15.9375C21.5637 15.6885 21.4648 15.4498 21.2887 15.2738C21.1127 15.0977 20.874 14.9988 20.625 14.9988C20.376 14.9988 20.1373 15.0977 19.9613 15.2738L15.9375 19.2994L15.9375 8.4375Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="spacer-s-2"></div>
+                        <p class="fn-paragraph-no-margin-2">By choosing to sell your AD Time Value, you trade one month of advertising time, transferring ownership to advertising companies in exchange for the Acquisition Price.</p>
+                    </div>
+                </div>
+                <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef367-75c97b45" class="fn-faq-classic-wrapper">
+                    <div class="fn-faq-item-toggle">
+                        <div class="fn-faq-intro">
+                            <div class="fn-heading-5-no-margin">Can I withdraw my RWAs after the deadline?</div>
+                            <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef36c-75c97b45" class="fn-faq-arrow-down w-embed">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15ZM15.9375 8.4375C15.9375 8.18886 15.8387 7.9504 15.6629 7.77459C15.4871 7.59877 15.2486 7.5 15 7.5C14.7514 7.5 14.5129 7.59877 14.3371 7.77459C14.1613 7.9504 14.0625 8.18886 14.0625 8.4375L14.0625 19.2994L10.0387 15.2738C9.86271 15.0977 9.62395 14.9988 9.375 14.9988C9.12605 14.9988 8.88729 15.0977 8.71125 15.2738C8.53521 15.4498 8.43632 15.6885 8.43632 15.9375C8.43632 16.1865 8.53521 16.4252 8.71125 16.6012L14.3363 22.2262C14.4233 22.3136 14.5268 22.3828 14.6407 22.4301C14.7546 22.4773 14.8767 22.5017 15 22.5017C15.1233 22.5017 15.2454 22.4773 15.3593 22.4301C15.4732 22.3828 15.5767 22.3136 15.6637 22.2262L21.2887 16.6012C21.4648 16.4252 21.5637 16.1865 21.5637 15.9375C21.5637 15.6885 21.4648 15.4498 21.2887 15.2738C21.1127 15.0977 20.874 14.9988 20.625 14.9988C20.376 14.9988 20.1373 15.0977 19.9613 15.2738L15.9375 19.2994L15.9375 8.4375Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="spacer-s-2"></div>
+                        <p class="fn-paragraph-no-margin-2">RWA withdrawals are only available during the specified date period of the month. It &#x27;s crucial to take action within this period. After this date, RWAs in your pool will continue to be considered for the calculation of Time Points but won &#x27;t be eligible for withdrawal until the next withdrawal period.</p>
+                    </div>
+                    <div class="fn-faq-item-toggle">
+                        <div class="fn-faq-intro">
+                            <div class="fn-heading-5-no-margin">
+                                <strong>How long can I accumulate RWA Time Points for?</strong>
+                            </div>
+                            <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef375-75c97b45" class="fn-faq-arrow-down w-embed">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15ZM15.9375 8.4375C15.9375 8.18886 15.8387 7.9504 15.6629 7.77459C15.4871 7.59877 15.2486 7.5 15 7.5C14.7514 7.5 14.5129 7.59877 14.3371 7.77459C14.1613 7.9504 14.0625 8.18886 14.0625 8.4375L14.0625 19.2994L10.0387 15.2738C9.86271 15.0977 9.62395 14.9988 9.375 14.9988C9.12605 14.9988 8.88729 15.0977 8.71125 15.2738C8.53521 15.4498 8.43632 15.6885 8.43632 15.9375C8.43632 16.1865 8.53521 16.4252 8.71125 16.6012L14.3363 22.2262C14.4233 22.3136 14.5268 22.3828 14.6407 22.4301C14.7546 22.4773 14.8767 22.5017 15 22.5017C15.1233 22.5017 15.2454 22.4773 15.3593 22.4301C15.4732 22.3828 15.5767 22.3136 15.6637 22.2262L21.2887 16.6012C21.4648 16.4252 21.5637 16.1865 21.5637 15.9375C21.5637 15.6885 21.4648 15.4498 21.2887 15.2738C21.1127 15.0977 20.874 14.9988 20.625 14.9988C20.376 14.9988 20.1373 15.0977 19.9613 15.2738L15.9375 19.2994L15.9375 8.4375Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="spacer-s-2"></div>
+                        <p class="fn-paragraph-no-margin-2">RWA Time Points can accumulate for up to 1 years. If not collected within this period, they will be canceled. Collect your time points regularly and redeem your time points for maximum benefits.</p>
+                    </div>
+                    <div class="fn-faq-item-toggle">
+                        <div class="fn-faq-intro">
+                            <div class="fn-heading-5-no-margin">
+                                <strong>What happens if I sell or transfer my RWA to another wallet?</strong>
+                            </div>
+                            <div id="w-node-ef787643-75ce-f3a8-63ad-144f80aef375-75c97b45" class="fn-faq-arrow-down w-embed">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15ZM15.9375 8.4375C15.9375 8.18886 15.8387 7.9504 15.6629 7.77459C15.4871 7.59877 15.2486 7.5 15 7.5C14.7514 7.5 14.5129 7.59877 14.3371 7.77459C14.1613 7.9504 14.0625 8.18886 14.0625 8.4375L14.0625 19.2994L10.0387 15.2738C9.86271 15.0977 9.62395 14.9988 9.375 14.9988C9.12605 14.9988 8.88729 15.0977 8.71125 15.2738C8.53521 15.4498 8.43632 15.6885 8.43632 15.9375C8.43632 16.1865 8.53521 16.4252 8.71125 16.6012L14.3363 22.2262C14.4233 22.3136 14.5268 22.3828 14.6407 22.4301C14.7546 22.4773 14.8767 22.5017 15 22.5017C15.1233 22.5017 15.2454 22.4773 15.3593 22.4301C15.4732 22.3828 15.5767 22.3136 15.6637 22.2262L21.2887 16.6012C21.4648 16.4252 21.5637 16.1865 21.5637 15.9375C21.5637 15.6885 21.4648 15.4498 21.2887 15.2738C21.1127 15.0977 20.874 14.9988 20.625 14.9988C20.376 14.9988 20.1373 15.0977 19.9613 15.2738L15.9375 19.2994L15.9375 8.4375Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="spacer-s-2"></div>
+                        <p class="fn-paragraph-no-margin-2">If you sell or transfer your RWA to another wallet, your Time Points will not accrue. Time Points are tied to the specific wallet that holds the RWA, so any changes in ownership will affect your ability to collect and use Time Points. Make sure to keep your RWA in the same wallet to maintain your Time Point accumulation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fn-footer-second">
+            <div class="fn-container-grid-5">
+                <div id="w-node-_89de2959-2443-07c2-4e38-60af83360a4e-83360a4c" class="fn-footer-line"></div>
+                <div id="w-node-_89de2959-2443-07c2-4e38-60af83360a4f-83360a4c" class="fn-legal-links-wrapper">
+                    <a href="#" class="fn-brand-box-3 w-nav-brand">
+                        <img src="https://assets-global.website-files.com/6421898f81ec56cd303380ec/642d5a98952aaf152d2447d9_DAAGE_sss_sss.png" loading="lazy" alt=""/>
+                    </a>
+                    <a href="#Marketplace" aria-current="page" class="fn-standard-white-link w--current">Earn Time Points</a>
+                    <a href="#Round" class="fn-standard-white-link">RWA Bonus Rewards</a>
+                    <a href="#FAQ" class="fn-standard-white-link">FAQ</a>
+                </div>
+                <div id="w-node-_89de2959-2443-07c2-4e38-60af83360a58-83360a4c" class="fn-legal-links-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6421898f81ec56cd303380ec" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="./Content/Styles/js/da-age-sk.js" type="text/javascript"></script>
+    </body>
+
+    <script type="text/javascript">
+
+        
+        var paragraph = document.getElementById("w-node-e84787ff-f1f9-0c32-665e-bb50de6aabdc-75c97b45");
+
+        
+        var currentDate = new Date();
+
+       
+        var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+
+        
+        paragraph.textContent = paragraph.textContent.replace(/31st Dec 2025/g, lastDay + "th " + getMonthName(currentDate.getMonth()) + " " + currentDate.getFullYear());
+
+        
+        function getMonthName(monthIndex) {
+            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return monthNames[monthIndex];
+        }
+        
+        function getMonthName(monthIndex) {
+            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return monthNames[monthIndex];
+        }
+
+        var stakingAbi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"startTime","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"endTime","type":"uint256"}],"name":"StakingDetailsEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"endTime","type":"uint256"}],"name":"UnlockStakingEvent","type":"event"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getStakingNFTDetails","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_erc721Address","type":"address"}],"name":"setErc721TokenAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_stakeEnabled","type":"bool"}],"name":"setStakeState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_days","type":"uint256"}],"name":"stakingNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_tokenIds","type":"uint256[]"}],"name":"unStakingNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"}],"name":"withDrawAllNfts","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+    
+        var stakingAddress = "";
+
+        var stakingS2Address = "";
+
+        var stakingS3Address = "";
+        
+        
+        var network = "main"; // network type
+        
+            var net_data_map = {
+                testnet: {
+                    chainId: "0x13882",
+                    chainName: "Polygon Amoy",
+                    nativeCurrency: {
+                        name: "MATIC",
+                        symbol: "MATIC",
+                        decimals: 18
+                    },
+                    rpcUrls: ["https://rpc-amoy.polygon.technology"],
+                    blockExplorerUrls: ["https://amoy.polygonscan.com/"]
+                },
+                main: {
+                    chainId: "0x89",
+                    chainName: "Polygon Mainnet",
+                    nativeCurrency: {
+                        name: "MATIC",
+                        symbol: "MATIC",
+                        decimals: 18
+                    },
+                    rpcUrls: ["https://polygon-mainnet.g.alchemy.com/v2/-flnXcVm0YimAZz8_jcGiOpQPs1KEgxJ"],
+                    blockExplorerUrls: ["https://polygonscan.com/"]
+                }
+            }
+            
+            var nftAbi = [{
+                    "inputs":[
+                        {
+                            "internalType":"address",
+                            "name":"to",
+                            "type":"address"
+                        },
+                        {
+                            "internalType":"uint256",
+                            "name":"tokenId",
+                            "type":"uint256"
+                        }
+                    ],
+                    "name":"approve",
+                    "outputs":[
+
+                    ],
+                    "stateMutability":"payable",
+                    "type":"function"
+                },
+                    {
+                        "inputs":[
+                            {
+                                "internalType":"address",
+                                "name":"owner",
+                                "type":"address"
+                            }
+                        ],
+                        "name":"tokensOfOwner",
+                        "outputs":[
+                            {
+                                "internalType":"uint256[]",
+                                "name":"",
+                                "type":"uint256[]"
+                            }
+                        ],
+                        "stateMutability":"view",
+                        "type":"function"
+                    },
+                    {
+                        "inputs":[
+                            {
+                                "internalType":"uint256",
+                                "name":"tokenId",
+                                "type":"uint256"
+                            }
+                        ],
+                        "name":"getApproved",
+                        "outputs":[
+                            {
+                                "internalType":"address",
+                                "name":"",
+                                "type":"address"
+                            }
+                        ],
+                        "stateMutability":"view",
+                        "type":"function"
+                    }
+                ];
+            //main
+            var nftContractAddress = "0xc1371489DD2b8bB69C54d8e02076200D40c61405";
+
+            var nftS2ContractAddress = "";
+
+            var nftS3ContractAddress = "";
+            
+            const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
+            var web3 = new Web3(provider);
+            var gasMultiple = 1.5;
+            var gasMultiple1 = 1.3;
+            
+            var nftContract = new web3.eth.Contract(nftAbi, nftContractAddress);
+
+            var nftS2Contract = new web3.eth.Contract(nftAbi, nftS2ContractAddress);
+
+            var nftS3Contract = new web3.eth.Contract(nftAbi, nftS3ContractAddress);
+
+            
+            var stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress);
+
+            var stakingS2Contract = new web3.eth.Contract(stakingAbi, stakingS2Address);
+
+            var stakingS3Contract = new web3.eth.Contract(stakingAbi, stakingS3Address);
+        
+            var isConnect = window.localStorage.getItem("selectedWallet");
+            
+            var walletPlaceholderText = "Connect Wallet";
+        
+            var wallet = new Proxy({ address: walletPlaceholderText }, {
+                set(obj, prop, value) {
+                    if (prop === "address") {
+
+                        if (value && value != walletPlaceholderText) {
+                            
+                           $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
+                           $("#connect").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
+
+                           
+                           
+                           
+                      /*     //check
+                           var result = getAddressIsFranchisee(value);
+
+                           
+                           if(result){
+                              
+                              document.getElementById("reward_tp").style.display = "inline-block";
+                              document.getElementById("RWA_TP").style.display = "inline-block";
+                           }
+
+                         */
+                           
+                           
+        
+                        } else {
+                            $("#connect-wallet").html(walletPlaceholderText);
+                            location.reload(true);
+                        }
+                    }
+                    if (prop == "chainId") {
+                        if (value !== net_data_map[network].chainId) {
+                            if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
+                                // add ethereum chain switch
+                                window.ethereum.request({
+                                    method: "wallet_switchEthereumChain",
+                                    "params": [
+                                        {
+                                            "chainId": net_data_map[network].chainId,
+                                        }
+                                    ]
+                                })
+                            } else {
+                                window.ethereum.request({
+                                    method: 'wallet_addEthereumChain',
+                                    params: [net_data_map[network], wallet.address]
+                                })
+                                    .then((result) => { })
+                                    .catch((error) => { })
+                            }
+        
+                        }
+        
+                    }
+                    obj[prop] = value
+                }
+            });
+        
+            var mintBtn = new Proxy({ disable: false }, {
+                set(obj, prop, value) {
+                    obj[prop] = value
+                }
+            });
+        
+            provider.on("accountsChanged", (accounts) => {
+                wallet.address = accounts[0] || walletPlaceholderText;
+            })
+        
+            provider.on('disconnect', (error) => {
+                
+                wallet.address = walletPlaceholderText
+                
+            });
+        
+            provider.on('chainChanged', (chainId) => {
+                wallet.chainId = chainId;
+                connectWallet(provider)
+            });
+
+
+
+            async function allowance(toekenId) {
+
+                var address = await nftContract.methods.getApproved(toekenId).call();
+                if (address != stakingAddress) {
+                    wallet.approve = false;
+                    $("#submit").text("Approve")
+                } else {
+                    wallet.approve = true;
+                    $("#submit").text("ADD")
+                }
+            }
+
+
+            async function allowanceS2(toekenId) {
+
+                var address = await nftS2Contract.methods.getApproved(toekenId).call();
+                console.log('allowanceS2 address = '+ address)
+                if (address != stakingS2Address) {
+                    wallet.approve = false;
+                    $("#submit").text("Approve")
+                } else {
+                    wallet.approve = true;
+                    $("#submit").text("ADD")
+                }
+            }
+
+
+
+            async function allowanceS3(toekenId) {
+
+                var address = await nftS3Contract.methods.getApproved(toekenId).call();
+                console.log('allowanceS3 address = '+ address)
+                if (address != stakingS3Address) {
+                    wallet.approve = false;
+                    $("#submit").text("Approve")
+                } else {
+                    wallet.approve = true;
+                    $("#submit").text("ADD")
+                }
+            }
+
+
+            async function approve(tokenId) {
+                
+                let gasPrice = await web3.eth.getGasPrice();
+                
+                const data = nftContract.methods.approve(stakingAddress, tokenId).encodeABI();
+                
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: nftContractAddress,
+                    data
+                })
+                
+                try {
+                    
+                    const result = await nftContract.methods.approve(stakingAddress, tokenId).send({
+                        from: wallet.address,
+                        to: nftContractAddress,
+                        gasPrice: parseInt(gasPrice * gasMultiple),
+                        gas: parseInt(gas * gasMultiple)
+                    });
+                    wallet.approve = true;
+                    Toastify({
+                        text: "Approval Successful",
+                        className: "info",
+                    }).showToast();
+                    await allowance(tokenId);
+            } catch (error) {
+                
+                console.log(error)
+            }
+        }
+
+
+        async function approveS2(tokenId) {
+                
+                let gasPrice = await web3.eth.getGasPrice();
+                
+                const data = nftS2Contract.methods.approve(stakingS2Address, tokenId).encodeABI();
+                
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: nftS2ContractAddress,
+                    data
+                })
+                
+                try {
+                    
+                    const result = await nftS2Contract.methods.approve(stakingS2Address, tokenId).send({
+                        from: wallet.address,
+                        to: nftS2ContractAddress,
+                        gasPrice: parseInt(gasPrice * gasMultiple),
+                        gas: parseInt(gas * gasMultiple)
+                    });
+                    wallet.approve = true;
+                    Toastify({
+                        text: "Approval Successful",
+                        className: "info",
+                    }).showToast();
+                    await allowance(tokenId);
+            } catch (error) {
+                
+                console.log(error)
+            }
+        }
+
+
+        async function approveS3(tokenId) {
+                
+                let gasPrice = await web3.eth.getGasPrice();
+                
+                const data = nftS3Contract.methods.approve(stakingS3Address, tokenId).encodeABI();
+               
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: nftS3ContractAddress,
+                    data
+                })
+                
+                try {
+                    
+                    const result = await nftS3Contract.methods.approve(stakingS3Address, tokenId).send({
+                        from: wallet.address,
+                        to: nftS3ContractAddress,
+                        gasPrice: parseInt(gasPrice * gasMultiple),
+                        gas: parseInt(gas * gasMultiple)
+                    });
+                    wallet.approve = true;
+                    Toastify({
+                        text: "Approval Successful",
+                        className: "info",
+                    }).showToast();
+                    await allowance(tokenId);
+            } catch (error) {
+                
+                console.log(error)
+            }
+        }
+        
+        function connectWallet(provider) {
+            console.log("connectWallet called");
+            provider.enable().then(async (accounts) => {
+                wallet.address = accounts[0];
+                wallet.chainId = provider.chainId;
+                window.localStorage.setItem("selectedWallet", "INJECTED")
+
+               
+             /*   //check
+                var result = getAddressIsFranchisee(wallet.address);
+                
+                if(result){
+                    document.getElementById("reward_tp").style.display = "inline-block";
+                    document.getElementById("RWA_TP").style.display = "inline-block";
+                }
+                console.log("Calling asyncOperation");
+		        await asyncOperation(wallet.address);
+                console.log("asyncOperation completed"); */
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+
+            async function queryStakingNFT(){
+
+                var rwaType = document.getElementById('select3').value;
+
+                var tokenIds;
+
+                if(rwaType === '0'){
+
+                     tokenIds = await queryStakingNFTDetails();
+
+                }else if(rwaType === '1') {
+
+                     tokenIds = await queryStakingS2NFTDetails();
+                }else {
+                     tokenIds = await queryStakingS3NFTDetails();
+                }
+
+
+
+                var myList = document.getElementById("myList");
+                while (myList.firstChild) {
+                    myList.removeChild(myList.firstChild);
+                }
+ 
+                console.log('tokenIds = ',tokenIds)
+                if (typeof tokenIds != "undefined" || tokenIds.length != 0){ 
+
+                    var stakingTokenIds = [];
+                    var stakingStartTime = [];
+                    var stakingEndTime = [];
+
+                     stakingTokenIds = tokenIds[0];
+                     stakingStartTime = tokenIds[1];
+                     stakingEndTime = tokenIds[2];
+
+                    console.log("Array 1: " + JSON.stringify(stakingTokenIds));
+                    console.log("Array 2: " + JSON.stringify(stakingStartTime));
+                    console.log("Array 3: " + JSON.stringify(stakingEndTime));
+
+                try{
+
+                    var data = [];
+
+                    var endTime = [];
+
+
+                    
+                    const today = new Date();
+                    const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+                    nextMonth.setHours(0, 0, 0, 0);
+                    const timestamp = nextMonth.getTime()/ 1000;
+                    
+                    for (var i = 0; i < stakingTokenIds.length; i++) {
+                        var tokenId = stakingTokenIds[i];
+                        console.log("tokenId",tokenId);
+                        var item = {}; 
+
+
+                        if(rwaType === '0'){
+
+                            var metaData = getDataByTokenId(Number(tokenId));
+                            console.log(metaData);
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S5/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.png';
+                        }else if(rwaType === '1'){
+
+                            var metaData = getDataByS2TokenId(Number(tokenId));
+
+                            if(metaData === undefined){
+
+                                item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                            }else{
+
+                                console.log(metaData);
+                                var name = metaData.location_name;
+                                var zone = metaData.zone;
+                                item.imgSrc = './Content/Styles/images/S6/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+
+                            }
+
+                            
+
+                        }else{
+
+                            var metaData = getDataByS3TokenId(Number(tokenId));
+
+                            if(metaData === undefined){
+
+                                item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                            }else{
+
+                                console.log(metaData);
+                                var name = metaData.location_name;
+                                var zone = metaData.zone;
+                                item.imgSrc = './Content/Styles/images/S7/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+
+                            }
+
+                        }
+                        
+                        item.spanText = 'RWA #' + tokenId;
+                        item.tokenId = tokenId;
+                        data.push(item);
+                        
+                        endTime.push(stakingEndTime[i])
+                    }
+
+                        
+                        
+                        var parentElement = document.querySelector('.bg-secondary-staking');
+            
+                        var countdownElements = []; 
+                        
+                        var nextMonthNumber = 0;
+                        
+                        var thisMonthNumber = 0;
+
+                        for (var i = 0; i < data.length; i++) {
+                            
+                            var liElement = document.createElement('li');
+                            liElement.className = 'unLockClass';
+
+                            
+                            var imgElement = document.createElement('img');
+                            imgElement.src = data[i].imgSrc;
+
+                           
+                            imgElement.style.aspectRatio = '15/17';
+                            imgElement.style.borderRadius = '10px';
+
+                            
+                            var spanElement = document.createElement('span');
+                            spanElement.textContent = data[i].spanText;
+                            spanElement.style.fontSize = "smaller";
+
+                            
+                            var checkbox = document.createElement('input');
+                            checkbox.type = 'checkbox';
+                            
+                            
+                            
+                            var countdownElement = document.createElement('span');
+                            countdownElement.style.display = 'block';
+                            countdownElement.style.marginTop = '10px';
+                            countdownElement.style.color = '#df0'; 
+                            countdownElement.style.fontSize = '14px';
+                            countdownElement.style.fontSize = "smaller";
+                           
+                            countdownElements.push(countdownElement);
+
+                            console.log("data[i].tokenId",  data[i].tokenId);
+                            var state = checkSnapshot(data[i].tokenId);
+                            
+                            console.log("state",  state);
+                            var countdownElement1 = document.createElement('span');
+                            countdownElement1.style.display = 'block';
+                            countdownElement1.style.marginTop = '10px';
+                            countdownElement1.style.color = '#df0'; 
+                            countdownElement1.style.fontSize = '14px';
+                            countdownElement1.style.fontSize = "smaller";
+
+                            if(!state){
+
+                                countdownElement.textContent = 'Pending';
+                                countdownElement1.textContent = '';
+                                thisMonthNumber++;
+
+
+                            }else{
+
+                            
+                            countdownElement1.textContent = 'TP Calculating';
+
+                            const today = new Date();
+                            const dayOfMonth = today.getDate();
+                           
+                            if (dayOfMonth === 1) {
+
+                                countdownElement.textContent = '0:00:00:00';
+
+                            }else{
+
+                                nextMonthNumber ++;
+                                 
+                                 /*   (function(countdownTime, countdownIndex) {
+                                        
+                                        function updateCountdown() {
+
+                                            
+                                            var currentTime = new Date().getTime() / 1000;
+                                            
+                                            var difference = countdownTime - currentTime;
+
+                                            var days = Math.floor(difference / (24 * 60 * 60)); 
+                                            difference -= days * (24 * 60 * 60);
+                                            var hours = Math.floor(difference / (60 * 60));
+                                            difference -= hours * (60 * 60);
+                                            var minutes = Math.floor(difference / 60);
+                                            difference -= minutes * 60;
+                                            var seconds = Math.floor(difference);
+
+                                            
+                                            var countdownElement = countdownElements[countdownIndex];
+                                            countdownElement.textContent = days + ':' + hours + ':' + minutes + ':' + seconds;
+                                        }
+
+                                        
+                                        setInterval(updateCountdown, 1000);
+                                    })(timestamp, i);*/
+
+                                }   
+
+                          }
+
+                           
+                            liElement.appendChild(checkbox);
+                            liElement.appendChild(imgElement);
+                            liElement.appendChild(spanElement);
+                            liElement.appendChild(countdownElement1);
+                            liElement.appendChild(countdownElement);
+                            
+
+                           
+                            parentElement.appendChild(liElement);
+                            liElement.insertBefore(checkbox, spanElement);
+                        }
+                                        
+                       
+                        console.log("异步操作完成");
+
+                       
+                    var thisMonthDiv = document.getElementById("this-month");
+                    
+                    thisMonthDiv.textContent = thisMonthNumber;
+
+                    var nextMonthDiv = document.getElementById("next-month");
+
+                    nextMonthDiv.textContent = nextMonthNumber;
+
+                        } catch (error) {
+                        
+                        console.log("异步操作出错:", error);
+                        alert("Please upload again");
+                        
+                        }
+                    }
+
+            }
+
+
+            function formatTimeDifference(timestamp) {
+            var currentTime = new Date().getTime() / 1000;
+            var difference = timestamp - currentTime;
+
+            var days = Math.floor(difference / (24 * 60 * 60));
+            difference -= days * (24 * 60 * 60);
+            var hours = Math.floor(difference / (60 * 60));
+            difference -= hours * (60 * 60);
+            var minutes = Math.floor(difference / 60);
+            difference -= minutes * 60;
+            var seconds = Math.floor(difference);
+
+            return days + '-' + hours + '-' + minutes + '-' + seconds;
+            }
+
+           
+
+
+        document.getElementById("unLockNFT").addEventListener("click", async function(event) {
+            event.preventDefault();
+
+            try {
+                
+                var tokenIds = unLockSelectedButtonClick();
+               
+                if (typeof tokenIds === "undefined" || tokenIds.length === 0){ 
+                        
+                        alert("Please select the unLock RWA to authorize");
+                        mintBtn.disable = false;
+                        return;
+                }
+
+                console.log("unLock = ",tokenIds);
+
+                await unLockNFT(tokenIds);
+            
+            } catch (error) {
+                console.error("unLock =", error);
+            }
+    });
+
+
+    async function unLockNFT(tokenIds) {
+
+        var inputElement = document.getElementById('unLockNFT');
+        
+        if(inputElement.textContent === 'Loading'){
+
+            console.log("重复点击")
+            return;
+        }
+        
+       
+        inputElement.textContent  = 'Loading';
+
+        let gasPrice = await web3.eth.getGasPrice();
+
+        var rwaType = document.getElementById('select3').value;
+
+        try{
+
+            if(rwaType === '0'){
+
+                const data = stakingContract.methods.unStakingNFT(tokenIds).encodeABI();
+                
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: stakingAddress,
+                    data
+                })
+
+                
+                if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                    gasPrice = wallet.gasPrice
+                }
+                
+
+
+                stakingContract.methods.unStakingNFT(tokenIds).send({
+                    from: wallet.address,
+                    gasPrice: parseInt(gasPrice * gasMultiple1),
+                    gas: parseInt(gas * gasMultiple)
+                    
+                }).then(async () => {
+                    
+                    
+                    Toastify({
+                        text: "unLock RWA Successful",
+                        className: "info",
+                    }).showToast();
+
+                    var inputElement = document.getElementById('unLockNFT');
+            
+                    
+                    inputElement.textContent  = 'Unlock';
+
+                
+                    fetchDataAndRender();
+
+                }).catch(async error=>{
+                    console.log("one catch = ",error);
+                })
+
+            }else if(rwaType === '1'){
+
+
+
+                const data = stakingS2Contract.methods.unStakingNFT(tokenIds).encodeABI();
+            
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: stakingS2Address,
+                    data
+                })
+
+                
+                if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                    gasPrice = wallet.gasPrice
+                }
+                
+
+
+                stakingS2Contract.methods.unStakingNFT(tokenIds).send({
+                    from: wallet.address,
+                    gasPrice: parseInt(gasPrice * gasMultiple1),
+                    gas: parseInt(gas * gasMultiple)
+                    
+                }).then(async () => {
+                    
+                    
+                    Toastify({
+                        text: "unLock RWA Successful",
+                        className: "info",
+                    }).showToast();
+
+                    var inputElement = document.getElementById('unLockNFT');
+            
+                    
+                    inputElement.textContent  = 'Unlock';
+
+                
+                    fetchDataAndRender();
+
+                }).catch(async error=>{
+                    console.log("one catch = ",error);
+                })
+
+
+            }else {
+
+                const data = stakingS3Contract.methods.unStakingNFT(tokenIds).encodeABI();
+
+                const gas = await web3.eth.estimateGas({
+                    from: wallet.address,
+                    to: stakingS3Address,
+                    data
+                })
+
+
+                if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                    gasPrice = wallet.gasPrice
+                }
+
+
+
+                stakingS3Contract.methods.unStakingNFT(tokenIds).send({
+                    from: wallet.address,
+                    gasPrice: parseInt(gasPrice * gasMultiple1),
+                    gas: parseInt(gas * gasMultiple)
+                    
+                }).then(async () => {
+                    
+                    
+                    Toastify({
+                        text: "unLock RWA Successful",
+                        className: "info",
+                    }).showToast();
+
+                    var inputElement = document.getElementById('unLockNFT');
+
+                    
+                    inputElement.textContent  = 'Unlock';
+
+
+                    fetchDataAndRender();
+
+                }).catch(async error=>{
+                    console.log("one catch = ",error);
+                })
+            }
+
+            
+        } catch(error) {
+            console.log("two catch = ",error.message);
+
+            const startIndex = error.message.indexOf("{");
+            const endIndex = error.message.lastIndexOf("}");
+
+            const errorJSON = JSON.parse(error.message.substring(startIndex, endIndex + 1));
+
+            const errorMessage = errorJSON.message;
+
+            console.log(errorMessage);
+            alert("error : " + errorMessage + ",Please select again!");
+            var inputElement = document.getElementById('unLockNFT');
+        
+               
+            inputElement.textContent  = 'Unlock';
+
+                                
+        }
+
+    }
+        
+    
+    
+
+    function unLockSelectedButtonClick() {
+        
+        var selectedLiElements = document.querySelectorAll('li.unLockClass input[type="checkbox"]:checked');
+        var spanValues = [];
+
+        for (var i = 0; i < selectedLiElements.length; i++) {
+            var liElement = selectedLiElements[i].closest('li.unLockClass');
+            var spanElement = liElement.querySelector('span');
+            var spanValue = spanElement.textContent.replace("RWA #", "");
+            spanValues.push(spanValue);
+        }
+
+        console.log(spanValues);
+
+        return spanValues;
+
+    }
+            
+
+            
+            
+        
+            async function fetchDataAndRender() {
+                try {
+                  console.log("wallet.address", wallet.address);
+
+
+               //   queryStakingNFT();
+                
+
+                  var myList = document.getElementById("myHolderList");
+
+                  while (myList.firstChild) {
+                    myList.removeChild(myList.firstChild);
+                  }
+
+                  var location = document.getElementById('select1').value;
+                  var zone = document.getElementById('select2').value;
+
+                  var rwaType = document.getElementById('select3').value;
+
+
+                        
+                  var tokenIds;
+
+                    if(rwaType === '0'){
+
+                        tokenIds = await queryTokensOfOwner();
+
+                        console.log("tokenIds==",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterData(location,zone,tokenIds);
+
+                            }
+
+                    }else if(rwaType === '1'){
+
+                        tokenIds = await queryS2TokensOfOwner();
+
+                        console.log("tokenIds==",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterS2Data(location,zone,tokenIds);
+
+                        }
+                    }else if(rwaType === '2'){
+
+                        tokenIds = await queryS3TokensOfOwner();
+
+                        console.log("tokenIds==",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterS3Data(location,zone,tokenIds);
+
+                        }
+                    }
+
+
+                  console.log("tokenIds==",tokenIds);
+
+                  
+                  
+                  
+                  var data = [];
+
+                  for (var i = 0; i < tokenIds.length; i++) {
+                    var tokenId = tokenIds[i];
+                    var item = {};
+                                             
+                    if(rwaType === '0'){
+
+                        var metaData = getDataByTokenId(Number(tokenId));
+                        console.log(metaData);
+                        var name = metaData.location_name;
+                        var zone = metaData.zone;
+                        item.imgSrc = './Content/Styles/images/S5/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.png';
+
+                    }else if(rwaType === '1'){
+
+                        var metaData = getDataByS2TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S6/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+
+                        }
+
+
+
+                    }else {
+
+                        var metaData = getDataByS3TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S7/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+
+                        }
+
+                    }
+                        
+                        
+                    item.spanText = 'RWA #' + tokenId;
+                    data.push(item); 
+                  }
+                  
+                 
+                  var parentElement = document.querySelector('.bg-secondary');
+                        
+                  for (var i = 0; i < data.length; i++) {
+                   
+                    var liElement = document.createElement('li');
+                    liElement.className = 'imgClass';
+        
+                   
+                    var imgElement = document.createElement('img');
+                    imgElement.src = data[i].imgSrc;
+                    imgElement.sizes = "(max-width: 479px) 23vw, (max-width: 751px) 80vw, 601px";
+        
+                   
+                    imgElement.style.aspectRatio = '15/17';
+                    imgElement.style.borderRadius = '10px';
+
+
+                    
+        
+                   
+                    var spanElement = document.createElement('span');
+                    spanElement.textContent = data[i].spanText;
+                    spanElement.style.fontSize = "smaller";
+        
+                   
+                    var checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+        
+                    
+                    liElement.appendChild(checkbox);
+                    liElement.appendChild(imgElement);
+                    liElement.appendChild(spanElement);
+        
+                    
+                    parentElement.appendChild(liElement);
+                    liElement.insertBefore(checkbox, spanElement);
+
+                    
+                  }
+                  
+                  
+                  console.log("异步操作完成");
+
+                 
+                var myRWAElement = document.getElementById('myRWA');
+
+               
+                myRWAElement.textContent = 'My RWA ('+tokenIds.length+')';
+
+
+                } catch (error) {
+                  
+                  console.log("异步操作出错:", error);
+                  
+                }
+            }
+        
+              var button = document.getElementById("selectedButton");
+              var parentElement = document.querySelector('.bg-secondary');
+              var isFetchingData = false; 
+              
+              button.addEventListener("click", function(event) {
+            
+                if (isFetchingData) {
+                   
+                    return;
+                }
+                isFetchingData = true;
+        
+               
+                while (parentElement.firstChild) {
+                  parentElement.removeChild(parentElement.firstChild);
+                }
+        
+               
+                fetchDataAndRender().then(function() {
+
+                    isFetchingData = false;
+                }).catch(function(error) {
+                    isFetchingData = false; 
+                    console.log("fetchDataAndRender error :" ,error)
+                });
+        });
+
+
+        
+        
+            function handleSelectedButtonClick() {
+                var selectedLiElements = document.querySelectorAll('li.imgClass input[type="checkbox"]:checked');
+                var spanValues = [];
+        
+                for (var i = 0; i < selectedLiElements.length; i++) {
+                  var liElement = selectedLiElements[i].closest('li.imgClass');
+                  var spanElement = liElement.querySelector('span');
+                  var spanValue = spanElement.textContent.replace("#", "");
+                  spanValues.push(spanValue);
+                }
+        
+                console.log(spanValues);
+        
+                return spanValues;
+        
+          }
+               
+        
+            $(function(){
+        
+            if (isConnect) {
+                connectWallet(provider);
+            };
+        
+            $("#connect-wallet").on("click",()=> {
+                connectWallet(provider);
+            });
+        
+            $("#submit").on("click", async (event)=> {
+
+                alert("This service is not open yet, please wait...");
+
+                return;
+
+
+                var tokenIds = handleSelectedButtonClick();
+
+               
+                if (typeof tokenIds === "undefined" || tokenIds.length === 0){ 
+                    
+                    alert("Please select the RWA to authorize");
+                    mintBtn.disable = false;
+                    return;
+        
+                }
+
+                if(tokenIds.length > 1){
+
+                alert("Only one RWA can be authorized at a time, please select again.");
+                mintBtn.disable = false;
+                return;
+
+                }
+    
+                var tokenId = tokenIds[0].replace("RWA ", "");
+
+                console.log(tokenId);
+
+                if (mintBtn.disable) return;
+
+                mintBtn.disable = true;
+
+                var rwaType = document.getElementById('select3').value;
+
+                if(rwaType === '0'){
+
+                    await allowance(tokenId);
+
+                    $("#submit").text("Loading");
+
+
+                
+                    if (!wallet.approve) {
+                        
+                        await approve(tokenId);
+                        
+                        mintBtn.disable = false;
+                        $("#submit").text("ADD");
+                        return;
+                    }
+                    
+                    
+                    if (wallet.address === walletPlaceholderText) {
+                        connectWallet(provider)
+                        return;
+                    }
+            
+                    try {
+                        
+                        mintBtn.disable = true;
+                        let gasPrice = await web3.eth.getGasPrice();
+
+                        
+                        var daysDiff = getDays();
+
+                        console.log("tokenId = " + tokenId)
+                        console.log("daysDiff = " + daysDiff)
+                        
+                    
+                        const data =  stakingContract.methods.stakingNFT(tokenId,daysDiff).encodeABI();
+                        
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingAddress,
+                            data
+                        })
+            
+                    
+                        if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                            gasPrice = wallet.gasPrice
+                        }
+                        
+                        stakingContract.methods.stakingNFT(tokenId,daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                            
+                        }).then(async () => {
+                            mintBtn.disable = false;
+                            wallet.gasPrice = gasPrice; // save success gasPrice
+                        
+            
+                            
+                            $('submit').text('ADD');
+                            
+                            alert("ADD Successful");
+            
+                            console.log("load...data")
+                            var parentElement = document.querySelector('.bg-secondary');
+                            var liElements = parentElement.getElementsByClassName('imgClass');
+            
+                            
+                            while (liElements.length > 0) {
+                            parentElement.removeChild(liElements[0]);
+                            }
+                            
+                            fetchDataAndRender();
+                            await allowance(tokenId);
+                            Toastify({
+                                text: "Submit Successful",
+                                className: "info",
+                            }).showToast();
+            
+                        }).catch(async error=>{
+                            mintBtn.disable = false;
+                            
+                            var inputElement = document.getElementById('submit');
+            
+                            
+                            inputElement.textContent  = 'ADD';
+                            await allowance(tokenId);
+                            
+                            
+                        })
+                    } catch(error) {
+                        console.log(error, '--error')
+                        mintBtn.disable = false;
+                        
+                        var inputElement = document.getElementById('submit');
+            
+                        
+                        inputElement.textContent  = 'ADD';
+                        
+                                    
+                    }
+
+
+                }else if(rwaType === '1'){
+
+                        var metaData = getDataByS2TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            mintBtn.disable = false;
+                            console.log('S6 metaData === undefined', tokenId)
+                            alert('This RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                            return;
+
+                        }
+
+
+                        await allowanceS2(tokenId);
+
+                        $("#submit").text("Loading");
+
+
+                    
+                        if (!wallet.approve) {
+                            
+                            await approveS2(tokenId);
+                            
+                            mintBtn.disable = false;
+                            $("#submit").text("ADD");
+                            return;
+                        }
+                        
+                        
+                        if (wallet.address === walletPlaceholderText) {
+                            connectWallet(provider)
+                            return;
+                        }
+                
+                        try {
+                            
+                            mintBtn.disable = true;
+                            let gasPrice = await web3.eth.getGasPrice();
+
+                            
+                            var daysDiff = getDays();
+
+                            console.log("tokenId = " + tokenId)
+                            console.log("daysDiff = " + daysDiff)
+                            
+                        
+                            const data =  stakingS2Contract.methods.stakingNFT(tokenId,daysDiff).encodeABI();
+                            
+                            const gas = await web3.eth.estimateGas({
+                                from: wallet.address,
+                                to: stakingS2Address,
+                                data
+                            })
+                
+                        
+                            if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                                gasPrice = wallet.gasPrice
+                            }
+                            
+                            stakingS2Contract.methods.stakingNFT(tokenId,daysDiff).send({
+                                from: wallet.address,
+                                gasPrice: parseInt(gasPrice * gasMultiple1),
+                                gas: parseInt(gas * gasMultiple)
+                                
+                            }).then(async () => {
+                                mintBtn.disable = false;
+                                wallet.gasPrice = gasPrice; // save success gasPrice
+                            
+                
+                                
+                                $('submit').text('ADD');
+                                
+                                alert("ADD Successful");
+                
+                                console.log("load...data")
+                                var parentElement = document.querySelector('.bg-secondary');
+                                var liElements = parentElement.getElementsByClassName('imgClass');
+                
+                                
+                                while (liElements.length > 0) {
+                                parentElement.removeChild(liElements[0]);
+                                }
+                                
+                                fetchDataAndRender();
+                                await allowance(tokenId);
+                                Toastify({
+                                    text: "Submit Successful",
+                                    className: "info",
+                                }).showToast();
+                
+                            }).catch(async error=>{
+                                mintBtn.disable = false;
+                                
+                                var inputElement = document.getElementById('submit');
+                
+                                
+                                inputElement.textContent  = 'ADD';
+                                await allowanceS2(tokenId);
+                                
+                                
+                            })
+                        } catch(error) {
+                            console.log(error, '--error')
+                            mintBtn.disable = false;
+                            
+                            var inputElement = document.getElementById('submit');
+                
+                            
+                            inputElement.textContent  = 'ADD';
+                            
+                                        
+                        }
+
+
+                }else {
+
+                    var metaData = getDataByS3TokenId(Number(tokenId));
+                    console.log(metaData);
+                    if(metaData === undefined){
+
+                        mintBtn.disable = false;
+                        console.log('S7 metaData === undefined', tokenId)
+                        alert('This S7 RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                        return;
+
+                    }
+
+
+                    await allowanceS3(tokenId);
+
+                    $("#submit").text("Loading");
+
+
+
+                    if (!wallet.approve) {
+                        
+                        await approveS3(tokenId);
+                        
+                        mintBtn.disable = false;
+                        $("#submit").text("ADD");
+                        return;
+                    }
+
+
+                    if (wallet.address === walletPlaceholderText) {
+                        connectWallet(provider)
+                        return;
+                    }
+
+                    try {
+                        
+                        mintBtn.disable = true;
+                        let gasPrice = await web3.eth.getGasPrice();
+
+                        
+                        var daysDiff = getDays();
+
+                        console.log("tokenId = " + tokenId)
+                        console.log("daysDiff = " + daysDiff)
+                        
+
+                        const data =  stakingS3Contract.methods.stakingNFT(tokenId,daysDiff).encodeABI();
+                        
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingS3Address,
+                            data
+                        })
+
+
+                        if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                            gasPrice = wallet.gasPrice
+                        }
+                        
+                        stakingS3Contract.methods.stakingNFT(tokenId,daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                            
+                        }).then(async () => {
+                            mintBtn.disable = false;
+                            wallet.gasPrice = gasPrice; // save success gasPrice
+                        
+
+                            
+                            $('submit').text('ADD');
+                            
+                            alert("ADD Successful");
+
+                            console.log("load...data")
+                            var parentElement = document.querySelector('.bg-secondary');
+                            var liElements = parentElement.getElementsByClassName('imgClass');
+
+                            
+                            while (liElements.length > 0) {
+                            parentElement.removeChild(liElements[0]);
+                            }
+                            
+                            fetchDataAndRender();
+                            await allowanceS3(tokenId);
+                            Toastify({
+                                text: "Submit Successful",
+                                className: "info",
+                            }).showToast();
+
+                        }).catch(async error=>{
+                            mintBtn.disable = false;
+                            
+                            var inputElement = document.getElementById('submit');
+
+                            
+                            inputElement.textContent  = 'ADD';
+                            await allowance(tokenId);
+                            
+                            
+                        })
+                    } catch(error) {
+                        console.log(error, '--error')
+                        mintBtn.disable = false;
+                        
+                        var inputElement = document.getElementById('submit');
+
+                        
+                        inputElement.textContent  = 'ADD';
+                        
+                                    
+                    }
+
+
+                    }
+                                    
+                
+            })
+            
+            
+        })
+        
+        
+        function selectText(className) {
+          var element = document.getElementsByClassName(className)[0];
+          if (document.selection) { // For IE
+            var range = document.body.createTextRange();
+            range.moveToElementText(element);
+            range.select();
+            alert(range);
+          } else if (window.getSelection) { // For modern browsers
+            var range = document.createRange();
+            range.selectNode(element);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            alert(range);
+          }
+        }
+
+        function getDays(){
+           
+            let currentDate = new Date();
+
+           
+            let nextMonth = currentDate.getMonth() + 3;
+            let nextMonthFirstDay = new Date(currentDate.getFullYear(), nextMonth, 1);
+
+            
+            let timeDiff = nextMonthFirstDay.getTime() - currentDate.getTime();
+            let daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysDiff;
+        }
+
+      /*  async function updateThisMonth(){
+
+            var holderTokenIds = await queryTokensOfOwner();
+            var stakingTokenIds = await queryStakingNFTDetails();
+            var thisMonthDiv = document.getElementById("this-month");
+            thisMonthDiv.textContent = stakingTokenIds[0].length;
+
+            
+        /*    var nextMonth = new Date();
+            nextMonth.setMonth(nextMonth.getMonth() + 1);
+            nextMonth.setDate(2);
+            var nextMonthTime = nextMonth.getTime();
+            var number = 0;
+            stakingTokenIds[2].forEach(element => {
+
+                if(element < nextMonthTime){
+                    number++;
+                }
+                
+            });
+
+            var thisWithdrawnMonthDiv = document.getElementById("withdrawn-end");
+            thisWithdrawnMonthDiv.textContent = number;
+            
+        }*/
+
+        async function queryTokensOfOwner(){
+            return await nftContract.methods.tokensOfOwner(wallet.address).call();
+        }
+
+        async function queryS2TokensOfOwner(){
+            return await nftS2Contract.methods.tokensOfOwner(wallet.address).call();
+        }
+
+        async function queryS3TokensOfOwner(){
+            return await nftS3Contract.methods.tokensOfOwner(wallet.address).call();
+        }
+
+        async function queryStakingNFTDetails(){
+            return await stakingContract.methods.getStakingNFTDetails(wallet.address).call();
+        }
+
+        async function queryStakingS2NFTDetails(){
+            return await stakingS2Contract.methods.getStakingNFTDetails(wallet.address).call();
+        }
+
+        async function queryStakingS3NFTDetails(){
+            return await stakingS3Contract.methods.getStakingNFTDetails(wallet.address).call();
+        }
+
+        function filterData(location,zone,tokenIds){
+
+         //  console.log(typeof zone);
+
+            var filterData = [];
+
+            tokenIds.forEach(function(tokenId) {
+            var data = metaDataS5.find(function(item) {
+                return item.token_id.toString() === tokenId;
+            });
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+            var filterTokenIds = [];
+            console.log(typeof zone)
+            var filterTokenIds = filterData.filter(function(item) {
+
+                if( zone === "0"){
+                    return item.location_name === location;
+                }else if(location === "0"){
+                    return item.zone === Number(zone);
+                }else{
+                    return item.location_name === location && item.zone == zone;
+                }
+                }).map(function(item) {
+                return item.token_id;
+                });
+
+            return filterTokenIds;
+
+        }
+
+        function filterS2Data(location,zone,tokenIds){
+
+            //  console.log(typeof zone);
+
+            var filterData = [];
+
+            tokenIds.forEach(function(tokenId) {
+            var data = metaDataS6.find(function(item) {
+                return item.token_id.toString() === tokenId;
+            });
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+            var filterTokenIds = [];
+            console.log(typeof zone)
+            var filterTokenIds = filterData.filter(function(item) {
+
+                if( zone === "0"){
+                    return item.location_name === location;
+                }else if(location === "0"){
+                    return item.zone === Number(zone);
+                }else{
+                    return item.location_name === location && item.zone == zone;
+                }
+                }).map(function(item) {
+                return item.token_id;
+                });
+
+            return filterTokenIds;
+
+        }
+
+
+        function filterS3Data(location,zone,tokenIds){
+
+            //  console.log(typeof zone);
+
+            var filterData = [];
+
+            tokenIds.forEach(function(tokenId) {
+            var data = metaDataS7.find(function(item) {
+                return item.token_id.toString() === tokenId;
+            });
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+            var filterTokenIds = [];
+            console.log(typeof zone)
+            var filterTokenIds = filterData.filter(function(item) {
+
+                if( zone === "0"){
+                    return item.location_name === location;
+                }else if(location === "0"){
+                    return item.zone === Number(zone);
+                }else{
+                    return item.location_name === location && item.zone == zone;
+                }
+                }).map(function(item) {
+                return item.token_id;
+                });
+
+            return filterTokenIds;
+
+            }
+
+        function checkSnapshot(tokenId){
+            
+            var result = snapshot.find(function(item) {
+               
+                return item.address.toLowerCase().toString() === wallet.address.toLowerCase().toString();
+            });
+            
+            if (result && result.tokenIds != null) {
+                console.log("result",result)
+		    
+                return result.tokenIds.includes(Number(tokenId));
+                              
+            } else {
+                return false;
+            }
+        }
+
+
+
+        function updateADTimeValue(address){
+            
+            
+            var result = snapshot.find(function(item) {
+                
+                return address.toLowerCase().toString() === item.address.toLowerCase().toString();
+            });
+
+
+            var resultS1 = processResultS1(result);
+            var resultS2 = processResultS2(result);
+            var resultS3 = processResultS3(result);
+
+            //合并 filterData 和 totalPCS
+            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData);
+
+            updateDOM(combinedFilterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
+
+            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS;
+
+            // Update the total PCS in the DOM
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element => {
+
+                element.innerText = combinedTotalPCS + " PCS";
+            });
+            
+
+            
+            
+            
+            var franchiseeResult = getAddressIsFranchisee(address);
+
+                var tp = Number(0);
+
+                if(result){
+                    tp = result.tp;
+                }
+
+                var totalTP = Number(0);
+
+                if(franchiseeResult){
+
+                    var f_tp = franchiseeResult.tp;
+                    
+                    const rwaTP = document.getElementById("RWA_TP");
+                    rwaTP.innerText = f_tp + " TP";
+
+                    totalTP = Number(f_tp)
+                    
+
+                }
+
+                totalTP = Number(totalTP) + Number(tp);
+                console.log("totalTP",totalTP.toFixed(2))
+
+                const tpText = document.querySelectorAll('#total_TP');
+                tpText.forEach(element =>{
+                    element.innerText = totalTP.toFixed(2) + " TP";
+                })
+
+                $("#TP").text(tp + " TP")
+              
+                totalTPTwo = totalTP + (totalTP * 0.1);
+                const totalTPTwoText =  document.getElementById("total_tp_two");
+                totalTPTwoText.innerText = totalTPTwo.toFixed(1) + " TP";
+        }  
+
+
+        function updateDOM(filterData, location, zone) {
+            for (var i = 0; i < location.length; i++) {
+                for (var y = 0; y < zone.length; y++) {
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        return item.location_name === location[i] && item.zone == zone[y];
+                    }).map(function(item) {
+                        return item.token_id;
+                    });
+
+                    console.log(filteredTokenIds);
+
+                    if (filteredTokenIds.length != 0) {
+                        const elements = document.querySelectorAll('#My-RWAs-Zone' + zone[y] + '-L' + location[i]);
+                        elements.forEach(element => {
+                        
+                            var newValue = filteredTokenIds.length ;
+
+                            element.textContent = newValue + ' PCS';
+                            element.className = 'heading-16-copy';
+                        });
+                    }
+                }
+            }
+    }
+
+        function processResultS1(result) {
+            if (result && result.tokenIds != null) {
+                console.log('resultS1:' + result);
+
+                location1 = ["A", "B", "C"];
+                zone = [1, 2, 3, 4, 5];
+
+                var filterData = [];
+                var tokenIds = JSON.parse(result.tokenIds);
+
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaDataS5.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
+                    });
+
+                    if (data) {
+                        filterData.push(data);
+                    }
+                });
+
+                return { filterData: filterData, totalPCS: filterData.length };
+            }
+            return { filterData: [], totalPCS: 0 };
+        }
+
+        function processResultS2(resultS2) {
+            if (resultS2 && resultS2.s2TokenIds != null) {
+                console.log('resultS2: ' + resultS2);
+
+                location1 = ["C"];
+                zone = [1, 2, 3, 4, 5];
+
+                var filterData = [];
+                var tokenIds = JSON.parse(resultS2.s2TokenIds);
+
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaDataS6.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
+                    });
+
+                    if (data) {
+                        filterData.push(data);
+                    }
+                });
+
+                return { filterData: filterData, totalPCS: filterData.length };
+            }
+            return { filterData: [], totalPCS: 0 };
+        }
+
+
+        function processResultS3(resultS3) {
+            if (resultS3 && resultS3.s3TokenIds != null) {
+                console.log('resultS3: ' + resultS3);
+
+                location1 = ["C"];
+                zone = [1, 2, 3, 4, 5];
+
+                var filterData = [];
+                var tokenIds = JSON.parse(resultS3.s3TokenIds);
+
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaDataS7.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
+                    });
+
+                    if (data) {
+                        filterData.push(data);
+                    }
+                });
+
+                return { filterData: filterData, totalPCS: filterData.length };
+            }
+            return { filterData: [], totalPCS: 0 };
+        }
+
+
+/*
+    function processResultS1(result) {
+
+
+        if (result && result.tokenIds != null) {
+            console.log('resultS1:' + result);
+
+            location1 = ["A", "B", "C"];
+            zone = [1, 2, 3, 4, 5];
+
+            var filterData = [];
+            var tokenIds = JSON.parse(result.tokenIds);
+
+            tokenIds.forEach(function(tokenId) {
+                var data = metaData.find(function(item) {
+                    return item.token_id.toString() === tokenId.toString();
+                });
+
+                if (data) {
+                    filterData.push(data);
+                }
+            });
+
+            var totalPCS = Number(0);
+
+            for (var i = 0; i < location1.length; i++) {
+                for (var y = 0; y < zone.length; y++) {
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        return item.location_name === location1[i] && item.zone == zone[y];
+                    }).map(function(item) {
+                        return item.token_id;
+                    });
+
+                    console.log(filteredTokenIds);
+
+                    if (filteredTokenIds.length != 0) {
+                        totalPCS = totalPCS + filteredTokenIds.length;
+                        const elements = document.querySelectorAll('#My-RWAs-Zone' + zone[y] + '-L' + location1[i]);
+                        elements.forEach(element => {
+                            element.textContent = filteredTokenIds.length + ' PCS';
+                            element.className = 'heading-16-copy';
+                        });
+                    }
+                }
+            }
+
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element => {
+                element.innerText = totalPCS + " PCS";
+            });
+        }
+    }
+
+
+    function processResultS2(resultS2) {
+
+        if (resultS2 && resultS2.s2TokenIds != null) {
+
+            console.log('resultS2: ' +  resultS2)
+
+            location1 = ["C"];
+            zone = [1,2,3,4,5];
+
+            var filterData = [];
+
+            var tokenIds = JSON.parse(resultS2.s2TokenIds);
+
+            tokenIds.forEach(function(tokenId) {
+
+            var data = metaDataS2.find(function(item) {
+                return item.token_id.toString() === tokenId.toString();
+            });
+
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+
+
+            var totalPCS = Number(0);
+
+            for(var i = 0; i < location1.length; i++){
+
+                for(var y = 0; y < zone.length; y ++){
+
+                    var filteredTokenIds = filterData.filter(function(item) {
+                        
+                    return item.location_name === location1[i] && item.zone == zone[y];
+
+                    }).map(function(item) {
+
+                    return item.token_id;
+
+                    });
+                
+
+                    console.log(filteredTokenIds);
+
+                    if(filteredTokenIds.length != 0){
+                        
+                        totalPCS  = totalPCS + filteredTokenIds.length;
+                        const elements = document.querySelectorAll('#My-RWAs-Zone'+zone[y]+'-L'+location1[i]);
+                        elements.forEach(element => {
+
+                            var originalText = element.textContent;
+                            var originalValue = parseInt(originalText) || 0; 
+
+                            var newValue = filteredTokenIds.length;
+                        
+                        if (resultS2.tokenIds != null) {
+
+                            newValue = filteredTokenIds.length + originalValue;
+
+                        }
+                        
+
+                        console.log('filteredTokenIds.length' + filteredTokenIds.length);
+                        console.log( 'originalValue = ' +  originalValue );
+                        element.textContent = newValue + ' PCS';
+                        element.className = 'heading-16-copy';
+                    });
+                        
+                    }
+
+                }
+            }
+
+
+
+            const total_pcs = document.querySelectorAll('#total_pcs');
+            total_pcs.forEach(element =>{
+                
+                var originalText = element.innerText;
+                var originalValue = parseInt(originalText) || 0; 
+                var newValue = totalPCS;
+                if (resultS2.tokenIds != null) {
+
+                    newValue = totalPCS + originalValue;
+
+                }
+
+                element.innerText = newValue + " PCS";
+            })
+
+            }  
+
+
+    }
+*/
+        
+        
+    function getDataByTokenId(tokenId) {
+        console.log(tokenId);
+        return metaDataS5.find(item => item.token_id === tokenId);
+    }
+
+  /*  function getDataByS2TokenId(tokenId) {
+        console.log('S6: ' + tokenId);
+        return metaDataS6.find(item => item.token_id === tokenId);
+    }
+
+    function getDataByS3TokenId(tokenId) {
+        console.log('S7: ' + tokenId);
+        return metaDataS7.find(item => item.token_id === tokenId);
+    }
+
+    function getAddressIsFranchisee(address){
+
+       return franchisee.find(function(index) {
+            return address.toLowerCase().toString() === index.address.toLowerCase().toString();
+        });
+
+    }
+
+*/
+    
+    var tpAbi = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "merkleRoot",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "queryRegister",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "register",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "_proof",
+				"type": "bytes32[]"
+			}
+		],
+		"name": "registers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+
+  /*  var tpRegisterContractAddress = "";
+    //leafs
+    let leafs = [];
+    for (let k = 0; k < snapshotAddress.length; k++) {
+        let leaf = ethers.utils.solidityKeccak256(["address"], 
+        [
+            snapshotAddress[k].address
+        ]
+        );
+
+    leafs.push(leaf);
+    }
+
+    //tree
+    let tree = new MerkleTree(leafs, keccak256, { sort: true });
+
+    let root = tree.getHexRoot();
+
+    console.log("root",root);
+
+    function getHexProof(index) {
+        return tree.getHexProof(leafNodes[2]);
+    } 
+ 
+    
+
+    function getAddressIsSnapshot(address){
+
+        return snapshotAddress.findIndex(function(index) {
+        return address.toLowerCase().toString() === index.address.toLowerCase().toString();
+    });
+
+    }*/
+
+$(function(){
+  
+  if (isConnect) {
+    connectWallet(provider);
+  };
+  $("#connect-wallet").on("click",()=> {
+    connectWallet(provider);
+  });
+  
+  $("#register").on("click", async ()=> {
+
+    var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
+
+    var claimed = await tpRegisterContract.methods.queryRegister(wallet.address).call();
+  
+      if(claimed){
+  
+          alert("Do not receive it repeatedly");
+  
+          return;
+      }
+
+     
+    $('#checkbox-error').hide();
+    $('#checkbox-2-error').hide();
+
+    
+    if (!$('#checkbox').is(':checked')) {
+      
+      $('#checkbox-error').show();
+    } 
+    if (!$('#checkbox-2').is(':checked')) {
+      
+      $('#checkbox-2-error').show();
+    } 
+
+    
+    if ($('#checkbox').is(':checked') && $('#checkbox-2').is(':checked')) {
+
+        let index = getAddressIsSnapshot(wallet.address);
+      console.log("index"+ index)
+      if (index == -1) {
+          alert("Unfortunately, you are not eligible😭😭")
+          return;
+      }
+  
+      
+  
+      const hexProof = tree.getHexProof(leafs[index]);
+      console.log("hexProof ==" + hexProof);
+  
+      if (!tree.verify(hexProof, leafs[index], root)) {
+          alert("Unfortunately, you are not eligible😭😭");
+          return;
+      }
+  
+      
+      let gasPrice = await web3.eth.getGasPrice();
+      
+      const data = tpRegisterContract.methods.registers(hexProof).encodeABI();
+          
+      const gas = await web3.eth.estimateGas({
+          from: wallet.address,
+          to: tpRegisterContractAddress,
+          data
+      })
+  
+      
+      if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+          gasPrice = wallet.gasPrice
+      }
+      
+      $("#register").val("Loading");
+  
+      tpRegisterContract.methods.registers(hexProof).send({
+          from: wallet.address,
+          gasPrice: parseInt(gasPrice * gasMultiple),
+          gas: parseInt(gas * gasMultiple)
+          
+      }).then(async () => {
+        alert("register Successful")
+          Toastify({
+              text: "register Successful",
+              className: "info",
+          }).showToast();
+
+          $("#register").val("successful");
+  
+          location.reload();
+
+
+  
+      }).catch(async error=>{
+        
+          console.log("error = ",error)
+	$("#register").val("Collect my Time Points")
+      })
+
+    }
+  
+    });
+  
+  }) 
+
+  async function queryRegister(address){
+
+    var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
+
+    var claimed = await tpRegisterContract.methods.queryRegister(address).call();
+
+    if(claimed){
+    	$('#w-form-label-box1').hide();
+        $('#w-form-label-box2').hide();
+        $('#checkbox').hide();
+        $('#checkbox-2').hide();
+        $("#register").val("successful");
+    }     
+  }
+
+    async function asyncOperation(value) {
+    
+        var isRegister = await queryRegister(value);
+        console.log("isRegister :" + isRegister);
+        if (!isRegister) {
+            updateADTimeValue(value);
+    }
+}
+
+
+
+    
+   
+    </script>
+</html>
