@@ -2407,6 +2407,14 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
 
             var sum = parseInt(result) + parseInt(oldDaAgeResult) + parseInt(oldS1DaAgeResult) + parseInt(oldS2DaAgeResult) + parseInt(oldS3DaAgeResult) + parseInt(oldS4DaAgeResult) + parseInt(oldS8DaAgeResult) + parseInt(oldS9DaAgeResult);
+
+             console.log("sum = " + sum)
+
+            if(address.toUpperCase == "0x4648C9211A26788ea1f5344A7B9FbE54625Bb351".toUpperCase){
+                
+                sum = sum + 56;
+            }   
+            
             document.getElementById("tribe").innerText = "Quantity:" + sum;
 
             return result;
