@@ -2790,5 +2790,149 @@ var franchiseeSnapshot = [
       "rwa_tp": "122.9775",
       "original_tp": "79.325",
       "original_quantity": "150.065"
-    }
+    },
+    {
+    "address": "0xFeEd80f136c4cEF0Ec1Be7569402987e05284371",
+    "tp": "53.552",
+    "tv": "836.75",
+    "rwa_tp": "108.16",
+    "original_tp": "53.552",
+    "original_quantity": "108.16"
+  },
+  {
+    "address": "0x42b5d149634e197693eaEE3727f510299d83C3E1",
+    "tp": "47.28",
+    "tv": "738.75",
+    "rwa_tp": "105.6",
+    "original_tp": "47.28",
+    "original_quantity": "105.6"
+  },
+  {
+    "address": "0xfD4303fAe670E714Ff57c5cEB7532A74228225AA",
+    "tp": "48",
+    "tv": "750",
+    "rwa_tp": "96.8",
+    "original_tp": "48",
+    "original_quantity": "96.8"
+  },
+  {
+    "address": "0x875eE36F382b6ebdFf8eFB4B14C966A68B96A6dA",
+    "tp": "47.12",
+    "tv": "736.25",
+    "rwa_tp": "78.4",
+    "original_tp": "47.12",
+    "original_quantity": "78.4"
+  },
+  {
+    "address": "0x1A57Ed9204D53C415b7d247d16768b2525143229",
+    "tp": "4.32",
+    "tv": "67.5",
+    "rwa_tp": "14.4",
+    "original_tp": "4.32",
+    "original_quantity": "14.4"
+  },
+  {
+    "address": "0xe91c497578292eF54F46814971F413BbC0F1f558",
+    "tp": "4.08",
+    "tv": "63.75",
+    "rwa_tp": "13.6",
+    "original_tp": "4.08",
+    "original_quantity": "13.6"
+  },
+  {
+    "address": "0xF0E9851E1D8d74B0F57a1A043306c392AC5c4091",
+    "tp": "5.404",
+    "tv": "84.4375",
+    "rwa_tp": "11.92",
+    "original_tp": "5.404",
+    "original_quantity": "11.92"
+  },
+  {
+    "address": "0x2461fb825A47FEd154776205842135972F4f4B88",
+    "tp": "4.64",
+    "tv": "72.5",
+    "rwa_tp": "8.8",
+    "original_tp": "4.64",
+    "original_quantity": "8.8"
+  },
+  {
+    "address": "0x0035Ecc95238FF11fcBe68297E2FdB07fbE1fdC9",
+    "tp": "3.256",
+    "tv": "50.875",
+    "rwa_tp": "7.36",
+    "original_tp": "3.256",
+    "original_quantity": "7.36"
+  },
+  {
+    "address": "0x672928c361c6cE22c9CE32D5b8dc92841df1F997",
+    "tp": "3.92",
+    "tv": "61.25",
+    "rwa_tp": "6.4",
+    "original_tp": "3.92",
+    "original_quantity": "6.4"
+  },
+  {
+    "address": "0x223B56b10E660275Eb9873e7149820Cc28e4923D",
+    "tp": "2.356",
+    "tv": "36.8125",
+    "rwa_tp": "3.92",
+    "original_tp": "2.356",
+    "original_quantity": "3.92"
+  },
+  {
+    "address": "0x60f6d6f2ec9ae431a863a4eac94434c16b28dbcb",
+    "tp": "1.832",
+    "tv": "28.625",
+    "rwa_tp": "3.32",
+    "original_tp": "1.832",
+    "original_quantity": "3.32"
+  },
+  {
+    "address": "0xd67830eEBD0B3dF1dba79E65AAF0258b1FFB93F6",
+    "tp": "1.44",
+    "tv": "22.5",
+    "rwa_tp": "3.2",
+    "original_tp": "1.44",
+    "original_quantity": "3.2"
+  },
+  {
+    "address": "0xa76348a9647fad19c002d7a9c3b4ba4f746a3474",
+    "tp": "1.44",
+    "tv": "22.5",
+    "rwa_tp": "2.4",
+    "original_tp": "1.44",
+    "original_quantity": "2.4"
+  },
+  {
+    "address": "0xFCa80D042A51e43E4105A14865A521C479bEfeE6",
+    "tp": "0.24",
+    "tv": "3.75",
+    "rwa_tp": "0.8",
+    "original_tp": "0.24",
+    "original_quantity": "0.8"
+  },
+  {
+    "address": "0x7BE413d22018C1701E0048409808c27eB2f8a0E5",
+    "tp": "1.2",
+    "tv": "18.75",
+    "rwa_tp": "0.8",
+    "original_tp": "1.2",
+    "original_quantity": "0.8"
+  },
+  {
+    "address": "0xA2E69eC4Cb49729258A03E712DAe1d79894B0097",
+    "tp": "1.2",
+    "tv": "18.75",
+    "rwa_tp": "0.8",
+    "original_tp": "1.2",
+    "original_quantity": "0.8"
+  },
+  {
+    "address": "0xB4C5985EE2dACD25993FEfcd48532E13160b611E",
+    "tp": "0.072",
+    "tv": "1.125",
+    "rwa_tp": "0.16",
+    "original_tp": "0.072",
+    "original_quantity": "0.16"
+  }
   ]
