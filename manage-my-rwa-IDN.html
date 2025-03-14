@@ -21,7 +21,7 @@
         <script src="./Content/Styles/js/metaDataS5.js"></script>
         <script src="./Content/Styles/js/metaDataS2.js"></script>
         <script src="./Content/Styles/js/metaDataS3.js"></script>
-      <!--  <script src="./Content/Styles/js/snapshot.js"></script> -->
+        <script src="./Content/Styles/js/snapshot.js"></script> <!----->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="./Scripts/web3/keccak256.js"></script>
         <script src="./Scripts/web3/merkletree.js"></script>
@@ -989,7 +989,7 @@
                            
                            
                            
-                      /*     //check
+                           //check
                            var result = getAddressIsFranchisee(value);
 
                            
@@ -999,7 +999,7 @@
                               document.getElementById("RWA_TP").style.display = "inline-block";
                            }
 
-                         */
+                         
                            
                            
         
@@ -1207,16 +1207,18 @@
                 window.localStorage.setItem("selectedWallet", "INJECTED")
 
                
-             /*   //check
+                //check
                 var result = getAddressIsFranchisee(wallet.address);
                 
                 if(result){
                     document.getElementById("reward_tp").style.display = "inline-block";
                     document.getElementById("RWA_TP").style.display = "inline-block";
                 }
+
                 console.log("Calling asyncOperation");
 		        await asyncOperation(wallet.address);
-                console.log("asyncOperation completed"); */
+
+                console.log("asyncOperation completed"); 
             }).catch(error => {
                 console.log(error);
             });
@@ -1376,7 +1378,7 @@
                             countdownElements.push(countdownElement);
 
                             console.log("data[i].tokenId",  data[i].tokenId);
-                            var state = false // checkSnapshot(data[i].tokenId);
+                            var state = false //checkSnapshot(data[i].tokenId);
                             
                             console.log("state",  state);
                             var countdownElement1 = document.createElement('span');
@@ -1950,7 +1952,7 @@
         
             $("#submit").on("click", async (event)=> {
 
-               
+                
 
 
                 var tokenIds = handleSelectedButtonClick();
@@ -2538,16 +2540,18 @@
             });
 
 
-            var resultS1 = processResultS1(result);
-            var resultS2 = processResultS2(result);
-            var resultS3 = processResultS3(result);
+          //  var resultS1 = processResultS1(result);
+          //  var resultS2 = processResultS2(result);
+          //  var resultS3 = processResultS3(result);
+
+            var resultS5 = processResultS5(result);
 
             //合并 filterData 和 totalPCS
-            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData);
+            var combinedFilterData = resultS5.filterData;
 
-            updateDOM(combinedFilterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
+            updateDOM(combinedFilterData, ["B",], [1, 2, 3, 4, 5]);
 
-            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS;
+            var combinedTotalPCS = resultS5.totalPCS
 
             // Update the total PCS in the DOM
             const total_pcs = document.querySelectorAll('#total_pcs');
@@ -2686,6 +2690,32 @@
 
                 tokenIds.forEach(function(tokenId) {
                     var data = metaDataS7.find(function(item) {
+                        return item.token_id.toString() === tokenId.toString();
+                    });
+
+                    if (data) {
+                        filterData.push(data);
+                    }
+                });
+
+                return { filterData: filterData, totalPCS: filterData.length };
+            }
+            return { filterData: [], totalPCS: 0 };
+        }
+
+
+        function processResultS5(resultS5) {
+            if (resultS5 && resultS5.s5TokenIds != null) {
+                console.log('resultS5: ' + resultS5);
+
+                location1 = ["B"];
+                zone = [1, 2, 3, 4, 5];
+
+                var filterData = [];
+                var tokenIds = JSON.parse(resultS5.s5TokenIds);
+
+                tokenIds.forEach(function(tokenId) {
+                    var data = metaDataS5.find(function(item) {
                         return item.token_id.toString() === tokenId.toString();
                     });
 
@@ -2858,7 +2888,7 @@
         return metaDataS5.find(item => item.token_id === tokenId);
     }
 
-  /*  function getDataByS2TokenId(tokenId) {
+    function getDataByS2TokenId(tokenId) {
         console.log('S6: ' + tokenId);
         return metaDataS6.find(item => item.token_id === tokenId);
     }
@@ -2876,7 +2906,7 @@
 
     }
 
-*/
+
     
     var tpAbi = [
 	{
@@ -2997,7 +3027,7 @@
 	}
 ];
 
-  /*  var tpRegisterContractAddress = "";
+    var tpRegisterContractAddress = "0xA663Ba09dAAD96049C85C6062d693e37b3d68233";
     //leafs
     let leafs = [];
     for (let k = 0; k < snapshotAddress.length; k++) {
@@ -3029,7 +3059,7 @@
         return address.toLowerCase().toString() === index.address.toLowerCase().toString();
     });
 
-    }*/
+    }
 
 $(function(){
   
