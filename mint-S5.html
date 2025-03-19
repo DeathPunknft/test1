@@ -825,32 +825,35 @@
         }
         
 
-        
-        let resultSize = 0;
-        resultSize = await nftContract.methods.referrersSize(ref).call();
+        if(snapshotSizeMap.has(ref)){
 
-        let snapshotSize = 0;
-        snapshotSize = snapshotSizeMap.get(ref);
-
-        console.log("resultSize ="  + resultSize);
-        console.log("snapshotSize ="  + snapshotSize);
-
-        resultSize = resultSize - snapshotSize;
-        console.log("resultSize ="  + resultSize);
-        let size = 0;
-        size = addressRef.data.mintMax;
-        var result = Number(resultSize);
-        var mintNumber = Number(mintValue);
-        console.log("size ="  + size);
-        console.log("(resultSize + mintValue)"  + (result+ mintNumber));
-        
-        
-        if((result+ mintNumber) > size){
-
-            alert("Affiliate members have reached the maximum number");
-            mintBtn.disable = false;
-            return;
+            let resultSize = 0;
+            resultSize = await nftContract.methods.referrersSize(ref).call();
+    
+            let snapshotSize = 0;
+            snapshotSize = snapshotSizeMap.get(ref);
+    
+            console.log("resultSize ="  + resultSize);
+            console.log("snapshotSize ="  + snapshotSize);
+    
+            resultSize = resultSize - snapshotSize;
+            console.log("resultSize ="  + resultSize);
+            let size = 0;
+            size = addressRef.data.mintMax;
+            var result = Number(resultSize);
+            var mintNumber = Number(mintValue);
+            console.log("size ="  + size);
+            console.log("(resultSize + mintValue)"  + (result+ mintNumber));
+            
+            
+            if((result+ mintNumber) > size){
+    
+                alert("Affiliate members have reached the maximum number");
+                mintBtn.disable = false;
+                return;
+            }
         }
+        
 
         
 
