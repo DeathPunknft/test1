@@ -42,7 +42,7 @@
                 <div class="fn-section-4 wf-section">
                     <div class="fn-container-grid-2">
                         <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923ed-305ff47e" class="fn-column-center-2">
-                            <h1 class="title-da-age">S10 RWA DA AGE PRESALE!</h1>
+                            <h1 class="title-da-age">S11 RWA DA AGE PRESALE!</h1>
                             <p class="fn-paragraph-2">Congratulations, you are one of the lucky few who made it to our
                                 WhiteList!<br />You are able to mint the RWAs at the price of
                                 280USDT.<br /><br />Experience the
@@ -63,7 +63,7 @@
                                 
                                 alt="" class="fn-slider-image" />
                             <div id="w-node-_61f80125-2bc5-ec0f-c12b-cc3b5c7923fa-305ff47e" class="fn-slider-column">
-                                <h3 class="fn-heading-3">S10 RWA Mint</h3>
+                                <h3 class="fn-heading-3">S11 RWA Mint</h3>
                                 <h5 >Mint Price:</h5><br/>
                                 <h5> 280 USDT</h5>
                                 <div class="fn-label-icon"></div>
@@ -2023,7 +2023,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
         "type":"function"
     }
     ]
-    var contract = "0x38184FC44DF32cE7E7b52b62621B946B4DfdF44d" //9 "0xf6c84C1F32D06Cd767dFdF7CbC8BA4497122C07c" //s8 "0x85F43e6438d4240Bad55776bc2159dA2aF247A95" //S4 "0x129C7C4733b06190cCFEe1A515e0D4b4EDAD9725" //S3 "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";//S2 "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";//0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f  main old
+    var contract = "0xfB3b925f3a7e345102183D4519BA3Ac5C0f67009" //S10   "0x38184FC44DF32cE7E7b52b62621B946B4DfdF44d" //9 "0xf6c84C1F32D06Cd767dFdF7CbC8BA4497122C07c" //s8 "0x85F43e6438d4240Bad55776bc2159dA2aF247A95" //S4 "0x129C7C4733b06190cCFEe1A515e0D4b4EDAD9725" //S3 "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";//S2 "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";//0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f  main old
 
     var fee_token = {
         testnet: {
@@ -2301,7 +2301,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             "type":"function"
         }];
 
-      var mintPassContractAddress = "0xdee64C01b41F1D8d9a38CC7b25dc971353A561a7" //S9 "0x67Cc244Da4c7d6C4bC09A205F5C959eAc97636DB" //S8 "0x0e4D93C27Ba7109F96e84A4dD11b85aFCE15e90E" //s4 "0xE37c815F1726Ad82B87cA737d454a6A6ec9047A2" //S3 "0xe596B26F8014135F01412f5eaE6582Be1C310Bc0"; //old main "0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8";//"0x3B56B4F6173Adf44e56A404535a91bc6abEAf97D";// test"0xFC6d5fead2Af77A4C76d26cF2EffaA422da36062";//"0xFC6d5fead2Af77A4C76d26cF2EffaA422da36062";
+      var mintPassContractAddress = "0x883a132E30318817Ab504025b331e8A86b003952" //s10 "0xdee64C01b41F1D8d9a38CC7b25dc971353A561a7" //S9 "0x67Cc244Da4c7d6C4bC09A205F5C959eAc97636DB" //S8 "0x0e4D93C27Ba7109F96e84A4dD11b85aFCE15e90E" //s4 "0xE37c815F1726Ad82B87cA737d454a6A6ec9047A2" //S3 "0xe596B26F8014135F01412f5eaE6582Be1C310Bc0"; //old main "0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8";//"0x3B56B4F6173Adf44e56A404535a91bc6abEAf97D";// test"0xFC6d5fead2Af77A4C76d26cF2EffaA422da36062";//"0xFC6d5fead2Af77A4C76d26cF2EffaA422da36062";
       var result = 0;  
       
       try {
@@ -2406,7 +2406,18 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             oldS9DaAgeResult = await oldS9DaAgeContractQuery.methods.referrersSize(address).call();
 
 
-            var sum = parseInt(result) + parseInt(oldDaAgeResult) + parseInt(oldS1DaAgeResult) + parseInt(oldS2DaAgeResult) + parseInt(oldS3DaAgeResult) + parseInt(oldS4DaAgeResult) + parseInt(oldS8DaAgeResult) + parseInt(oldS9DaAgeResult);
+            const oldS10DaAgeContract = "0xfB3b925f3a7e345102183D4519BA3Ac5C0f67009";
+
+            const oldS10DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS10DaAgeContract);
+
+            var oldS10DaAgeResult = 0;
+
+            oldS10DaAgeResult = await oldS10DaAgeContractQuery.methods.referrersSize(address).call();
+
+            
+            
+            var sum = parseInt(result) + parseInt(oldDaAgeResult) + parseInt(oldS1DaAgeResult) + parseInt(oldS2DaAgeResult) + parseInt(oldS3DaAgeResult) + parseInt(oldS4DaAgeResult) + parseInt(oldS8DaAgeResult) + parseInt(oldS9DaAgeResult) + parseInt(oldS10DaAgeResult);
+
 
              console.log("sum = " + sum)
 
