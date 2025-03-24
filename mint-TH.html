@@ -1906,10 +1906,13 @@
         var mintValue = input.value;
         var mintValueNumber = Number(mintValue);
         console.log("mintValue=",mintValueNumber)
-        var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
         
-        console.log('执行到这里')
-        console.log("boolType",boolType);
+        if('0xb26925bb20F311732715c29EAACECE4bdf95288d'.toUpperCase() != wallet.address.toUpperCase()){
+
+            var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
+        
+            
+            console.log("boolType",boolType);
 
           //address value is RWA-DA-AGE theChiefa
 
@@ -1918,6 +1921,8 @@
             alert("address is RWA-DA-AGE theChiefa, Please submit using a different address");
             return;
           }
+
+        }
 
         
         var ref = getQueryString("ref");
