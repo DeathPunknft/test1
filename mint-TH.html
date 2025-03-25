@@ -1907,22 +1907,7 @@
         var mintValueNumber = Number(mintValue);
         console.log("mintValue=",mintValueNumber)
         
-        if('0xb26925bb20F311732715c29EAACECE4bdf95288d'.toUpperCase() != wallet.address.toUpperCase()){
-
-            var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
         
-            
-            console.log("boolType",boolType);
-
-          //address value is RWA-DA-AGE theChiefa
-
-          if(boolType){
-
-            alert("address is RWA-DA-AGE theChiefa, Please submit using a different address");
-            return;
-          }
-
-        }
 
         
         var ref = getQueryString("ref");
@@ -1980,6 +1965,23 @@
         if(resultAddress){
             alert('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage S15. As a result, the RWA issuance function for the chain shop will be disabled.'); 
             return;
+        }
+
+        if(addressRef.data.mintMax != '-1'){
+
+            var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
+
+
+            console.log("boolType",boolType);
+
+            //address value is RWA-DA-AGE theChiefa
+
+            if(boolType){
+
+            alert("address is RWA-DA-AGE theChiefa, Please submit using a different address");
+            return;
+            }
+
         }
         
 
