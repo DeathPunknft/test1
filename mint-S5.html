@@ -151,8 +151,14 @@
 
     const snapshotSizeMap = new Map();
 
-    snapshotSizeMap.set("0xAC77719AA6486495cb56B360a0977eF07C66aB09".toUpperCase(),0);
-    snapshotSizeMap.set("0x1C3fd3C20F3ca4cF4f3f58C6908F4A2aea42EEFA".toUpperCase(),0);
+    snapshotSizeMap.set("0xAC77719AA6486495cb56B360a0977eF07C66aB09",0);
+    snapshotSizeMap.set("0x1C3fd3C20F3ca4cF4f3f58C6908F4A2aea42EEFA",0);
+
+
+    const mintMaxMap = new Map();
+
+    snapshotSizeMap.set("0xAC77719AA6486495cb56B360a0977eF07C66aB09",300);
+    snapshotSizeMap.set("0x1C3fd3C20F3ca4cF4f3f58C6908F4A2aea42EEFA",300);
  var S2Abi = [
     {
         "inputs":[
@@ -833,34 +839,37 @@
         }
         
 
-        if(snapshotSizeMap.has(ref)){
+       if(mintMaxMap.has(ref)){
 
-            let resultSize = 0;
-            resultSize = await nftContract.methods.referrersSize(ref).call();
-    
-            let snapshotSize = 0;
-            snapshotSize = snapshotSizeMap.get(ref);
-    
-            console.log("resultSize ="  + resultSize);
-            console.log("snapshotSize ="  + snapshotSize);
-    
-            resultSize = resultSize - snapshotSize;
-            console.log("resultSize ="  + resultSize);
-            let size = 0;
-            size = addressRef.data.mintMax;
-            var result = Number(resultSize);
-            var mintNumber = Number(mintValue);
-            console.log("size ="  + size);
-            console.log("(resultSize + mintValue)"  + (result+ mintNumber));
-            
-            
-            if((result+ mintNumber) > size){
-    
-                alert("Affiliate members have reached the maximum number");
-                mintBtn.disable = false;
-                return;
-            }
+
+        let resultSize = 0;
+        resultSize = await nftContract.methods.referrersSize(ref).call();
+
+        let snapshotSize = 0;
+        snapshotSize = snapshotSizeMap.get(ref);
+
+        console.log("resultSize ="  + resultSize);
+        console.log("snapshotSize ="  + snapshotSize);
+
+        resultSize = resultSize - snapshotSize;
+        console.log("resultSize ="  + resultSize);
+        let size = 0;
+        size = mintMaxMap.get(ref);
+        var result = Number(resultSize);
+        var mintNumber = Number(mintValue);
+        console.log("size ="  + size);
+        console.log("(resultSize + mintValue)"  + (result+ mintNumber));
+
+
+        if((result+ mintNumber) > size){
+
+            alert("Affiliate members have reached the maximum number");
+            mintBtn.disable = false;
+            return;
         }
+
+        }
+
         
 
         
