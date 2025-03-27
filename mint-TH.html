@@ -1311,6 +1311,12 @@
     snapshotSizeMap.set("0x02F1CcEa8FDBA0f2DfFe139e0a94e14bC8ef69D0",0);
     snapshotSizeMap.set("0x9Da1b6B18421a85092e4842bB5671fe88CDeF7c0",0);
 
+
+    const mintMaxMap = new Map();
+
+    mintMaxMap.set("0x02F1CcEa8FDBA0f2DfFe139e0a94e14bC8ef69D0",300);
+    mintMaxMap.set("0x9Da1b6B18421a85092e4842bB5671fe88CDeF7c0",300);
+
  var S2Abi = [
     {
         "inputs":[
@@ -1985,21 +1991,22 @@
         }
         
 
-        if(snapshotSizeMap.has(ref)){
+       if(mintMaxMap.has(ref)){
+
 
             let resultSize = 0;
             resultSize = await nftContract.methods.referrersSize(ref).call();
-    
+
             let snapshotSize = 0;
             snapshotSize = snapshotSizeMap.get(ref);
-    
+
             console.log("resultSize ="  + resultSize);
             console.log("snapshotSize ="  + snapshotSize);
-    
+
             resultSize = resultSize - snapshotSize;
             console.log("resultSize ="  + resultSize);
             let size = 0;
-            size = addressRef.data.mintMax;
+            size = mintMaxMap.get(ref);
             var result = Number(resultSize);
             var mintNumber = Number(mintValue);
             console.log("size ="  + size);
@@ -2007,12 +2014,12 @@
             
             
             if((result+ mintNumber) > size){
-    
+
                 alert("Affiliate members have reached the maximum number");
                 mintBtn.disable = false;
                 return;
             }
-            
+
         }
         
 
