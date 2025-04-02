@@ -68,13 +68,13 @@
                                 <h5> 320 USDT</h5>
                                 <div class="fn-label-icon"></div>
                                 <div class="w-container">
-                                    <h5>RWA unit</h5>
+                                 <!--  <h5>RWA unit</h5>
                                     <div class="input-group">
                                         <button type="button" class="btn minus-btn">-</button>
                                         <input type="number" class="input-field qty-input" value="1" min="1" max="30" disabled="disabled">
                                         <button type="button"  class="btn plus-btn">+</button>
                                     </div>
-                                    <br>
+                                    <br> --> 
                                 </div>
                                 <div class="fn-label-icon"></div>
                                 <h5 >TOTAL: </h5><br/>
@@ -137,23 +137,7 @@
 
     
 
-    const quantitySnapshotSizeMap = new Map();
-
-    quantitySnapshotSizeMap.set("0x1A57Ed9204D53C415b7d247d16768b2525143229".toUpperCase(),18);
-
-    quantitySnapshotSizeMap.set("0x42b5d149634e197693eaEE3727f510299d83C3E1".toUpperCase(),100);
-    quantitySnapshotSizeMap.set("0x672928c361c6cE22c9CE32D5b8dc92841df1F997".toUpperCase(),1);
-    quantitySnapshotSizeMap.set("0x7BE413d22018C1701E0048409808c27eB2f8a0E5".toUpperCase(),1);
-    quantitySnapshotSizeMap.set("0x875eE36F382b6ebdFf8eFB4B14C966A68B96A6dA".toUpperCase(),21);
-    quantitySnapshotSizeMap.set("0xA2E69eC4Cb49729258A03E712DAe1d79894B0097".toUpperCase(),1);
-    quantitySnapshotSizeMap.set("0xa76348a9647fad19c002d7a9c3b4ba4f746a3474".toUpperCase(),3);
-    quantitySnapshotSizeMap.set("0xe91c497578292eF54F46814971F413BbC0F1f558".toUpperCase(),17);
-    quantitySnapshotSizeMap.set("0xfD4303fAe670E714Ff57c5cEB7532A74228225AA".toUpperCase(),6);
-
-    const snapshotSizeMap = new Map();
-
-    snapshotSizeMap.set("0xAC77719AA6486495cb56B360a0977eF07C66aB09".toUpperCase(),0);
-    snapshotSizeMap.set("0x1C3fd3C20F3ca4cF4f3f58C6908F4A2aea42EEFA".toUpperCase(),0);
+    
 
 
 
@@ -161,654 +145,7 @@
  
     
     
-    var abi = [
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "previousOwner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "OwnershipTransferred",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "buyer",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256[]",
-				"name": "rwaIds",
-				"type": "uint256[]"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "totalPrice",
-				"type": "uint256"
-			}
-		],
-		"name": "RWAPurchased",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "buyer",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "returnAmount",
-				"type": "uint256"
-			}
-		],
-		"name": "RWAReturned",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "userAddress",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "referrerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "quantity",
-				"type": "uint256"
-			}
-		],
-		"name": "ReferrerRecorded",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "userAddress",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "referrerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "quantity",
-				"type": "uint256"
-			}
-		],
-		"name": "ReferrerTransferFrom",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "Erc721ARWA",
-		"outputs": [
-			{
-				"internalType": "contract ERC721APayToken",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "FORMALITIES_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "PAYMENT_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "REFERRER_CHIEFADDR_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "RETURN_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "RETURN_TWO_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "_tokenIds",
-				"type": "uint256[]"
-			}
-		],
-		"name": "batchWithDrawRWAs",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_quantity",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_referrer",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "_rwaIds",
-				"type": "uint256[]"
-			}
-		],
-		"name": "buyRWA",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "buyState",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "permAddress",
-				"type": "address"
-			}
-		],
-		"name": "delTheChiefaddrPerm",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "_rwaIds",
-				"type": "uint256[]"
-			}
-		],
-		"name": "depositRWAs",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "formalitiesAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "formalitiesAddressTwo",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "payERC20Token",
-		"outputs": [
-			{
-				"internalType": "contract IERC20",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "paymentAddress",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "referrerInfo",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "referrersSize",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "returnTwoState",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "_referrers",
-				"type": "address[]"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "_amounts",
-				"type": "uint256[]"
-			}
-		],
-		"name": "setBacthReferrerlSize",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "_theChiefaddrs",
-				"type": "address[]"
-			}
-		],
-		"name": "setBacthTheChiefaddr",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bool",
-				"name": "_buyState",
-				"type": "bool"
-			}
-		],
-		"name": "setBuyState",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "token",
-				"type": "address"
-			}
-		],
-		"name": "setErc20TokenAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_Erc721A",
-				"type": "address"
-			}
-		],
-		"name": "setErc721A",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_addr",
-				"type": "address"
-			}
-		],
-		"name": "setFormalitiesAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_addr",
-				"type": "address"
-			}
-		],
-		"name": "setFormalitiesAddressTwo",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_paymentPrice",
-				"type": "uint256"
-			}
-		],
-		"name": "setPaymentPrice",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_retuenPrice",
-				"type": "uint256"
-			}
-		],
-		"name": "setReturnPrice",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bool",
-				"name": "_returnTwoState",
-				"type": "bool"
-			}
-		],
-		"name": "setReturnTwoState",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_addr",
-				"type": "address"
-			}
-		],
-		"name": "setTheChiefaddrMap",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "permAddress",
-				"type": "address"
-			}
-		],
-		"name": "setTheChiefaddrPerm",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "theChiefaddr",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "theChiefaddrPerm",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			}
-		],
-		"name": "withDrawAllRWAs",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]
-    var contract =  "0x0B9EAC53FB2a5A2C649558244EE480dCAF3dF1B0"// S4 "0x129C7C4733b06190cCFEe1A515e0D4b4EDAD9725" //S3 "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";//S2 "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";//0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f  main old
-
+    
     var fee_token = {
         testnet: {
             address: "0xb35BF7873bF5e2A93FD2d35d14DAeFd186a7a489", // The address that the token is at.
@@ -856,6 +193,11 @@
     var RWAABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"ApprovalCallerNotOwnerNorApproved","type":"error"},{"inputs":[],"name":"ApprovalQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"BalanceQueryForZeroAddress","type":"error"},{"inputs":[],"name":"InvalidQueryRange","type":"error"},{"inputs":[],"name":"MintERC2309QuantityExceedsLimit","type":"error"},{"inputs":[],"name":"MintToZeroAddress","type":"error"},{"inputs":[],"name":"MintZeroQuantity","type":"error"},{"inputs":[],"name":"NotCompatibleWithSpotMints","type":"error"},{"inputs":[],"name":"OwnerQueryForNonexistentToken","type":"error"},{"inputs":[],"name":"OwnershipNotInitializedForExtraData","type":"error"},{"inputs":[],"name":"SequentialMintExceedsLimit","type":"error"},{"inputs":[],"name":"SequentialUpToTooSmall","type":"error"},{"inputs":[],"name":"SpotMintTokenIdTooSmall","type":"error"},{"inputs":[],"name":"TokenAlreadyExists","type":"error"},{"inputs":[],"name":"TokenIdsNotStrictlyAscending","type":"error"},{"inputs":[],"name":"TransferCallerNotOwnerNorApproved","type":"error"},{"inputs":[],"name":"TransferFromIncorrectOwner","type":"error"},{"inputs":[],"name":"TransferToNonERC721ReceiverImplementer","type":"error"},{"inputs":[],"name":"TransferToZeroAddress","type":"error"},{"inputs":[],"name":"URIQueryForNonexistentToken","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"fromTokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"toTokenId","type":"uint256"},{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"}],"name":"ConsecutiveTransfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":false,"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"CouponTransferFrom","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"address","name":"referrerAddress","type":"address"},{"indexed":false,"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"ReferrerRecorded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"address","name":"referrerAddress","type":"address"},{"indexed":false,"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"ReferrerTransferFrom","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"Erc721AMintPass","outputs":[{"internalType":"contract ERC721APayToken","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SUPPLY","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"baseURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"couponAddrPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"permAddress","type":"address"}],"name":"delTheChiefaddrPerm","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"explicitOwnershipOf","outputs":[{"components":[{"internalType":"address","name":"addr","type":"address"},{"internalType":"uint64","name":"startTimestamp","type":"uint64"},{"internalType":"bool","name":"burned","type":"bool"},{"internalType":"uint24","name":"extraData","type":"uint24"}],"internalType":"struct IERC721A.TokenOwnership","name":"ownership","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"tokenIds","type":"uint256[]"}],"name":"explicitOwnershipsOf","outputs":[{"components":[{"internalType":"address","name":"addr","type":"address"},{"internalType":"uint64","name":"startTimestamp","type":"uint64"},{"internalType":"bool","name":"burned","type":"bool"},{"internalType":"uint24","name":"extraData","type":"uint24"}],"internalType":"struct IERC721A.TokenOwnership[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"formalitiesAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"formalitiesPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"merkleRoot","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"addr","type":"address"}],"name":"numberMinted","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint8","name":"count","type":"uint8"}],"name":"ownerAirdrop","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"payERC20Token","outputs":[{"internalType":"contract ERC20Token","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_quantity","type":"uint256"},{"internalType":"address","name":"_referrer","type":"address"}],"name":"publicMint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"publicMintState","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"referrerChiefaddrPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"referrerInfo","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"referrersSize","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"_data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_referrers","type":"address[]"},{"internalType":"uint256[]","name":"_amounts","type":"uint256[]"}],"name":"setBacthReferrerlSize","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_theChiefaddrs","type":"address[]"}],"name":"setBacthTheChiefaddr","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_newBaseURI","type":"string"}],"name":"setBaseURI","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"}],"name":"setErc20TokenAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_Erc721A","type":"address"}],"name":"setErc721AByMintPass","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_addr","type":"address"}],"name":"setFormalitiesAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_publicMintState","type":"bool"}],"name":"setPublicMintState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_addr","type":"address"}],"name":"setTheChiefaddrMap","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"permAddress","type":"address"}],"name":"setTheChiefaddrPerm","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_wlMintState","type":"bool"}],"name":"setWlMintState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"theChiefaddr","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"theChiefaddrPerm","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"tokensOfOwner","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"uint256","name":"start","type":"uint256"},{"internalType":"uint256","name":"stop","type":"uint256"}],"name":"tokensOfOwnerIn","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"result","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_quantity","type":"uint256"},{"internalType":"address","name":"_referrer","type":"address"}],"name":"wlMint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"wlMintBalance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"wlMintState","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"wlPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
 
     var RWA = "0xc1371489DD2b8bB69C54d8e02076200D40c61405";
+
+	var abi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"buyer","type":"address"},{"indexed":false,"internalType":"uint256[]","name":"rwaIds","type":"uint256[]"},{"indexed":false,"internalType":"uint256","name":"totalPrice","type":"uint256"}],"name":"RWAPurchased","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"buyer","type":"address"},{"indexed":false,"internalType":"uint256","name":"returnAmount","type":"uint256"}],"name":"RWAReturned","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"address","name":"referrerAddress","type":"address"},{"indexed":false,"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"ReferrerRecorded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"address","name":"referrerAddress","type":"address"},{"indexed":false,"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"ReferrerTransferFrom","type":"event"},{"inputs":[],"name":"Erc721ARWA","outputs":[{"internalType":"contract ERC721APayToken","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"FORMALITIES_PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PAYMENT_PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"REFERRER_CHIEFADDR_PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"RETURN_PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"RETURN_TWO_PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256[]","name":"_tokenIds","type":"uint256[]"}],"name":"batchWithDrawRWAs","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_quantity","type":"uint256"},{"internalType":"address","name":"_referrer","type":"address"},{"internalType":"uint256[]","name":"_rwaIds","type":"uint256[]"}],"name":"buyRWA","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"buyState","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"permAddress","type":"address"}],"name":"delTheChiefaddrPerm","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_rwaIds","type":"uint256[]"}],"name":"depositRWAs","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"formalitiesAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"formalitiesAddressTwo","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"payERC20Token","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"paymentAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"referrerInfo","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"referrersSize","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"returnTwoState","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"_referrers","type":"address[]"},{"internalType":"uint256[]","name":"_amounts","type":"uint256[]"}],"name":"setBacthReferrerlSize","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"_theChiefaddrs","type":"address[]"}],"name":"setBacthTheChiefaddr","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_buyState","type":"bool"}],"name":"setBuyState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"}],"name":"setErc20TokenAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_Erc721A","type":"address"}],"name":"setErc721A","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_addr","type":"address"}],"name":"setFormalitiesAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_addr","type":"address"}],"name":"setFormalitiesAddressTwo","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_paymentPrice","type":"uint256"}],"name":"setPaymentPrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_retuenPrice","type":"uint256"}],"name":"setReturnPrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_returnTwoState","type":"bool"}],"name":"setReturnTwoState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_addr","type":"address"}],"name":"setTheChiefaddrMap","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"permAddress","type":"address"}],"name":"setTheChiefaddrPerm","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"theChiefaddr","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"theChiefaddrPerm","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"}],"name":"withDrawAllRWAs","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    
+	var contract =  "0x0B9EAC53FB2a5A2C649558244EE480dCAF3dF1B0"// S4 "0x129C7C4733b06190cCFEe1A515e0D4b4EDAD9725" //S3 "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";//S2 "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";//0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f  main old
+
     
     var mintFee = 320 * (10 ** fee_token[network].decimals); // mint fee
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
@@ -867,126 +209,130 @@
     var isConnect = window.localStorage.getItem("selectedWallet");
     var feeContract = new web3.eth.Contract(erc20Abi, fee_token[network].address);
     var walletPlaceholderText = "Connect Wallet";
-    var wallet = new Proxy({ address: walletPlaceholderText }, {
-        set(obj, prop, value) {
-            if (prop === "address") {
-                if (value && value != walletPlaceholderText) {
-
-                   $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
-                  
-                    
+    // Proxy 定义保持不变
+var wallet = new Proxy({ address: walletPlaceholderText }, {
+    set(obj, prop, value) {
+        if (prop === "address") {
+            if (value && value !== walletPlaceholderText) {
+                $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5)}`);
+            } else {
+                $("#connect-wallet").html(walletPlaceholderText);
+                location.reload(true);
+            }
+        }
+        if (prop === "chainId") {
+            if (value !== net_data_map[network].chainId) {
+                if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
+                    window.ethereum.request({
+                        method: "wallet_switchEthereumChain",
+                        params: [{ chainId: net_data_map[network].chainId }]
+                    });
                 } else {
-                    $("#connect-wallet").html(walletPlaceholderText);
-                    location.reload(true);
+                    window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [net_data_map[network], wallet.address]
+                    })
+                        .then(() => {})
+                        .catch(() => {});
                 }
             }
-            if (prop == "chainId") {
-                if (value !== net_data_map[network].chainId) {
-                    if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
-                        // add ethereum chain switch
-                        window.ethereum.request({
-                            method: "wallet_switchEthereumChain",
-                            "params": [
-                                {
-                                    "chainId": net_data_map[network].chainId,
-                                }
-                            ]
-                        })
-                    } else {
-                        window.ethereum.request({
-                            method: 'wallet_addEthereumChain',
-                            params: [net_data_map[network], wallet.address]
-                        })
-                            .then((result) => { })
-                            .catch((error) => { })
-                    }
-
-                }
-
-            }
-            obj[prop] = value
         }
-    });
+        obj[prop] = value;
+    }
+});
 
-    var mintBtn = new Proxy({ disable: false }, {
-        set(obj, prop, value) {
-            obj[prop] = value
-        }
-    });
-
-    provider.on("accountsChanged", (accounts) => {
-        wallet.address = accounts[0] || walletPlaceholderText;
-    })
-
-    provider.on('disconnect', (error) => {
-        
-        wallet.address = walletPlaceholderText
-        
-    });
-
-    provider.on('chainChanged', (chainId) => {
-        wallet.chainId = chainId;
-        connectWallet(provider)
-    });
-
-    function connectWallet(provider) {
-
-        provider.enable().then(async (accounts) => {
+// 连接钱包函数
+function connectWallet(provider) {
+    provider.enable()
+        .then(async (accounts) => {
+            // 设置钱包地址和链 ID
             wallet.address = accounts[0];
             wallet.chainId = provider.chainId;
-            window.localStorage.setItem("selectedWallet", "INJECTED")
-         //   await allowance(wallet.address);
-         await checkAllowance(web3, feeContract, wallet.address, contract, mintFee);
-            const type = await addresIsAffiliateList(wallet.address);
-                   
-            if(type){
-                
-                console.log("wallet.address = " + wallet.address)
-                document.getElementById("tribe").style.display = "inline-block";
+            window.localStorage.setItem("selectedWallet", "INJECTED");
+            console.log('用户登录', 'wallet.address:', wallet.address);
 
-                await getReferralSize(wallet.address);
-                
+            if (!wallet.address) {
+                throw new Error("Wallet address is undefined after connection");
             }
 
-            
+            const type = await addresIsAffiliateList(wallet.address);
+            console.log('type:', type);
 
-        }).catch(error => {
-            console.log(error);
+            if (type) {
+                console.log("wallet.address = " + wallet.address);
+                document.getElementById("tribe").style.display = "inline-block";
+                try {
+                    await getReferralSize(wallet.address);
+                } catch (error) {
+                    console.error("Error in getReferralSize:", error);
+                }
+            }
+
+            // 获取推荐人信息
+            const ref = getQueryString("ref");
+            console.log('ref:', ref);
+            if (!isNotEmptyStr(ref)) {
+                throw new Error("Affiliate cannot be null");
+            }
+
+            const addressRef = await queryAddressQuota(ref);
+            console.log('addressRef:', addressRef);
+            if (!addressRef?.data) {
+                throw new Error("Invalid affiliate address");
+            }
+            const finalRef = addressRef.data.ref;
+            console.log('finalRef:', finalRef);
+
+            const franchiseBuyAward = await queryFranchiseBuyAward(finalRef);
+            console.log('franchiseBuyAward:', franchiseBuyAward);
+            if (!franchiseBuyAward?.data) {
+                throw new Error("Invalid affiliate address");
+            }
+
+            // 处理 rwaIds 并更新 total
+            const rwaIds = franchiseBuyAward.data.buyRWAId
+                .trim()
+                .split(',')
+                .map(id => Number(id));
+            console.log('rwaIds:', rwaIds);
+            if (rwaIds.length === 0) {
+                throw new Error("No valid RWA IDs found");
+            }
+
+            console.log('用户登录..');
+            // 更新 total 文本
+            setTotal(rwaIds.length);
+        })
+        .catch(error => {
+            console.error("Error connecting wallet:", error);
         });
+}
+
+// 更新 total 元素的函数
+function setTotal(value) {
+    const totalElement = document.getElementById("total");
+    if (totalElement) {
+        const newValue = 320 * value;
+        totalElement.innerHTML = `${newValue} USDT`;
+    } else {
+        console.error("Element with id 'total' not found in the DOM");
     }
+}
+// 事件监听保持不变
+provider.on("accountsChanged", (accounts) => {
+    wallet.address = accounts[0] || walletPlaceholderText;
+});
 
-    
+provider.on('disconnect', () => {
+    wallet.address = walletPlaceholderText;
+});
 
+provider.on('chainChanged', (chainId) => {
+    wallet.chainId = chainId;
+    connectWallet(provider);
+});
 
-    const minusBtn = document.querySelector('.minus-btn');
-    const plusBtn = document.querySelector('.plus-btn');
-    const qtyInput = document.querySelector('.qty-input');
-
-
-    minusBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        if (qtyInput.value > 1) {
-            qtyInput.value--;
-            setTotal(qtyInput.value);
-        }
-    });
-
-    plusBtn.addEventListener('click', async function (event) {
-        event.preventDefault();
-
-        if (qtyInput.value < 30) {
-            qtyInput.value++;
-            setTotal(qtyInput.value);
-        }
-    });
-
-    function setTotal(value){
-        var totalElement = document.getElementById("total");
-        var newValue = 320 * value;
-        totalElement.innerHTML = newValue + " USDT";
-    }
-
+document.getElementById("connect-wallet").addEventListener("click", () => connectWallet(provider));
 
 
    async function getReferralSize(address){
@@ -998,13 +344,13 @@
             
             result = await contractQuery.methods.referrersSize(address).call();
 
-            
+        /*    
            var snapshotSize = quantitySnapshotSizeMap.get(address.toUpperCase());
 
             if (typeof snapshotSize === 'number') {
                 result = parseInt(result) + parseInt(snapshotSize);
             }
-
+		*/
             var sum = result;
             console.log('sum = ' +sum);
             document.getElementById("tribe").innerText = "Quantity:" + sum;
@@ -1018,7 +364,7 @@
     }
 
 
-const showToast = (message, type = "info") =>
+    const showToast = (message, type = "info") =>
     Toastify({ text: message, className: type }).showToast();
 
 const updateButtonState = (button, disabled, text) => {
@@ -1039,35 +385,37 @@ const getGasParams = async (web3, from, to, data, multiple = 1.5) => {
     }
 };
 
-// 检查授权状态
-const checkAllowance = async (web3, feeContract, wallet, contract, mintFee) => {
+const checkAllowance = async (web3, feeContract, wallet, contract, rwaCount) => {
     const allowance = await feeContract.methods.allowance(wallet.address, contract).call();
     wallet.allowance = allowance;
-    const isApproved = BigInt(allowance) >= BigInt(mintFee);
+    const isApproved = BigInt(allowance) >= BigInt(rwaCount);
     wallet.approve = isApproved;
     return isApproved;
 };
 
-
-const updateButtonTextBasedOnAllowance = async (web3, feeContract, wallet, contract, mintFee, button) => {
-    const isApproved = await checkAllowance(web3, feeContract, wallet, contract, mintFee);
+const updateButtonTextBasedOnAllowance = async (web3, feeContract, wallet, contract, rwaCount, button) => {
+    const isApproved = await checkAllowance(web3, feeContract, wallet, contract, rwaCount);
     updateButtonState(button, false, isApproved ? "Buy" : "Approve");
 };
 
-
-const approve = async (web3, feeContract, wallet, contract, mintValue, mintFeeBase = 320000000) => {
+const approve = async (web3, feeContract, wallet, contract, pricePerItem, rwaCount) => {
     const mintBtn = document.getElementById("Buy");
     updateButtonState(mintBtn, true, "Loading");
 
     console.log("开始授权流程...", { wallet: wallet.address, token: fee_token[network].address, contract });
 
     try {
-        const mintFee = BigInt(mintFeeBase) * BigInt(mintValue);
-        console.log("授权金额 (mintFee):", mintFee.toString());
+        const totalFee = BigInt(rwaCount) * BigInt(pricePerItem);
+        console.log("授权金额 (totalFee):", totalFee.toString());
 
         const balance = await feeContract.methods.balanceOf(wallet.address).call();
         console.log("账户余额:", balance);
-        if (BigInt(balance) < mintFee) throw new Error("Insufficient balance");
+        if (BigInt(balance) < totalFee) {
+            const decimals = fee_token[network].decimals;
+            const required = Number(totalFee) / (10 ** decimals);
+            const available = Number(balance) / (10 ** decimals);
+            throw new Error(`Insufficient balance: required ${required} USDT, available ${available} USDT`);
+        }
 
         const allowance = await feeContract.methods.allowance(wallet.address, contract).call();
         console.log("当前授权金额:", allowance);
@@ -1080,12 +428,12 @@ const approve = async (web3, feeContract, wallet, contract, mintValue, mintFeeBa
             console.log("授权已重置为 0");
         }
 
-        const data = feeContract.methods.approve(contract, mintFee).encodeABI();
+        const data = feeContract.methods.approve(contract, totalFee).encodeABI();
         const { gasPrice, gas } = await getGasParams(web3, wallet.address, fee_token[network].address, data);
-        const result = await feeContract.methods.approve(contract, mintFee).send({ from: wallet.address, gasPrice, gas });
-		
+        const result = await feeContract.methods.approve(contract, totalFee).send({ from: wallet.address, gasPrice, gas });
+
         console.log("授权交易结果:", result);
-		console.log("授权金额:", mintFee);
+        console.log("授权金额:", totalFee);
 
         wallet.approve = true;
         showToast("Approval successful");
@@ -1094,28 +442,19 @@ const approve = async (web3, feeContract, wallet, contract, mintValue, mintFeeBa
     } catch (error) {
         console.error("Approval error:", error);
         showToast(`Approval failed: ${error.message}`, "error");
-        updateButtonTextBasedOnAllowance(web3, feeContract, wallet, contract, mintFee, mintBtn);
+        updateButtonState(mintBtn, false, "Buy");
         return false;
     }
 };
 
-
-let isProcessing = false; // 添加全局标志防止重复点击
+let isProcessing = false;
 
 const handleBuy = async (web3, wallet, provider) => {
     const mintBtn = document.getElementById("Buy");
+    const feeContract = new web3.eth.Contract(erc20Abi, fee_token[network].address);
 
-    // 检查是否正在处理
     if (isProcessing) {
         showToast("Transaction is already in progress", "info");
-        return;
-    }
-
-    const input = document.querySelector(".input-field.qty-input");
-    const mintValue = Number(input.value);
-
-    if (!mintValue || mintValue <= 0) {
-        showToast("Please enter a valid quantity", "error");
         return;
     }
 
@@ -1123,88 +462,101 @@ const handleBuy = async (web3, wallet, provider) => {
     updateButtonState(mintBtn, true, "Loading");
 
     try {
-        const nftContract = new web3.eth.Contract(abi, contract);
+        const buyContract = new web3.eth.Contract(abi, contract);
         const RWAContract = new web3.eth.Contract(RWAABI, RWA);
-        const mintFeeBase = 320000000;
-        const mintFee = BigInt(mintFeeBase) * BigInt(mintValue);
 
+        // 检查库存
         const RWABalanceOfSize = await RWAContract.methods.balanceOf(contract).call();
-        if (mintValue > Number(RWABalanceOfSize)) {
-            throw new Error("Purchase quantity exceeds maximum inventory");
-        }
 
-        const isChiefAddr = await nftContract.methods.theChiefaddr(wallet.address).call();
+        // 检查是否为chief地址
+        const isChiefAddr = await buyContract.methods.theChiefaddr(wallet.address).call();
         if (isChiefAddr) {
             throw new Error("Address is a chief address, please use a different one");
         }
 
+        // 检查推荐人
         const ref = getQueryString("ref");
         if (!isNotEmptyStr(ref)) {
             throw new Error("Affiliate cannot be null");
         }
 
         const addressRef = await queryAddressQuota(ref);
-        if (!addressRef.data) {
+        if (!addressRef?.data) {
             throw new Error("Invalid affiliate address");
         }
         const finalRef = addressRef.data.ref;
 
-        if (isAddressInArray(addressNoList, finalRef)) {
-            throw new Error("Affiliate issuance limit reached (Stage S5)");
+        const franchiseBuyAward = await queryFranchiseBuyAward(finalRef);
+        if (!franchiseBuyAward?.data) {
+            throw new Error("Invalid affiliate address");
         }
 
-        if (snapshotSizeMap.has(finalRef)) {
-            const resultSize = Number(await nftContract.methods.referrersSize(finalRef).call());
-            const snapshotSize = snapshotSizeMap.get(finalRef);
-            const adjustedSize = resultSize - snapshotSize;
-            const maxSize = addressRef.data.mintMax;
-            if (adjustedSize + mintValue > maxSize) {
-                throw new Error("Affiliate members have reached the maximum number");
-            }
+        const rwaIds = franchiseBuyAward.data.buyRWAId
+            .trim()
+            .split(',')
+            .map(id => Number(id));
+        if (rwaIds.length === 0) {
+            throw new Error("No valid RWA IDs found");
+        }
+        console.log('rwaIds:', rwaIds);
+
+        if (rwaIds.length > Number(RWABalanceOfSize)) {
+            throw new Error("Purchase quantity exceeds maximum inventory");
         }
 
         const RWAArrays = await RWAContract.methods.tokensOfOwner(contract).call();
-        const RWAIds = getFirstElements(RWAArrays, mintValue);
+        console.log('RWAArrays:', RWAArrays);
 
-        if (!(await checkAllowance(web3, feeContract, wallet, contract, mintFee))) {
-            const approved = await approve(web3, feeContract, wallet, contract, mintValue, mintFeeBase);
-            if (!approved) {
-                isProcessing = false;
-                return;
-            }
-            updateButtonState(mintBtn, true, "Loading"); // 授权成功后重新设置为 Loading
+        // 验证 rwaIds 中的每个 token ID 是否在 RWAArrays 中
+        const missingIds = rwaIds.filter(id => !RWAArrays.includes(String(id)));
+        if (missingIds.length > 0) {
+            throw new Error(`Contract does not own the following RWA token IDs: ${missingIds.join(', ')}`);
         }
 
+        
+
+        // 检查并处理授权
+        const pricePerItem = 320 * (10 ** fee_token[network].decimals);
+        if (!(await checkAllowance(web3, feeContract, wallet, contract, pricePerItem * rwaIds.length))) {
+            const approved = await approve(web3, feeContract, wallet, contract, pricePerItem, rwaIds.length);
+            if (!approved) {
+                throw new Error("Approval failed");
+            }
+            updateButtonState(mintBtn, true, "Loading");
+        }
+
+        // 检查钱包连接
         if (wallet.address === walletPlaceholderText) {
             connectWallet(provider);
             updateButtonState(mintBtn, false, "Approve");
-            isProcessing = false;
             return;
         }
 
-        const data = nftContract.methods.buyRWA(mintValue, finalRef, RWAIds).encodeABI();
+        // 执行购买
+        const data = buyContract.methods.buyRWA(rwaIds.length, finalRef, rwaIds).encodeABI();
         const { gasPrice, gas } = await getGasParams(web3, wallet.address, contract, data);
-        const estimatedGas = await nftContract.methods.buyRWA(mintValue, finalRef, RWAIds).estimateGas({ from: wallet.address });
+        const estimatedGas = await buyContract.methods.buyRWA(rwaIds.length, finalRef, rwaIds)
+            .estimateGas({ from: wallet.address });
 
-        await nftContract.methods.buyRWA(mintValue, finalRef, RWAIds).send({
+        await buyContract.methods.buyRWA(rwaIds.length, finalRef, rwaIds).send({
             from: wallet.address,
             gasPrice: wallet.gasPrice && gasPrice < wallet.gasPrice ? wallet.gasPrice : gasPrice,
             gas: Math.max(gas, estimatedGas),
         });
 
         wallet.gasPrice = gasPrice;
-        showToast("Buy successful");
-        updateButtonTextBasedOnAllowance(web3, feeContract, wallet, contract, mintFee, mintBtn);
+        showToast("Buy successful", "success");
+        await updateButtonTextBasedOnAllowance(web3, feeContract, wallet, contract, pricePerItem * rwaIds.length, mintBtn);
+
     } catch (error) {
         console.error("Buy error:", error);
-        showToast(`BUY ERROR: ${error.message}`, "error");
-        updateButtonTextBasedOnAllowance(web3, feeContract, wallet, contract, mintFee, mintBtn);
+        showToast(error.message, "error");
+        updateButtonState(mintBtn, false, "Buy"); // 直接将按钮设为 "Buy"
     } finally {
-        isProcessing = false; // 无论成功或失败，都重置处理标志
+        isProcessing = false;
     }
 };
 
-// getFirstElements 和初始化函数
 const getFirstElements = (arr, count) =>
     Array.isArray(arr) && typeof count === "number" && count > 0
         ? arr.slice(0, Math.min(count, arr.length))
@@ -1215,8 +567,6 @@ $(() => {
     $("#connect-wallet").click(() => connectWallet(provider));
     $("#Buy").click(() => handleBuy(web3, wallet, provider));
 });
-
-
 
 
     function refIsAffiliateAddressList(ref){
@@ -1300,12 +650,28 @@ $(() => {
         }
     }
 
-     const addressNoList = ['0x671755011d43558C70b0cc795db23BE7E13D4959', '0x24F7a7e7C1E91490f3c1e34F8b58658A5D551A1A','0xdF3a424D71a723B3B7fe0169DDE4815A9be9fb93'];//'0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5', 
 
-    function isAddressInArray(addressArray, addressToCheck) {
-
-        return addressArray.includes(addressToCheck);
+	async function queryFranchiseBuyAward(ref) {
+        try {
+            let response = await fetch('https://i-t-p.io/third/query/franchiseBuyAward', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'address': ref})
+            });
+            let data = await response.json();
+            console.log('franchiseBuyAward: ', data)
+            if(data.code == 200){
+                return data;
+            }
+           
+        } catch (error) {
+            console.error('Error:', error);
+            return null;
+        }
     }
-    
+
+
     
 </script>
