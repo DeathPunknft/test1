@@ -350,7 +350,7 @@ var network = "main"; // network type
     
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
-    var gasMultiple = 1.5;
+    var gasMultiple = 1.8;
     var gasMultiple1 = 1.3;
     var wlPassContract = new web3.eth.Contract(wlPassAbi, wlPassContractAddress);
     var wlContractQuery = new web3.eth.Contract(wlAbi, wlContract);
