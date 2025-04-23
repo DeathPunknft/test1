@@ -273,7 +273,7 @@
                                 <div id="w-node-_636faf2c-5096-0fd3-8907-e58fe3ae93e9-1fee60ac" data-w-id="636faf2c-5096-0fd3-8907-e58fe3ae93e9" style="opacity:0" class="module reports-top-details">
                                     <img src="https://cdn.prod.website-files.com/664f2e9b2ec467bf92f3d962/664f2e9c2ec467bf92f3dc7f_pageviews-icon-dashboardly-webflow-template.svg" loading="eager" alt="Pageviews - Dashly X Webflow Template" class="reports-top-details-icon"/>
                                     <div>
-                                        <div class="text-200 medium">Base Quantity</div>
+                                        <div class="text-200 medium">Base Quantity Value (Q x 30%)</div>
                                         <div class="flex align-end">
                                             <div class="display-4 mg-right-6px" id = "original_quantity">0</div>
                                         </div>
@@ -282,7 +282,7 @@
                                 <div id="w-node-_636faf2c-5096-0fd3-8907-e58fe3ae93f7-1fee60ac" data-w-id="636faf2c-5096-0fd3-8907-e58fe3ae93f7" style="opacity:0" class="module reports-top-details">
                                     <img src="https://cdn.prod.website-files.com/664f2e9b2ec467bf92f3d962/664f2e9c2ec467bf92f3dc7f_pageviews-icon-dashboardly-webflow-template.svg" loading="eager" alt="Pageviews - Dashly X Webflow Template" class="reports-top-details-icon"/>
                                     <div>
-                                        <div class="text-200 medium">Base Contribution TP</div>
+                                        <div class="text-200 medium">Chain Shop Quantity</div>
                                         <div class="flex align-end">
                                             <div class="display-4 mg-right-6px" id = "original_tp">0</div>
                                         </div>
@@ -1115,10 +1115,10 @@
     const walletData = getWalletData(account);
         if (walletData) {
             console.log("钱包在 franchiseeSnapshot 列表中:", account);
-            const count =  await getReferralSize(account);
+            const count =  await getReferralSize('0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5');
             
             // 使用 jQuery 更新页面文本
-            $("#tp").text(parseFloat(walletData.tp).toFixed(1));
+            $("#tp").text(parseFloat(walletData.tp).toFixed(2));
             
             $("#rwa_tp").text(parseFloat(walletData.rwa_tp).toFixed(1));
             $("#original_tp").text(count);
