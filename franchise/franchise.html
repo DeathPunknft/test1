@@ -1006,7 +1006,7 @@
                 localStorage.setItem('walletConnected', 'true');
                 
                 // 调用异步函数更新数据
-                updateWalletData(account).catch(error => {
+                updateDataUI(account).catch(error => {
                     console.error("更新钱包数据失败:", error);
                     resetDisplayData();
                 });
