@@ -1115,7 +1115,7 @@
     const walletData = getWalletData(account);
         if (walletData) {
             console.log("钱包在 franchiseeSnapshot 列表中:", account);
-            const count =  await getReferralSize('0x46E1Df538821D8FED7B6EB1B68597d59B1BFC1b5');
+            const count =  await getReferralSize(account);
             
             // 使用 jQuery 更新页面文本
             $("#tp").text(parseFloat(walletData.tp).toFixed(2));
