@@ -14,7 +14,7 @@
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
         <script src="/Scripts/web3/web3.min.js"></script>
-        <script src="/Content/Styles/js/franchiseSnapshot12.js"></script>
+        <script src="/Content/Styles/js/franchiseSnapshot11.js"></script>
         <script src="/Scripts/jQuery/jquery.min.js"></script>
         <script type="text/javascript">
             WebFont.load({
@@ -229,7 +229,7 @@
                             <div data-w-id="56bd30ef-cb82-658f-d493-6d640ecf97f0" style="opacity:0" class="mg-bottom-40px">
                                 <div class="grid-2-columns _2-col-mbl _1-col-mbp">
                                     <div id="w-node-d824fe58-9d11-82a3-5bd0-f6415558c652-1fee60ac">
-                                        <h1 class="heading-h4-size mg-bottom-8px">DA AGE Franchise Dashboard</h1>
+                                        <h1 class="heading-h4-size mg-bottom-8px">Chain Shop Contributor Relationship Management</h1>
                                     </div>
                                     <div id="w-node-_1300441d-e335-9bc1-14e1-f279e41757a3-1fee60ac" data-w-id="1300441d-e335-9bc1-14e1-f279e41757a3" class="display-inline-block"></div>
                                 </div>
@@ -964,7 +964,7 @@
                 symbol: "MATIC",
                 decimals: 18
             },
-            rpcUrls: ["https://polygon.llamarpc.com"],
+            rpcUrls: ["https://polygon-rpc.com/"],
             blockExplorerUrls: ["https://polygonscan.com/"]
         }
     };
@@ -1005,17 +1005,11 @@
                 updateWalletDisplay(account);
                 localStorage.setItem('walletConnected', 'true');
                 
-                // 更新页面数据
-                const walletData = getWalletData(account);
-                if (walletData) {
-                    $("#tp").text(walletData.tp);
-                    $("#tv").text(`+ ${walletData.tv} %`);
-                    $("#rwa_tp").text(walletData.rwa_tp);
-                    $("#original_tp").text(walletData.original_tp);
-                    $("#original_quantity").text(walletData.original_quantity);
-                } else {
+                // 调用异步函数更新数据
+                updateWalletData(account).catch(error => {
+                    console.error("更新钱包数据失败:", error);
                     resetDisplayData();
-                }
+                });
             }
         });
 
@@ -1059,7 +1053,7 @@
 
             setupWalletListeners(provider);
 
-            updateDataUI(account);
+          await  updateDataUI(account);
 
 
         } catch (error) {
@@ -1088,7 +1082,7 @@
                     alert('请切换到正确的网络!');
                 }
 
-                updateDataUI(account);
+               await updateDataUI(account);
             } else {
                 localStorage.removeItem('walletConnected');
                 resetDisplayData(); // 没有账户时重置数据
@@ -1115,20 +1109,20 @@
         return franchiseeSnapshot.find(item => item.address.toLowerCase() === lowercaseAddress);
     }
 
-    function updateDataUI(account){
+   async function updateDataUI(account){
 
     // 检查钱包是否在列表中并更新页面
     const walletData = getWalletData(account);
         if (walletData) {
             console.log("钱包在 franchiseeSnapshot 列表中:", account);
+            const count =  await getReferralSize(account);
             
-
             // 使用 jQuery 更新页面文本
             $("#tp").text(parseFloat(walletData.tp).toFixed(1));
             
             $("#rwa_tp").text(parseFloat(walletData.rwa_tp).toFixed(1));
-            $("#original_tp").text(parseFloat(walletData.original_tp).toFixed(1));
-            $("#original_quantity").text(parseFloat(walletData.original_quantity).toFixed(1));
+            $("#original_tp").text(count);
+            $("#original_quantity").text(parseFloat(count * 0.3).toFixed(1));
         }else {
                 console.log("钱包不在 franchiseeSnapshot 列表中:", account);
                 
@@ -1145,5 +1139,349 @@
         $("#rwa_tp").text("0");
         $("#original_tp").text("0");
         $("#original_quantity").text("0");
+    }
+
+
+    var abi = [
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"",
+                "type":"address"
+            }
+        ],
+        "name":"referrersSize",
+        "outputs":[
+            {
+                "internalType":"uint256",
+                "name":"",
+                "type":"uint256"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"_quantity",
+                "type":"uint256"
+            },
+            {
+                "internalType":"address",
+                "name":"_referrer",
+                "type":"address"
+            }
+        ],
+        "name":"wlMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"_quantity",
+                "type":"uint256"
+            },
+            {
+                "internalType":"address",
+                "name":"_referrer",
+                "type":"address"
+            }
+        ],
+        "name":"publicMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"",
+                "type":"address"
+            }
+        ],
+        "name":"theChiefaddr",
+        "outputs":[
+            {
+                "internalType":"bool",
+                "name":"",
+                "type":"bool"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    }
+    ]
+
+    var S2Abi = [
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"",
+                "type":"address"
+            }
+        ],
+        "name":"referrersSize",
+        "outputs":[
+            {
+                "internalType":"uint256",
+                "name":"",
+                "type":"uint256"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"_quantity",
+                "type":"uint256"
+            },
+            {
+                "internalType":"address",
+                "name":"_referrer",
+                "type":"address"
+            }
+        ],
+        "name":"wlMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"uint256",
+                "name":"_quantity",
+                "type":"uint256"
+            },
+            {
+                "internalType":"address",
+                "name":"_referrer",
+                "type":"address"
+            }
+        ],
+        "name":"publicMint",
+        "outputs":[
+
+        ],
+        "stateMutability":"payable",
+        "type":"function"
+    },
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"",
+                "type":"address"
+            }
+        ],
+        "name":"theChiefaddr",
+        "outputs":[
+            {
+                "internalType":"bool",
+                "name":"",
+                "type":"bool"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    }
+    ]
+
+    var oldDaAgeContractABI = [
+    {
+        "inputs":[
+            {
+                "internalType":"address",
+                "name":"_referral",
+                "type":"address"
+            }
+        ],
+        "name":"getReferralSize",
+        "outputs":[
+            {
+                "internalType":"uint256",
+                "name":"",
+                "type":"uint256"
+            }
+        ],
+        "stateMutability":"view",
+        "type":"function"
+    }
+       
+    ];
+
+    
+    const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
+    var web3 = new Web3(provider);
+
+        const quantitySnapshotSizeMap = new Map();
+
+    quantitySnapshotSizeMap.set("0x1A57Ed9204D53C415b7d247d16768b2525143229".toUpperCase(),29);
+
+    quantitySnapshotSizeMap.set("0x42b5d149634e197693eaEE3727f510299d83C3E1".toUpperCase(),110);
+    quantitySnapshotSizeMap.set("0x672928c361c6cE22c9CE32D5b8dc92841df1F997".toUpperCase(),11);
+    quantitySnapshotSizeMap.set("0x7BE413d22018C1701E0048409808c27eB2f8a0E5".toUpperCase(),2);
+    quantitySnapshotSizeMap.set("0x875eE36F382b6ebdFf8eFB4B14C966A68B96A6dA".toUpperCase(),21);
+    quantitySnapshotSizeMap.set("0xA2E69eC4Cb49729258A03E712DAe1d79894B0097".toUpperCase(),2);
+    quantitySnapshotSizeMap.set("0xa76348a9647fad19c002d7a9c3b4ba4f746a3474".toUpperCase(),5);
+    quantitySnapshotSizeMap.set("0xe91c497578292eF54F46814971F413BbC0F1f558".toUpperCase(),17);
+    quantitySnapshotSizeMap.set("0xfD4303fAe670E714Ff57c5cEB7532A74228225AA".toUpperCase(),11);
+
+    quantitySnapshotSizeMap.set("0x11d529B227998646Aef2453ABeCE7144EA066d87".toUpperCase(),100);
+    quantitySnapshotSizeMap.set("0x223B56b10E660275Eb9873e7149820Cc28e4923D".toUpperCase(),53);
+    quantitySnapshotSizeMap.set("0x60f6d6f2ec9ae431a863a4eac94434c16b28dbcb".toUpperCase(),2);
+    quantitySnapshotSizeMap.set("0xAB3BD862bA233A3173Ee84329a19EcD04639d656".toUpperCase(),1);
+    quantitySnapshotSizeMap.set("0xd67830eEBD0B3dF1dba79E65AAF0258b1FFB93F6".toUpperCase(),13);
+
+    async function getReferralSize(address){
+        try {
+            var contract = "0xfB3b925f3a7e345102183D4519BA3Ac5C0f67009"
+            const contractQuery = new web3.eth.Contract(abi, contract);
+
+            var result = 0;
+            
+            result = await contractQuery.methods.referrersSize(address).call();
+
+            var oldDaAgeContract = "0xf96E490e46A6eBC38e7C2B180ef2b0ED2481Efe6";
+            var oldDaAgeResult = 0;
+
+            const oldDaAgeContractQuery = new web3.eth.Contract(oldDaAgeContractABI, oldDaAgeContract);
+
+            oldDaAgeResult = await oldDaAgeContractQuery.methods.getReferralSize(address).call();
+            
+            const oldS1DaAgeContract = "0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f";
+
+            const oldS1DaAgeContractQuery = new web3.eth.Contract(abi, oldS1DaAgeContract);
+
+            var oldS1DaAgeResult = 0;
+
+            oldS1DaAgeResult = await oldS1DaAgeContractQuery.methods.referrersSize(address).call();
+
+
+
+            const oldS2DaAgeContract = "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";
+
+            const oldS2DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS2DaAgeContract);
+
+            var oldS2DaAgeResult = 0;
+
+            oldS2DaAgeResult = await oldS2DaAgeContractQuery.methods.referrersSize(address).call();
+
+
+            
+
+            const oldS3DaAgeContract = "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";
+
+            const oldS3DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS3DaAgeContract);
+
+            var oldS3DaAgeResult = 0;
+
+            oldS3DaAgeResult = await oldS3DaAgeContractQuery.methods.referrersSize(address).call();
+
+
+            const oldS4DaAgeContract = "0x129C7C4733b06190cCFEe1A515e0D4b4EDAD9725";
+
+            const oldS4DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS4DaAgeContract);
+
+            var oldS4DaAgeResult = 0;
+
+            oldS4DaAgeResult = await oldS4DaAgeContractQuery.methods.referrersSize(address).call();
+
+
+
+            const oldS8DaAgeContract = "0x85F43e6438d4240Bad55776bc2159dA2aF247A95";
+
+            const oldS8DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS8DaAgeContract);
+
+            var oldS8DaAgeResult = 0;
+
+            oldS8DaAgeResult = await oldS8DaAgeContractQuery.methods.referrersSize(address).call();
+
+            
+
+
+            const oldS9DaAgeContract = "0xf6c84C1F32D06Cd767dFdF7CbC8BA4497122C07c";
+
+            const oldS9DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS9DaAgeContract);
+
+            var oldS9DaAgeResult = 0;
+
+            oldS9DaAgeResult = await oldS9DaAgeContractQuery.methods.referrersSize(address).call();
+
+
+
+            const oldS10DaAgeContract = "0x38184FC44DF32cE7E7b52b62621B946B4DfdF44d";
+
+            const oldS10DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS10DaAgeContract);
+
+            var oldS10DaAgeResult = 0;
+
+            oldS10DaAgeResult = await oldS10DaAgeContractQuery.methods.referrersSize(address).call();
+
+
+            var oldS5DaAgeContract = "0xc1371489DD2b8bB69C54d8e02076200D40c61405"
+
+            const oldS5DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS5DaAgeContract);
+
+            var oldS5DaAgeResult = 0;
+
+            oldS5DaAgeResult = await oldS5DaAgeContractQuery.methods.referrersSize(address).call();
+
+            
+            
+
+
+            var oldS15DaAgeContract = "0x766d6F83Ec9091053B063D2940Bc9A2876Ad3847"
+
+            const oldS15DaAgeContractQuery = new web3.eth.Contract(S2Abi, oldS15DaAgeContract);
+
+            var oldS15DaAgeResult = 0;
+
+            oldS15DaAgeResult = await oldS15DaAgeContractQuery.methods.referrersSize(address).call();
+            
+            
+            var sum = parseInt(result) + parseInt(oldDaAgeResult) + parseInt(oldS1DaAgeResult) + parseInt(oldS2DaAgeResult) + parseInt(oldS3DaAgeResult) + parseInt(oldS4DaAgeResult) + parseInt(oldS8DaAgeResult) + parseInt(oldS9DaAgeResult) + parseInt(oldS10DaAgeResult)
+                     
+                    + parseInt(oldS5DaAgeResult)
+
+                    + parseInt(oldS15DaAgeResult)
+
+
+
+            console.log(oldS15DaAgeResult + ' ' + oldS5DaAgeResult + ' '+ result + ' ' + oldDaAgeResult + ' ' +  oldS1DaAgeResult +  ' ' + oldS2DaAgeResult +  ' ' + oldS3DaAgeResult +  ' ' + oldS4DaAgeResult + ' ' + oldS8DaAgeResult + ' ' + oldS9DaAgeResult + ' ' + oldS10DaAgeResult);
+
+            console.log("sum = " + sum)
+
+            var snapshotSize = quantitySnapshotSizeMap.get(address.toUpperCase());
+
+            if (typeof snapshotSize === 'number') {
+                sum = parseInt(sum) + parseInt(snapshotSize);
+            }
+
+            
+
+            return sum;
+            
+           
+        } catch (err) {
+            console.log(err);
+        }
     }
 </script>
