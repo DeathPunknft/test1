@@ -1111,22 +1111,26 @@
 
    async function updateDataUI(account){
 
+    const count =  await getReferralSize(account);
+
+    $("#original_tp").text(count);
+    $("#original_quantity").text(parseFloat(count * 0.3).toFixed(1));
+
     // 检查钱包是否在列表中并更新页面
     const walletData = getWalletData(account);
+        
+
         if (walletData) {
             console.log("钱包在 franchiseeSnapshot 列表中:", account);
-            const count =  await getReferralSize(account);
             
-            // 使用 jQuery 更新页面文本
             $("#tp").text(parseFloat(walletData.tp).toFixed(2));
             
             $("#rwa_tp").text(parseFloat(walletData.rwa_tp).toFixed(1));
-            $("#original_tp").text(count);
-            $("#original_quantity").text(parseFloat(count * 0.3).toFixed(1));
+            
         }else {
-                console.log("钱包不在 franchiseeSnapshot 列表中:", account);
-                
-                resetDisplayData();
+            console.log("钱包不在 franchiseeSnapshot 列表中:", account);
+            
+            resetDisplayData();
             }
 
     }
@@ -1137,8 +1141,8 @@
         $("#tp").text("0");
         
         $("#rwa_tp").text("0");
-        $("#original_tp").text("0");
-        $("#original_quantity").text("0");
+     //   $("#original_tp").text("0");
+     //   $("#original_quantity").text("0");
     }
 
 
