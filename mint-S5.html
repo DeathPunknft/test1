@@ -1583,10 +1583,10 @@
         snapshotSizeMap.set("0x16E6fB4Cdd0b7C56133CcD6BB95FEb51c4e99dC3",0);
         snapshotSizeMap.set("0xb165ca89176118B781403eeE0E92793036776318",0);
 
-    const mintMaxMap = new Map();
+//    const mintMaxMap = new Map();
 
-    snapshotSizeMap.set("0xAC77719AA6486495cb56B360a0977eF07C66aB09",300);
-    snapshotSizeMap.set("0x1C3fd3C20F3ca4cF4f3f58C6908F4A2aea42EEFA",300);
+ //   snapshotSizeMap.set("0xAC77719AA6486495cb56B360a0977eF07C66aB09",300);
+ //   snapshotSizeMap.set("0x1C3fd3C20F3ca4cF4f3f58C6908F4A2aea42EEFA",300);
  var S2Abi = [
     {
         "inputs":[
@@ -2189,6 +2189,20 @@
         var mintValue = input.value;
         var mintValueNumber = Number(mintValue);
         console.log("mintValue=",mintValueNumber)
+
+
+        var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
+        
+        console.log('执行到这里')
+        console.log("boolType",boolType);
+
+          //address value is RWA-DA-AGE theChiefa
+
+          if(boolType){
+
+            alert("address is  RWA-DA-AGE theChiefa, Please submit using a different address");
+            return;
+          }
         
 
         
@@ -2249,7 +2263,67 @@
             return;
         }
 
-        if(addressRef.data.mintMax != '-1'){
+        var boolType = await nftContract.methods.theChiefaddr(ref).call();
+
+
+        console.log("boolType",boolType);
+
+        //address value is RWA-DA-AGE theChiefa
+
+        if(boolType){
+
+        alert("address is not RWA-DA-AGE franchise, Please use other chain stores");
+        return;
+        
+
+        // 初始化变量并确保类型转换
+        let resultSize = 0;
+        let snapshotSize = 0;
+        let maxMintSize = 0;
+
+        // 从合约获取推荐人数
+        resultSize = Number(await nftContract.methods.referrersSize(ref).call()) || 0;
+        console.log(`推荐人数: ${resultSize}`);
+
+        // 从映射获取快照大小
+        snapshotSize = Number(snapshotSizeMap.get(ref)) || 0;
+        console.log(`快照大小: ${snapshotSize}`);
+
+        // 计算有效推荐人数
+        const effectiveResultSize = resultSize - snapshotSize;
+        console.log(`有效推荐人数: ${effectiveResultSize}`);
+
+        // 获取最大铸造数量
+        maxMintSize = Number(addressRef?.data?.idnMintMax) || 0;
+        console.log(`最大铸造数量: ${maxMintSize}`);
+
+        // 将铸造值转换为数字
+        const mintNumber = Number(mintValue) || 0;
+        console.log(`铸造数量: ${mintNumber}`);
+
+        // 计算总数
+        const totalMint = effectiveResultSize + mintNumber;
+        console.log(`总铸造数 (有效推荐人数 + 铸造数量): ${totalMint}`);
+
+        // 检查是否超过最大铸造数量
+        if (totalMint > maxMintSize) {
+            alert("联盟会员已达到最大数量限制");
+            mintBtn.disabled = false;
+            return false;
+        }
+
+        // 防止重复点击
+        if (mintBtn.disabled) {
+            return false;
+        }
+
+        // 处理期间禁用按钮
+        mintBtn.disabled = true;
+
+        
+        
+
+   /*   if(addressRef.data.mintMax != '-1'){
 
             var boolType = await nftContract.methods.theChiefaddr(wallet.address).call();
 
@@ -2260,11 +2334,13 @@
 
             if(boolType){
 
-            alert("address is RWA-DA-AGE theChiefa, Please submit using a different address");
+            alert("address is  RWA-DA-AGE theChiefa, Please submit using a different address");
             return;
             }
 
         }
+
+        
         
 
        let resultSize = 0;
@@ -2302,7 +2378,7 @@
         mintBtn.disable = true;
 
 
-        
+        */
 
         
 
