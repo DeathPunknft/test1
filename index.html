@@ -2733,7 +2733,8 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
     async function queryAddressQuota(ref) {
         try {
-            let response = await fetch('https://i-t-p.io/third/query/nftOperator', {
+          //  let response = await fetch('https://i-t-p.io/third/query/nftOperator', {
+            let response = await fetch('http://18.140.155.136:8081/third/query/nftOperator', {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'
