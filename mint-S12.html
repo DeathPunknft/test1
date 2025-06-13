@@ -86,9 +86,8 @@
                         <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
                         <div class="quantity-info">
                             <span id="count">MintPass:0</span>
-                            <span id="tribe">HK Quantity:0</span>
-                            <span id="tribe1">TH Quantity:0</span>
-                            <span id="tribe2">IDN Quantity:0</span>
+                            <span id="tribe">Quantity:0</span>
+                            
                         </div>
                     </div>
                 </div>
@@ -519,19 +518,18 @@
 
             await getMintPassBalanceOfSize(wallet.address);
 
-            const type = await addresIsAffiliateList('0x72DdE0B3F7303d0CdBE4322002406169d9BAfAAc');
+            const type = await addresIsAffiliateList(wallet.address);
                    
-           // if(type){
+            if(type){
                 
                 console.log("wallet.address = " + wallet.address)
                 document.getElementById("tribe").style.display = "inline-block";
-                document.getElementById("tribe1").style.display = "inline-block";
-                document.getElementById("tribe2").style.display = "inline-block";
 
-                await getReferralSize('0x72DdE0B3F7303d0CdBE4322002406169d9BAfAAc');
+
+                await getReferralSize(wallet.address);
                 
 
-          //  }
+            }
 
             
 
