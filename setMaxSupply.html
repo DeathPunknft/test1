@@ -39,7 +39,7 @@
                     <button type="button"  class="btn plus-btn">+</button>-->
                     
                 </div>
-                <button type="button" id="setBaseURI" class="airdrop-btn">setBaseURI</button>
+                <button type="button" id="setMaxSupply" class="airdrop-btn">setMaxSupply</button>
 
                 </div>
 				
@@ -974,7 +974,7 @@
     $("#connect-wallet").on("click",()=> {
         connectWallet(provider);
     });
-    $("#setBaseURI").on("click", async ()=> {
+    $("#setMaxSupply").on("click", async ()=> {
         
         let nftContract = new web3.eth.Contract(abi,contract);
 
@@ -987,7 +987,7 @@
             
             if (mintBtn.disable) return;
             mintBtn.disable = true;
-            $("#setBaseURI").text("loading");
+            $("#setMaxSupply").text("loading");
             var inputBox = document.getElementById("input-box");
             var inputText = inputBox.value;
            // const addressesArray = inputText.split('\n').map(address => address.replace(/"/g, ""));
@@ -997,7 +997,7 @@
             //const mintValue = input.value;
             
             console.log("inputText",inputText)
-            const data = nftContract.methods.setBaseURI(inputText).encodeABI();
+            const data = nftContract.methods.setMaxSupply(inputText).encodeABI();
             let gasPrice = await web3.eth.getGasPrice();
             const gas = await web3.eth.estimateGas({
                 from: wallet.address,
@@ -1009,7 +1009,7 @@
                 gasPrice = wallet.gasPrice
             }
 
-            nftContract.methods.setBaseURI(inputText).send({
+            nftContract.methods.setMaxSupply(inputText).send({
                 from: wallet.address,
                 gasPrice: parseInt(gasPrice * gasMultiple1),
                 gas: parseInt(gas * gasMultiple)
@@ -1017,23 +1017,23 @@
             }).then(async () => {
                 mintBtn.disable = false;
                 wallet.gasPrice = gasPrice; // save success gasPrice
-                $("#setBaseURI").text("setBaseURI");
+                $("#setMaxSupply").text("setMaxSupply");
                
-                alert("setBaseURI successful");
+                alert("setMaxSupply successful");
                 Toastify({
-                    text: "setBaseURI successful",
+                    text: "setMaxSupply successful",
                     className: "info",
                 }).showToast();
             }).catch(async error=>{
                 mintBtn.disable = false;
-                $("#setBaseURI").text("setBaseURI");
+                $("#setMaxSupply").text("setMaxSupply");
                
             })
         } catch(error) {
             mintBtn.disable = false;
             console.log(error, '--error')
             
-            $("#setBaseURI").text("setBaseURI");
+            $("#setMaxSupply").text("setMaxSupply");
             
         }
     })
