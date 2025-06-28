@@ -1791,9 +1791,16 @@
 
                         var metaData = getDataByTokenId(Number(tokenId));
                         console.log(metaData);
-                        var name = metaData.location_name;
-                        var zone = metaData.zone;
-                        item.imgSrc = './Content/Styles/images/S5/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.png';
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S5/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.png';
+                        }
+
 
                     }else if(rwaType === '1'){
 
