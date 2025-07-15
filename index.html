@@ -2561,6 +2561,24 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
             alert('The number of RWA  issued by chain shop associated with the wallet address has exceeded 500, reaching the upper limit of Stage. As a result, the RWA issuance function for the chain shop will be disabled.'); 
             return;
         }
+
+
+        let resultSize = 0;
+        resultSize = await nftContract.methods.referrersSize(ref).call();
+
+
+        let mintMax = 0;
+        mintMax = addressRef.data.mintMax;
+
+        var mintNumber = Number(mintValue);
+
+
+        if((resultSize + mintNumber) > mintMax){
+
+            alert("Affiliate members have reached the maximum number");
+            mintBtn.disable = false;
+            return;
+        }
         
 
         /*
