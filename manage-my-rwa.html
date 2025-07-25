@@ -393,7 +393,7 @@
                                     <option value="0">S1</option>
                                     <option value="1">S2</option>   
                                     <option value="2">S3</option>
-                                  <!--  <option value="3">S4</option>    -->  
+                                    <option value="3">S4</option>     
                                 </select>
                             
                                 <a href="#" id="selectedButton" class="button-06 w-button" style="margin-top: 10px;">Load My RWA</a>
@@ -2843,14 +2843,14 @@
             var resultS1 = processResultS1(result);
             var resultS2 = processResultS2(result);
             var resultS3 = processResultS3(result);
-            var resultS4 = processResultS4(result);
+          //  var resultS4 = processResultS4(result);
 
             //合并 filterData 和 totalPCS
-            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData,resultS4.filterData);
+            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData);//,resultS4.filterData
 
             updateDOM(combinedFilterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
 
-            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS + resultS4.totalPCS;
+            var combinedTotalPCS = resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS; //+ resultS4.totalPCS;
 
             // Update the total PCS in the DOM
             const total_pcs = document.querySelectorAll('#total_pcs');
