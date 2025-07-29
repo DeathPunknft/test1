@@ -2589,7 +2589,8 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
         var mintNumber = Number(mintValue);
 
 
-        if((resultSize + mintNumber) > mintMax){
+        console.log(Number(resultSize) + Number(mintNumber))
+        if((Number(resultSize) + Number(mintNumber)) > mintMax){
 
             alert("Affiliate members have reached the maximum number");
             mintBtn.disable = false;
