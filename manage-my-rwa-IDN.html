@@ -1285,10 +1285,19 @@
                         if(rwaType === '0'){
 
                             var metaData = getDataByTokenId(Number(tokenId));
-                            console.log(metaData);
-                            var name = metaData.location_name;
-                            var zone = metaData.zone;
-                            item.imgSrc = './Content/Styles/images/S5/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.png';
+
+                            if(metaData === undefined){
+
+                                item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                            }else{
+
+                                console.log(metaData);
+                                var name = metaData.location_name;
+                                var zone = metaData.zone;
+                                item.imgSrc = './Content/Styles/images/S5/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.png';
+
+                            }
                         }else if(rwaType === '1'){
 
                             var metaData = getDataByS2TokenId(Number(tokenId));
@@ -1992,6 +2001,17 @@
                 var rwaType = document.getElementById('select3').value;
 
                 if(rwaType === '0'){
+
+		var metaData = getDataByTokenId(Number(tokenId));
+                    console.log(metaData);
+                    if(metaData === undefined){
+
+                        mintBtn.disable = false;
+                        console.log('S5 metaData === undefined', tokenId)
+                        alert('This RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                        return;
+
+                    }
 
                     await allowance(tokenId);
 
