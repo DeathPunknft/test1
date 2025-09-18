@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <link rel="icon" href="./favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="author" content="zhy" />
+    <link rel="stylesheet" href="./Content/Styles/mint.css">
+    <link rel="stylesheet" href="./Content/Styles/main.css">
+    <link rel="stylesheet" href="./Content/Styles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="./Scripts/jQuery/jquery.min.js"></script>
+    <script src="./Scripts/web3/web3.min.js"></script>
+
+    <title>DA-AGE - Decentralized Asset NFT</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="body-bg-black">
+                <div class="navBar text-center">
+                    <div class="navBar-left">
+                        <img src='./Content/Images/dan.png' />
+                    </div>
+                    <div class="navBar-right text-right">
+
+                        <a href="javascript:void(0);" id="connect-wallet" class="nav-link">Connect Wallet</a>
+
+                    </div>
+                </div>
+                <textarea id="input-box"></textarea>
+                <div class="input-group1"  style="margin-left:500px; margin-top: 20px;">
+                    <button type="button" class="btn minus-btn">-</button>
+                    <input type="number" class="input-field qty-input" value="1" min="1" max="10" disabled="disabled">
+                    <button type="button"  class="btn plus-btn">+</button>
+                    
+                </div>
+                <button type="button" id="airdrop" class="airdrop-btn">Airdrop</button>
+
+                </div>
+				
+            </div>
+			
+            
+        </div>
+    </div>
+
+
+    </script>
+</body>
+
+</html>
+<script type="text/javascript">
+
+    const minusBtn = document.querySelector('.minus-btn');
+    const plusBtn = document.querySelector('.plus-btn');
+    const qtyInput = document.querySelector('.qty-input');
+
+    minusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value > 1) {
+            qtyInput.value--;
+        }
+    });
+
+    plusBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (qtyInput.value < 100) {
+            qtyInput.value++;
+        }
+    });
+
+
+    var abi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "ApprovalCallerNotOwnerNorApproved",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ApprovalQueryForNonexistentToken",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "BalanceQueryForZeroAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "MintERC2309QuantityExceedsLimit",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "MintToZeroAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "MintZeroQuantity",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "OwnerQueryForNonexistentToken",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "OwnershipNotInitializedForExtraData",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TransferCallerNotOwnerNorApproved",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TransferFromIncorrectOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TransferToNonERC721ReceiverImplementer",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TransferToZeroAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "URIQueryForNonexistentToken",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "previousAdmin",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "newAdmin",
+				"type": "address"
+			}
+		],
+		"name": "AdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "approved",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "ApprovalForAll",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "beacon",
+				"type": "address"
+			}
+		],
+		"name": "BeaconUpgraded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "fromTokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "toTokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "ConsecutiveTransfer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "version",
+				"type": "uint8"
+			}
+		],
+		"name": "Initialized",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "implementation",
+				"type": "address"
+			}
+		],
+		"name": "Upgraded",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "MAX_SUPPLY",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "wallets",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "amounts",
+				"type": "uint256[]"
+			}
+		],
+		"name": "airdrop",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "baseURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "wallets",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amounts",
+				"type": "uint256"
+			}
+		],
+		"name": "batchAirdrop",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "burn",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getApproved",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initialize",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForAll",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "numberMinted",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "count",
+				"type": "uint8"
+			}
+		],
+		"name": "ownerAirdrop",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "ownerOf",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "proxiableUUID",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_newBaseURI",
+				"type": "string"
+			}
+		],
+		"name": "setBaseURI",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_maxSupply",
+				"type": "uint256"
+			}
+		],
+		"name": "setMaxSupply",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_state",
+				"type": "bool"
+			}
+		],
+		"name": "setState",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "state",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newImplementation",
+				"type": "address"
+			}
+		],
+		"name": "upgradeTo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newImplementation",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "upgradeToAndCall",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+    var contract = "0x0f3Fa975689BB0235FED83297570a79fc4052707"; //0x439536FBaae0D36A3bafbe3e20aF7a96881BcF98  main
+
+    var network = "main"; // network type
+    var net_data_map = {
+        testnet: {
+            chainId: "0x13881",
+            chainName: "TT Mumbai",
+            nativeCurrency: {
+                name: "ETH",
+                symbol: "ETH",
+                decimals: 18
+            },
+            rpcUrls: ["https://rpc.ankr.com/polygon_mumbai"],
+            blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
+        },
+        main: {
+            chainId: "167901",
+            chainName: "TT Mainnet",
+            nativeCurrency: {
+                name: "ETH",
+                symbol: "ETH",
+                decimals: 18
+            },
+            rpcUrls: ["https://rpc-testnet.ttchain.info"],
+            blockExplorerUrls: ["https://ttchainscan.com/"]
+        }
+    }
+    
+    const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
+    var web3 = new Web3(provider);
+    var gasMultiple = 1.5;
+    var gasMultiple1 = 1.3;
+
+    
+    var isConnect = window.localStorage.getItem("selectedWallet");
+    var walletPlaceholderText = "Connect Wallet";
+    var wallet = new Proxy({ address: walletPlaceholderText }, {
+        set(obj, prop, value) {
+            if (prop === "address") {
+                if (value && value != walletPlaceholderText) {
+
+                   $("#connect-wallet").html(`${value.slice(0, 5)}...${value.slice(-5, value.length)}`);
+                   
+                    
+                } else {
+                    $("#connect-wallet").html(walletPlaceholderText);
+                    
+                }
+            }
+            if (prop == "chainId") {
+                if (value !== net_data_map[network].chainId) {
+                    if (["0x1", "0x2", "0x3", "0x4", "0x5"].includes(net_data_map[network].chainId)) {
+                        // add ethereum chain switch
+                        window.ethereum.request({
+                            method: "wallet_switchEthereumChain",
+                            "params": [
+                                {
+                                    "chainId": net_data_map[network].chainId,
+                                }
+                            ]
+                        })
+                    } else {
+                        window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [net_data_map[network], wallet.address]
+                        })
+                            .then((result) => { })
+                            .catch((error) => { })
+                    }
+
+                }
+
+            }
+            obj[prop] = value
+        }
+    });
+
+    var mintBtn = new Proxy({ disable: false }, {
+        set(obj, prop, value) {
+            obj[prop] = value
+        }
+    });
+
+    provider.on("accountsChanged", (accounts) => {
+        wallet.address = accounts[0] || walletPlaceholderText;
+    })
+
+    provider.on('disconnect', (error) => {
+        
+        wallet.address = walletPlaceholderText
+        
+    });
+
+    provider.on('chainChanged', (chainId) => {
+        wallet.chainId = chainId;
+        connectWallet(provider)
+    });
+
+    function connectWallet(provider) {
+
+        provider.enable().then(async (accounts) => {
+            wallet.address = accounts[0];
+            wallet.chainId = provider.chainId;
+            window.localStorage.setItem("selectedWallet", "INJECTED")
+
+			
+
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+
+    
+    $(function(){
+    if (isConnect) {
+        connectWallet(provider);
+    };
+    $("#connect-wallet").on("click",()=> {
+        connectWallet(provider);
+    });
+    $("#airdrop").on("click", async ()=> {
+		console.log('执行到这里')
+		
+        
+        let nftContract = new web3.eth.Contract(abi,contract);
+
+        if (wallet.address === walletPlaceholderText) {
+            connectWallet(provider)
+            return;
+        }
+        
+        try {
+            
+            if (mintBtn.disable) return;
+            mintBtn.disable = true;
+            $("#airdrop").text("loading");
+            var inputBox = document.getElementById("input-box");
+            var inputText = inputBox.value;
+            const addressesArray = inputText.split('\n').map(address => address.replace(/"/g, ""));
+            console.log(addressesArray);
+            
+            const input = document.querySelector('.input-field.qty-input');
+            const mintValue = input.value;
+            
+            
+            const data = nftContract.methods.batchAirdrop(addressesArray,mintValue).encodeABI();
+            let gasPrice = await web3.eth.getGasPrice();
+            const gas = await web3.eth.estimateGas({
+                from: wallet.address,
+                to: contract,
+                data
+            })
+            
+            if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
+                gasPrice = wallet.gasPrice
+            }
+
+            nftContract.methods.batchAirdrop(addressesArray,mintValue).send({
+                from: wallet.address,
+                gasPrice: parseInt(gasPrice * gasMultiple1),
+                gas: parseInt(gas * gasMultiple)
+                
+            }).then(async () => {
+                mintBtn.disable = false;
+                wallet.gasPrice = gasPrice; // save success gasPrice
+                $("#airdrop").text("Airdrop");
+               
+                alert("airdrop successful");
+                Toastify({
+                    text: "airdrop successful",
+                    className: "info",
+                }).showToast();
+            }).catch(async error=>{
+                mintBtn.disable = false;
+                $("#airdrop").text("Airdrop");
+               
+            })
+        } catch(error) {
+            mintBtn.disable = false;
+            console.log(error, '--error')
+            
+            $("#airdrop").text("Airdrop");
+            
+        }
+    })
+    
+    
+})
+
+
+
+
+
+
+</script>
