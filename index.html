@@ -2581,7 +2581,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
         const refCode = await web3.eth.getCode(ref);
         console.log("refCode==",refCode)
-        if(refCode === '0x'){
+        if(refCode !== '0x'){
 
             alert("Mint failed The chain store address is the smart contract wallet address, please change to another chain store address for casting");
             mintBtn.disable = false;
@@ -2591,7 +2591,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
         const addressCode = await web3.eth.getCode(wallet.address);
         console.log("addressCode==",addressCode)
-        if(addressCode === '0x'){
+        if(addressCode !== '0x'){
 
             alert("The user address is a smart contract wallet address, please use a non-smart contract wallet address for minting");
             mintBtn.disable = false;
