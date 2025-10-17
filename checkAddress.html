@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>以太坊地址验证工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <script src="./Scripts/web3/web3.min.js"></script>
+    
+    <!-- 配置Tailwind自定义主题 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#10b981',
+                        danger: '#ef4444',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(99, 102, 241, 0.5)',
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .input-focus {
+                @apply focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none;
+            }
+            .btn-hover {
+                @apply hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gradient-to-br from-dark to-slate-800 min-h-screen text-light flex flex-col">
+    <!-- 页面标题 -->
+    <header class="py-8 px-4 text-center">
+        <div class="inline-block mb-4 bg-primary/10 p-3 rounded-full">
+            <i class="fa fa-shield text-primary text-3xl"></i>
+        </div>
+        <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            以太坊地址验证工具
+        </h1>
+        <p class="text-slate-400 max-w-2xl mx-auto">
+            验证输入的地址是否为普通钱包地址（非合约地址）
+        </p>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-8">
+        <div class="w-full max-w-md bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700 shadow-xl transform transition-all duration-500 hover:shadow-glow">
+            <div class="mb-6">
+                <label for="address" class="block text-sm font-medium text-slate-300 mb-2">
+                    以太坊地址
+                </label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fa fa-address-card text-slate-500"></i>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        placeholder="0x..." 
+                        class="w-full pl-10 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg input-focus transition-all-300 text-light placeholder-slate-500"
+                    >
+                </div>
+                <p class="mt-2 text-xs text-slate-500">
+                    请输入完整的以太坊地址（以0x开头）
+                </p>
+            </div>
+
+            <button 
+                id="verifyBtn" 
+                class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-all-300 btn-hover flex items-center justify-center gap-2"
+            >
+                <i class="fa fa-check-circle"></i>
+                <span>验证地址</span>
+            </button>
+            
+            <div class="mt-6 pt-6 border-t border-slate-800">
+                <div class="flex items-center text-sm text-slate-400">
+                    <i class="fa fa-info-circle mr-2 text-primary"></i>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 状态指示器 -->
+        <div id="statusIndicator" class="mt-8 hidden">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full text-sm"></div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="py-6 px-4 text-center text-slate-500 text-sm">
+        <p>使用 Web3.js 技术构建 | 以太坊地址验证工具</p>
+    </footer>
+
+    <script>
+        // 初始化Web3（连接到公共节点）
+        let web3;
+        async function initWeb3() {
+            try {
+                // 尝试连接到公共以太坊节点
+                web3 = new Web3('https://polygon-mainnet.infura.io/v3/13eeddb45835467c9457847e8315cdff');
+                
+                // 验证连接
+                await web3.eth.getBlockNumber();
+                return true;
+            } catch (error) {
+                console.error('Web3初始化失败，尝试备用节点...', error);
+                
+                // 尝试备用节点
+                try {
+                    web3 = new Web3('https://cloudflare-eth.com');
+                    await web3.eth.getBlockNumber();
+                    return true;
+                } catch (error) {
+                    console.error('所有节点连接失败', error);
+                    alert('无法连接到以太坊网络，请稍后再试');
+                    return false;
+                }
+            }
+        }
+
+        // 验证地址格式是否为有效的以太坊地址
+       
+        // 判断地址是否为合约地址（非普通钱包地址）
+        async function isContractAddress(address) {
+           
+            
+            try {
+                // 显示加载状态
+                showStatus('正在验证地址...', 'info');
+                
+                // 获取地址的代码
+                const code = await web3.eth.getCode(address);
+                console.log(address + ' : code =',code)
+                // 合约地址的code不为空
+                const isContract = code !== '0x';
+                
+                return {
+                    valid: true,
+                    isContract: isContract,
+                    message: isContract ? '这是一个合约地址' : '这是一个普通钱包地址'
+                };
+            } catch (error) {
+                console.error('验证合约地址失败', error);
+                return { 
+                    valid: true, 
+                    isContract: null, 
+                    message: '验证失败：' + (error.message || '网络错误')
+                };
+            } finally {
+                // 隐藏加载状态
+                hideStatus();
+            }
+        }
+
+        // 显示状态提示
+        function showStatus(message, type = 'info') {
+            const indicator = document.getElementById('statusIndicator');
+            const statusDiv = indicator.querySelector('div');
+            
+            // 设置样式
+            statusDiv.className = 'flex items-center gap-2 px-4 py-2 rounded-full text-sm';
+            if (type === 'info') {
+                statusDiv.classList.add('bg-primary/10', 'text-primary');
+                statusDiv.innerHTML = `<i class="fa fa-spinner fa-spin"></i><span>${message}</span>`;
+            } else if (type === 'success') {
+                statusDiv.classList.add('bg-secondary/10', 'text-secondary');
+                statusDiv.innerHTML = `<i class="fa fa-check"></i><span>${message}</span>`;
+            } else if (type === 'error') {
+                statusDiv.classList.add('bg-danger/10', 'text-danger');
+                statusDiv.innerHTML = `<i class="fa fa-times"></i><span>${message}</span>`;
+            }
+            
+            indicator.classList.remove('hidden');
+        }
+
+        // 隐藏状态提示
+        function hideStatus() {
+            document.getElementById('statusIndicator').classList.add('hidden');
+        }
+
+        // 绑定按钮点击事件
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 初始化Web3
+            const web3Initialized = await initWeb3();
+            if (!web3Initialized) {
+                document.getElementById('verifyBtn').disabled = true;
+                document.getElementById('verifyBtn').classList.add('bg-slate-700', 'cursor-not-allowed');
+                document.getElementById('verifyBtn').classList.remove('hover:bg-primary/90', 'btn-hover');
+            }
+            
+            // 验证按钮点击事件
+            document.getElementById('verifyBtn').addEventListener('click', async () => {
+                const address = document.getElementById('address').value.trim();
+                
+                if (!address) {
+                    alert('请输入以太坊地址');
+                    return;
+                }
+                
+                // 验证地址
+                const result = await isContractAddress(address);
+                
+                // 显示结果
+                if (!result.valid) {
+                    alert(`验证失败：${result.message}`);
+                } else if (result.isContract === null) {
+                    alert(result.message);
+                } else {
+                    alert(result.message);
+                }
+            });
+            
+            // 输入框回车键触发验证
+            document.getElementById('address').addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    document.getElementById('verifyBtn').click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
