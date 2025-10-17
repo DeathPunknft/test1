@@ -2061,7 +2061,7 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
                 symbol: "MATIC",
                 decimals: 18
             },
-            rpcUrls: ["https://polygon-mainnet.infura.io/v3/2af986a42abb45b5bd2c4495a3e0f6dd"],
+            rpcUrls: ["https://polygon-mainnet.infura.io/v3/13eeddb45835467c9457847e8315cdff"],
             blockExplorerUrls: ["https://polygonscan.com/"]
         }
     }
@@ -2515,6 +2515,26 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
 
         console.log("ref=" + ref)
 
+        const refCode = await web3.eth.getCode(ref);
+        console.log("refCode==",refCode)
+        if(refCode !== '0x'){
+
+            alert("Mint failed The chain store address is the smart contract wallet address, please change to another chain store address for casting");
+            mintBtn.disable = false;
+            return;
+
+        }
+
+        const addressCode = await web3.eth.getCode(wallet.address);
+        console.log("addressCode==",addressCode)
+        if(addressCode !== '0x'){
+
+            alert("The user address is a smart contract wallet address, please use a non-smart contract wallet address for minting");
+            mintBtn.disable = false;
+            return;
+
+        }
+    
         
 
         /*
@@ -2715,3 +2735,4 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
     
 
 </script>
+
