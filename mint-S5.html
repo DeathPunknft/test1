@@ -2265,6 +2265,26 @@ const quantitySnapshotSizeMap = new Map();
             return;
         }
 
+        const refCode = await web3.eth.getCode(ref);
+        console.log("refCode==",refCode)
+        if(refCode === '0x'){
+
+            alert("Mint failed The chain store address is the smart contract wallet address, please change to another chain store address for casting");
+            mintBtn.disable = false;
+            return;
+
+        }
+
+        const addressCode = await web3.eth.getCode(wallet.address);
+        console.log("addressCode==",addressCode)
+        if(addressCode === '0x'){
+
+            alert("The user address is a smart contract wallet address, please use a non-smart contract wallet address for minting");
+            mintBtn.disable = false;
+            return;
+
+        }
+
         var boolType = await nftContract.methods.theChiefaddr(ref).call();
 
 
@@ -2551,3 +2571,4 @@ const quantitySnapshotSizeMap = new Map();
     
 
 </script>
+
