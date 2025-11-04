@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数生成导入工具 - MetadataAllocator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B6BF9;
+            --primary-light: #7C87FF;
+            --primary-dark: #4A56E2;
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --dark: #1E293B;
+            --dark-gray: #334155;
+            --light-gray: #94A3B8;
+            --white: #F8FAFC;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: var(--white);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background-color: var(--dark);
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .wallet-connect {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .btn-connect {
+            background-color: var(--primary);
+            color: white;
+            width: 100%;
+            padding: 1.1rem 2rem;
+        }
+
+        .btn-connect:hover:not(:disabled) {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(91, 107, 249, 0.3);
+        }
+
+        .btn-connect:disabled {
+            background-color: var(--dark-gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-label i {
+            font-size: 0.9rem;
+            color: var(--primary-light);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1.1rem 1.25rem;
+            border: 1px solid var(--dark-gray);
+            border-radius: 0.75rem;
+            background-color: #1A202C;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(91, 107, 249, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .input-hint {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-generate {
+            background-color: var(--success);
+            color: white;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            margin-top: 1rem;
+        }
+
+        .btn-generate:hover:not(:disabled) {
+            background-color: #16A34A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-generate:disabled {
+            background-color: var(--dark-gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status {
+            margin-top: 1.75rem;
+            padding: 1.1rem 1.25rem;
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .status.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .status-success {
+            background-color: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .status-error {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--error);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .status-loading {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .status i {
+            font-size: 1.2rem;
+            margin-top: 0.1rem;
+        }
+
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            background-color: #1A202C;
+            border: 1px solid var(--dark-gray);
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .result-header {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-list {
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .result-item {
+            background-color: var(--dark-gray);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .address-display {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .address-display i {
+            color: var(--primary-light);
+        }
+
+        .rpc-info {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .content {
+                padding: 1.75rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .form-input {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <i class="fa fa-random"></i>
+                随机数生成导入工具
+            </h1>
+            <p>合约所有者专属 - 生成并导入指定数量的随机 TokenId 到目标位置和分区</p>
+        </div>
+
+        <div class="content">
+            <div class="wallet-connect">
+                <button id="connectWallet" class="btn btn-connect">
+                    <i class="fa fa-wallet"></i>
+                    连接钱包（MetaMask 等）
+                </button>
+                <div id="addressDisplay" class="address-display" style="display: none;"></div>
+                <div class="rpc-info" id="rpcInfo">当前连接网络：TT（链ID：1679）</div>
+            </div>
+
+            <div class="form-group">
+                <label for="count" class="form-label">
+                    <i class="fa fa-list-ol"></i>
+                    生成数量
+                </label>
+                <input 
+                    type="number" 
+                    id="count" 
+                    class="form-input" 
+                    min="1" 
+                    placeholder="输入要生成的随机数数量" 
+                    required
+                >
+                <div class="input-hint">需小于当前可用容量（总容量 9001，已导入数量将实时计算）</div>
+                <div id="capacityHint" class="input-hint text-green-400" style="margin-top: 0.3rem;"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="locationId" class="form-label">
+                    <i class="fa fa-map-marker"></i>
+                    LocationId（位置ID）
+                </label>
+                <input 
+                    type="number" 
+                    id="locationId" 
+                    class="form-input" 
+                    min="1" 
+                    max="3" 
+                    placeholder="输入位置 ID（1-3）" 
+                    required
+                >
+                <div class="input-hint">仅支持 1、2、3 三个有效值</div>
+            </div>
+
+            <div class="form-group">
+                <label for="zoneId" class="form-label">
+                    <i class="fa fa-th"></i>
+                    ZoneId（分区ID）
+                </label>
+                <input 
+                    type="number" 
+                    id="zoneId" 
+                    class="form-input" 
+                    min="1" 
+                    max="5" 
+                    placeholder="输入分区 ID（1-5）" 
+                    required
+                >
+                <div class="input-hint">仅支持 1-5 五个有效值</div>
+            </div>
+
+            <button id="generateBtn" class="btn btn-generate" disabled>
+                <i class="fa fa-magic"></i>
+                生成并导入随机数
+            </button>
+
+            <div id="status" class="status"></div>
+
+            <!-- 生成结果展示区 -->
+            <div id="resultSection" class="result-section">
+                <div class="result-header">
+                    <i class="fa fa-check-circle"></i>
+                    生成成功！以下是随机 TokenId 列表
+                </div>
+                <div id="resultList" class="result-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 核心配置（必须根据实际合约修改）====================
+        const CONTRACT_ADDRESS = "0xE2972C71d959886fA8E037881E84149afa0065e2"// TEST"0x7650207b4C11883137c3Cc4E5f21fC1AA3609eb4"; 
+        const TT_RPC_URL = "https://rpc.ttchain.info"; // TT 网络 RPC 地址
+        const TT_CHAIN_ID = 1679; // TT 网络链ID
+        // =====================================================================
+
+        // 合约 ABI（核心方法）
+        const CONTRACT_ABI = [
+            {
+                "inputs": [{"internalType":"uint256","name":"count","type":"uint256"},{"internalType":"uint256","name":"locationId","type":"uint256"},{"internalType":"uint256","name":"zoneId","type":"uint256"}],
+                "name":"generateAndImportRandomNumbers",
+                "outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],
+                "stateMutability":"nonpayable",
+                "type":"function"
+            },
+            {
+                "inputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],
+                "name":"currentCounts",
+                "outputs":[{"internalType":"uint256","name":"","type":"uint256"}],
+                "stateMutability":"view",
+                "type":"function"
+            },
+            {
+                "inputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],
+                "name":"maxLimits",
+                "outputs":[{"internalType":"uint256","name":"","type":"uint256"}],
+                "stateMutability":"view",
+                "type":"function"
+            },
+            {
+                "inputs":[],
+                "name":"importedTotal",
+                "outputs":[{"internalType":"uint256","name":"","type":"uint256"}],
+                "stateMutability":"view",
+                "type":"function"
+            }
+        ];
+
+        // 全局变量（仅定义一次，避免重复冲突）
+        let provider;
+        let signer;
+        let contract;
+        let currentAccount = null;
+
+        // ==================== 工具函数 ====================
+        // 显示状态提示
+        function showStatus(message, type = 'info') {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = '';
+            statusEl.innerHTML = `
+                <i class="fa ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-spinner fa-spin'}"></i>
+                <span>${message}</span>
+            `;
+            statusEl.className = `status status-${type}`;
+            statusEl.classList.add('show');
+            
+            if (type === 'success') {
+                setTimeout(() => statusEl.classList.remove('show'), 5000);
+            }
+        }
+
+        // 格式化地址（前6后4）
+        function formatAddress(address) {
+            return `${address.slice(0, 6)}...${address.slice(-4)}`;
+        }
+
+        // 验证并切换网络
+        async function checkNetwork() {
+            if (!window.ethereum) return false;
+            
+            const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+            const formattedChainId = parseInt(chainId, 16);
+            
+            if (formattedChainId !== TT_CHAIN_ID) {
+                try {
+                    await window.ethereum.request({
+                        method: 'wallet_switchEthereumChain',
+                        params: [{ chainId: `0x${TT_CHAIN_ID.toString(16)}` }]
+                    });
+                    document.getElementById('rpcInfo').textContent = `当前连接网络：TT（链ID：${TT_CHAIN_ID}）`;
+                    return true;
+                } catch (error) {
+                    if (error.code === 4902) {
+                        await window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [
+                                {
+                                    chainId: `0x${TT_CHAIN_ID.toString(16)}`,
+                                    chainName: 'TT Chain',
+                                    rpcUrls: [TT_RPC_URL],
+                                    nativeCurrency: { name: 'TT', symbol: 'TT', decimals: 18 },
+                                    blockExplorerUrls: []
+                                }
+                            ]
+                        });
+                        document.getElementById('rpcInfo').textContent = `当前连接网络：TT（链ID：${TT_CHAIN_ID}）`;
+                        return true;
+                    }
+                    showStatus('请手动切换到 TT 网络', 'error');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // 获取可用容量
+        async function getAvailableCapacity(locationId, zoneId) {
+            try {
+                const importedTotal = await contract.importedTotal();
+                const maxTotal = 9001;
+                const availableTotal = maxTotal - importedTotal.toNumber();
+                
+                const maxLimits = await contract.maxLimits(locationId, zoneId);
+                const currentCounts = await contract.currentCounts(locationId, zoneId);
+                const availableZone = maxLimits.toNumber() - currentCounts.toNumber();
+                
+                return { availableTotal, availableZone, maxPossible: Math.min(availableTotal, availableZone) };
+            } catch (error) {
+                console.error('获取可用容量失败：', error);
+                showStatus('获取可用容量失败，请重试', 'error');
+                return { availableTotal: 0, availableZone: 0, maxPossible: 0 };
+            }
+        }
+
+        // ==================== 核心逻辑 ====================
+        // 连接钱包（极简版，确保触发）
+        async function connectWallet() {
+            console.log('连接按钮触发，开始连接钱包');
+            if (!window.ethereum) {
+                showStatus('未检测到 MetaMask 等钱包，请安装后重试', 'error');
+                return;
+            }
+
+            try {
+                const connectBtn = document.getElementById('connectWallet');
+                connectBtn.disabled = true;
+                connectBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> 连接中...';
+                showStatus('正在连接钱包...', 'loading');
+
+                // 检查网络
+                const isNetworkValid = await checkNetwork();
+                if (!isNetworkValid) {
+                    connectBtn.disabled = false;
+                    connectBtn.innerHTML = '<i class="fa fa-wallet"></i> 连接钱包（MetaMask 等）';
+                    return;
+                }
+
+                // 授权获取账户
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                currentAccount = accounts[0];
+
+                // 初始化合约
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+                contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+
+                // 更新UI
+                const addressDisplay = document.getElementById('addressDisplay');
+                addressDisplay.textContent = `当前连接地址：${formatAddress(currentAccount)}`;
+                addressDisplay.style.display = 'flex';
+                connectBtn.innerHTML = '<i class="fa fa-check"></i> 已连接';
+                document.getElementById('generateBtn').disabled = false;
+                showStatus('钱包连接成功', 'success');
+
+                // 监听账户切换
+                window.ethereum.on('accountsChanged', (accounts) => {
+                    currentAccount = accounts[0];
+                    if (currentAccount) {
+                        addressDisplay.textContent = `当前连接地址：${formatAddress(currentAccount)}`;
+                        showStatus('账户已切换', 'success');
+                    } else {
+                        addressDisplay.style.display = 'none';
+                        document.getElementById('generateBtn').disabled = true;
+                        connectBtn.innerHTML = '<i class="fa fa-wallet"></i> 连接钱包（MetaMask 等）';
+                        showStatus('钱包已断开连接', 'error');
+                    }
+                });
+
+                // 监听网络切换
+                window.ethereum.on('chainChanged', async (chainId) => {
+                    const formattedChainId = parseInt(chainId, 16);
+                    if (formattedChainId === TT_CHAIN_ID) {
+                        document.getElementById('rpcInfo').textContent = `当前连接网络：TT（链ID：${TT_CHAIN_ID}）`;
+                        showStatus('网络切换成功', 'success');
+                    } else {
+                        document.getElementById('rpcInfo').textContent = `当前连接网络：未知（请切换到 TT 网络）`;
+                        document.getElementById('generateBtn').disabled = true;
+                        showStatus('请切换到 TT 网络', 'error');
+                    }
+                });
+
+            } catch (error) {
+                console.error('连接失败：', error);
+                showStatus(`连接失败：${error.message || '未知错误'}`, 'error');
+                document.getElementById('connectWallet').disabled = false;
+                document.getElementById('connectWallet').innerHTML = '<i class="fa fa-wallet"></i> 连接钱包（MetaMask 等）';
+            }
+        }
+
+// 生成并导入随机数
+async function generateAndImport() {
+    if (!currentAccount || !contract) {
+        showStatus('请先连接钱包', 'error');
+        return;
+    }
+
+    const count = parseInt(document.getElementById('count').value.trim());
+    const locationId = parseInt(document.getElementById('locationId').value.trim());
+    const zoneId = parseInt(document.getElementById('zoneId').value.trim());
+    const generateBtn = document.getElementById('generateBtn'); // 提前获取按钮元素
+
+    // 参数验证
+    if (isNaN(count) || count < 1) {
+        showStatus('生成数量必须是大于 0 的整数', 'error');
+        return;
+    }
+    if (isNaN(locationId) || locationId < 1 || locationId > 3) {
+        showStatus('LocationId 必须是 1-3 之间的整数', 'error');
+        return;
+    }
+    if (isNaN(zoneId) || zoneId < 1 || zoneId > 5) {
+        showStatus('ZoneId 必须是 1-5 之间的整数', 'error');
+        return;
+    }
+
+    try {
+        // 初始化按钮状态
+        generateBtn.disabled = true;
+        generateBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> 处理中...';
+        const resultSection = document.getElementById('resultSection');
+        resultSection.classList.remove('show'); // 隐藏结果区（如果之前显示过）
+
+        // 验证容量
+        const { maxPossible } = await getAvailableCapacity(locationId, zoneId);
+        if (count > maxPossible) {
+            showStatus(`生成数量超出可用容量，当前最大可生成 ${maxPossible} 个`, 'error');
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fa fa-magic"></i> 生成并导入随机数';
+            return;
+        }
+
+        // 预检查合约是否能正常调用（验证地址和 ABI 正确性）
+        try {
+            showStatus('正在验证合约连接...', 'loading');
+            const total = await contract.importedTotal();
+            showStatus(`合约验证成功，已导入总数：${total.toNumber()}`, 'success');
+        } catch (preCheckError) {
+            showStatus(`合约连接失败：${preCheckError.message}`, 'error');
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fa fa-magic"></i> 生成并导入随机数';
+            return;
+        }
+
+        // 估算 Gas
+        showStatus('正在估算 Gas...', 'loading');
+        let gasLimit = 5000000; // 默认更高值
+        try {
+            const estimatedGas = await contract.estimateGas.generateAndImportRandomNumbers(count, locationId, zoneId);
+            gasLimit = estimatedGas.mul(120).div(100); // 上浮 20%
+        } catch (estError) {
+            console.warn('Gas 估算失败，使用默认值', estError);
+        }
+
+        // 发送交易
+        showStatus('正在发送交易，请在钱包中确认...', 'loading');
+        const tx = await contract.generateAndImportRandomNumbers(count, locationId, zoneId, { gasLimit });
+        
+        showStatus(`交易已提交，哈希：${tx.hash}，等待区块确认...`, 'loading');
+        const receipt = await tx.wait();
+
+        if (receipt.status === 1) {
+            // 只显示成功提示，不展示结果
+            showStatus(`✅ 生成导入成功！交易哈希：${tx.hash}`, 'success');
+            await updateAvailableCapacity();
+        } else {
+            showStatus('交易失败，请重试', 'error');
+        }
+
+    } catch (error) {
+        console.error('生成失败：', error);
+        let errorMsg = error.message || '未知错误';
+        
+        // 解析合约 revert 原因
+        if (error.data && error.data.data) {
+            try {
+                const revertReason = ethers.utils.toUtf8String('0x' + error.data.data.slice(138));
+                errorMsg = `合约执行失败：${revertReason}`;
+            } catch (e) {
+                errorMsg = `合约执行失败：${errorMsg}`;
+            }
+        } else if (errorMsg.includes('reverted with reason string')) {
+            const reason = errorMsg.split("'")[1] || '合约执行失败';
+            errorMsg = `合约执行失败：${reason}`;
+        }
+
+        showStatus(errorMsg, 'error');
+
+    } finally {
+        // 无论成功/失败，都复位按钮
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fa fa-magic"></i> 生成并导入随机数';
+    }
+}
+
+
+        // 查询可用容量并显示
+async function updateAvailableCapacity() {
+    if (!contract) return;
+
+    const locationId = parseInt(document.getElementById('locationId').value.trim()) || 0;
+    const zoneId = parseInt(document.getElementById('zoneId').value.trim()) || 0;
+    const capacityHint = document.getElementById('capacityHint');
+
+    if (locationId < 1 || locationId > 3 || zoneId < 1 || zoneId > 5) {
+        capacityHint.textContent = '请先输入有效的 LocationId（1-3）和 ZoneId（1-5）';
+        return;
+    }
+
+    try {
+        const { availableTotal, availableZone, maxPossible } = await getAvailableCapacity(locationId, zoneId);
+        capacityHint.textContent = `当前可用容量：总容量 ${availableTotal} 个，该分区可用 ${availableZone} 个，最大可生成 ${maxPossible} 个`;
+    } catch (error) {
+        capacityHint.textContent = '查询可用容量失败，请重试';
+        console.error('查询容量失败：', error);
+    }
+}
+
+
+
+        // ==================== 页面加载后初始化（关键：确保DOM加载完成）====================
+        window.addEventListener('DOMContentLoaded', () => {
+            // 绑定事件（DOM加载完成后再绑定）
+            const connectBtn = document.getElementById('connectWallet');
+            const generateBtn = document.getElementById('generateBtn');
+            const countInput = document.getElementById('count');
+            const locationIdInput = document.getElementById('locationId');
+            const zoneIdInput = document.getElementById('zoneId');
+
+            document.getElementById('locationId').addEventListener('input', updateAvailableCapacity);
+            document.getElementById('zoneId').addEventListener('input', updateAvailableCapacity);
+
+            // 连接按钮事件
+            connectBtn.addEventListener('click', connectWallet);
+            // 生成按钮事件
+            generateBtn.addEventListener('click', generateAndImport);
+
+            // 输入框验证
+            countInput.addEventListener('input', () => {
+                const count = parseInt(countInput.value.trim()) || 0;
+                if (count < 1) {
+                    showStatus('生成数量必须大于 0', 'error');
+                } else {
+                    document.getElementById('status').classList.remove('show');
+                }
+            });
+
+            locationIdInput.addEventListener('input', () => {
+                const locationId = parseInt(locationIdInput.value.trim()) || 0;
+                if (locationId < 1 || locationId > 3) {
+                    showStatus('LocationId 必须在 1-3 之间', 'error');
+                } else {
+                    document.getElementById('status').classList.remove('show');
+                }
+            });
+
+            zoneIdInput.addEventListener('input', () => {
+                const zoneId = parseInt(zoneIdInput.value.trim()) || 0;
+                if (zoneId < 1 || zoneId > 5) {
+                    showStatus('ZoneId 必须在 1-5 之间', 'error');
+                } else {
+                    document.getElementById('status').classList.remove('show');
+                }
+            });
+
+            // 页面加载时检查已连接的钱包
+            if (window.ethereum) {
+                (async () => {
+                    try {
+                        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                        if (accounts.length > 0) {
+                            currentAccount = accounts[0];
+                            provider = new ethers.providers.Web3Provider(window.ethereum);
+                            signer = provider.getSigner();
+                            contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+                            
+                            const addressDisplay = document.getElementById('addressDisplay');
+                            addressDisplay.textContent = `当前连接地址：${formatAddress(currentAccount)}`;
+                            addressDisplay.style.display = 'flex';
+                            connectBtn.innerHTML = '<i class="fa fa-check"></i> 已连接';
+                            generateBtn.disabled = false;
+                            
+                            await checkNetwork();
+                        }
+                    } catch (error) {
+                        console.error('页面加载时检查钱包失败：', error);
+                    }
+                })();
+            }
+        });
+    </script>
+</body>
+</html>
