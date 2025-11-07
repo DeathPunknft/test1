@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT链-原生代币批量转账工具</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Ethers.js v6 -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.1/dist/ethers.umd.min.js"></script>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1', // 主蓝色
+                        accent: '#22C55E', // 绿色按钮
+                        dark: '#0F172A',   // 最深层背景
+                        'dark-secondary': '#1E293B', // 中灰背景
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .input-large {
+                @apply w-full px-4 py-3 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all border border-gray-600 bg-dark-secondary text-gray-200;
+            }
+            .btn-connect {
+                @apply bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 text-lg;
+            }
+            .btn-action {
+                @apply bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 text-lg;
+            }
+            .status-success {
+                @apply text-accent bg-accent/10 p-3 rounded-lg border border-accent/20 mt-4;
+            }
+            .status-error {
+                @apply text-red-500 bg-red-500/10 p-3 rounded-lg border border-red-500/20 mt-4;
+            }
+            .status-loading {
+                @apply text-primary bg-primary/10 p-3 rounded-lg border border-primary/20 mt-4;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark font-sans text-gray-200 min-h-screen p-4 md:p-8">
+    <div class="max-w-3xl mx-auto bg-dark-secondary rounded-xl shadow-xl p-6 md:p-8">
+        <!-- 顶部标题区 -->
+        <div class="bg-primary rounded-t-xl p-6 text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold">
+                <i class="fa fa-exchange mr-2"></i>TT链-原生代币批量转账工具
+            </h1>
+            <p class="text-gray-300 mt-2">合约所有者专属 - 1对多批量转账原生代币（自动处理18位小数）</p>
+        </div>
+
+        <!-- 钱包连接区 -->
+        <div class="text-center mb-8">
+            <button id="connectWalletBtn" class="btn-connect">
+                <i class="fa fa-wallet mr-2"></i>连接钱包
+            </button>
+            <div id="walletInfo" class="mt-4 hidden">
+                <p class="text-gray-400">当前连接地址：<span id="walletAddr" class="font-mono truncate inline-block w-40"></span></p>
+                <p class="text-gray-400">当前网络：<span id="networkName">TT 链</span>（链ID：<span id="chainId">1679</span>）</p>
+            </div>
+        </div>
+
+       
+
+        <!-- 核心操作区 -->
+        <div class="space-y-6 mb-8">
+            <!-- 转账数量调节 -->
+            <div>
+                <label class="block text-gray-300 font-bold mb-2 flex items-center">
+                    <i class="fa fa-ticket mr-2 text-primary"></i>每个地址转账数量（自动乘以1e18）
+                </label>
+                <div class="flex items-center bg-dark rounded-lg p-1 border border-gray-600">
+                    <button id="decreaseBtn" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded transition-colors" disabled>
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <input 
+                        type="number" 
+                        id="transferAmount" 
+                        class="input-large text-center mx-2 bg-dark border-0" 
+                        value="1" 
+                        min="1" 
+                    >
+                    <button id="increaseBtn" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded transition-colors">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+                <p class="text-gray-400 text-sm mt-1">注：输入的数量会自动乘以 1e18（18位小数），如输入 1 表示转账 1 个原生代币</p>
+            </div>
+
+            <!-- 转账地址列表 -->
+            <div>
+                <label class="block text-gray-300 font-bold mb-2 flex items-center">
+                    <i class="fa fa-list-ul mr-2 text-primary"></i>转账地址列表（每行一个地址）
+                </label>
+                <textarea 
+                    id="addressList" 
+                    class="input-large h-48" 
+                    placeholder="0x1234567890abcdef1234567890abcdef12345678
+0x876543210fedcba09876543210fedcba09876543
+...（每行一个地址，支持空格/空行自动过滤）"
+                ></textarea>
+                <p class="text-gray-400 text-sm mt-2">提示：支持粘贴多行地址，自动过滤空行、空格和无效地址</p>
+            </div>
+
+            <!-- 统计信息 -->
+            <div class="bg-dark p-4 rounded-lg border border-gray-600">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-gray-400 mb-1">有效地址数</p>
+                        <p id="validAddressCount" class="text-xl font-bold">0</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 mb-1">总转账数量（wei）</p>
+                        <p id="totalTransferAmount" class="text-xl font-bold">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作按钮区 -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <button id="executeBtn" class="btn-action flex-1" disabled>
+                <i class="fa fa-rocket mr-2"></i>执行批量转账
+            </button>
+            <button id="refreshBtn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 text-lg flex-1">
+                <i class="fa fa-refresh mr-2"></i>刷新数据
+            </button>
+        </div>
+
+        <!-- 状态提示区 -->
+        <div id="statusContainer" class="mt-6 hidden">
+            <div id="statusContent" class="status-loading">
+                <i class="fa fa-spinner fa-spin mr-2"></i>处理中...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局配置 - 替换为你的实际合约地址
+        const BATCH_CONTRACT_ABI = [
+            {
+                "inputs": [],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    { "indexed": true, "internalType": "address", "name": "sender", "type": "address" },
+                    { "indexed": false, "internalType": "uint256", "name": "totalAmount", "type": "uint256" },
+                    { "indexed": false, "internalType": "uint256", "name": "recipientCount", "type": "uint256" }
+                ],
+                "name": "BatchTransfer",
+                "type": "event"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    { "indexed": false, "internalType": "bool", "name": "isActive", "type": "bool" }
+                ],
+                "name": "ContractStatusUpdated",
+                "type": "event"
+            },
+            {
+                "inputs": [
+                    { "internalType": "address[]", "name": "recipients", "type": "address[]" },
+                    { "internalType": "uint256", "name": "amount", "type": "uint256" }
+                ],
+                "name": "batchTransferEqualAmount",
+                "outputs": [],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "isActive",
+                "outputs": [
+                    { "internalType": "bool", "name": "", "type": "bool" }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    { "internalType": "bool", "name": "_isActive", "type": "bool" }
+                ],
+                "name": "setContractStatus",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    { "internalType": "uint256", "name": "amount", "type": "uint256" }
+                ],
+                "name": "withdrawNativeToken",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            "receive"
+        ];
+
+        // 全局变量
+        let provider = "https://rpc.ttchain.info";
+        let signer = null;
+        let batchContract = "0x5F14a718bDB0a75DF8Bb7232bc3dF3450f3480C2";
+        const DECIMALS = 18; // 原生代币默认18位小数
+
+        // DOM 元素
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const walletInfo = document.getElementById('walletInfo');
+        const walletAddr = document.getElementById('walletAddr');
+        const networkName = document.getElementById('networkName');
+        const chainId = document.getElementById('chainId');
+        const batchContractAddress = document.getElementById('batchContractAddress');
+        const transferAmount = document.getElementById('transferAmount');
+        const decreaseBtn = document.getElementById('decreaseBtn');
+        const increaseBtn = document.getElementById('increaseBtn');
+        const addressList = document.getElementById('addressList');
+        const validAddressCount = document.getElementById('validAddressCount');
+        const totalTransferAmount = document.getElementById('totalTransferAmount');
+        const executeBtn = document.getElementById('executeBtn');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const statusContainer = document.getElementById('statusContainer');
+        const statusContent = document.getElementById('statusContent');
+
+        // 初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            // 数量调节
+            decreaseBtn.addEventListener('click', () => {
+                if (parseInt(transferAmount.value) > 1) {
+                    transferAmount.value = parseInt(transferAmount.value) - 1;
+                    updateStats();
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                transferAmount.value = parseInt(transferAmount.value) + 1;
+                updateStats();
+            });
+
+            // 地址列表变化时更新统计
+            addressList.addEventListener('input', updateStats);
+
+            // 按钮事件
+            connectWalletBtn.addEventListener('click', connectWallet);
+            executeBtn.addEventListener('click', executeBatchTransfer);
+            refreshBtn.addEventListener('click', refreshData);
+
+            // 初始更新统计
+            updateStats();
+        });
+
+        // 连接钱包
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    showStatus('正在连接钱包...', 'loading');
+                    
+                    // 连接钱包
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    provider = new ethers.BrowserProvider(window.ethereum);
+                    signer = await provider.getSigner();
+                    const address = await signer.getAddress();
+                    const chain = await provider.getNetwork();
+
+                    // 更新 UI
+                    connectWalletBtn.textContent = '已连接钱包';
+                    connectWalletBtn.disabled = true;
+                    walletInfo.classList.remove('hidden');
+                    walletAddr.textContent = address;
+                    networkName.textContent = chain.name || '未知网络';
+                    chainId.textContent = chain.chainId;
+
+                    // 初始化合约
+                    await initContract();
+
+                    // 刷新数据
+                    await refreshData();
+
+                    showStatus('钱包连接成功', 'success');
+                } catch (error) {
+                    showStatus(`钱包连接失败：${error.message}`, 'error');
+                    console.error('连接钱包错误:', error);
+                }
+            } else {
+                showStatus('未检测到钱包，请安装 MetaMask 等钱包插件', 'error');
+            }
+        }
+
+        // 初始化合约
+        async function initContract() {
+            try {
+                const addr = batchContract;
+                if (!ethers.isAddress(addr)) {
+                    throw new Error('合约地址无效');
+                }
+
+                // 初始化批量转账合约
+                batchContract = new ethers.Contract(addr, BATCH_CONTRACT_ABI, signer);
+                executeBtn.disabled = false;
+
+                showStatus('合约初始化成功', 'success');
+            } catch (error) {
+                showStatus(`合约初始化失败：${error.message}`, 'error');
+                executeBtn.disabled = true;
+                console.error('初始化合约错误:', error);
+            }
+        }
+
+        // 刷新数据（合约状态）
+        async function refreshData() {
+            if (!batchContract) {
+                showStatus('请先连接钱包和合约', 'error');
+                return;
+            }
+
+            try {
+                showStatus('正在刷新合约状态...', 'loading');
+
+                const isActive = await batchContract.isActive();
+                const statusText = isActive ? '合约已激活' : '合约已暂停';
+                showStatus(`合约状态：${statusText}`, 'success');
+            } catch (error) {
+                showStatus(`刷新数据失败：${error.message}`, 'error');
+                console.error('刷新数据错误:', error);
+            }
+        }
+
+        // 执行批量转账
+       // 执行批量转账函数中，修改金额计算部分
+        async function executeBatchTransfer() {
+            if (!batchContract || !signer) {
+                showStatus('请先连接钱包和合约', 'error');
+                return;
+            }
+
+            try {
+                const recipients = parseAddressList();
+                const amount = parseFloat(transferAmount.value); // 支持小数输入
+                if (isNaN(amount) || amount <= 0) {
+                    throw new Error('转账数量必须大于 0');
+                }
+
+                // 关键修复：用 ethers.parseEther 直接转换输入的小数（确保精度无丢失）
+                const amountWei = ethers.parseEther(amount.toString()); 
+                // 总金额 = 单地址金额 * 地址数量（BigInt 运算，无精度误差）
+                const totalAmountWei = amountWei * BigInt(recipients.length);
+
+                if (recipients.length === 0) {
+                    throw new Error('地址列表为空');
+                }
+
+                showStatus(`正在执行批量转账... 共 ${recipients.length} 个地址，每个地址 ${amount} 个代币，总金额 ${ethers.formatEther(totalAmountWei)} 原生代币`, 'loading');
+                executeBtn.disabled = true;
+
+                // 调用合约，确保 value 严格等于 totalAmountWei
+                const tx = await batchContract.batchTransferEqualAmount(recipients, amountWei, {
+                    value: totalAmountWei, // 核心：金额完全匹配
+                    gasLimit: 5000000 // 足够 Gas 应对多个地址
+                });
+
+                await tx.wait();
+                showStatus(`批量转账成功！交易哈希：${tx.hash}`, 'success');
+                // 后续逻辑...
+            } catch (error) {
+                showStatus(`转账失败：${error.message}`, 'error');
+            }
+        }
+
+        // 解析地址列表
+        function parseAddressList() {
+            return addressList.value
+                .split('\n')
+                .map(addr => addr.trim())
+                .filter(addr => addr !== '' && ethers.isAddress(addr));
+        }
+
+        // 更新统计信息
+        function updateStats() {
+            const recipients = parseAddressList();
+            const amount = parseInt(transferAmount.value);
+            const amountWei = ethers.parseEther(amount.toString());
+            const totalAmountWei = amountWei * BigInt(recipients.length);
+
+            validAddressCount.textContent = recipients.length;
+            totalTransferAmount.textContent = ethers.formatEther(totalAmountWei) || '0';
+        }
+
+        // 显示状态提示
+        function showStatus(message, type) {
+            statusContainer.classList.remove('hidden');
+            statusContent.textContent = message;
+            
+            // 移除所有状态类
+            statusContent.classList.remove('status-success', 'status-error', 'status-loading');
+            
+            // 添加对应状态类
+            if (type === 'success') {
+                statusContent.classList.add('status-success');
+                statusContent.innerHTML = `<i class="fa fa-check-circle mr-2"></i>${message}`;
+            } else if (type === 'error') {
+                statusContent.classList.add('status-error');
+                statusContent.innerHTML = `<i class="fa fa-exclamation-circle mr-2"></i>${message}`;
+            } else {
+                statusContent.classList.add('status-loading');
+                statusContent.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i>${message}`;
+            }
+
+            // 5秒后自动隐藏成功/错误提示
+            if (type !== 'loading') {
+                setTimeout(() => {
+                    statusContainer.classList.add('hidden');
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
