@@ -3083,6 +3083,42 @@
 
             }
 
+
+		function filterS8Data(location,zone,tokenIds){
+
+            //  console.log(typeof zone);
+
+            var filterData = [];
+
+            tokenIds.forEach(function(tokenId) {
+            var data = metaDataS8.find(function(item) {
+                return item.token_id.toString() === tokenId;
+            });
+
+            if (data) {
+                filterData.push(data);
+            }
+            });
+
+            var filterTokenIds = [];
+            console.log(typeof zone)
+            var filterTokenIds = filterData.filter(function(item) {
+
+                if( zone === "0"){
+                    return item.location_name === location;
+                }else if(location === "0"){
+                    return item.zone === Number(zone);
+                }else{
+                    return item.location_name === location && item.zone == zone;
+                }
+                }).map(function(item) {
+                return item.token_id;
+                });
+
+            return filterTokenIds;
+
+            }
+
         function checkSnapshot(tokenId){
             
             var result = snapshot.find(function(item) {
@@ -3777,4 +3813,5 @@ $(function(){
    
     </script>
 </html>
+
 
