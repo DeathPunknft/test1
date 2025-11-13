@@ -375,7 +375,7 @@ var network = "main"; // network type
     var wlPassContract = new web3.eth.Contract(wlPassAbi, wlPassContractAddress);
     var wlContractQuery = new web3.eth.Contract(wlAbi, wlContract);
     var polygon_web3 = new Web3("https://polygon-mainnet.infura.io/v3/2af986a42abb45b5bd2c4495a3e0f6dd");
-    var rwaContract = new polygon_web3.eth.Contract(rwa_abi, rwa_contract);
+    var rwaContract = new web3.eth.Contract(rwa_abi, rwa_contract);
 
     var isConnect = window.localStorage.getItem("selectedWallet");
     
