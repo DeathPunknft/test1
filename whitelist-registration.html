@@ -246,7 +246,7 @@ const nextButton = document.querySelector("#Next");
 		"type": "function"
 	}];   
 
-  var rwa_contract = "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";//S2 "0x291B1BD67eC8D1E194dB36d92B17823186b54F44"; //0xbf48f62b685790015a24437db3773eabb97ca282  rwa_main
+  var rwa_contract = "0xae22c5a498347E20EC61f1535C6d80D73bCD3262"; //0xbf48f62b685790015a24437db3773eabb97ca282  rwa_main
 
 
 var network = "main"; // network type
@@ -264,15 +264,15 @@ var network = "main"; // network type
             blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
         },
         main: {
-            chainId: "0x89",
-            chainName: "Polygon Mainnet",
+            chainId: "1679",
+            chainName: "tt-chain",
             nativeCurrency: {
                 name: "MATIC",
                 symbol: "MATIC",
                 decimals: 18
             },
-            rpcUrls: ["https://polygon-rpc.com/"],
-            blockExplorerUrls: ["https://polygonscan.com/"]
+            rpcUrls: ["https://rpc.ttchain.info"],
+            blockExplorerUrls: ["https://ttchainscan.com/"]
         }
     }
     var wlPassAbi = [{
@@ -295,7 +295,7 @@ var network = "main"; // network type
         "stateMutability":"nonpayable",
         "type":"function"
     }];
-    var wlPassContractAddress = "0x5F5A66f3A3277524ec06f322b06b017aC2a98FcC" //s11 "0x883a132E30318817Ab504025b331e8A86b003952" //s10 "0xdee64C01b41F1D8d9a38CC7b25dc971353A561a7" //S9 "0x67Cc244Da4c7d6C4bC09A205F5C959eAc97636DB" //S8 "0x0e4D93C27Ba7109F96e84A4dD11b85aFCE15e90E"; //S4"0xE37c815F1726Ad82B87cA737d454a6A6ec9047A2" //S3 "0xe596B26F8014135F01412f5eaE6582Be1C310Bc0"; //"0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8"; old main
+    var wlPassContractAddress = "0x6540226B6B538fcD84Eb55d0152bFDaD0EAE677E"  // "0x5F5A66f3A3277524ec06f322b06b017aC2a98FcC" // "0x883a132E30318817Ab504025b331e8A86b003952" //s10 "0xdee64C01b41F1D8d9a38CC7b25dc971353A561a7" //S9 "0x67Cc244Da4c7d6C4bC09A205F5C959eAc97636DB" // S8 "0x0e4D93C27Ba7109F96e84A4dD11b85aFCE15e90E"; //S4 "0xE37c815F1726Ad82B87cA737d454a6A6ec9047A2" // S3 "0x1B635CC32B58F12922cc41b7574Badd36BD7E0A8";
 
     var wlAbi = [{
         "inputs": [
@@ -316,7 +316,7 @@ var network = "main"; // network type
         "stateMutability": "view",
         "type": "function"
     },
-	{
+    {
         "inputs": [
             {
                 "internalType": "address",
@@ -344,17 +344,38 @@ var network = "main"; // network type
         ],
         "stateMutability": "view",
         "type": "function"
-    }];
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+  ];
 
-    var wlContract = "0x91fD5C81407Bf9CCd160F5F6f2c74BdD0777B00b";
+    var wlContract = "0x9bca33C1d852bBd8274a749Bc358B6CdcFB33604";
     
     const provider = window.ethereum || window.web3 || (window.bitkeep && window.bitkeep.ethereum);
     var web3 = new Web3(provider);
-    var gasMultiple = 1.6;
+    var gasMultiple = 1.8;
     var gasMultiple1 = 1.3;
     var wlPassContract = new web3.eth.Contract(wlPassAbi, wlPassContractAddress);
     var wlContractQuery = new web3.eth.Contract(wlAbi, wlContract);
-    var rwaContract = new web3.eth.Contract(rwa_abi, rwa_contract);
+    var polygon_web3 = new Web3("https://polygon-mainnet.infura.io/v3/2af986a42abb45b5bd2c4495a3e0f6dd");
+    var rwaContract = new polygon_web3.eth.Contract(rwa_abi, rwa_contract);
 
     var isConnect = window.localStorage.getItem("selectedWallet");
     
@@ -438,17 +459,17 @@ var network = "main"; // network type
     
 
     async function fetchDataAndRender() {
-        try {
+   //     try {
           console.log("wallet.address", wallet.address);
 
-          var tokenIds = await getTokenIds(wallet.address,20211,105000,3000);
+          var tokenIds = await getTokenIds(wallet.address,0,13000,3000);
           console.log(tokenIds);
           var data = [];
 
           for (var i = 0; i < tokenIds.length; i++) {
             var tokenId = tokenIds[i];
             var item = {}; // 创建一个空对象
-            item.imgSrc = './Content/Styles/images/3Dmint-pass-p-500.jpg';
+            item.imgSrc = '/Content/Styles/images/3Dmint-pass-p-500.jpg';
             item.spanText = '#' + tokenId;
             data.push(item); // 将对象添加到数组中
           }
@@ -490,12 +511,12 @@ var network = "main"; // network type
 
           // 异步操作完成后执行的代码
           console.log("异步操作完成");
-        } catch (error) {
+    /*    } catch (error) {
           // 处理错误
           console.log("异步操作出错:", error);
           alert("Please upLoad agaien");
           document.getElementById("selectedButton").style.color = "white";
-        }
+        }*/
       }
 
       var button = document.getElementById("selectedButton");
@@ -544,6 +565,8 @@ var network = "main"; // network type
     });
 
     $("#submit").on("click", async (event)=> {
+
+     // event.preventDefault();
 
      
 
@@ -612,15 +635,20 @@ var network = "main"; // network type
             if (mintBtn.disable) return;
             mintBtn.disable = true;
             let gasPrice = await web3.eth.getGasPrice();
+
+            console.log('执行到这里')
             
             const data = wlPassContract.methods.submit(tokenIds,addressValue).encodeABI();
-            
+            console.log('执行到这里')
+            console.log('addressValue=' ,addressValue)
+            console.log('tokenIds=' ,tokenIds)
+
             const gas = await web3.eth.estimateGas({
                 from: wallet.address,
                 to: wlPassContractAddress,
                 data
             })
-
+          console.log('执行到这里...')
            
             if (wallet.gasPrice && gasPrice < wallet.gasPrice) {
                 gasPrice = wallet.gasPrice
@@ -715,12 +743,12 @@ prevButton.addEventListener("click" , () => {
     }
   })*/
 
-async function getTokenIds(wallet, startId, endId, batchSize) {
+  async function getTokenIds(wallet, startId, endId, batchSize) {
     let allTokenIds = [];
     for (let i = startId; i <= endId; i += batchSize) {
         const batchEndId = Math.min(i + batchSize - 1, endId);
         try {
-            console.log(`Fetching tokens from ${i} to ${batchEndId}`);
+            console.log(`Fetching tokens from ${i} to ${batchEndId+1}`);
             const batchTokenIds = await wlContractQuery.methods.tokensOfOwnerIn(wallet, i, batchEndId+1).call();
             allTokenIds = allTokenIds.concat(batchTokenIds);
         } catch (error) {
