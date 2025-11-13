@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWA 所有者空投工具 - Only Owner</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Web3.js v1.x -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        accent: '#EC4899',
+                        dark: '#0F172A',
+                        'dark-secondary': '#1E293B',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                @apply bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-700 mb-8;
+            }
+            .btn-primary {
+                @apply bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md shadow-primary/20 flex items-center justify-center gap-2;
+            }
+            .btn-accent {
+                @apply bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-md shadow-accent/20 flex items-center justify-center gap-2;
+            }
+            .btn-disabled {
+                @apply bg-gray-600 text-gray-400 cursor-not-allowed py-3 px-6 rounded-lg shadow-md flex items-center justify-center gap-2;
+            }
+            .input-form {
+                @apply w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-primary/60 transition-all;
+            }
+            .status-success {
+                @apply text-green-500 bg-green-500/10 p-4 rounded-lg border border-green-500/30 mt-4;
+            }
+            .status-error {
+                @apply text-red-500 bg-red-500/10 p-4 rounded-lg border border-red-500/30 mt-4;
+            }
+            .status-loading {
+                @apply text-primary bg-primary/10 p-4 rounded-lg border border-primary/30 mt-4;
+            }
+            .info-card {
+                @apply bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-5 border border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark font-sans text-gray-200 min-h-screen p-4 md:p-8">
+    <div class="max-w-xl mx-auto">
+        <!-- 顶部标题区 -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-3">
+                <i class="fa fa-rocket text-accent"></i>RWA  所有者空投工具
+            </h1>
+            <p class="text-gray-400 mt-2">仅合约所有者（onlyOwner）可执行 NFT 空投操作</p>
+        </div>
+
+        <!-- 钱包连接区 -->
+        <div class="card">
+            <div class="text-center">
+                <button id="connectWalletBtn" class="btn-primary w-full">
+                    <i class="fa fa-wallet"></i> 连接钱包
+                </button>
+                <div id="walletInfo" class="mt-4 hidden">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+                        <p class="text-gray-300">当前地址：<span id="walletAddr" class="font-mono text-white truncate inline-block w-48"></span></p>
+                        <p class="text-gray-300">网络：<span id="networkName" class="text-yellow-400">未知</span>（链ID：<span id="chainId">--</span>）</p>
+                    </div>
+                    <div class="mt-3 p-3 bg-gray-800/50 rounded-lg">
+                        <p class="text-gray-300">所有者权限：<span id="ownerStatus" class="text-yellow-400">查询中...</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 合约信息与配置区 -->
+        <div class="card">
+            <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <i class="fa fa-cube text-primary"></i> 合约配置
+            </h2>
+
+            <!-- NFT 合约地址 -->
+            <div class="mb-5">
+                <label class="block text-gray-300 font-medium mb-2">NFT 合约地址</label>
+                <input 
+                    type="text" 
+                    id="nftContractAddress" 
+                    class="input-form"
+                    placeholder="输入部署 ownerAirdrop 函数的 NFT 合约地址"
+                    value="0xae22c5a498347E20EC61f1535C6d80D73bCD3262"  <!-- 替换为实际 NFT 合约地址 -->
+                >
+                <p class="text-gray-500 text-xs mt-1">提示：需输入包含 ownerAirdrop 函数的 ERC721A 合约地址</p>
+            </div>
+
+            <!-- 合约信息展示 -->
+            <div class="info-card mb-6">
+                <div class="text-center md:text-left">
+                    <p class="text-gray-400 text-sm">总供应量上限</p>
+                    <p id="maxSupply" class="text-xl font-bold text-white">--</p>
+                </div>
+                <div class="w-full md:w-px h-1 md:h-16 bg-gray-700"></div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 text-sm">当前已铸造量</p>
+                    <p id="currentSupply" class="text-xl font-bold text-white">--</p>
+                </div>
+            </div>
+
+            <!-- 空投配置区 -->
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fa fa-paper-plane text-accent"></i> 空投配置
+            </h2>
+
+            <!-- 接收地址 -->
+            <div class="mb-5">
+                <label class="block text-gray-300 font-medium mb-2">空投接收地址</label>
+                <input 
+                    type="text" 
+                    id="airdropToAddress" 
+                    class="input-form"
+                    placeholder="输入接收 RWA 的地址（0x开头）"
+                >
+                <p class="text-gray-500 text-xs mt-1">提示：确保地址正确，空投后无法撤回</p>
+            </div>
+
+            <!-- 空投数量 -->
+            <div class="mb-6">
+                <label class="block text-gray-300 font-medium mb-2">空投 RWA 数量</label>
+                <input 
+                    type="number" 
+                    id="airdropCount" 
+                    class="input-form"
+                    placeholder="输入空投数量（正整数）"
+                    min="1" 
+                    value="1"
+                >
+                <div class="flex justify-between items-center mt-2">
+                    <p class="text-gray-500 text-xs">单次最大空投数量：<span id="maxAirdropCount">--</span></p>
+                    <p id="supplyWarning" class="text-red-500 text-xs hidden">⚠️ 空投后将超出总供应量上限</p>
+                </div>
+            </div>
+
+            <!-- 操作按钮区 -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button id="checkBtn" class="btn-primary flex-1">
+                    <i class="fa fa-check"></i> 校验配置
+                </button>
+                <button id="airdropBtn" class="btn-disabled flex-1" disabled>
+                    <i class="fa fa-rocket"></i> 执行空投
+                </button>
+            </div>
+        </div>
+
+        <!-- 状态提示区 -->
+        <div id="statusContainer" class="hidden">
+            <div id="statusContent" class="status-loading">
+                <i class="fa fa-spinner fa-spin mr-2"></i> 处理中...
+            </div>
+        </div>
+
+        <!-- 空投记录区 -->
+        <div class="card">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fa fa-history text-primary"></i> 最近空投记录
+            </h2>
+            <div id="airdropHistory" class="text-gray-400 text-center py-6">
+                暂无空投记录
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== 核心配置 ==========
+        // NFT 合约 ABI（包含 ownerAirdrop、onlyOwner、totalSupply 等关键方法）
+        const NFT_CONTRACT_ABI = [
+            // ownerAirdrop 空投函数（核心）
+            {
+                "inputs": [
+                    { "internalType": "address", "name": "to", "type": "address" },
+                    { "internalType": "uint8", "name": "count", "type": "uint8" }
+                ],
+                "name": "ownerAirdrop",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            // 查询合约所有者（onlyOwner 对应的 owner() 方法）
+            {
+                "inputs": [],
+                "name": "owner",
+                "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            // 查询总供应量（当前已铸造数量）
+            {
+                "inputs": [],
+                "name": "totalSupply",
+                "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            // 查询最大供应量（MAX_SUPPLY 公共常量）
+            {
+                "inputs": [],
+                "name": "MAX_SUPPLY",
+                "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ];
+
+        // 全局变量
+        let web3 = "https://rpc.ttchain.info";
+        let currentAccount = null;
+        let nftContract = "0xae22c5a498347E20EC61f1535C6d80D73bCD3262";
+        let maxSupply = 0; // 最大供应量
+        let currentSupply = 0; // 当前已铸造量
+
+        // DOM 元素
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const walletInfo = document.getElementById('walletInfo');
+        const walletAddr = document.getElementById('walletAddr');
+        const networkName = document.getElementById('networkName');
+        const chainId = document.getElementById('chainId');
+        const ownerStatus = document.getElementById('ownerStatus');
+        const nftContractAddress = document.getElementById('nftContractAddress');
+        const maxSupplyEl = document.getElementById('maxSupply');
+        const currentSupplyEl = document.getElementById('currentSupply');
+        const airdropToAddress = document.getElementById('airdropToAddress');
+        const airdropCount = document.getElementById('airdropCount');
+        const maxAirdropCount = document.getElementById('maxAirdropCount');
+        const supplyWarning = document.getElementById('supplyWarning');
+        const checkBtn = document.getElementById('checkBtn');
+        const airdropBtn = document.getElementById('airdropBtn');
+        const statusContainer = document.getElementById('statusContainer');
+        const statusContent = document.getElementById('statusContent');
+        const airdropHistory = document.getElementById('airdropHistory');
+
+        // ========== 初始化 ==========
+        window.addEventListener('DOMContentLoaded', () => {
+            // 检查钱包
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                // 监听网络变化
+                window.ethereum.on('chainChanged', handleChainChanged);
+                // 监听账户变化
+                window.ethereum.on('accountsChanged', handleAccountsChanged);
+            } else {
+                showStatus('未检测到 EVM 兼容钱包（如 MetaMask），请安装后重试', 'error');
+            }
+
+            // 绑定事件
+            connectWalletBtn.addEventListener('click', connectWallet);
+            checkBtn.addEventListener('click', validateAirdropConfig);
+            airdropBtn.addEventListener('click', executeAirdrop);
+            nftContractAddress.addEventListener('input', initNftContract);
+            airdropCount.addEventListener('input', updateSupplyCheck);
+
+            // 初始化合约（若地址已填写）
+            if (web3.utils.isAddress(nftContractAddress.value.trim())) {
+                initNftContract();
+            }
+        });
+
+        // ========== 钱包与网络相关 ==========
+        // 连接钱包
+        async function connectWallet() {
+            if (!window.ethereum) {
+                showStatus('未检测到钱包，请安装 MetaMask', 'error');
+                return;
+            }
+
+            try {
+                showStatus('正在连接钱包...', 'loading');
+                // 请求授权账户
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                currentAccount = accounts[0];
+                // 获取当前网络
+                const chainIdHex = await window.ethereum.request({ method: 'eth_chainId' });
+                const chainIdNum = web3.utils.hexToNumber(chainIdHex);
+
+                // 更新 UI
+                walletAddr.textContent = currentAccount;
+                chainId.textContent = chainIdNum;
+                networkName.textContent = getNetworkName(chainIdNum);
+                walletInfo.classList.remove('hidden');
+                connectWalletBtn.textContent = '已连接';
+                connectWalletBtn.disabled = true;
+                connectWalletBtn.className = 'btn-disabled w-full';
+
+                // 初始化合约
+                await initNftContract();
+                // 查询所有者权限和合约信息
+                await checkOwnerPermission();
+                await fetchContractInfo();
+
+                showStatus('钱包连接成功', 'success');
+            } catch (error) {
+                showStatus(`钱包连接失败：${error.message}`, 'error');
+                console.error('连接钱包错误：', error);
+            }
+        }
+
+        // 处理网络变化
+        async function handleChainChanged(chainIdHex) {
+            const chainIdNum = web3.utils.hexToNumber(chainIdHex);
+            chainId.textContent = chainIdNum;
+            networkName.textContent = getNetworkName(chainIdNum);
+
+            // 重新初始化合约
+            await initNftContract();
+            // 重新查询权限和合约信息
+            if (currentAccount) {
+                await checkOwnerPermission();
+                await fetchContractInfo();
+            }
+        }
+
+        // 处理账户变化
+        async function handleAccountsChanged(accounts) {
+            if (accounts.length > 0) {
+                currentAccount = accounts[0];
+                walletAddr.textContent = currentAccount;
+                // 重新查询所有者权限
+                await checkOwnerPermission();
+            } else {
+                // 账户断开连接
+                currentAccount = null;
+                walletInfo.classList.add('hidden');
+                connectWalletBtn.textContent = '连接钱包';
+                connectWalletBtn.disabled = false;
+                connectWalletBtn.className = 'btn-primary w-full';
+                ownerStatus.textContent = '未连接钱包';
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                maxSupplyEl.textContent = '--';
+                currentSupplyEl.textContent = '--';
+                maxAirdropCount.textContent = '--';
+            }
+        }
+
+        // 根据链ID获取网络名称
+        function getNetworkName(chainId) {
+            const networks = {
+                1: '以太坊主网',
+                5: '以太坊 Goerli 测试网',
+                1679: 'TT 链',
+                97: 'BSC 测试网',
+                56: 'BSC 主网',
+                137: 'Polygon 主网',
+                80001: 'Polygon Mumbai 测试网'
+            };
+            return networks[chainId] || `未知网络（${chainId}）`;
+        }
+
+        // ========== 合约初始化与信息查询 ==========
+        // 初始化 NFT 合约
+        async function initNftContract() {
+            try {
+                const nftAddr = nftContractAddress.value.trim();
+                if (!web3.utils.isAddress(nftAddr)) {
+                    nftContract = null;
+                    airdropBtn.disabled = true;
+                    airdropBtn.className = 'btn-disabled flex-1';
+                    return;
+                }
+
+                nftContract = new web3.eth.Contract(NFT_CONTRACT_ABI, nftAddr);
+                showStatus('NFT 合约初始化成功', 'success');
+            } catch (error) {
+                nftContract = null;
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                showStatus(`NFT 合约初始化失败：${error.message}`, 'error');
+                console.error('初始化 NFT 合约错误：', error);
+            }
+        }
+
+        // 查询当前地址是否为合约所有者
+        async function checkOwnerPermission() {
+            if (!nftContract || !currentAccount) {
+                ownerStatus.textContent = '未就绪';
+                ownerStatus.className = 'text-yellow-400';
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                return;
+            }
+
+            try {
+                showStatus('正在查询所有者权限...', 'loading');
+                // 调用合约 owner() 方法获取所有者地址
+                const contractOwner = await nftContract.methods.owner().call();
+                // 比较当前地址和所有者地址（转小写避免大小写问题）
+                const isOwner = contractOwner.toLowerCase() === currentAccount.toLowerCase();
+
+                if (isOwner) {
+                    ownerStatus.textContent = '✅ 已确认（合约所有者）';
+                    ownerStatus.className = 'text-green-500';
+                } else {
+                    ownerStatus.textContent = `❌ 非所有者（仅 ${contractOwner.slice(0, 10)}... 可操作）`;
+                    ownerStatus.className = 'text-red-500';
+                    airdropBtn.disabled = true;
+                    airdropBtn.className = 'btn-disabled flex-1';
+                }
+            } catch (error) {
+                ownerStatus.textContent = '查询失败';
+                ownerStatus.className = 'text-red-500';
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                showStatus(`所有者权限查询失败：${error.message}`, 'error');
+                console.error('查询所有者权限错误：', error);
+            }
+        }
+
+        // 查询合约核心信息（最大供应量、当前已铸造量）
+        async function fetchContractInfo() {
+            if (!nftContract) {
+                maxSupplyEl.textContent = '--';
+                currentSupplyEl.textContent = '--';
+                maxAirdropCount.textContent = '--';
+                showStatus('请先填写正确的 NFT 合约地址', 'error');
+                return;
+            }
+
+            try {
+                showStatus('正在查询合约信息...', 'loading');
+                // 查询最大供应量
+                maxSupply = await nftContract.methods.MAX_SUPPLY().call();
+                // 查询当前已铸造量
+                currentSupply = await nftContract.methods.totalSupply().call();
+
+                // 更新 UI
+                maxSupplyEl.textContent = maxSupply.toString();
+                currentSupplyEl.textContent = currentSupply.toString();
+                // 计算单次最大可空投数量（不超过总供应量上限）
+                const availableCount = maxSupply - currentSupply;
+                maxAirdropCount.textContent = availableCount > 0 ? availableCount.toString() : '0';
+
+                // 同步检查空投数量是否超出上限
+                updateSupplyCheck();
+
+                showStatus('合约信息查询成功', 'success');
+            } catch (error) {
+                maxSupplyEl.textContent = '查询失败';
+                currentSupplyEl.textContent = '查询失败';
+                maxAirdropCount.textContent = '--';
+                showStatus(`合约信息查询失败：${error.message}`, 'error');
+                console.error('查询合约信息错误：', error);
+            }
+        }
+
+        // ========== 空投配置校验与执行 ==========
+        // 校验空投配置（地址、数量有效性）
+        function validateAirdropConfig() {
+            const toAddr = airdropToAddress.value.trim();
+            const count = parseInt(airdropCount.value);
+            const availableCount = maxSupply - currentSupply;
+
+            // 校验 1：接收地址是否有效
+            if (!web3.utils.isAddress(toAddr)) {
+                showStatus('❌ 空投接收地址无效，请输入正确的 EVM 地址（0x开头）', 'error');
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                return;
+            }
+
+            // 校验 2：空投数量是否为正整数
+            if (isNaN(count) || count < 1 || !Number.isInteger(count)) {
+                showStatus('❌ 空投数量无效，请输入正整数', 'error');
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                return;
+            }
+
+            // 校验 3：空投数量是否超出最大可空投数量
+            if (count > availableCount) {
+                showStatus(`❌ 空投数量超出上限！当前可空投最大数量为 ${availableCount}`, 'error');
+                supplyWarning.classList.remove('hidden');
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                return;
+            }
+
+            // 校验 4：是否为合约所有者
+            if (ownerStatus.textContent !== '✅ 已确认（合约所有者）') {
+                showStatus('❌ 无权限执行空投，仅合约所有者可操作', 'error');
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+                return;
+            }
+
+            // 所有校验通过
+            showStatus(`✅ 配置校验通过！将向 ${toAddr.slice(0, 10)}... 空投 ${count} 个 NFT`, 'success');
+            supplyWarning.classList.add('hidden');
+            airdropBtn.disabled = false;
+            airdropBtn.className = 'btn-accent flex-1';
+            airdropBtn.innerHTML = '<i class="fa fa-rocket"></i> 执行空投';
+        }
+
+        // 实时检查空投数量是否超出总供应量
+        function updateSupplyCheck() {
+            const count = parseInt(airdropCount.value);
+            const availableCount = maxSupply - currentSupply;
+
+            if (count > availableCount && !isNaN(count) && availableCount >= 0) {
+                supplyWarning.classList.remove('hidden');
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+            } else {
+                supplyWarning.classList.add('hidden');
+            }
+        }
+
+        // 执行空投操作
+        async function executeAirdrop() {
+            const toAddr = airdropToAddress.value.trim();
+            const count = parseInt(airdropCount.value);
+
+            // 再次校验（防止中途数据变化）
+            if (!nftContract || !currentAccount || !web3.utils.isAddress(toAddr) || isNaN(count) || count < 1) {
+                showStatus('❌ 空投配置无效，请重新校验', 'error');
+                return;
+            }
+
+            try {
+                showStatus(`正在执行空投：向 ${toAddr.slice(0, 10)}... 空投 ${count} 个 NFT`, 'loading');
+                airdropBtn.disabled = true;
+                airdropBtn.className = 'btn-disabled flex-1';
+
+                // 调用 ownerAirdrop 函数（注意：count 是 uint8 类型，需确保数值在 0-255 范围内）
+                const txObj = await nftContract.methods.ownerAirdrop(toAddr, count)
+                    .send({
+                        from: currentAccount,
+                        gas: 300000 // 足够的 Gas 上限（ERC721A 空投 Gas 消耗较低）
+                    });
+
+                const txHash = txObj.transactionHash;
+                const explorerUrl = `https://区块浏览器地址/tx/${txHash}`; // 替换为你的网络区块浏览器
+
+                // 显示成功状态
+                showStatus(`✅ 空投成功！<br>接收地址：${toAddr.slice(0, 10)}...<br>空投数量：${count} 个<br>交易哈希：<a href="${explorerUrl}" target="_blank" class="text-primary underline">${txHash.slice(0, 10)}...${txHash.slice(-6)}</a>`, 'success');
+
+                // 更新空投记录
+                updateAirdropHistory(txHash, toAddr, count);
+
+                // 刷新合约信息（更新已铸造量）
+                setTimeout(fetchContractInfo, 3000);
+
+                // 清空输入框
+                airdropCount.value = '1';
+            } catch (error) {
+                airdropBtn.disabled = false;
+                airdropBtn.className = 'btn-accent flex-1';
+                const errorMsg = error.message.includes('reverted') 
+                    ? error.message.includes('Purchase would exceed max tokens') 
+                        ? '空投失败：超出总供应量上限' 
+                        : '空投失败（可能无权限或合约执行错误）'
+                    : error.message;
+                showStatus(`❌ 空投失败：${errorMsg}`, 'error');
+                console.error('执行空投错误：', error);
+            }
+        }
+
+        // ========== 辅助功能 ==========
+        // 显示状态提示
+        function showStatus(message, type) {
+            statusContainer.classList.remove('hidden');
+            statusContent.innerHTML = message;
+
+            // 移除所有状态类
+            statusContent.classList.remove('status-success', 'status-error', 'status-loading');
+            // 添加对应状态类
+            if (type === 'success') {
+                statusContent.classList.add('status-success');
+            } else if (type === 'error') {
+                statusContent.classList.add('status-error');
+            } else {
+                statusContent.classList.add('status-loading');
+            }
+
+            // 成功/错误提示 8 秒后自动隐藏
+            if (type !== 'loading') {
+                setTimeout(() => {
+                    statusContainer.classList.add('hidden');
+                }, 10000);
+            }
+        }
+
+        // 更新空投记录
+        function updateAirdropHistory(txHash, toAddr, count) {
+            const explorerUrl = `https://区块浏览器地址/tx/${txHash}`; // 替换为你的网络区块浏览器
+            const now = new Date().toLocaleString();
+
+            const historyItem = document.createElement('div');
+            historyItem.className = 'flex flex-col md:flex-row justify-between items-center gap-3 p-3 border-b border-gray-700 last:border-0';
+            historyItem.innerHTML = `
+                <div>
+                    <p class="text-white font-medium">空投 ${count} 个 NFT 至</p>
+                    <p class="text-gray-400 text-sm font-mono">${toAddr.slice(0, 12)}...${toAddr.slice(-4)}</p>
+                    <p class="text-gray-500 text-xs mt-1">${now}</p>
+                </div>
+                <a href="${explorerUrl}" target="_blank" class="text-primary hover:text-primary/80 text-sm flex items-center gap-1">
+                    <i class="fa fa-external-link"></i> 查看交易
+                </a>
+            `;
+
+            // 插入到记录列表顶部
+            if (airdropHistory.textContent === '暂无空投记录') {
+                airdropHistory.innerHTML = '';
+            }
+            airdropHistory.insertBefore(historyItem, airdropHistory.firstChild);
+        }
+    </script>
+</body>
+</html>
