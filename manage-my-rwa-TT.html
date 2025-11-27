@@ -3703,11 +3703,6 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
     const queryContract = new customWeb3.eth.Contract(queryAbi, queryContractAddress);
     const allTokenIds = []; // 存储所有批次的查询结果
 
-	 const testCall = await queryContract.methods
-                .getOwnedTokenIdList(nftContractAddress, userAddress, String(0),
-                    String(1000) )
-                .call();
-
     // 分页循环查询（每次步长1000）
     for (let currentStart = start; currentStart < end; currentStart += step) {
         const currentEnd = Math.min(currentStart + step, end); // 最后一批可能不足1000，取end上限
@@ -3735,8 +3730,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
     const uniqueTokenIds = [...new Set(allTokenIds)].sort((a, b) => a - b);
     console.log("最终查询到的tokenId列表：", uniqueTokenIds);
 
-	testCall =  await stakingS8Contract.methods.getStakingNFTDetails(userAddress).call();
-	console.log("最终查询到的testCall列表：", testCall);
+	
     return uniqueTokenIds;
 }
 
@@ -3747,6 +3741,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
 
