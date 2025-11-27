@@ -3684,20 +3684,7 @@ $(function(){
 
 async function getOwnedTokensByContract(nftContractAddress, userAddress, start, end,step) {
     // 查询合约的ABI（仅需getOwnedTokenIdList方法）
-    const queryAbi = [
-        {
-            "inputs": [
-                { "internalType": "address", "name": "target", "type": "address" },
-                { "internalType": "address", "name": "owner", "type": "address" },
-                { "internalType": "uint256", "name": "start", "type": "uint256" },
-                { "internalType": "uint256", "name": "end", "type": "uint256" }
-            ],
-            "name": "getOwnedTokenIdList",
-            "outputs": [{ "internalType": "uint256[]", "name": "tokenIdList", "type": "uint256[]" }],
-            "stateMutability": "view",
-            "type": "function"
-        }
-    ];
+    const queryAbi = [{"inputs":[{"internalType":"address","name":"target","type":"address"},{"internalType":"address","name":"owner","type":"address"},{"internalType":"uint256","name":"start","type":"uint256"},{"internalType":"uint256","name":"end","type":"uint256"}],"name":"getOwnedTokenIdList","outputs":[{"internalType":"uint256[]","name":"tokenIdList","type":"uint256[]"}],"stateMutability":"view","type":"function"}];
     
     var queryContractAddress = "0x05D355278220778e6Ce244AB90cbb22f64e4c877";
     const queryContract = new web3.eth.Contract(queryAbi, queryContractAddress);
@@ -3737,4 +3724,5 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
