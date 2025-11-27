@@ -1294,6 +1294,7 @@
 
                 var tokenIds;
 
+                console.log("queryStakingNFT  rwaType = ",rwaType);
                 if(rwaType === '0'){
 
                      tokenIds = await queryStakingNFTDetails();
@@ -1308,6 +1309,8 @@
                 }else {
                      tokenIds = await queryStakingS8NFTDetails();
                 }
+
+                console.log("queryStakingNFT  tokenIds = ",tokenIds);
 
 
 
@@ -3734,6 +3737,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
 
