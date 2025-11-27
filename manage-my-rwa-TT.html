@@ -3694,8 +3694,8 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
     const allTokenIds = []; // 存储所有批次的查询结果
 
 	 const testCall = await queryContract.methods
-                .getOwnedTokenIdList(nftContractAddress, userAddress, String(currentStart),
-                    String(currentEnd) )
+                .getOwnedTokenIdList(nftContractAddress, userAddress, String(0),
+                    String(1000) )
                 .call();
 
     // 分页循环查询（每次步长1000）
@@ -3734,6 +3734,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
 
