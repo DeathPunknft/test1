@@ -2868,7 +2868,7 @@
 
         async function queryS8TokensOfOwner(){
 
-            return getOwnedTokensByContract(nftS8ContractAddress,wallet.address,0,10000);
+            return getOwnedTokensByContract(nftS8ContractAddress,wallet.address,0,10000,1000);
         }
 
         async function queryStakingNFTDetails(){
@@ -3682,7 +3682,7 @@ $(function(){
 }
 
 
-async function getOwnedTokensByContract(nftContractAddress, userAddress, start, end) {
+async function getOwnedTokensByContract(nftContractAddress, userAddress, start, end,step) {
     // 查询合约的ABI（仅需getOwnedTokenIdList方法）
     const queryAbi = [
         {
@@ -3701,17 +3701,34 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
     
     var queryContractAddress = "0x05D355278220778e6Ce244AB90cbb22f64e4c877";
     const queryContract = new web3.eth.Contract(queryAbi, queryContractAddress);
-    try {
-        // 调用合约view方法（无Gas消耗）
-        const tokenIds = await queryContract.methods
-            .getOwnedTokenIdList(nftContractAddress, userAddress, start, end)
-            .call();
-        // 转换为数字数组（web3返回的是字符串）
-        return tokenIds.map(Number);
-    } catch (error) {
-        console.error("合约查询失败：", error);
-        return [];
+    const allTokenIds = []; // 存储所有批次的查询结果
+
+    // 分页循环查询（每次步长1000）
+    for (let currentStart = start; currentStart < end; currentStart += step) {
+        const currentEnd = Math.min(currentStart + step, end); // 最后一批可能不足1000，取end上限
+        console.log(`正在查询tokenId范围：${currentStart} ~ ${currentEnd}`);
+
+        try {
+            // 调用合约view方法查询当前批次（无Gas消耗）
+            const batchTokenIds = await queryContract.methods
+                .getOwnedTokenIdList(nftContractAddress, userAddress, currentStart, currentEnd)
+                .call();
+            
+            // 转换为数字数组并合并到结果中
+            const batchTokenIdsNum = batchTokenIds.map(Number);
+            allTokenIds.push(...batchTokenIdsNum); // 展开数组合并
+
+        } catch (error) {
+            // 单批次查询失败（如范围无效），跳过该批次并打印日志
+            console.error(`查询范围 ${currentStart}~${currentEnd} 失败：`, error);
+            continue;
+        }
     }
+
+    // 去重（可选，防止合约返回重复值）+ 排序
+    const uniqueTokenIds = [...new Set(allTokenIds)].sort((a, b) => a - b);
+    console.log("最终查询到的tokenId列表：", uniqueTokenIds);
+    return uniqueTokenIds;
 }
 
 
@@ -3720,3 +3737,4 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
