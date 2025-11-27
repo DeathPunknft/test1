@@ -2891,10 +2891,14 @@
         }
 
         async function queryStakingS8NFTDetails(){
-			console.log("111")
-			var testCall =  await stakingS8Contract.methods.getStakingNFTDetails(wallet.address).call();
-			console.log("222 = " +testCall)
-            return await stakingS8Contract.methods.getStakingNFTDetails(wallet.address).call();
+			const customWeb3 = new Web3(new Web3.providers.HttpProvider("https://rpc.ttchain.info"));
+            
+            const stakingS8 = new customWeb3.eth.Contract(stakingAbi, stakingS8Address);
+
+            console.log("111")
+            var testCall =  await stakingS8.methods.getStakingNFTDetails(wallet.address).call();
+            console.log("2222" + testCall)
+            return await stakingS8.methods.getStakingNFTDetails(wallet.address).call();
         }
 
         function filterData(location,zone,tokenIds){
@@ -3743,6 +3747,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
 
