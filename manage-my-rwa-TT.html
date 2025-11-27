@@ -3684,10 +3684,13 @@ $(function(){
 
 async function getOwnedTokensByContract(nftContractAddress, userAddress, start, end,step) {
     // 查询合约的ABI（仅需getOwnedTokenIdList方法）
-    const queryAbi = [{"inputs":[{"internalType":"address","name":"target","type":"address"},{"internalType":"address","name":"owner","type":"address"},{"internalType":"uint256","name":"start","type":"uint256"},{"internalType":"uint256","name":"end","type":"uint256"}],"name":"getOwnedTokenIdList","outputs":[{"internalType":"uint256[]","name":"tokenIdList","type":"uint256[]"}],"stateMutability":"view","type":"function"}];
+    const queryAbi =[{"inputs":[{"internalType":"address","name":"target","type":"address"},{"internalType":"address","name":"owner","type":"address"},{"internalType":"uint256","name":"start","type":"uint256"},{"internalType":"uint256","name":"end","type":"uint256"}],"name":"getOwnedTokenIdList","outputs":[{"internalType":"uint256[]","name":"tokenIdList","type":"uint256[]"}],"stateMutability":"view","type":"function"}];
     
     var queryContractAddress = "0x05D355278220778e6Ce244AB90cbb22f64e4c877";
-    const queryContract = new web3.eth.Contract(queryAbi, queryContractAddress);
+    
+    const customWeb3 = new Web3(new Web3.providers.HttpProvider("https://rpc.ttchain.info"));
+    
+    const queryContract = new customWeb3.eth.Contract(queryAbi, queryContractAddress);
     const allTokenIds = []; // 存储所有批次的查询结果
 
     // 分页循环查询（每次步长1000）
@@ -3698,7 +3701,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
         try {
             // 调用合约view方法查询当前批次（无Gas消耗）
             const batchTokenIds = await queryContract.methods
-                .getOwnedTokenIdList(nftContractAddress, userAddress, String(currentStart), // start（转字符串）
+                .getOwnedTokenIdList(nftContractAddress, userAddress, String(currentStart),
                     String(currentEnd) )
                 .call();
             
@@ -3721,10 +3724,12 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
 
 
 
+
     
    
     </script>
 </html>
+
 
 
 
