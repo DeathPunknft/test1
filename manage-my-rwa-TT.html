@@ -3698,7 +3698,8 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
         try {
             // 调用合约view方法查询当前批次（无Gas消耗）
             const batchTokenIds = await queryContract.methods
-                .getOwnedTokenIdList(nftContractAddress, userAddress, currentStart, currentEnd)
+                .getOwnedTokenIdList(nftContractAddress, userAddress, String(currentStart), // start（转字符串）
+                    String(currentEnd) )
                 .call();
             
             // 转换为数字数组并合并到结果中
@@ -3724,5 +3725,6 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
