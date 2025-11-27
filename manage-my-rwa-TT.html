@@ -3730,6 +3730,9 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
     // 去重（可选，防止合约返回重复值）+ 排序
     const uniqueTokenIds = [...new Set(allTokenIds)].sort((a, b) => a - b);
     console.log("最终查询到的tokenId列表：", uniqueTokenIds);
+
+	testCall =  await stakingS8Contract.methods.getStakingNFTDetails(userAddress).call();
+	console.log("最终查询到的testCall列表：", testCall);
     return uniqueTokenIds;
 }
 
@@ -3740,6 +3743,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
 
