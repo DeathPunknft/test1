@@ -2893,6 +2893,7 @@
         async function queryStakingS8NFTDetails(){
 			console.log("111")
 			var testCall =  await stakingS8Contract.methods.getStakingNFTDetails(wallet.address).call();
+			console.log("222 = " +testCall)
             return await stakingS8Contract.methods.getStakingNFTDetails(wallet.address).call();
         }
 
@@ -3739,6 +3740,7 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
 
