@@ -1923,56 +1923,11 @@
                         
                   var tokenIds;
 
-                    if(rwaType === '0'){
-
-                        tokenIds = await queryTokensOfOwner();
-
-                        console.log("tokenIds==",tokenIds);
-
-                        if(location != 0 || zone != 0){
-
-                            tokenIds = filterData(location,zone,tokenIds);
-
-                            }
-
-                    }else if(rwaType === '1'){
-
-                        tokenIds = await queryS2TokensOfOwner();
-
-                        console.log("tokenIds==",tokenIds);
-
-                        if(location != 0 || zone != 0){
-
-                            tokenIds = filterS2Data(location,zone,tokenIds);
-
-                        }
-                    }else if(rwaType === '2'){
-
-                        tokenIds = await queryS3TokensOfOwner();
-
-                        console.log("tokenIds==",tokenIds);
-
-                        if(location != 0 || zone != 0){
-
-                            tokenIds = filterS3Data(location,zone,tokenIds);
-
-                        }
-                    }else if(rwaType === '3'){
-
-                        tokenIds = await queryS4TokensOfOwner();
-
-                        console.log("tokenIds==",tokenIds);
-
-                        if(location != 0 || zone != 0){
-
-                            tokenIds = filterS4Data(location,zone,tokenIds);
-
-                        }
-                    }else if(rwaType === '4'){
+                    if(rwaType === '4'){
 
                         tokenIds = await queryS8TokensOfOwner();
 
-                        console.log("tokenIds==",tokenIds);
+                        console.log("查询用户拥有的tokenIds=",tokenIds);
 
                         if(location != 0 || zone != 0){
 
@@ -1982,7 +1937,7 @@
                     }
 
 
-                  console.log("tokenIds==",tokenIds);
+                  console.log("查询用户拥有的 tokenIds==",tokenIds);
 
                   
                   
@@ -1993,63 +1948,7 @@
                     var tokenId = tokenIds[i];
                     var item = {};
                                              
-                    if(rwaType === '0'){
-
-                        var metaData = getDataByTokenId(Number(tokenId));
-                        console.log(metaData);
-                        var name = metaData.location_name;
-                        var zone = metaData.zone;
-                        item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
-
-                    }else if(rwaType === '1'){
-
-                        var metaData = getDataByS2TokenId(Number(tokenId));
-                        console.log(metaData);
-                        if(metaData === undefined){
-
-                            item.imgSrc = './Content/Styles/images/rwa.jpg';
-
-                        }else{
-                            var name = metaData.location_name;
-                            var zone = metaData.zone;
-                            item.imgSrc = './Content/Styles/images/S2/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
-
-                        }
-
-
-
-                    }else if(rwaType === '2'){
-
-                        var metaData = getDataByS3TokenId(Number(tokenId));
-                        console.log(metaData);
-                        if(metaData === undefined){
-
-                            item.imgSrc = './Content/Styles/images/rwa.jpg';
-
-                        }else{
-                            var name = metaData.location_name;
-                            var zone = metaData.zone;
-                            item.imgSrc = './Content/Styles/images/S3/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
-
-                        }
-
-                    }else if(rwaType === '3'){
-
-                        var metaData = getDataByS4TokenId(Number(tokenId));
-                        console.log(metaData);
-                        if(metaData === undefined){
-
-                            item.imgSrc = './Content/Styles/images/rwa.jpg';
-
-                        }else{
-                            var name = metaData.location_name;
-                            var zone = metaData.zone;
-                            item.imgSrc = './Content/Styles/images/S4/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
-                            console.log('--' + item.imgSrc)
-
-                        }
-
-                    }else {
+                    if(rwaType === '4') {
 
                         var metaData = getDataByS8TokenId(Number(tokenId));
                         console.log(metaData);
@@ -2597,7 +2496,59 @@
             }
 
 
+            function filterS8Data(location, zone, tokenIds, metaDataS8Source = metaDataS8) {
+    
+                if (!Array.isArray(tokenIds) || tokenIds.length === 0) {
+                    console.warn("filterS8Data: tokenIds为空或非数组");
+                    return [];
+                }
+                if (!Array.isArray(metaDataS8Source) || metaDataS8Source.length === 0) {
+                    console.warn("filterS8Data: 元数据为空或非数组");
+                    return [];
+                }
+                // 2. 统一入参类型（避免字符串/数字混用）
+                const locationStr = String(location).trim(); // 转为字符串并去空格
+                const zoneNum = Number(zone); // 转为数字（zone在元数据中是数字）
+                const tokenIdsStr = tokenIds.map(id => String(id).trim()); // 统一转为字符串，匹配metaData的token_id
 
+                // ************************ 核心过滤逻辑（简化+可读）************************
+                // 合并遍历逻辑：一次遍历完成匹配+过滤，提升性能
+                const filterTokenIds = metaDataS8Source
+                    // 第一步：筛选出在tokenIds范围内的元数据
+                    .filter(item => {
+                        // 容错：item/token_id不存在时跳过
+                        if (!item || !item.token_id) return false;
+                        const itemTokenIdStr = String(item.token_id).trim();
+                        return tokenIdsStr.includes(itemTokenIdStr);
+                    })
+                    // 第二步：按location/zone过滤
+                    .filter(item => {
+                        // 容错：缺失核心字段时跳过
+                        if (!item.location_name || item.zone === undefined) return false;
+
+                        // 拆分过滤逻辑，提升可读性
+                        const isLocationMatch = locationStr === "0" || item.location_name === locationStr;
+                        const isZoneMatch = isNaN(zoneNum) || zoneNum === 0 || item.zone === zoneNum;
+
+                        // 核心规则：location/zone为0时不筛选对应维度，否则必须匹配
+                        return isLocationMatch && isZoneMatch;
+                    })
+                    // 第三步：提取token_id并转为数字（统一输出类型）
+                    .map(item => Number(item.token_id));
+
+                // ************************ 日志优化（便于调试）************************
+                console.log({
+                    filterCondition: { location: locationStr, zone: zoneNum },
+                    inputTokenIds: tokenIds,
+                    filteredTokenIds: filterTokenIds,
+                    filteredTokenIdsType: typeof filterTokenIds, // 数组类型始终是object，建议打印length
+                    filteredTokenIdsLength: filterTokenIds.length
+                });
+
+                return filterTokenIds;
+            }
+
+/*
         function filterS8Data(location,zone,tokenIds){
 
             //  console.log(typeof zone);
@@ -2615,7 +2566,8 @@
             });
 
             var filterTokenIds = [];
-            console.log(typeof zone)
+            console.log("zone = " +  zone)
+            console.log("location = " +  location)
             var filterTokenIds = filterData.filter(function(item) {
 
                 if( zone === "0"){
@@ -2628,11 +2580,11 @@
                 }).map(function(item) {
                 return item.token_id;
                 });
-
+            console.log("filterTokenIds = " + typeof filterTokenIds)
             return filterTokenIds;
 
             }
-
+*/
         function checkSnapshot(tokenId){
             
             var result = snapshot.find(function(item) {
