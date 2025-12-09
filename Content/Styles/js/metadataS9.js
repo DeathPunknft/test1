@@ -3108,6 +3108,186 @@ var metaDataS9 = [
     "rarity": 1.0
   },
   {
+    "token_id": 1938,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 2961,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 2959,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 8000,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 317,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 8224,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 6853,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 440,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 2823,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 5400,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 4173,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 5789,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 860,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 2633,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 4519,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 2256,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 6361,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 6213,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 4976,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 3866,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 2966,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 772,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 6777,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 58,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 329,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 5390,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 5808,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 5121,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 6169,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
+    "token_id": 232,
+    "location_name": "C",
+    "zone": 3,
+    "rarity": 1.0
+  },
+  {
     "token_id": 2530,
     "location_name": "C",
     "zone": 4,
