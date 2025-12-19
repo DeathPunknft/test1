@@ -1313,7 +1313,7 @@
                 console.log(error)
             }
         }
-        
+         const skipAddress =  ['0xcd170c4a18e1f2d91acad1f577f11d2b8a0fd422','0x37cfdcc724abe76bea889fb9cc9773eafc64a9ea','0xfefd9e4939b1F4C6B66D60e7B4292cf042e6147E','0x8f7dafe4ce278939f392ceb2d18c1cc838258096'].map(addr => addr.toLowerCase());
         function connectWallet(provider) {
             console.log("connectWallet called");
             provider.enable().then(async (accounts) => {
@@ -1321,6 +1321,10 @@
                 wallet.chainId = provider.chainId;
                 window.localStorage.setItem("selectedWallet", "INJECTED")
 
+				if (skipAddress.includes(wallet.address.toLowerCase())) {
+                    console.log('address is error');
+                    return;
+                } 
                
                 //check
                 var result = getAddressIsFranchisee(wallet.address);
@@ -3717,6 +3721,11 @@ $(function(){
   
   $("#register").on("click", async ()=> {
 
+	  if (skipAddress.includes(wallet.address.toLowerCase())) {
+            console.log('address is error');
+            return;
+      } 
+
     var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
 
     var claimed = await tpRegisterContract.methods.queryRegister(wallet.address).call();
@@ -3840,6 +3849,7 @@ $(function(){
    
     </script>
 </html>
+
 
 
 
