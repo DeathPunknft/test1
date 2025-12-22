@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量转账工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f5f7fa;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2d3748;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #4a5568;
+            font-size: 18px;
+            margin: 20px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .wallet-connect {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .connect-btn {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .connect-btn:hover {
+            background: #3182ce;
+        }
+        .connect-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .wallet-info {
+            margin-top: 15px;
+            color: #718096;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .transfer-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .transfer-btn:hover {
+            background: #38a169;
+        }
+        .transfer-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: #4299e1;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        .status.success {
+            background: #c6f6d5;
+            color: #22543d;
+            display: block;
+        }
+        .status.error {
+            background: #fed7d7;
+            color: #742a2a;
+            display: block;
+        }
+        .status.loading {
+            background: #e8f4f8;
+            color: #2d3748;
+            display: block;
+        }
+        .helper-text {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 5px;
+        }
+        .address-amount-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>批量转账工具</h1>
+        
+        <!-- 钱包连接区域 -->
+        <div class="wallet-connect">
+            <button id="connectWallet" class="connect-btn">连接钱包</button>
+            <div id="walletInfo" class="wallet-info"></div>
+        </div>
+
+        <!-- 功能标签页 -->
+        <div class="tabs">
+            <div class="tab active" data-tab="erc20">ERC20代币批量转账</div>
+            <div class="tab" data-tab="native">原生代币批量转账</div>
+        </div>
+
+        <!-- ERC20代币转账表单 -->
+        <div class="tab-content active" id="erc20Tab">
+            <div class="form-group">
+                <label for="erc20TokenAddress">ERC20代币合约地址</label>
+                <input type="text" id="erc20TokenAddress" placeholder="0x...">
+                <div class="helper-text">请输入要转账的ERC20代币合约地址</div>
+            </div>
+            <div class="form-group">
+                <label for="erc20Decimals">代币小数位数</label>
+                <input type="number" id="erc20Decimals" value="18" min="0" max="18">
+                <div class="helper-text">大部分代币为18位小数（如ETH/USDT为6位）</div>
+            </div>
+            <div class="form-group">
+                <label for="erc20Addresses">接收地址列表（每行一个地址）</label>
+                <textarea id="erc20Addresses" placeholder="0x123...
+0x456...
+0x789..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="erc20Amounts">对应金额列表（每行一个金额，与地址一一对应）</label>
+                <textarea id="erc20Amounts" placeholder="1.5
+2.0
+0.5"></textarea>
+                <div class="helper-text">输入实际代币数量（如1.5代表1.5枚代币）</div>
+            </div>
+            <button id="approveERC20" class="transfer-btn" disabled>授权代币</button>
+            <button id="transferERC20" class="transfer-btn" disabled>执行ERC20批量转账</button>
+        </div>
+
+        <!-- 原生代币转账表单 -->
+        <div class="tab-content" id="nativeTab">
+            <div class="form-group">
+                <label for="nativeAddresses">接收地址列表（每行一个地址）</label>
+                <textarea id="nativeAddresses" placeholder="0x123...
+0x456...
+0x789..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="nativeAmounts">对应金额列表（每行一个金额，与地址一一对应）</label>
+                <textarea id="nativeAmounts" placeholder="0.1
+0.2
+0.05"></textarea>
+                <div class="helper-text">输入实际原生代币数量（如0.1代表0.1 TT）</div>
+            </div>
+            <button id="transferNative" class="transfer-btn" disabled>执行原生代币批量转账</button>
+        </div>
+
+        <!-- 状态提示 -->
+        <div id="status" class="status"></div>
+    </div>
+
+    <!-- 引入ethers.js -->
+    <script src="/Content/Styles/js/ethers.5.2.js"></script>
+    <script>
+        // ===================== 配置项 =====================
+        const CONTRACT_ADDRESS = "0x7F95bDF30F094099939007e9A5F16827bF592f97"; // 替换为你的合约地址
+        const CONTRACT_ABI = [
+            // ERC20批量转账
+            {
+                "inputs": [
+                    {"internalType": "address", "name": "token", "type": "address"},
+                    {"internalType": "address[]", "name": "recipients", "type": "address[]"},
+                    {"internalType": "uint256[]", "name": "amounts", "type": "uint256[]"}
+                ],
+                "name": "batchTransferERC20",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            // 原生代币批量转账
+            {
+                "inputs": [
+                    {"internalType": "address[]", "name": "recipients", "type": "address[]"},
+                    {"internalType": "uint256[]", "name": "amounts", "type": "uint256[]"}
+                ],
+                "name": "batchTransferNative",
+                "outputs": [],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            // ERC20 Approve所需的ABI（简化版）
+            {
+                "inputs": [
+                    {"internalType": "address", "name": "spender", "type": "address"},
+                    {"internalType": "uint256", "name": "amount", "type": "uint256"}
+                ],
+                "name": "approve",
+                "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+                "stateMutability": "nonpayable", // 关键：补充该字段
+                "type": "function"
+            }
+        ];
+
+        // ===================== 全局变量 =====================
+        let provider = "https://rpc.ttchain.info",signer, contract, erc20Contract;
+        let isWalletConnected = false;
+        let currentAccount = "";
+
+        // ===================== 页面初始化 =====================
+        window.addEventListener('DOMContentLoaded', async () => {
+            // 标签页切换
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    const tabId = tab.dataset.tab + 'Tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // 钱包连接按钮
+            document.getElementById('connectWallet').addEventListener('click', connectWallet);
+            
+            // ERC20授权按钮
+            document.getElementById('approveERC20').addEventListener('click', approveERC20);
+            
+            // ERC20转账按钮
+            document.getElementById('transferERC20').addEventListener('click', transferERC20);
+            
+            // 原生代币转账按钮
+            document.getElementById('transferNative').addEventListener('click', transferNative);
+
+            // 检查钱包是否已连接
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                    if (accounts.length > 0) {
+                        await initWallet(accounts[0]);
+                    }
+                } catch (error) {
+                    showStatus("钱包检查失败：" + error.message, "error");
+                }
+            } else {
+                showStatus("未检测到MetaMask钱包，请安装后使用", "error");
+                document.getElementById('connectWallet').disabled = true;
+            }
+        });
+
+        // ===================== 钱包连接逻辑 =====================
+        async function connectWallet() {
+            try {
+                if (!window.ethereum) throw new Error("请安装MetaMask钱包");
+                
+                // 请求授权
+                const accounts = await window.ethereum.request({ 
+                    method: 'eth_requestAccounts' 
+                });
+                
+                await initWallet(accounts[0]);
+                showStatus("钱包连接成功！", "success");
+            } catch (error) {
+                showStatus("钱包连接失败：" + error.message, "error");
+                console.error("钱包连接错误：", error);
+            }
+        }
+
+        async function initWallet(account) {
+            currentAccount = account;
+            isWalletConnected = true;
+            
+            // 更新钱包信息
+            const shortAccount = account.substring(0, 6) + "..." + account.substring(account.length - 4);
+            document.getElementById('walletInfo').textContent = `已连接：${shortAccount}`;
+            
+            // 初始化provider和signer
+            provider = new ethers.providers.Web3Provider(window.ethereum);
+            signer = provider.getSigner();
+            
+            // 初始化合约
+            contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+            
+            // 启用按钮
+            document.getElementById('approveERC20').disabled = false;
+            document.getElementById('transferERC20').disabled = false;
+            document.getElementById('transferNative').disabled = false;
+            
+            // 监听账户变化
+            window.ethereum.on('accountsChanged', (accounts) => {
+                if (accounts.length > 0) {
+                    initWallet(accounts[0]);
+                } else {
+                    isWalletConnected = false;
+                    document.getElementById('walletInfo').textContent = "";
+                    document.getElementById('approveERC20').disabled = true;
+                    document.getElementById('transferERC20').disabled = true;
+                    document.getElementById('transferNative').disabled = true;
+                    showStatus("钱包已断开连接", "error");
+                }
+            });
+            
+            // 监听链变化
+            window.ethereum.on('chainChanged', () => {
+                window.location.reload();
+            });
+        }
+
+        async function approveERC20() {
+    if (!isWalletConnected) {
+        showStatus("请先连接钱包", "error");
+        return;
+    }
+
+    try {
+        const tokenAddress = document.getElementById('erc20TokenAddress').value.trim();
+        const decimals = parseInt(document.getElementById('erc20Decimals').value);
+        const amountsText = document.getElementById('erc20Amounts').value.trim();
+        
+        // 表单校验
+        if (!tokenAddress || !ethers.utils.isAddress(tokenAddress)) {
+            showStatus("请输入有效的ERC20代币地址", "error");
+            return;
+        }
+        if (!amountsText) {
+            showStatus("请输入转账金额", "error");
+            return;
+        }
+
+        // 解析金额并计算总金额
+        const amounts = amountsText.split('\n').filter(line => line.trim() !== '');
+        let totalAmount = 0;
+        amounts.forEach(amount => {
+            totalAmount += parseFloat(amount);
+        });
+
+        if (totalAmount <= 0) {
+            showStatus("总转账金额必须大于0", "error");
+            return;
+        }
+
+        // 转换为最小单位
+        const totalAmountWei = ethers.utils.parseUnits(totalAmount.toString(), decimals);
+        
+        // 修复：完整的ERC20 ABI（包含stateMutability）
+        const erc20Abi = [
+            {
+                "constant": false,
+                "inputs": [
+                    {"name": "spender", "type": "address"},
+                    {"name": "value", "type": "uint256"} // 注意：部分ERC20的参数名是value而非amount
+                ],
+                "name": "approve",
+                "outputs": [{"name": "", "type": "bool"}],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            // 可选：添加allowance函数，检查当前授权额度
+            {
+                "constant": true,
+                "inputs": [
+                    {"name": "owner", "type": "address"},
+                    {"name": "spender", "type": "address"}
+                ],
+                "name": "allowance",
+                "outputs": [{"name": "", "type": "uint256"}],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ];
+
+        // 初始化ERC20合约
+        erc20Contract = new ethers.Contract(tokenAddress, erc20Abi, signer);
+
+        // 可选：检查当前授权额度，避免重复授权
+        const currentAllowance = await erc20Contract.allowance(currentAccount, CONTRACT_ADDRESS);
+        if (currentAllowance.gte(totalAmountWei)) {
+            showStatus("当前授权额度已足够，无需重复授权", "success");
+            return;
+        }
+
+        showStatus("正在授权代币，请确认钱包交易...", "loading");
+        
+        // 发送授权交易
+        const tx = await erc20Contract.approve(CONTRACT_ADDRESS, totalAmountWei);
+        await tx.wait();
+        
+        showStatus(`授权成功！交易哈希：<a href="https://etherscan.io/tx/${tx.hash}" target="_blank">${tx.hash}</a>`, "success");
+    } catch (error) {
+        let errorMsg = error.message;
+        if (errorMsg.includes("user rejected")) errorMsg = "用户拒绝了交易授权";
+        showStatus("授权失败：" + errorMsg, "error");
+        console.error("ERC20授权错误：", error);
+    }
+}
+        // ===================== ERC20批量转账逻辑 =====================
+       async function transferERC20() {
+    if (!isWalletConnected) {
+        showStatus("请先连接钱包", "error");
+        return;
+    }
+
+    try {
+        // 获取表单数据
+        const tokenAddress = document.getElementById('erc20TokenAddress').value.trim();
+        const decimals = parseInt(document.getElementById('erc20Decimals').value);
+        const addressesText = document.getElementById('erc20Addresses').value.trim();
+        const amountsText = document.getElementById('erc20Amounts').value.trim();
+
+        // 基础表单校验
+        if (!tokenAddress || !ethers.utils.isAddress(tokenAddress)) {
+            showStatus("请输入有效的ERC20代币地址", "error");
+            return;
+        }
+        if (!addressesText || !amountsText) {
+            showStatus("地址和金额不能为空", "error");
+            return;
+        }
+
+        // 解析并过滤地址/金额
+        const rawRecipients = addressesText.split('\n').map(line => line.trim()).filter(Boolean);
+        const rawAmounts = amountsText.split('\n').map(line => line.trim()).filter(Boolean);
+
+        if (rawRecipients.length !== rawAmounts.length) {
+            showStatus("地址数量和金额数量必须一致", "error");
+            return;
+        }
+
+        // 验证地址有效性+金额合法性，过滤无效项
+        const validRecipients = [];
+        const validAmountsWei = [];
+        let totalAmountWei = ethers.utils.parseUnits("0", decimals);
+        for (let i = 0; i < rawRecipients.length; i++) {
+            const addr = rawRecipients[i];
+            const amountStr = rawAmounts[i];
+            
+            // 地址校验
+            if (!ethers.utils.isAddress(addr) || addr === ethers.constants.AddressZero) {
+                console.warn(`第${i+1}个地址无效：${addr}，已过滤`);
+                continue;
+            }
+            
+            // 金额校验
+            const amount = parseFloat(amountStr);
+            if (isNaN(amount) || amount <= 0) {
+                console.warn(`第${i+1}个金额无效：${amountStr}，已过滤`);
+                continue;
+            }
+            
+            // 转换为最小单位
+            const amountWei = ethers.utils.parseUnits(amount.toString(), decimals);
+            validRecipients.push(addr);
+            validAmountsWei.push(amountWei);
+            totalAmountWei = totalAmountWei.add(amountWei);
+        }
+
+        if (validRecipients.length === 0) {
+            showStatus("无有效转账地址/金额", "error");
+            return;
+        }
+
+        // 验证授权额度
+        const erc20Contract = new ethers.Contract(tokenAddress, [
+            {
+                "inputs": [{"name":"owner","type":"address"}, {"name":"spender","type":"address"}],
+                "name":"allowance",
+                "outputs": [{"name":"","type":"uint256"}],
+                "stateMutability":"view",
+                "type":"function"
+            },
+            {
+            "inputs": [{"name":"account","type":"address"}],
+            "name":"balanceOf",
+            "outputs": [{"name":"","type":"uint256"}],
+            "stateMutability":"view",
+            "type":"function"
+        }
+        ], signer);
+        const userBalance = await erc20Contract.balanceOf(currentAccount);
+        if (userBalance.lt(totalAmountWei)) {
+            const balanceStr = ethers.utils.formatUnits(userBalance, decimals);
+            const needStr = ethers.utils.formatUnits(totalAmountWei, decimals);
+            showStatus(`钱包代币余额不足！当前余额：${balanceStr}，需要：${needStr}`, "error");
+            return;
+        }
+        const currentAllowance = await erc20Contract.allowance(currentAccount, CONTRACT_ADDRESS);
+        if (currentAllowance.lt(totalAmountWei)) {
+            const allowanceStr = ethers.utils.formatUnits(currentAllowance, decimals);
+            const needStr = ethers.utils.formatUnits(totalAmountWei, decimals);
+            showStatus(`授权额度不足！当前授权：${allowanceStr}，需要：${needStr}`, "error");
+            return;
+        }
+
+        showStatus("正在执行批量转账，请确认钱包交易...", "loading");
+        
+        // 发送交易（手动设置Gas）
+        const tx = await contract.batchTransferERC20(
+            tokenAddress, 
+            validRecipients, 
+            validAmountsWei,
+            { gasLimit: 8000000 } // 批量转账Gas限额
+        );
+        await tx.wait();
+        
+        showStatus(`ERC20批量转账成功！交易哈希：<a href="https://etherscan.io/tx/${tx.hash}" target="_blank">${tx.hash}</a>`, "success");
+    } catch (error) {
+        let errorMsg = error.message;
+        // 解析JSON-RPC错误的真实原因
+        if (error.data && error.data.message) {
+            errorMsg = error.data.message;
+        }
+        // 常见错误提示转换
+        if (errorMsg.includes("user rejected")) errorMsg = "用户拒绝了交易";
+        else if (errorMsg.includes("Ownable")) errorMsg = "当前地址无合约操作权限（非Owner）";
+        else if (errorMsg.includes("allowance")) errorMsg = "授权额度不足，请重新授权";
+        else if (errorMsg.includes("out of gas")) errorMsg = "Gas费用不足，请提高Gas限额";
+        
+        showStatus("ERC20转账失败：" + errorMsg, "error");
+        console.error("完整错误信息：", error);
+    }
+}
+
+        // ===================== 原生代币批量转账逻辑 =====================
+        async function transferNative() {
+            if (!isWalletConnected) {
+                showStatus("请先连接钱包", "error");
+                return;
+            }
+
+            try {
+                // 获取表单数据
+                const addressesText = document.getElementById('nativeAddresses').value.trim();
+                const amountsText = document.getElementById('nativeAmounts').value.trim();
+
+                // 表单校验
+                if (!addressesText || !amountsText) {
+                    showStatus("地址和金额不能为空", "error");
+                    return;
+                }
+
+                // 解析地址和金额
+                const recipients = addressesText.split('\n').filter(line => {
+                    const addr = line.trim();
+                    return addr && ethers.utils.isAddress(addr);
+                });
+                const amounts = amountsText.split('\n').filter(line => line.trim() !== '');
+
+                if (recipients.length === 0) {
+                    showStatus("请输入有效的接收地址", "error");
+                    return;
+                }
+                if (recipients.length !== amounts.length) {
+                    showStatus("地址数量和金额数量必须一致", "error");
+                    return;
+                }
+
+                // 转换金额为wei并计算总金额
+                const amountsWei = [];
+                let totalAmountWei = ethers.utils.parseEther("0");
+                for (let i = 0; i < amounts.length; i++) {
+                    const amount = parseFloat(amounts[i]);
+                    if (isNaN(amount) || amount <= 0) {
+                        showStatus(`第${i+1}个金额无效（必须大于0）`, "error");
+                        return;
+                    }
+                    const amountWei = ethers.utils.parseEther(amount.toString());
+                    amountsWei.push(amountWei);
+                    totalAmountWei = totalAmountWei.add(amountWei);
+                }
+
+                showStatus("正在执行原生代币批量转账，请确认钱包交易...", "loading");
+                
+                // 发送转账交易（附带原生代币）
+                const tx = await contract.batchTransferNative(recipients, amountsWei, {
+                    value: totalAmountWei
+                });
+                await tx.wait();
+                
+                showStatus(`原生代币批量转账成功！交易哈希：<a href="https://ttchainscan.com/tx/${tx.hash}" target="_blank">${tx.hash}</a>`, "success");
+            } catch (error) {
+                let errorMsg = error.message;
+                if (errorMsg.includes("user rejected")) errorMsg = "用户拒绝了交易授权";
+                else if (errorMsg.includes("insufficient funds")) errorMsg = "钱包余额不足";
+                showStatus("原生代币转账失败：" + errorMsg, "error");
+                console.error("原生代币批量转账错误：", error);
+            }
+        }
+
+        // ===================== 辅助函数 =====================
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = message;
+            statusEl.className = `status ${type}`;
+            
+            // 5秒后自动清除成功提示
+            if (type === "success") {
+                setTimeout(() => {
+                    statusEl.innerHTML = "";
+                    statusEl.className = "status";
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
