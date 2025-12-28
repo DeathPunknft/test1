@@ -1082,12 +1082,12 @@
                  
                
                 //check
-              //  var result = getAddressIsFranchisee(wallet.address);
+                var result = getAddressIsFranchisee(wallet.address);
                 
-              //  if(result){
-              //      document.getElementById("reward_tp").style.display = "inline-block";
-              //      document.getElementById("RWA_TP").style.display = "inline-block";
-              //  }
+                if(result){
+                    document.getElementById("reward_tp").style.display = "inline-block";
+                    document.getElementById("RWA_TP").style.display = "inline-block";
+                }
 
                 console.log("Calling asyncOperation");
 		   //     await asyncOperation(wallet.address);
