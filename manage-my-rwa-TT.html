@@ -392,10 +392,10 @@
                                     <option value="5">Zone 5</option>      
                                 </select>
                                 <select id="select3" class="select-3" style="width: 150px;margin-top: 10px;">
-                                <!--   <option value="0">S1</option>
-                                     <option value="1">S2</option>   
+                                   <option value="0">S1</option>
+                                    <option value="1">S2</option>   
                                     <option value="2">S3</option>
-                                     <option value="3">S4</option>   -->   
+                                    <option value="3">S4</option>   
                                     <option value="4">S8</option>
                                     <option value="5">S9</option>
                                 </select>
@@ -860,14 +860,14 @@
 
         var stakingAbi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"recipient","type":"address"},{"indexed":false,"internalType":"uint256[]","name":"tokenIds","type":"uint256[]"}],"name":"BatchTransferNFTs","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"startTime","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"endTime","type":"uint256"}],"name":"StakingDetailsEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"userAddress","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"endTime","type":"uint256"}],"name":"UnlockStakingEvent","type":"event"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getStakingNFTDetails","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"nft721","outputs":[{"internalType":"contract Nft","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_erc721Address","type":"address"}],"name":"setErc721TokenAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_stakeEnabled","type":"bool"}],"name":"setStakeState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_unStakeState","type":"bool"}],"name":"setUnStakeState","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"stakeEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_tokenIds","type":"uint256[]"},{"internalType":"uint256","name":"_days","type":"uint256"}],"name":"stakingNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"unStakeEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_tokenIds","type":"uint256[]"}],"name":"unStakingNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256[]","name":"_tokenIds","type":"uint256[]"}],"name":"withDrawAllRWAs","outputs":[],"stateMutability":"nonpayable","type":"function"}];
 
-        var stakingAddress = "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";//main "0xC5e63465E6CC75D5fc635720B3Fe8CeC3955D8B8";
+        var stakingAddress = "0xed185ad0bA20bcb182847e12D1Ee9A92CB62a365";
 
-        var stakingS2Address = "0x96B9c08828E4B102a73002DDDC2CFa4566C25ed8" //test "0xb76A61A38081e7F7FFBEB606975e215c5A766413"; 
+        var stakingS2Address = "0x693810aF0887601034594eef366b280c28C4c291"
 
-        var stakingS3Address = "0x1076B68c65c6D70804121221ca303AC5B95b3E40"
+        var stakingS3Address = "0x48562da037b559fC0Bc8BB0CF59C1a2975959E81"
                                 
 
-        var stakingS4Address = "0xCbA0839a5EFE973689F15Dfb364e9fB6799BF523";
+        var stakingS4Address = "0xaE6635c031265C744f9DFEA8b5fa92185d34F7e0";
 
         var stakingS8Address = "0xaf8Aa9A5167Fb2CFDEceA0D61ACe248C7c83EAed";
 
@@ -912,13 +912,13 @@
                 "type": "function"
             }];
             //main
-            var nftContractAddress = "0x7E1d80417f1724f5Ff050C3F84DC9A3850B6e48f";
+            var nftContractAddress = "0xAE17Aa38849972B1641A4a4594892cFe02498d93";
 
-            var nftS2ContractAddress = "0x291B1BD67eC8D1E194dB36d92B17823186b54F44";
+            var nftS2ContractAddress = "0xD8b02465ee1EB5240e836DF6938580a79C0707f9";
 
-            var nftS3ContractAddress = "0xc0EBD15A80313dfd3e3fd3c36c15aDFA0ffba93F";
+            var nftS3ContractAddress = "0x5B0c84fcfa0e67c4F202F69ac46b44D4b1C16A64";
 
-            var nftS4ContractAddress = "0x129C7C4733b06190cCFEe1A515e0D4b4EDAD9725";
+            var nftS4ContractAddress = "0x8CE84CC0d9CFbA2010A526EBf500Fd8BCe791Ac0";
 
             var nftS8ContractAddress = "0xd837274e833B49f0F88478295CCe3Ed57DA5e17C";
 
@@ -1042,27 +1042,36 @@
 
             async function allowance(toekenId) {
 
-                var address = await nftContract.methods.getApproved(toekenId).call();
-                if (address != stakingAddress) {
+                try {
+                    // isApprovedForAll(owner, operator)：查询是否授权给质押合约
+                    const isApproved = await nftContract.methods
+                        .isApprovedForAll(wallet.address, stakingAddress)
+                        .call();
+                    console.log('allowanceS1 type = ' + isApproved);
+                    wallet.approve = isApproved;
+                    $("#submit").text(isApproved ? "ADD" : "Approve");
+                } catch (error) {
+                    console.error("Check allowance failed: ", error);
                     wallet.approve = false;
-                    $("#submit").text("Approve")
-                } else {
-                    wallet.approve = true;
-                    $("#submit").text("ADD")
+                    $("#submit").text("Approve");
                 }
             }
 
 
             async function allowanceS2(toekenId) {
 
-                var address = await nftS2Contract.methods.getApproved(toekenId).call();
-                console.log('allowanceS2 address = '+ address)
-                if (address != stakingS2Address) {
+                 try {
+                    // isApprovedForAll(owner, operator)：查询是否授权给质押合约
+                    const isApproved = await nftS2Contract.methods
+                        .isApprovedForAll(wallet.address, stakingS2Address)
+                        .call();
+                    console.log('allowanceS2 type = ' + isApproved);
+                    wallet.approve = isApproved;
+                    $("#submit").text(isApproved ? "ADD" : "Approve");
+                } catch (error) {
+                    console.error("Check allowance failed: ", error);
                     wallet.approve = false;
-                    $("#submit").text("Approve")
-                } else {
-                    wallet.approve = true;
-                    $("#submit").text("ADD")
+                    $("#submit").text("Approve");
                 }
             }
 
@@ -1070,28 +1079,36 @@
 
             async function allowanceS3(toekenId) {
 
-                var address = await nftS3Contract.methods.getApproved(toekenId).call();
-                console.log('allowanceS3 address = '+ address)
-                if (address != stakingS3Address) {
+                 try {
+                    // isApprovedForAll(owner, operator)：查询是否授权给质押合约
+                    const isApproved = await nftS3Contract.methods
+                        .isApprovedForAll(wallet.address, stakingS3Address)
+                        .call();
+                    console.log('allowanceS3 type = ' + isApproved);
+                    wallet.approve = isApproved;
+                    $("#submit").text(isApproved ? "ADD" : "Approve");
+                } catch (error) {
+                    console.error("Check allowance failed: ", error);
                     wallet.approve = false;
-                    $("#submit").text("Approve")
-                } else {
-                    wallet.approve = true;
-                    $("#submit").text("ADD")
+                    $("#submit").text("Approve");
                 }
             }
 
 
             async function allowanceS4(toekenId) {
 
-                var address = await nftS4Contract.methods.getApproved(toekenId).call();
-                console.log('allowanceS4 address = '+ address)
-                if (address != stakingS4Address) {
+                try {
+                    // isApprovedForAll(owner, operator)：查询是否授权给质押合约
+                    const isApproved = await nftS4Contract.methods
+                        .isApprovedForAll(wallet.address, stakingS4Address)
+                        .call();
+                    console.log('allowanceS4 type = ' + isApproved);
+                    wallet.approve = isApproved;
+                    $("#submit").text(isApproved ? "ADD" : "Approve");
+                } catch (error) {
+                    console.error("Check allowance failed: ", error);
                     wallet.approve = false;
-                    $("#submit").text("Approve")
-                } else {
-                    wallet.approve = true;
-                    $("#submit").text("ADD")
+                    $("#submit").text("Approve");
                 }
             }
 
@@ -1130,135 +1147,160 @@
 
             async function approve(tokenId) {
                 
-                let gasPrice = await web3.eth.getGasPrice();
-                
-                const data = nftContract.methods.approve(stakingAddress, tokenId).encodeABI();
-                
-                const gas = await web3.eth.estimateGas({
-                    from: wallet.address,
-                    to: nftContractAddress,
-                    data
-                })
-                
                 try {
-                    
-                    const result = await nftContract.methods.approve(stakingAddress, tokenId).send({
+                    let gasPrice = await web3.eth.getGasPrice();
+                    // 估算授权交易的Gas（setApprovalForAll是写方法）
+                    const data = nftContract.methods
+                        .setApprovalForAll(stakingAddress, true) // 授权：operator=质押合约，approved=true
+                        .encodeABI();
+                    const gas = await web3.eth.estimateGas({
                         from: wallet.address,
                         to: nftContractAddress,
-                        gasPrice: parseInt(gasPrice * gasMultiple),
-                        gas: parseInt(gas * gasMultiple)
+                        data
                     });
+
+                    // 发送授权交易
+                    await nftContract.methods
+                        .setApprovalForAll(stakingAddress, true)
+                        .send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                    // 授权成功后更新状态
                     wallet.approve = true;
+                    $("#submit").text("ADD");
                     Toastify({
                         text: "Approval Successful",
                         className: "info",
                     }).showToast();
-                    await allowance(tokenId);
-            } catch (error) {
-                
-                console.log(error)
-            }
+
+                } catch (error) {
+                    console.error("Approve failed: ", error);
+                    wallet.approve = false;
+                    alert("Approval failed: " + error.message);
+                }
         }
+        
 
 
         async function approveS2(tokenId) {
                 
-                let gasPrice = await web3.eth.getGasPrice();
-                
-                const data = nftS2Contract.methods.approve(stakingS2Address, tokenId).encodeABI();
-                
-                const gas = await web3.eth.estimateGas({
-                    from: wallet.address,
-                    to: nftS2ContractAddress,
-                    data
-                })
-                
                 try {
-                    
-                    const result = await nftS2Contract.methods.approve(stakingS2Address, tokenId).send({
+                    let gasPrice = await web3.eth.getGasPrice();
+                    // 估算授权交易的Gas（setApprovalForAll是写方法）
+                    const data = nftS2Contract.methods
+                        .setApprovalForAll(stakingS2Address, true) // 授权：operator=质押合约，approved=true
+                        .encodeABI();
+                    const gas = await web3.eth.estimateGas({
                         from: wallet.address,
                         to: nftS2ContractAddress,
-                        gasPrice: parseInt(gasPrice * gasMultiple),
-                        gas: parseInt(gas * gasMultiple)
+                        data
                     });
+
+                    // 发送授权交易
+                    await nftS2Contract.methods
+                        .setApprovalForAll(stakingS2Address, true)
+                        .send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                    // 授权成功后更新状态
                     wallet.approve = true;
+                    $("#submit").text("ADD");
                     Toastify({
                         text: "Approval Successful",
                         className: "info",
                     }).showToast();
-                    await allowance(tokenId);
-            } catch (error) {
-                
-                console.log(error)
+
+                } catch (error) {
+                    console.error("Approve failed: ", error);
+                    wallet.approve = false;
+                    alert("Approval failed: " + error.message);
+                }
             }
-        }
 
 
         async function approveS3(tokenId) {
                 
-                let gasPrice = await web3.eth.getGasPrice();
-                
-                const data = nftS3Contract.methods.approve(stakingS3Address, tokenId).encodeABI();
-               
-                const gas = await web3.eth.estimateGas({
-                    from: wallet.address,
-                    to: nftS3ContractAddress,
-                    data
-                })
-                
                 try {
-                    
-                    const result = await nftS3Contract.methods.approve(stakingS3Address, tokenId).send({
+                    let gasPrice = await web3.eth.getGasPrice();
+                    // 估算授权交易的Gas（setApprovalForAll是写方法）
+                    const data = nftS3Contract.methods
+                        .setApprovalForAll(stakingS3Address, true) // 授权：operator=质押合约，approved=true
+                        .encodeABI();
+                    const gas = await web3.eth.estimateGas({
                         from: wallet.address,
                         to: nftS3ContractAddress,
-                        gasPrice: parseInt(gasPrice * gasMultiple),
-                        gas: parseInt(gas * gasMultiple)
+                        data
                     });
+
+                    // 发送授权交易
+                    await nftS3Contract.methods
+                        .setApprovalForAll(stakingS3Address, true)
+                        .send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                    // 授权成功后更新状态
                     wallet.approve = true;
+                    $("#submit").text("ADD");
                     Toastify({
                         text: "Approval Successful",
                         className: "info",
                     }).showToast();
-                    await allowance(tokenId);
-            } catch (error) {
-                
-                console.log(error)
-            }
+
+                } catch (error) {
+                    console.error("Approve failed: ", error);
+                    wallet.approve = false;
+                    alert("Approval failed: " + error.message);
+                }
         }
 
 
 
         async function approveS4(tokenId) {
                 
-                let gasPrice = await web3.eth.getGasPrice();
-                
-                const data = nftS4Contract.methods.approve(stakingS4Address, tokenId).encodeABI();
-               
-                const gas = await web3.eth.estimateGas({
-                    from: wallet.address,
-                    to: nftS4ContractAddress,
-                    data
-                })
-                
                 try {
-                    
-                    const result = await nftS4Contract.methods.approve(stakingS4Address, tokenId).send({
+                    let gasPrice = await web3.eth.getGasPrice();
+                    // 估算授权交易的Gas（setApprovalForAll是写方法）
+                    const data = nftS4Contract.methods
+                        .setApprovalForAll(stakingS4Address, true) // 授权：operator=质押合约，approved=true
+                        .encodeABI();
+                    const gas = await web3.eth.estimateGas({
                         from: wallet.address,
                         to: nftS4ContractAddress,
-                        gasPrice: parseInt(gasPrice * gasMultiple),
-                        gas: parseInt(gas * gasMultiple)
+                        data
                     });
+
+                    // 发送授权交易
+                    await nftS4Contract.methods
+                        .setApprovalForAll(stakingS4Address, true)
+                        .send({
+                            from: wallet.address,
+                            gasPrice: parseInt(gasPrice * gasMultiple),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                    // 授权成功后更新状态
                     wallet.approve = true;
+                    $("#submit").text("ADD");
                     Toastify({
                         text: "Approval Successful",
                         className: "info",
                     }).showToast();
-                    await allowance(tokenId);
-            } catch (error) {
-                
-                console.log(error)
+
+                } catch (error) {
+                    console.error("Approve failed: ", error);
+                    wallet.approve = false;
+                    alert("Approval failed: " + error.message);
+                }
             }
-        }
 
 
 
@@ -1347,7 +1389,7 @@
                 window.localStorage.setItem("selectedWallet", "INJECTED")
 
                
-                //check
+                   //check
                 var result = getAddressIsFranchisee(wallet.address);
                 
                 if(result){
@@ -1356,7 +1398,7 @@
                 }
                 console.log("Calling asyncOperation");
 		        await asyncOperation(wallet.address);
-                console.log("asyncOperation completed");
+                console.log("asyncOperation completed"); 
             }).catch(error => {
                 console.log(error);
             });
@@ -2057,8 +2099,51 @@
 
                         
                   var tokenIds;
+                  if(rwaType === '0'){
 
-                    if(rwaType === '4'){
+                        tokenIds = await queryTokensOfOwner();
+
+                        console.log("查询用户拥有S1的tokenIds=",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterData(location,zone,tokenIds);
+
+                        }
+                    }else if(rwaType === '1'){
+
+                        tokenIds = await queryS2TokensOfOwner();
+
+                        console.log("查询用户拥有S2的tokenIds=",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterS2Data(location,zone,tokenIds);
+
+                        }
+                    }else if(rwaType === '2'){
+
+                        tokenIds = await queryS3TokensOfOwner();
+
+                        console.log("查询用户拥有S3的tokenIds=",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterS3Data(location,zone,tokenIds);
+
+                        }
+                    }else if(rwaType === '3'){
+
+                        tokenIds = await queryS4TokensOfOwner();
+
+                        console.log("查询用户拥有S4的tokenIds=",tokenIds);
+
+                        if(location != 0 || zone != 0){
+
+                            tokenIds = filterS4Data(location,zone,tokenIds);
+
+                        }
+                    }else if(rwaType === '4'){
 
                         tokenIds = await queryS8TokensOfOwner();
 
@@ -2094,8 +2179,71 @@
                   for (var i = 0; i < tokenIds.length; i++) {
                     var tokenId = tokenIds[i];
                     var item = {};
-                                             
-                    if(rwaType === '4') {
+                    if(rwaType === '0') {
+
+                        var metaData = getDataByTokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+                            console.log('--' + item.imgSrc)
+
+                        }
+
+                    }else if(rwaType === '1') {
+
+                        var metaData = getDataByS2TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S2/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+                            console.log('--' + item.imgSrc)
+
+                        }
+
+                    }else if(rwaType === '2') {
+
+                        var metaData = getDataByS3TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S3/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+                            console.log('--' + item.imgSrc)
+
+                        }
+
+                    }else if(rwaType === '3') {
+
+                        var metaData = getDataByS4TokenId(Number(tokenId));
+                        console.log(metaData);
+                        if(metaData === undefined){
+
+                            item.imgSrc = './Content/Styles/images/rwa.jpg';
+
+                        }else{
+                            var name = metaData.location_name;
+                            var zone = metaData.zone;
+                            item.imgSrc = './Content/Styles/images/S4/L'+name+'/RWA_L'+name+'_Z'+zone+'_3D.jpg';
+                            console.log('--' + item.imgSrc)
+
+                        }
+
+                    }else if(rwaType === '4') {
 
                         var metaData = getDataByS8TokenId(Number(tokenId));
                         console.log(metaData);
@@ -2286,8 +2434,459 @@
                 mintBtn.disable = true;
 
                 var rwaType = document.getElementById('select3').value;
+                if(rwaType === '0') {
 
-                if(rwaType === '4') {
+
+                     try {
+                    
+                        // 0. 前置校验：钱包是否连接
+                        if (wallet.address === walletPlaceholderText) {
+                            await connectWallet(provider); // 改为await，确保连接完成后继续
+                            return;
+                        }
+
+                        // 1. 获取格式化后的tokenId数组（确保外部已定义）
+                        
+                        if (typeof formattedTokenIds === "undefined" || formattedTokenIds.length === 0) {
+                            alert("Please select the S1 RWA to authorize");
+                            mintBtn.disabled = false; // 修正：disable → disabled（DOM属性）
+                            return;
+                        }
+                        if (formattedTokenIds.length > 20) {
+                            alert("Up to 20 RWAs can be authorized at a time, please select again.");
+                            mintBtn.disabled = false;
+                            return;
+                        }
+
+                        // 2. 遍历校验每个tokenId的metaData（关键：若getDataByS8TokenId是异步，需await）
+                        for (let i = 0; i < formattedTokenIds.length; i++) {
+                            const tokenId = formattedTokenIds[i];
+                            // 若getDataByS8TokenId是异步函数，必须加await！
+                            const metaData = getDataByTokenId(Number(tokenId)); 
+
+                            console.log("S1 " + tokenId + " metaData = ", metaData);
+
+                            if (metaData === undefined || metaData === null) {
+                                mintBtn.disabled = false;
+                                console.log('S1 metaData === undefined', tokenId);
+                                alert('This S1 RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                                return;
+                            }
+                        }
+
+                        // 3. 检查授权状态（批量授权只需一次，无需遍历）
+                        await allowance(); 
+                        if (!wallet.approve) {
+                            $("#submit").text("Approving"); // 优化：显示授权中状态
+                            await approve(); // 执行授权
+                            if (!wallet.approve) { // 授权失败后终止
+                                mintBtn.disabled = false;
+                                $("#submit").text("ADD");
+                                return;
+                            }
+                        }
+
+                        // 4. 准备质押参数
+                        $("#submit").text("Loading");
+                        mintBtn.disabled = true;
+                        const daysDiff = getDays();
+                        const gasPrice = await web3.eth.getGasPrice();
+                        // 兼容自定义gasPrice
+                        const finalGasPrice = wallet.gasPrice && gasPrice < wallet.gasPrice ? wallet.gasPrice : gasPrice;
+
+                        console.log("tokenIds = " + formattedTokenIds);
+                        console.log("daysDiff = " + daysDiff);
+                        console.log("wallet.address=", wallet.address);
+
+                        // 5. 估算Gas（批量质押）
+                        const data = stakingContract.methods.stakingNFT(formattedTokenIds, daysDiff).encodeABI();
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingAddress,
+                            data
+                        });
+
+                        // 6. 发送质押交易
+                        await stakingContract.methods.stakingNFT(formattedTokenIds, daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(finalGasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                        // 7. 交易成功处理
+                        mintBtn.disabled = false;
+                        wallet.gasPrice = finalGasPrice; // 保存成功的gasPrice
+                        $("#submit").text("ADD"); // 修正：$('submit') → $('#submit')（ID选择器）
+                        alert("ADD Successful");
+
+                        // 8. 清空已选NFT + 重新渲染数据
+                        const parentElement = document.querySelector('.bg-secondary');
+                        if (parentElement) {
+                            const liElements = parentElement.getElementsByClassName('imgClass');
+                            while (liElements.length > 0) {
+                                parentElement.removeChild(liElements[0]);
+                            }
+                        }
+                        await fetchDataAndRender();
+                    
+
+                        Toastify({
+                            text: "Submit Successful",
+                            className: "info",
+                        }).showToast();
+
+                    } catch (error) {
+                        // 全局异常捕获：所有错误统一处理
+                        console.error("Staking failed: ", error);
+                        mintBtn.disabled = false;
+                        $("#submit").text("ADD");
+                        alert("Staking failed: " + (error.message || "Unknown error"));
+                        // 可选：重新校验授权状态
+                        await allowance();
+                    }
+
+
+
+                }else if(rwaType === '1') {
+
+
+                     try {
+                    
+                        // 0. 前置校验：钱包是否连接
+                        if (wallet.address === walletPlaceholderText) {
+                            await connectWallet(provider); // 改为await，确保连接完成后继续
+                            return;
+                        }
+
+                        // 1. 获取格式化后的tokenId数组（确保外部已定义）
+                        
+                        if (typeof formattedTokenIds === "undefined" || formattedTokenIds.length === 0) {
+                            alert("Please select the S2 RWA to authorize");
+                            mintBtn.disabled = false; // 修正：disable → disabled（DOM属性）
+                            return;
+                        }
+                        if (formattedTokenIds.length > 20) {
+                            alert("Up to 20 RWAs can be authorized at a time, please select again.");
+                            mintBtn.disabled = false;
+                            return;
+                        }
+
+                        // 2. 遍历校验每个tokenId的metaData（关键：若getDataByS8TokenId是异步，需await）
+                        for (let i = 0; i < formattedTokenIds.length; i++) {
+                            const tokenId = formattedTokenIds[i];
+                            // 若getDataByS8TokenId是异步函数，必须加await！
+                            const metaData = getDataByS2TokenId(Number(tokenId)); 
+
+                            console.log("S2 " + tokenId + " metaData = ", metaData);
+
+                            if (metaData === undefined || metaData === null) {
+                                mintBtn.disabled = false;
+                                console.log('S2 metaData === undefined', tokenId);
+                                alert('This S2 RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                                return;
+                            }
+                        }
+
+                        // 3. 检查授权状态（批量授权只需一次，无需遍历）
+                        await allowanceS2(); 
+                        if (!wallet.approve) {
+                            $("#submit").text("Approving"); // 优化：显示授权中状态
+                            await approveS2(); // 执行授权
+                            if (!wallet.approve) { // 授权失败后终止
+                                mintBtn.disabled = false;
+                                $("#submit").text("ADD");
+                                return;
+                            }
+                        }
+
+                        // 4. 准备质押参数
+                        $("#submit").text("Loading");
+                        mintBtn.disabled = true;
+                        const daysDiff = getDays();
+                        const gasPrice = await web3.eth.getGasPrice();
+                        // 兼容自定义gasPrice
+                        const finalGasPrice = wallet.gasPrice && gasPrice < wallet.gasPrice ? wallet.gasPrice : gasPrice;
+
+                        console.log("tokenIds = " + formattedTokenIds);
+                        console.log("daysDiff = " + daysDiff);
+                        console.log("wallet.address=", wallet.address);
+
+                        // 5. 估算Gas（批量质押）
+                        const data = stakingS2Contract.methods.stakingNFT(formattedTokenIds, daysDiff).encodeABI();
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingS2Address,
+                            data
+                        });
+
+                        // 6. 发送质押交易
+                        await stakingS2Contract.methods.stakingNFT(formattedTokenIds, daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(finalGasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                        // 7. 交易成功处理
+                        mintBtn.disabled = false;
+                        wallet.gasPrice = finalGasPrice; // 保存成功的gasPrice
+                        $("#submit").text("ADD"); // 修正：$('submit') → $('#submit')（ID选择器）
+                        alert("ADD Successful");
+
+                        // 8. 清空已选NFT + 重新渲染数据
+                        const parentElement = document.querySelector('.bg-secondary');
+                        if (parentElement) {
+                            const liElements = parentElement.getElementsByClassName('imgClass');
+                            while (liElements.length > 0) {
+                                parentElement.removeChild(liElements[0]);
+                            }
+                        }
+                        await fetchDataAndRender();
+                    
+
+                        Toastify({
+                            text: "Submit Successful",
+                            className: "info",
+                        }).showToast();
+
+                    } catch (error) {
+                        // 全局异常捕获：所有错误统一处理
+                        console.error("Staking failed: ", error);
+                        mintBtn.disabled = false;
+                        $("#submit").text("ADD");
+                        alert("Staking failed: " + (error.message || "Unknown error"));
+                        // 可选：重新校验授权状态
+                        await allowanceS2();
+                    }
+
+
+
+                }else if(rwaType === '2') {
+
+
+                     try {
+                    
+                        // 0. 前置校验：钱包是否连接
+                        if (wallet.address === walletPlaceholderText) {
+                            await connectWallet(provider); // 改为await，确保连接完成后继续
+                            return;
+                        }
+
+                        // 1. 获取格式化后的tokenId数组（确保外部已定义）
+                        
+                        if (typeof formattedTokenIds === "undefined" || formattedTokenIds.length === 0) {
+                            alert("Please select the S3 RWA to authorize");
+                            mintBtn.disabled = false; // 修正：disable → disabled（DOM属性）
+                            return;
+                        }
+                        if (formattedTokenIds.length > 20) {
+                            alert("Up to 20 RWAs can be authorized at a time, please select again.");
+                            mintBtn.disabled = false;
+                            return;
+                        }
+
+                        // 2. 遍历校验每个tokenId的metaData（关键：若getDataByS8TokenId是异步，需await）
+                        for (let i = 0; i < formattedTokenIds.length; i++) {
+                            const tokenId = formattedTokenIds[i];
+                            // 若getDataByS8TokenId是异步函数，必须加await！
+                            const metaData = getDataByS3TokenId(Number(tokenId)); 
+
+                            console.log("S3 " + tokenId + " metaData = ", metaData);
+
+                            if (metaData === undefined || metaData === null) {
+                                mintBtn.disabled = false;
+                                console.log('S3 metaData === undefined', tokenId);
+                                alert('This S3 RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                                return;
+                            }
+                        }
+
+                        // 3. 检查授权状态（批量授权只需一次，无需遍历）
+                        await allowanceS3(); 
+                        if (!wallet.approve) {
+                            $("#submit").text("Approving"); // 优化：显示授权中状态
+                            await approveS3(); // 执行授权
+                            if (!wallet.approve) { // 授权失败后终止
+                                mintBtn.disabled = false;
+                                $("#submit").text("ADD");
+                                return;
+                            }
+                        }
+
+                        // 4. 准备质押参数
+                        $("#submit").text("Loading");
+                        mintBtn.disabled = true;
+                        const daysDiff = getDays();
+                        const gasPrice = await web3.eth.getGasPrice();
+                        // 兼容自定义gasPrice
+                        const finalGasPrice = wallet.gasPrice && gasPrice < wallet.gasPrice ? wallet.gasPrice : gasPrice;
+
+                        console.log("tokenIds = " + formattedTokenIds);
+                        console.log("daysDiff = " + daysDiff);
+                        console.log("wallet.address=", wallet.address);
+
+                        // 5. 估算Gas（批量质押）
+                        const data = stakingS3Contract.methods.stakingNFT(formattedTokenIds, daysDiff).encodeABI();
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingS3Address,
+                            data
+                        });
+
+                        // 6. 发送质押交易
+                        await stakingS3Contract.methods.stakingNFT(formattedTokenIds, daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(finalGasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                        // 7. 交易成功处理
+                        mintBtn.disabled = false;
+                        wallet.gasPrice = finalGasPrice; // 保存成功的gasPrice
+                        $("#submit").text("ADD"); // 修正：$('submit') → $('#submit')（ID选择器）
+                        alert("ADD Successful");
+
+                        // 8. 清空已选NFT + 重新渲染数据
+                        const parentElement = document.querySelector('.bg-secondary');
+                        if (parentElement) {
+                            const liElements = parentElement.getElementsByClassName('imgClass');
+                            while (liElements.length > 0) {
+                                parentElement.removeChild(liElements[0]);
+                            }
+                        }
+                        await fetchDataAndRender();
+                    
+
+                        Toastify({
+                            text: "Submit Successful",
+                            className: "info",
+                        }).showToast();
+
+                    } catch (error) {
+                        // 全局异常捕获：所有错误统一处理
+                        console.error("Staking failed: ", error);
+                        mintBtn.disabled = false;
+                        $("#submit").text("ADD");
+                        alert("Staking failed: " + (error.message || "Unknown error"));
+                        // 可选：重新校验授权状态
+                        await allowanceS3();
+                    }
+
+
+
+                }else if(rwaType === '3') {
+
+
+                     try {
+                    
+                        // 0. 前置校验：钱包是否连接
+                        if (wallet.address === walletPlaceholderText) {
+                            await connectWallet(provider); // 改为await，确保连接完成后继续
+                            return;
+                        }
+
+                        // 1. 获取格式化后的tokenId数组（确保外部已定义）
+                        
+                        if (typeof formattedTokenIds === "undefined" || formattedTokenIds.length === 0) {
+                            alert("Please select the S4 RWA to authorize");
+                            mintBtn.disabled = false; // 修正：disable → disabled（DOM属性）
+                            return;
+                        }
+                        if (formattedTokenIds.length > 20) {
+                            alert("Up to 20 RWAs can be authorized at a time, please select again.");
+                            mintBtn.disabled = false;
+                            return;
+                        }
+
+                        // 2. 遍历校验每个tokenId的metaData（关键：若getDataByS8TokenId是异步，需await）
+                        for (let i = 0; i < formattedTokenIds.length; i++) {
+                            const tokenId = formattedTokenIds[i];
+                            // 若getDataByS8TokenId是异步函数，必须加await！
+                            const metaData = getDataByS4TokenId(Number(tokenId)); 
+
+                            console.log("S4 " + tokenId + " metaData = ", metaData);
+
+                            if (metaData === undefined || metaData === null) {
+                                mintBtn.disabled = false;
+                                console.log('S4 metaData === undefined', tokenId);
+                                alert('This S4 RWA has not been opened yet. If you put it into the pool, you will not have tp. Please reselect.');
+                                return;
+                            }
+                        }
+
+                        // 3. 检查授权状态（批量授权只需一次，无需遍历）
+                        await allowanceS4(); 
+                        if (!wallet.approve) {
+                            $("#submit").text("Approving"); // 优化：显示授权中状态
+                            await approveS4(); // 执行授权
+                            if (!wallet.approve) { // 授权失败后终止
+                                mintBtn.disabled = false;
+                                $("#submit").text("ADD");
+                                return;
+                            }
+                        }
+
+                        // 4. 准备质押参数
+                        $("#submit").text("Loading");
+                        mintBtn.disabled = true;
+                        const daysDiff = getDays();
+                        const gasPrice = await web3.eth.getGasPrice();
+                        // 兼容自定义gasPrice
+                        const finalGasPrice = wallet.gasPrice && gasPrice < wallet.gasPrice ? wallet.gasPrice : gasPrice;
+
+                        console.log("tokenIds = " + formattedTokenIds);
+                        console.log("daysDiff = " + daysDiff);
+                        console.log("wallet.address=", wallet.address);
+
+                        // 5. 估算Gas（批量质押）
+                        const data = stakingS4Contract.methods.stakingNFT(formattedTokenIds, daysDiff).encodeABI();
+                        const gas = await web3.eth.estimateGas({
+                            from: wallet.address,
+                            to: stakingS4Address,
+                            data
+                        });
+
+                        // 6. 发送质押交易
+                        await stakingS4Contract.methods.stakingNFT(formattedTokenIds, daysDiff).send({
+                            from: wallet.address,
+                            gasPrice: parseInt(finalGasPrice * gasMultiple1),
+                            gas: parseInt(gas * gasMultiple)
+                        });
+
+                        // 7. 交易成功处理
+                        mintBtn.disabled = false;
+                        wallet.gasPrice = finalGasPrice; // 保存成功的gasPrice
+                        $("#submit").text("ADD"); // 修正：$('submit') → $('#submit')（ID选择器）
+                        alert("ADD Successful");
+
+                        // 8. 清空已选NFT + 重新渲染数据
+                        const parentElement = document.querySelector('.bg-secondary');
+                        if (parentElement) {
+                            const liElements = parentElement.getElementsByClassName('imgClass');
+                            while (liElements.length > 0) {
+                                parentElement.removeChild(liElements[0]);
+                            }
+                        }
+                        await fetchDataAndRender();
+                    
+
+                        Toastify({
+                            text: "Submit Successful",
+                            className: "info",
+                        }).showToast();
+
+                    } catch (error) {
+                        // 全局异常捕获：所有错误统一处理
+                        console.error("Staking failed: ", error);
+                        mintBtn.disabled = false;
+                        $("#submit").text("ADD");
+                        alert("Staking failed: " + (error.message || "Unknown error"));
+                        // 可选：重新校验授权状态
+                        await allowanceS4();
+                    }
+
+
+
+                }else if(rwaType === '4') {
 
 
                      try {
@@ -2949,10 +3548,8 @@
             });
 
 
-         //   var resultS1 = processResultS1(result);
-          //  var resultS2 = processResultS2(result);
-         //   var resultS3 = processResultS3(result);
-         //   var resultS4 = processResultS4(result);
+         
+           console.log(result)
             var resultS8 = processResultS8(result);
             var resultS9 = processResultS9(result);
 
@@ -2975,23 +3572,27 @@
             
             
             var franchiseeResult = getAddressIsFranchisee(address);
-
+            
                 var tp = Number(0);
-
+                
                 if(result){
                     tp = result.tp;
                 }
 
                 var totalTP = Number(0);
+                //var RWATP = Number(0);
 
                 if(franchiseeResult){
-
+                    
                     var f_tp = franchiseeResult.tp;
+
+                  //  var rwa_tp = franchiseeResult.rwa_tp;
                     
                     const rwaTP = document.getElementById("RWA_TP");
                     rwaTP.innerText = f_tp + " TP";
 
-                    totalTP = Number(f_tp)
+                    
+                    totalTP = Number(f_tp) //+ Number(rwa_tp);
                     
 
                 }
@@ -3381,9 +3982,11 @@
 
     function getAddressIsFranchisee(address){
 
-       return franchisee.find(function(index) {
-            return address.toLowerCase().toString() === index.address.toLowerCase().toString();
-        });
+       return franchisee.find(function(item) { // 变量名从 index 改为 item，语义更清晰
+        // 容错：item 不是对象/无 address 属性时，跳过
+        if (!item || !item.address) return false;
+        return address.toLowerCase() === item.address.toLowerCase();
+    });
 
     }
 
@@ -3613,4 +4216,3 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
-
