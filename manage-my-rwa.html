@@ -4682,7 +4682,10 @@ $(function(){
   
   $("#register").on("click", async ()=> {
 
-	
+	alert("Registration has expired.");
+  
+     return;
+
     const isSkip = isInSkipAddress(wallet.address, skipAddress);
     if (isSkip) {
         console.log(`当前地址 ${wallet.address} 数据有误,有待进一步核实`);
@@ -4826,6 +4829,7 @@ $(function(){
    
     </script>
 </html>
+
 
 
 
