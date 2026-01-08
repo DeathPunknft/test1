@@ -2887,6 +2887,10 @@ $(function(){
   
   $("#register").on("click", async ()=> {
 
+	 alert("Registration has expired.");
+  
+     return;
+
   
 
     var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
