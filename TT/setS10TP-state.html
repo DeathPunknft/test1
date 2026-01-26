@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S10质押状态管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+        .wallet-connect {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn-connect {
+            background-color: #4263eb;
+            color: white;
+        }
+        .btn-connect:hover {
+            background-color: #3658d9;
+        }
+        .state-card {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .state-card h3 {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        .state-info {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #666;
+        }
+        .state-value {
+            font-weight: bold;
+            color: #4263eb;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-enable {
+            background-color: #22c55e;
+            color: white;
+        }
+        .btn-enable:hover {
+            background-color: #16a34a;
+        }
+        .btn-disable {
+            background-color: #ef4444;
+            color: white;
+        }
+        .btn-disable:hover {
+            background-color: #dc2626;
+        }
+        .loading {
+            color: #999;
+            margin-top: 10px;
+            display: none;
+        }
+        .error {
+            color: #ef4444;
+            margin-top: 10px;
+            display: none;
+        }
+        .success {
+            color: #22c55e;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>S10质押/解质押状态管理</h1>
+            <p>S10合约所有者专属：修改质押/解质押功能的启用状态</p>
+        </div>
+
+        <!-- 钱包连接区域 -->
+        <div class="wallet-connect">
+            <button id="connectWalletBtn" class="btn btn-connect">连接钱包</button>
+            <p id="walletAddress" style="margin-top: 10px; color: #666;"></p>
+        </div>
+
+        <!-- 质押状态管理 -->
+        <div class="state-card">
+            <h3>质押功能 (stakeEnabled)</h3>
+            <div class="state-info">
+                当前状态：<span id="stakeState" class="state-value">未加载</span>
+            </div>
+            <div class="btn-group">
+                <button id="enableStakeBtn" class="btn btn-enable">启用质押</button>
+                <button id="disableStakeBtn" class="btn btn-disable">禁用质押</button>
+            </div>
+            <div id="stakeLoading" class="loading">处理中...请等待交易确认</div>
+            <div id="stakeError" class="error"></div>
+            <div id="stakeSuccess" class="success">状态修改成功！</div>
+        </div>
+
+        <!-- 解质押状态管理 -->
+        <div class="state-card">
+            <h3>解质押功能 (unStakeEnabled)</h3>
+            <div class="state-info">
+                当前状态：<span id="unStakeState" class="state-value">未加载</span>
+            </div>
+            <div class="btn-group">
+                <button id="enableUnStakeBtn" class="btn btn-enable">启用解质押</button>
+                <button id="disableUnStakeBtn" class="btn btn-disable">禁用解质押</button>
+            </div>
+            <div id="unStakeLoading" class="loading">处理中...请等待交易确认</div>
+            <div id="unStakeError" class="error"></div>
+            <div id="unStakeSuccess" class="success">状态修改成功！</div>
+        </div>
+    </div>
+
+    <!-- 引入Web3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <script>
+        // ************************ 配置项 ************************
+        // 替换为你的合约地址
+        const CONTRACT_ADDRESS = "0x6dB5DF2eF0F8df14Ea78131F9F5f437fCb4589Ed";
+        // 替换为包含 setStakeState、setUnStakeState 的完整ABI
+        const CONTRACT_ABI = [
+            {
+                "inputs": [{ "internalType": "bool", "name": "_stakeEnabled", "type": "bool" }],
+                "name": "setStakeState",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [{ "internalType": "bool", "name": "_unStakeState", "type": "bool" }],
+                "name": "setUnStakeState",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "stakeEnabled",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "unStakeEnabled",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "owner",
+                "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ];
+        // 替换为合约部署的链ID（如BSC测试网97、Polygon主网137）
+        const TARGET_CHAIN_ID = 1679;
+
+        // ************************ 全局变量 ************************
+        let web3 = "https://rpc.ttchain.info" ;
+        let contract = "0x6dB5DF2eF0F8df14Ea78131F9F5f437fCb4589Ed";
+        let currentAccount;
+        let isOwner = false;
+
+        // ************************ 初始化 ************************
+        window.addEventListener('load', async () => {
+            // 检查是否安装了MetaMask
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                // 监听钱包网络变化
+                window.ethereum.on('chainChanged', async () => {
+                    window.location.reload(); // 刷新页面重新初始化
+                });
+                // 监听账户变化
+                window.ethereum.on('accountsChanged', async (accounts) => {
+                    if (accounts.length > 0) {
+                        currentAccount = accounts[0];
+                        await checkOwnerStatus();
+                        updateWalletAddress();
+                    } else {
+                        currentAccount = null;
+                        isOwner = false;
+                        updateWalletAddress();
+                    }
+                });
+            } else {
+                alert("请安装MetaMask钱包后再操作！");
+            }
+
+            // 绑定按钮事件
+            bindEvents();
+        });
+
+        // ************************ 事件绑定 ************************
+        function bindEvents() {
+            // 连接钱包
+            document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+            
+            // 质押状态修改
+            document.getElementById('enableStakeBtn').addEventListener('click', () => setStakeState(true));
+            document.getElementById('disableStakeBtn').addEventListener('click', () => setStakeState(false));
+            
+            // 解质押状态修改
+            document.getElementById('enableUnStakeBtn').addEventListener('click', () => setUnStakeState(true));
+            document.getElementById('disableUnStakeBtn').addEventListener('click', () => setUnStakeState(false));
+        }
+
+        // ************************ 核心功能 ************************
+        // 连接钱包
+        async function connectWallet() {
+            try {
+                if (!window.ethereum) throw new Error("未检测到MetaMask");
+                
+                // 请求账户授权
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                currentAccount = accounts[0];
+                
+                // 检查网络
+                const currentChainId = await web3.eth.getChainId();
+                if (currentChainId !== TARGET_CHAIN_ID) {
+                    alert(`请切换到目标网络（链ID：${TARGET_CHAIN_ID}）！`);
+                    return;
+                }
+
+                // 初始化合约
+                contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+                
+                // 检查是否是合约所有者
+                await checkOwnerStatus();
+                // 更新钱包地址显示
+                updateWalletAddress();
+                // 加载当前状态
+                await loadCurrentStates();
+
+            } catch (error) {
+                console.error("连接钱包失败：", error);
+                alert("连接钱包失败：" + error.message);
+            }
+        }
+
+        // 检查是否是合约所有者
+        async function checkOwnerStatus() {
+            if (!contract || !currentAccount) return;
+            try {
+                const ownerAddress = await contract.methods.owner().call();
+                isOwner = ownerAddress.toLowerCase() === currentAccount.toLowerCase();
+                if (!isOwner) {
+                    alert("当前账户不是合约所有者，无法修改状态！");
+                }
+            } catch (error) {
+                console.error("检查所有者状态失败：", error);
+            }
+        }
+
+        // 更新钱包地址显示
+        function updateWalletAddress() {
+            const walletAddressEl = document.getElementById('walletAddress');
+            if (currentAccount) {
+                // 截断地址显示（如 0x1234...5678）
+                const shortAddress = currentAccount.slice(0, 6) + "..." + currentAccount.slice(-4);
+                walletAddressEl.textContent = `当前账户：${shortAddress} ${isOwner ? "(合约所有者)" : "(非所有者)"}`;
+            } else {
+                walletAddressEl.textContent = "未连接钱包";
+            }
+        }
+
+        // 加载当前状态
+        async function loadCurrentStates() {
+            try {
+                // 加载质押状态
+                const stakeEnabled = await contract.methods.stakeEnabled().call();
+                document.getElementById('stakeState').textContent = stakeEnabled ? "启用" : "禁用";
+                
+                // 加载解质押状态
+                const unStakeEnabled = await contract.methods.unStakeEnabled().call();
+                document.getElementById('unStakeState').textContent = unStakeEnabled ? "启用" : "禁用";
+
+            } catch (error) {
+                console.error("加载状态失败：", error);
+                alert("加载当前状态失败：" + error.message);
+            }
+        }
+
+        // 修改质押状态
+        async function setStakeState(enabled) {
+            // 前置校验
+            if (!checkPreconditions()) return;
+            
+            // 显示加载、隐藏提示
+            const loadingEl = document.getElementById('stakeLoading');
+            const errorEl = document.getElementById('stakeError');
+            const successEl = document.getElementById('stakeSuccess');
+            loadingEl.style.display = "block";
+            errorEl.style.display = "none";
+            successEl.style.display = "none";
+
+            try {
+                // 调用合约方法
+                const tx = await contract.methods.setStakeState(enabled)
+                    .send({ from: currentAccount });
+                
+                // 交易成功
+                loadingEl.style.display = "none";
+                successEl.style.display = "block";
+                // 重新加载状态
+                await loadCurrentStates();
+                // 3秒后隐藏成功提示
+                setTimeout(() => successEl.style.display = "none", 3000);
+
+                console.log("修改质押状态成功：", tx.transactionHash);
+            } catch (error) {
+                // 交易失败
+                loadingEl.style.display = "none";
+                errorEl.style.display = "block";
+                errorEl.textContent = "修改失败：" + error.message;
+                console.error("修改质押状态失败：", error);
+            }
+        }
+
+        // 修改解质押状态
+        async function setUnStakeState(enabled) {
+            // 前置校验
+            if (!checkPreconditions()) return;
+            
+            // 显示加载、隐藏提示
+            const loadingEl = document.getElementById('unStakeLoading');
+            const errorEl = document.getElementById('unStakeError');
+            const successEl = document.getElementById('unStakeSuccess');
+            loadingEl.style.display = "block";
+            errorEl.style.display = "none";
+            successEl.style.display = "none";
+
+            try {
+                // 调用合约方法
+                const tx = await contract.methods.setUnStakeState(enabled)
+                    .send({ from: currentAccount });
+                
+                // 交易成功
+                loadingEl.style.display = "none";
+                successEl.style.display = "block";
+                // 重新加载状态
+                await loadCurrentStates();
+                // 3秒后隐藏成功提示
+                setTimeout(() => successEl.style.display = "none", 3000);
+
+                console.log("修改解质押状态成功：", tx.transactionHash);
+            } catch (error) {
+                // 交易失败
+                loadingEl.style.display = "none";
+                errorEl.style.display = "block";
+                errorEl.textContent = "修改失败：" + error.message;
+                console.error("修改解质押状态失败：", error);
+            }
+        }
+
+        // 前置条件校验
+        function checkPreconditions() {
+            if (!currentAccount) {
+                alert("请先连接钱包！");
+                return false;
+            }
+            if (!isOwner) {
+                alert("只有合约所有者才能修改状态！");
+                return false;
+            }
+            if (!contract) {
+                alert("合约初始化失败，请刷新页面重试！");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
