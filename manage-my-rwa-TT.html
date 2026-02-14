@@ -3878,13 +3878,14 @@
             var resultS4 = processResultS4(result);
             var resultS8 = processResultS8(result);
             var resultS9 = processResultS9(result);
+			var resultS10 = processResultS10(result);
 
             //合并 filterData 和 totalPCS
-            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData,resultS4.filterData,resultS8.filterData,resultS9.filterData);//
+            var combinedFilterData = resultS1.filterData.concat(resultS2.filterData, resultS3.filterData,resultS4.filterData,resultS8.filterData,resultS9.filterData,resultS10.filterData);//
 
             updateDOM(combinedFilterData, ["A", "B", "C"], [1, 2, 3, 4, 5]);
 
-            var combinedTotalPCS =  resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS +  resultS4.totalPCS + resultS8.totalPCS +  resultS9.totalPCS;
+            var combinedTotalPCS =  resultS1.totalPCS + resultS2.totalPCS + resultS3.totalPCS +  resultS4.totalPCS + resultS8.totalPCS +  resultS9.totalPCS +   resultS10.totalPCS;
 
             // Update the total PCS in the DOM
             const total_pcs = document.querySelectorAll('#total_pcs');
@@ -4354,7 +4355,7 @@
     var tpAbi =  [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"isRegister","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"merkleRoot","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"register","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32[]","name":"_proof","type":"bytes32[]"}],"name":"registers","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_merkleRoot","type":"bytes32"}],"name":"setMerkleRoot","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}];
 
 
-    var tpRegisterContractAddress =  "0xAf6CaD2BE6b05e868E950060f767a58576ab9497"; //20 "0x3D6488cFfbAFB56c59AeF7f8BC1Fac4Ca4a99917" // "0x212835aCdF8A2B203f47c36aB4cb212bAA1FE330" // S18 "0x660e91BB83629Dd75878d33FbFA05f8306D0417b" //s17 "0x44EcB72A0F4416f1022FFEDE46b2bc6832F25a3e" //s16 "0x218326eed4e824f5a2dc1412e63fdee04b1c8a21" //S15 "0x250e515C28E5aD70776594bb3Cb19b1E6A3cFC5B" //S14 "0x540e55Be4bb7424ecfb8D614dAE3dD8B5ea00DC4"// "0x0190691EcA18E1F40Bdf824598652a0934539707" //S12 "0x5F8b400948a78D7e3D1f456b6B6f917755E3C617" //s11 "0xA663Ba09dAAD96049C85C6062d693e37b3d68233" //S10 "0x1B8854114f2Ac6fb0c41bD53aE26Cd44203F09B2" //9 "0x950565b20F8D57a776fa43Ab6AcF01e22de71c61" // "0xCd2D3278FF5F6f51C388Bd44baf9fA844707780e" //7 "0x06a479b4241a8818021280fCc63533180Bd77A91" //6 "0x474Cc392887d0156faE4c17b1766714Aef999f17" //5 "0xB0C2148C633B4413f87b20AABdd8d9b4Ce489fC1" //4 "0x0b5479775703ECe6e16037179ED19eac2a575a7E"  //3 "0x36a26B7f89cB5f6FDC755FDfA26E099aa82b2C48"; //2 "0xd13ed21C0316f4bCb089D4c105feB9d6f637d5eA";  //1 main old "0x1F07bE86c422f92584B27a5C583117a8769EB591";
+    var tpRegisterContractAddress =  "0x80198EB7a1309a06426824bEBc886Cb43E5B626d" //21 "0xAf6CaD2BE6b05e868E950060f767a58576ab9497"; //20 "0x3D6488cFfbAFB56c59AeF7f8BC1Fac4Ca4a99917" // "0x212835aCdF8A2B203f47c36aB4cb212bAA1FE330" // S18 "0x660e91BB83629Dd75878d33FbFA05f8306D0417b" //s17 "0x44EcB72A0F4416f1022FFEDE46b2bc6832F25a3e" //s16 "0x218326eed4e824f5a2dc1412e63fdee04b1c8a21" //S15 "0x250e515C28E5aD70776594bb3Cb19b1E6A3cFC5B" //S14 "0x540e55Be4bb7424ecfb8D614dAE3dD8B5ea00DC4"// "0x0190691EcA18E1F40Bdf824598652a0934539707" //S12 "0x5F8b400948a78D7e3D1f456b6B6f917755E3C617" //s11 "0xA663Ba09dAAD96049C85C6062d693e37b3d68233" //S10 "0x1B8854114f2Ac6fb0c41bD53aE26Cd44203F09B2" //9 "0x950565b20F8D57a776fa43Ab6AcF01e22de71c61" // "0xCd2D3278FF5F6f51C388Bd44baf9fA844707780e" //7 "0x06a479b4241a8818021280fCc63533180Bd77A91" //6 "0x474Cc392887d0156faE4c17b1766714Aef999f17" //5 "0xB0C2148C633B4413f87b20AABdd8d9b4Ce489fC1" //4 "0x0b5479775703ECe6e16037179ED19eac2a575a7E"  //3 "0x36a26B7f89cB5f6FDC755FDfA26E099aa82b2C48"; //2 "0xd13ed21C0316f4bCb089D4c105feB9d6f637d5eA";  //1 main old "0x1F07bE86c422f92584B27a5C583117a8769EB591";
 
     //leafs
     let leafs = [];
@@ -4579,5 +4580,6 @@ async function getOwnedTokensByContract(nftContractAddress, userAddress, start, 
    
     </script>
 </html>
+
 
 
