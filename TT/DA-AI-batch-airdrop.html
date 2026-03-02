@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT链-DA-AI 批量空投工具</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Ethers.js v6 -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.1/dist/ethers.umd.min.js"></script>
+    <!-- 引入 Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1', // 主蓝色
+                        accent: '#22C55E', // 绿色按钮
+                        dark: '#0F172A',   // 最深层背景
+                        'dark-secondary': '#1E293B', // 中灰背景
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .input-large {
+                @apply w-full px-4 py-3 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all border border-gray-600 bg-dark-secondary text-gray-200;
+            }
+            .btn-connect {
+                @apply bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 text-lg;
+            }
+            .btn-airdrop {
+                @apply bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 text-lg w-full;
+            }
+            .status-success {
+                @apply text-accent bg-accent/10 p-3 rounded-lg border border-accent/20 mt-4;
+            }
+            .status-error {
+                @apply text-red-500 bg-red-500/10 p-3 rounded-lg border border-red-500/20 mt-4;
+            }
+            .status-loading {
+                @apply text-primary bg-primary/10 p-3 rounded-lg border border-primary/20 mt-4;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark font-sans text-gray-200 min-h-screen p-4 md:p-8">
+    <div class="max-w-3xl mx-auto bg-dark-secondary rounded-xl shadow-xl p-6 md:p-8">
+        <!-- 顶部标题区 -->
+        <div class="bg-primary rounded-t-xl p-6 text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold">
+                <i class="fa fa-paper-plane mr-2"></i>TT链-DA-AI 批量空投工具
+            </h1>
+            <p class="text-gray-300 mt-2">合约所有者专属 - 批量向指定地址空投 NFT</p>
+        </div>
+
+        <!-- 钱包连接区 -->
+        <div class="text-center mb-8">
+            <button id="connectWalletBtn" class="btn-connect">
+                <i class="fa fa-wallet mr-2"></i>连接钱包
+            </button>
+            <div id="walletInfo" class="mt-4 hidden">
+                <p class="text-gray-400">当前连接地址：<span id="walletAddr" class="font-mono truncate inline-block w-40"></span></p>
+                <p class="text-gray-400">当前网络：<span id="networkName">TT 链</span>（链ID：<span id="chainId">1679</span>）</p>
+            </div>
+        </div>
+
+        <!-- 核心功能区 -->
+        <div class="space-y-6">
+            <!-- 数量调节 -->
+            <div>
+                <label class="block text-gray-300 font-bold mb-2 flex items-center">
+                    <i class="fa fa-ticket mr-2 text-primary"></i>每个地址空投数量
+                </label>
+                <div class="flex items-center bg-dark rounded-lg p-1 border border-gray-600">
+                    <button id="decreaseBtn" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded transition-colors" disabled>
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <input 
+                        type="number" 
+                        id="airdropAmount" 
+                        class="input-large text-center mx-2 bg-dark border-0" 
+                        value="1" 
+                        min="1" 
+                        readonly
+                    >
+                    <button id="increaseBtn" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded transition-colors">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 地址列表 -->
+            <div>
+                <label class="block text-gray-300 font-bold mb-2 flex items-center">
+                    <i class="fa fa-list-ul mr-2 text-primary"></i>空投地址列表（每行一个地址）
+                </label>
+                <textarea 
+                    id="addressList" 
+                    class="input-large h-48" 
+                    placeholder="0x1234567890abcdef1234567890abcdef12345678
+0x876543210fedcba09876543210fedcba09876543
+...（每行一个地址，支持空格/空行自动过滤）"
+                ></textarea>
+                <p class="text-gray-400 text-sm mt-2">提示：支持粘贴多行地址，自动过滤空行、空格和无效地址</p>
+            </div>
+        </div>
+
+        <!-- 执行空投按钮 -->
+        <button id="airdropBtn" class="btn-airdrop mt-6" disabled>
+            <i class="fa fa-rocket mr-2"></i>执行批量空投
+        </button>
+
+        <!-- 状态提示区 -->
+        <div id="statusContainer" class="mt-6 hidden">
+            <div id="statusContent" class="status-loading">
+                <i class="fa fa-spinner fa-spin mr-2"></i>处理中...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量 - 硬编码合约地址
+        const CONTRACT_ADDRESS = "0x48F321BeC050b4af31f7f4b64EcE9dE0ac32453e"; // 替换为你的实际合约地址
+        let provider = "https://rpc.ttchain.info";
+        let signer = null;
+        let contract = "0x48F321BeC050b4af31f7f4b64EcE9dE0ac32453e";
+        const CONTRACT_ABI = [
+            {
+                "inputs": [
+                    { "internalType": "address[]", "name": "wallets", "type": "address[]" },
+                    { "internalType": "uint256", "name": "amounts", "type": "uint256" }
+                ],
+                "name": "batchAirdrop",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+                "name": "airdropAddrPerm",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "state",
+                "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ];
+
+        // DOM 元素
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const walletInfo = document.getElementById('walletInfo');
+        const walletAddr = document.getElementById('walletAddr');
+        const networkName = document.getElementById('networkName');
+        const chainId = document.getElementById('chainId');
+        const airdropAmount = document.getElementById('airdropAmount');
+        const decreaseBtn = document.getElementById('decreaseBtn');
+        const increaseBtn = document.getElementById('increaseBtn');
+        const addressList = document.getElementById('addressList');
+        const airdropBtn = document.getElementById('airdropBtn');
+        const statusContainer = document.getElementById('statusContainer');
+        const statusContent = document.getElementById('statusContent');
+
+        // 初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            // 数量调节事件
+            decreaseBtn.addEventListener('click', () => {
+                if (parseInt(airdropAmount.value) > 1) {
+                    airdropAmount.value = parseInt(airdropAmount.value) - 1;
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                airdropAmount.value = parseInt(airdropAmount.value) + 1;
+            });
+
+            // 地址列表变化时更新按钮状态
+            addressList.addEventListener('input', () => {
+                const addresses = parseAddressList();
+                airdropBtn.disabled = addresses.length === 0 || !contract;
+            });
+
+            // 连接钱包按钮
+            connectWalletBtn.addEventListener('click', connectWallet);
+
+            // 空投按钮
+            airdropBtn.addEventListener('click', executeBatchAirdrop);
+        });
+
+        // 连接钱包并初始化合约
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    showStatus('正在连接钱包...', 'loading');
+                    
+                    // 连接钱包
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    provider = new ethers.BrowserProvider(window.ethereum);
+                    signer = await provider.getSigner();
+                    const address = await signer.getAddress();
+                    const chain = await provider.getNetwork();
+
+                    // 更新 UI
+                    connectWalletBtn.textContent = '已连接钱包';
+                    connectWalletBtn.disabled = true;
+                    connectWalletBtn.className = 'bg-gray-600 cursor-not-allowed py-3 px-6 rounded-lg text-lg';
+                    walletInfo.classList.remove('hidden');
+                    walletAddr.textContent = address;
+                    networkName.textContent = chain.name || '未知网络';
+                    chainId.textContent = chain.chainId;
+
+                    // 初始化合约（使用硬编码的合约地址）
+                    contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+                    
+                    // 检查权限和状态
+                    const [isPermitted, state] = await Promise.all([
+                        contract.airdropAddrPerm(address),
+                        contract.state()
+                    ]);
+                    if (!isPermitted) {
+                        showStatus('当前地址无空投权限，请联系合约所有者授权', 'error');
+                        airdropBtn.disabled = true;
+                    } else if (!state) {
+                        showStatus('合约未激活，请先调用 setState(true) 开启', 'error');
+                        airdropBtn.disabled = true;
+                    } else {
+                        showStatus('钱包和合约连接成功，可执行空投', 'success');
+                        airdropBtn.disabled = false;
+                    }
+
+                } catch (error) {
+                    showStatus(`钱包连接失败：${error.message}`, 'error');
+                    console.error('连接钱包错误:', error);
+                }
+            } else {
+                showStatus('未检测到钱包，请安装 MetaMask 等钱包插件', 'error');
+            }
+        }
+
+        // 解析地址列表
+        function parseAddressList() {
+            return addressList.value
+                .split('\n')
+                .map(addr => addr.trim())
+                .filter(addr => addr !== '' && ethers.isAddress(addr));
+        }
+
+        // 执行批量空投
+        async function executeBatchAirdrop() {
+            if (!contract || !signer) {
+                showStatus('请先连接钱包和合约', 'error');
+                return;
+            }
+
+            const addresses = parseAddressList();
+            const amount = parseInt(airdropAmount.value);
+
+            if (addresses.length === 0) {
+                showStatus('地址列表为空，请输入有效地址', 'error');
+                return;
+            }
+
+            try {
+                showStatus(`正在执行批量空投... 共 ${addresses.length} 个地址，每个地址 ${amount} 个 NFT`, 'loading');
+                airdropBtn.disabled = true;
+
+                // 发送交易
+                const tx = await contract.batchAirdrop(addresses, amount);
+
+                // 记录交易
+                showStatus(`交易已提交，哈希：${tx.hash}，等待区块确认...`, 'loading');
+
+                // 等待交易确认
+                const receipt = await tx.wait();
+                if (receipt.status === 1) {
+                    showStatus(`✅ 批量空投成功！交易哈希：${tx.hash}`, 'success');
+                    
+                    // 清空地址列表
+                    addressList.value = '';
+                    airdropBtn.disabled = true;
+                } else {
+                    showStatus('❌ 空投交易失败，请重试', 'error');
+                }
+            } catch (error) {
+                console.error('空投错误:', error);
+                let errorMsg = error.message || '未知错误';
+                if (error.reason) {
+                    errorMsg = `合约执行失败：${error.reason}`;
+                }
+                showStatus(errorMsg, 'error');
+            } finally {
+                airdropBtn.disabled = false;
+            }
+        }
+
+        // 显示状态提示
+        function showStatus(message, type) {
+            statusContainer.classList.remove('hidden');
+            statusContent.textContent = message;
+            
+            // 移除所有状态类
+            statusContent.classList.remove('status-success', 'status-error', 'status-loading');
+            
+            // 添加对应状态类
+            if (type === 'success') {
+                statusContent.classList.add('status-success');
+                statusContent.innerHTML = `<i class="fa fa-check-circle mr-2"></i>${message}`;
+            } else if (type === 'error') {
+                statusContent.classList.add('status-error');
+                statusContent.innerHTML = `<i class="fa fa-exclamation-circle mr-2"></i>${message}`;
+            } else {
+                statusContent.classList.add('status-loading');
+                statusContent.innerHTML = `<i class="fa fa-spinner fa-spin mr-2"></i>${message}`;
+            }
+
+            // 5秒后自动隐藏成功/错误提示
+            if (type !== 'loading') {
+                setTimeout(() => {
+                    statusContainer.classList.add('hidden');
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
