@@ -152,7 +152,7 @@
         }
 
         // ==================== 专用查询函数（已整合你的代码） ====================
-        async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 1000) {
+        async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 500) {
             if (!provider) throw new Error("Provider 未初始化，请先连接钱包");
 
             const queryContract = new ethers.Contract(QUERY_CONTRACT_ADDRESS, queryAbi, provider);
@@ -267,7 +267,7 @@
             showStatus("正在使用专用查询合约查询 Token IDs（支持50,000+）...");
 
             try {
-                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 1000);
+                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 500);
                 renderTokens();
                 showStatus(`查询完成！共拥有 ${ownedTokens.length} 个 NFT ✅`, "success");
             } catch (e) {
@@ -365,4 +365,5 @@
 </body>
 
 </html>
+
 
