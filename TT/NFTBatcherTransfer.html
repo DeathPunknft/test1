@@ -152,46 +152,44 @@
         }
 
         // ==================== 专用查询函数（已整合你的代码） ====================
-        async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 500) {
-            if (!provider) throw new Error("Provider 未初始化，请先连接钱包");
+       async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 400) {  // ← 步长改为 400
+        if (!provider) throw new Error("Provider 未初始化");
 
-            const queryContract = new ethers.Contract(QUERY_CONTRACT_ADDRESS, queryAbi, provider);
-            const allTokenIds = [];
+        const queryContract = new ethers.Contract(QUERY_CONTRACT_ADDRESS, queryAbi, provider);
+        const allTokenIds = [];
 
-            for (let currentStart = start; currentStart < end; currentStart += step) {
-                const currentEnd = Math.min(currentStart + step, end);
-                console.log(`正在查询tokenId范围：${currentStart} ~ ${currentEnd}`);
+        for (let currentStart = start; currentStart < end; currentStart += step) {
+            const currentEnd = Math.min(currentStart + step, end);
+            console.log(`正在查询tokenId范围：${currentStart} ~ ${currentEnd}`);
 
+            try {
+                // 【关键修复】estimateGas 改成不阻塞（失败就跳过）
                 try {
-                    // 可选：预估Gas（保留你原来的逻辑）
                     const estimated = await queryContract.estimateGas.getOwnedTokenIdList(
-                        nftContractAddress,
-                        ownerAddress,
-                        String(currentStart),
-                        String(currentEnd)
+                        nftContractAddress, ownerAddress, String(currentStart), String(currentEnd)
                     );
                     console.log(`估計 gas: ${estimated.toString()}`);
-
-                    const batchTokenIds = await queryContract.getOwnedTokenIdList(
-                        nftContractAddress,
-                        ownerAddress,
-                        String(currentStart),
-                        String(currentEnd)
-                    );
-
-                    const batchTokenIdsNum = batchTokenIds.map(Number);
-                    allTokenIds.push(...batchTokenIdsNum);
-                } catch (error) {
-                    console.error(`查询范围 ${currentStart}~${currentEnd} 失败：`, error);
-                    continue; // 跳过失败批次
+                } catch (estErr) {
+                    console.warn(`estimateGas 跳过（正常）`);
                 }
-            }
 
-            // 去重 + 排序
-            const uniqueTokenIds = [...new Set(allTokenIds)].sort((a, b) => a - b);
-            console.log("最终查询到的tokenId列表：", uniqueTokenIds);
-            return uniqueTokenIds;
+                const batchTokenIds = await queryContract.getOwnedTokenIdList(
+                    nftContractAddress, ownerAddress, String(currentStart), String(currentEnd)
+                );
+
+                const batchTokenIdsNum = batchTokenIds.map(Number);
+                allTokenIds.push(...batchTokenIdsNum);
+
+            } catch (error) {
+                console.error(`查询范围 ${currentStart}~${currentEnd} 失败：`, error);
+                continue;
+            }
         }
+
+        const uniqueTokenIds = [...new Set(allTokenIds)].sort((a, b) => a - b);
+        console.log("最终查询到的tokenId列表：", uniqueTokenIds);
+        return uniqueTokenIds;
+    }
 
         // ==================== 新增：授权 Batcher ====================
         async function approveBatcher() {
@@ -267,7 +265,7 @@
             showStatus("正在使用专用查询合约查询 Token IDs（支持50,000+）...");
 
             try {
-                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 500);
+                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 400);
                 renderTokens();
                 showStatus(`查询完成！共拥有 ${ownedTokens.length} 个 NFT ✅`, "success");
             } catch (e) {
@@ -363,7 +361,4 @@
         window.onload = init;
     </script>
 </body>
-
 </html>
-
-
