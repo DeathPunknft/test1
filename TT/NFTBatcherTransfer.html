@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT链ERC-721A 一转多批量转账工具（Batcher版）</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/Content/Styles/js/ethers.5.2.js"></script>
+    <style>
+        .token-chip { @apply bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-blue-200 transition; }
+        .preview-row { @apply flex justify-between items-center py-2 border-b; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center mb-8 text-indigo-600">TT链ERC-721A 一转多批量转账工具（Batcher版）</h1>
+
+        <!-- 钱包连接 -->
+        <div class="bg-white rounded-2xl shadow p-6 mb-8">
+            <button id="connectBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-medium transition">
+                连接 MetaMask 并切换到 TT链
+            </button>
+            <div id="walletInfo" class="hidden mt-4 text-sm text-gray-500">
+                已连接：<span id="userAddress" class="font-mono text-indigo-600"></span>
+            </div>
+        </div>
+
+        <!-- NFT 合约地址 -->
+        <div class="bg-white rounded-2xl shadow p-6 mb-8">
+            <label class="block text-sm font-medium text-gray-700 mb-2">NFT 合约地址 (ERC-721A)</label>
+            <div class="flex gap-3">
+                <input id="contractAddr" type="text" placeholder="0x1234...abcd" 
+                       class="flex-1 px-4 py-3 border border-gray-300 rounded-xl font-mono focus:border-indigo-500">
+                <button id="queryBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-medium">
+                    查询我的 Token IDs（支持50,000+）
+                </button>
+            </div>
+        </div>
+
+        <!-- Batcher 地址 -->
+        <div class="bg-white rounded-2xl shadow p-6 mb-8">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Batcher 合约地址</label>
+            <input id="batcherAddr" type="text" value="0x3cEC1B082dFed194eb89B4983d871d6cc14fE563"
+                   class="w-full px-4 py-3 border border-gray-300 rounded-xl font-mono focus:border-indigo-500">
+        </div>
+
+        <!-- 授权按钮（新增） -->
+        <div class="bg-white rounded-2xl shadow p-6 mb-8">
+            <button id="approveBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-xl font-medium transition">
+                ✅ 授权 Batcher 转移我的所有 NFT（只需点一次）
+            </button>
+            <p class="text-xs text-amber-600 mt-3 text-center">授权后即可执行一转多批量转账</p>
+        </div>
+
+        <!-- 我的 Token IDs -->
+        <div class="bg-white rounded-2xl shadow p-6 mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold">我的 Token IDs</h2>
+                <span id="tokenCount" class="text-sm text-gray-500">0 个</span>
+            </div>
+            <div id="tokenList" class="flex flex-wrap gap-2 min-h-[60px]"></div>
+        </div>
+
+        <!-- 接收者设置 -->
+        <div class="bg-white rounded-2xl shadow p-6 mb-8">
+            <h2 class="text-lg font-semibold mb-4">接收者设置</h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">接收地址列表（每行一个）</label>
+                    <textarea id="recipientsInput" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-xl font-mono resize-y"
+                              placeholder="0x123...&#10;0xabc..."></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">每个地址接收数量（每行对应）</label>
+                    <textarea id="quantitiesInput" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-xl font-mono resize-y"
+                              placeholder="2&#10;3"></textarea>
+                </div>
+            </div>
+
+            <div class="flex gap-4 mt-6">
+                <button id="previewBtn" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-medium">
+                    预览分配方案
+                </button>
+                <button id="transferBtn" disabled class="flex-1 bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-medium">
+                    执行一转多（Batcher 一笔交易）
+                </button>
+            </div>
+        </div>
+
+        <!-- 预览 -->
+        <div id="previewSection" class="bg-white rounded-2xl shadow p-6 hidden">
+            <h2 class="text-lg font-semibold mb-4">转账预览</h2>
+            <div id="previewList" class="space-y-3"></div>
+            <div class="mt-6 text-xs text-gray-500">
+                总计转移 <span id="totalTokens" class="font-semibold text-indigo-600">0</span> 个 NFT
+            </div>
+        </div>
+
+        <div id="status" class="mt-6 text-center text-sm text-gray-500"></div>
+    </div>
+
+    <script>
+        // ==================== 变量单独声明 ====================
+        let provider;
+        let signer;
+        let userAddress = null;
+        let currentContractAddr = "";
+        let ownedTokens = [];
+
+        const ethers = window.ethers;
+
+        // ==================== TT链 配置（已硬编码） ====================
+        const TT_CHAIN = {
+            chainId: 1679,
+            chainIdHex: "0x683",
+            rpcUrl: "https://rpc.ttchain.info",
+            chainName: "TT Chain",
+            nativeCurrency: { name: "TT", symbol: "TT", decimals: 18 },
+            blockExplorerUrls: ["https://ttchainscan.com"]
+        };
+
+        // ==================== 专用查询合约（支持50,000+ Token） ====================
+        const QUERY_CONTRACT_ADDRESS = "0x05D355278220778e6Ce244AB90cbb22f64e4c877";
+        const queryAbi = [{
+            "inputs": [
+                {"internalType":"address","name":"target","type":"address"},
+                {"internalType":"address","name":"owner","type":"address"},
+                {"internalType":"uint256","name":"start","type":"uint256"},
+                {"internalType":"uint256","name":"end","type":"uint256"}
+            ],
+            "name": "getOwnedTokenIdList",
+            "outputs": [{"internalType":"uint256[]","name":"tokenIdList","type":"uint256[]"}],
+            "stateMutability": "view",
+            "type": "function"
+        }];
+
+        // Batcher ABI
+        const batcherAbi = [
+            "function batchSafeTransferFrom(address,address[],uint256[]) external"
+        ];
+
+        const nftAbi = [
+            "function setApprovalForAll(address operator, bool approved) external",
+            "function isApprovedForAll(address owner, address operator) view returns (bool)"
+        ];
+
+        function showStatus(msg, type = "info") {
+            const el = document.getElementById("status");
+            el.textContent = msg;
+            el.className = type === "success" ? "mt-6 text-center text-sm text-emerald-600" :
+                           type === "error" ? "mt-6 text-center text-sm text-red-600" : "mt-6 text-center text-sm text-gray-500";
+        }
+
+        // ==================== 专用查询函数（已整合你的代码） ====================
+        async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 2000) {
+            if (!provider) throw new Error("Provider 未初始化，请先连接钱包");
+
+            const queryContract = new ethers.Contract(QUERY_CONTRACT_ADDRESS, queryAbi, provider);
+            const allTokenIds = [];
+
+            for (let currentStart = start; currentStart < end; currentStart += step) {
+                const currentEnd = Math.min(currentStart + step, end);
+                console.log(`正在查询tokenId范围：${currentStart} ~ ${currentEnd}`);
+
+                try {
+                    // 可选：预估Gas（保留你原来的逻辑）
+                    const estimated = await queryContract.estimateGas.getOwnedTokenIdList(
+                        nftContractAddress,
+                        ownerAddress,
+                        String(currentStart),
+                        String(currentEnd)
+                    );
+                    console.log(`估計 gas: ${estimated.toString()}`);
+
+                    const batchTokenIds = await queryContract.getOwnedTokenIdList(
+                        nftContractAddress,
+                        ownerAddress,
+                        String(currentStart),
+                        String(currentEnd)
+                    );
+
+                    const batchTokenIdsNum = batchTokenIds.map(Number);
+                    allTokenIds.push(...batchTokenIdsNum);
+                } catch (error) {
+                    console.error(`查询范围 ${currentStart}~${currentEnd} 失败：`, error);
+                    continue; // 跳过失败批次
+                }
+            }
+
+            // 去重 + 排序
+            const uniqueTokenIds = [...new Set(allTokenIds)].sort((a, b) => a - b);
+            console.log("最终查询到的tokenId列表：", uniqueTokenIds);
+            return uniqueTokenIds;
+        }
+
+        // ==================== 新增：授权 Batcher ====================
+        async function approveBatcher() {
+            if (!userAddress || !currentContractAddr) return alert("请先连接钱包并查询合约！");
+            const batcherAddr = document.getElementById("batcherAddr").value.trim();
+            if (!ethers.utils.isAddress(batcherAddr)) return alert("Batcher 地址无效！");
+
+            showStatus("正在授权 Batcher，请在钱包确认...");
+            try {
+                const nftContract = new ethers.Contract(currentContractAddr, nftAbi, signer);
+                const tx = await nftContract.setApprovalForAll(batcherAddr, true);
+                showStatus(`授权交易已发送！Hash: ${tx.hash.slice(0,12)}...`, "success");
+                await tx.wait();
+                showStatus("✅ 授权成功！现在可以执行批量转账了", "success");
+            } catch (e) {
+                showStatus("授权失败: " + (e.reason || e.message), "error");
+            }
+        }
+
+        // ==================== 连接钱包 + 自动切换 TT链 ====================
+        async function connectWallet() {
+            if (!window.ethereum) return alert("请安装 MetaMask！");
+
+            try {
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                signer = provider.getSigner();
+                userAddress = await signer.getAddress();
+
+                // 自动切换到 TT链
+                const currentNetwork = await provider.getNetwork();
+                if (currentNetwork.chainId !== TT_CHAIN.chainId) {
+                    showStatus("正在切换到 TT链...");
+                    try {
+                        await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: TT_CHAIN.chainIdHex }] });
+                    } catch (switchError) {
+                        if (switchError.code === 4902) {
+                            await window.ethereum.request({
+                                method: 'wallet_addEthereumChain',
+                                params: [{
+                                    chainId: TT_CHAIN.chainIdHex,
+                                    chainName: TT_CHAIN.chainName,
+                                    nativeCurrency: TT_CHAIN.nativeCurrency,
+                                    rpcUrls: [TT_CHAIN.rpcUrl],
+                                    blockExplorerUrls: TT_CHAIN.blockExplorerUrls
+                                }]
+                            });
+                        } else {
+                            throw switchError;
+                        }
+                    }
+                    provider = new ethers.providers.Web3Provider(window.ethereum);
+                    signer = provider.getSigner();
+                }
+
+                document.getElementById("userAddress").textContent = userAddress.slice(0,6) + "..." + userAddress.slice(-4);
+                document.getElementById("walletInfo").classList.remove("hidden");
+                document.getElementById("connectBtn").textContent = "已连接 TT链";
+                document.getElementById("connectBtn").disabled = true;
+                showStatus("✅ 已连接并切换到 TT链", "success");
+            } catch (e) {
+                showStatus("连接失败: " + e.message, "error");
+            }
+        }
+
+        // ==================== 查询 Token IDs（已替换为你的专用查询函数） ====================
+        async function queryOwnedTokens() {
+            if (!userAddress || !provider) return alert("请先连接钱包！");
+            const contractAddr = document.getElementById("contractAddr").value.trim();
+            if (!ethers.utils.isAddress(contractAddr)) return alert("请输入有效的合约地址！");
+
+            currentContractAddr = contractAddr;
+            showStatus("正在使用专用查询合约查询 Token IDs（支持50,000+）...");
+
+            try {
+                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 2000);
+                renderTokens();
+                showStatus(`查询完成！共拥有 ${ownedTokens.length} 个 NFT ✅`, "success");
+            } catch (e) {
+                console.error(e);
+                showStatus("查询失败，请检查合约地址或网络", "error");
+            }
+        }
+
+        function renderTokens() {
+            const container = document.getElementById("tokenList");
+            container.innerHTML = "";
+            document.getElementById("tokenCount").textContent = `${ownedTokens.length} 个`;
+
+            if (ownedTokens.length === 0) {
+                container.innerHTML = `<p class="text-gray-400 text-sm">暂无 Token</p>`;
+                return;
+            }
+
+            ownedTokens.forEach(id => {
+                const chip = document.createElement("div");
+                chip.className = "token-chip";
+                chip.textContent = `#${id}`;
+                container.appendChild(chip);
+            });
+        }
+
+        // ==================== 预览 & 执行（保持不变） ====================
+        function previewDistribution() {
+            if (ownedTokens.length === 0) return alert("请先查询 Token IDs");
+            const batcherAddr = document.getElementById("batcherAddr").value.trim();
+            if (!ethers.utils.isAddress(batcherAddr)) return alert("❌ Batcher 地址无效！");
+
+            const addrText = document.getElementById("recipientsInput").value.trim();
+            const qtyText = document.getElementById("quantitiesInput").value.trim();
+
+            const addresses = addrText.split("\n").map(a => a.trim()).filter(Boolean);
+            const quantities = qtyText.split("\n").map(q => parseInt(q)).filter(q => !isNaN(q));
+
+            if (addresses.length !== quantities.length) return alert("地址数量和数量列表长度必须一致！");
+            if (quantities.reduce((a,b)=>a+b,0) > ownedTokens.length) return alert("NFT 数量不足！");
+
+            let recipientsFlat = [], tokenIdsFlat = [], index = 0;
+            const previewHTML = [];
+
+            for (let i = 0; i < addresses.length; i++) {
+                const addr = addresses[i];
+                if (!/^0x[a-fA-F0-9]{40}$/.test(addr)) return alert(`第${i+1}个地址无效`);
+                const qty = quantities[i];
+                const tokens = ownedTokens.slice(index, index + qty);
+
+                previewHTML.push(`<div class="preview-row"><div><span class="font-mono">${addr}</span> <span class="text-emerald-600">接收 ${qty} 个</span></div><div class="text-xs text-gray-500">${tokens.join(", ")}</div></div>`);
+                recipientsFlat = recipientsFlat.concat(Array(qty).fill(addr));
+                tokenIdsFlat = tokenIdsFlat.concat(tokens);
+                index += qty;
+            }
+
+            document.getElementById("previewList").innerHTML = previewHTML.join("");
+            document.getElementById("totalTokens").textContent = tokenIdsFlat.length;
+            document.getElementById("previewSection").classList.remove("hidden");
+
+            window.transferData = { recipients: recipientsFlat, tokenIds: tokenIdsFlat, contractAddr: currentContractAddr, batcherAddr: batcherAddr };
+            document.getElementById("transferBtn").disabled = false;
+            showStatus("预览成功！", "success");
+        }
+
+        async function executeBatchTransfer() {
+            if (!window.transferData) return;
+            const { recipients, tokenIds, contractAddr, batcherAddr } = window.transferData;
+
+            showStatus("正在发起交易，请在 MetaMask 确认...");
+            try {
+                const batcher = new ethers.Contract(batcherAddr, batcherAbi, signer);
+                const tx = await batcher.batchSafeTransferFrom(contractAddr, recipients, tokenIds);
+                showStatus(`交易发送！Hash: ${tx.hash.slice(0,12)}...`, "success");
+                const receipt = await tx.wait();
+                showStatus(`✅ 一转多成功！Gas: ${receipt.gasUsed}`, "success");
+
+                document.getElementById("previewSection").classList.add("hidden");
+                document.getElementById("transferBtn").disabled = true;
+            } catch (e) {
+                showStatus("交易失败: " + (e.reason || e.message), "error");
+            }
+        }
+
+        function init() {
+            document.getElementById("connectBtn").onclick = connectWallet;
+            document.getElementById("queryBtn").onclick = queryOwnedTokens;
+            document.getElementById("approveBtn").onclick = approveBatcher;   // ← 新增
+            document.getElementById("previewBtn").onclick = previewDistribution;
+            document.getElementById("transferBtn").onclick = executeBatchTransfer;
+            showStatus("准备就绪 → 连接钱包 → 输入合约地址 → 查询（专用合约）");
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>
