@@ -267,7 +267,7 @@
             showStatus("正在使用专用查询合约查询 Token IDs（支持50,000+）...");
 
             try {
-                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 2000);
+                ownedTokens = await getOwnedTokensByContract(contractAddr, userAddress, 0, 50000, 1000);
                 renderTokens();
                 showStatus(`查询完成！共拥有 ${ownedTokens.length} 个 NFT ✅`, "success");
             } catch (e) {
@@ -365,3 +365,4 @@
 </body>
 
 </html>
+
