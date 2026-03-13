@@ -152,7 +152,7 @@
         }
 
         // ==================== 专用查询函数（已整合你的代码） ====================
-        async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 2000) {
+        async function getOwnedTokensByContract(nftContractAddress, ownerAddress, start = 0, end = 50000, step = 1000) {
             if (!provider) throw new Error("Provider 未初始化，请先连接钱包");
 
             const queryContract = new ethers.Contract(QUERY_CONTRACT_ADDRESS, queryAbi, provider);
@@ -363,4 +363,5 @@
         window.onload = init;
     </script>
 </body>
+
 </html>
