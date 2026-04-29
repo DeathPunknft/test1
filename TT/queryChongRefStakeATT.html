@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>chong推荐人批量查询ATT质押数量</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.2.0/dist/ethers.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    textarea, input, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    button:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .small {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .info, .error, .success {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .info {
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .error {
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .success {
+      background: #ecfdf5;
+      color: #065f46;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f3f4f6;
+    }
+
+    .mono {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .row .field {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>chong推荐人批量查询地址ATT质押数量</h1>
+
+    <div class="field">
+      <label for="addressInput">地址列表</label>
+      <textarea id="addressInput" placeholder="请输入多个地址，支持换行、逗号、空格分隔"></textarea>
+      <div class="small">
+        支持格式：每行一个地址，或逗号分隔，或空格分隔
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="decimalsInput">Token Decimals</label>
+        <input id="decimalsInput" type="number" value="18" placeholder="例如 18" />
+      </div>
+
+      <div class="field">
+        <label for="delayInput">查询间隔毫秒</label>
+        <input id="delayInput" type="number" value="0" placeholder="例如 100" />
+      </div>
+    </div>
+
+    <div class="field">
+      <button id="queryBtn">开始查询</button>
+    </div>
+
+    <div id="message"></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // =========================
+    // 你需要补充的配置
+    // =========================
+    const RPC_URL = "https://rpc.ttchain.info";
+    const CHAIN_ID = "0x68f";
+    const CONTRACT_ADDRESS = "0xfB159871820C87bC3118924e5e7a4BF807236a76";
+
+    // =========================
+    // 合约 ABI
+    // =========================
+    const CONTRACT_ABI = [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          }
+        ],
+        "name": "getStakedBalance",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ];
+
+    const QUERY_METHOD_NAME = "getStakedBalance";
+
+    const queryBtn = document.getElementById("queryBtn");
+    const messageDiv = document.getElementById("message");
+    const resultDiv = document.getElementById("result");
+
+    function showMessage(type, text) {
+      messageDiv.className = type;
+      messageDiv.textContent = text;
+    }
+
+    function clearMessage() {
+      messageDiv.className = "";
+      messageDiv.textContent = "";
+    }
+
+    function parseAddresses(input) {
+      return input
+        .split(/[\s,，,\n\r\t]+/)
+        .map(function(v) { return v.trim(); })
+        .filter(function(v) { return v !== ""; });
+    }
+
+    function sleep(ms) {
+      return new Promise(function(resolve) {
+        setTimeout(resolve, ms);
+      });
+    }
+
+    function renderTable(rows) {
+      var html = `
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>地址</th>
+              <th>原始数量</th>
+              <th>格式化数量</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      rows.forEach(function(row, index) {
+        html += `
+          <tr>
+            <td>${index + 1}</td>
+            <td class="mono">${row.address}</td>
+            <td class="mono">${row.rawAmount || "-"}</td>
+            <td>${row.formattedAmount || "-"}</td>
+            <td>${row.status}</td>
+          </tr>
+        `;
+      });
+
+      html += `
+          </tbody>
+        </table>
+      `;
+
+      resultDiv.innerHTML = html;
+    }
+
+    async function queryStakes() {
+      try {
+        clearMessage();
+        resultDiv.innerHTML = "";
+
+        if (!RPC_URL) {
+          throw new Error("请先在代码中填写 RPC_URL。");
+        }
+
+        if (!CHAIN_ID) {
+          throw new Error("请先在代码中填写 CHAIN_ID。");
+        }
+
+        if (!CONTRACT_ADDRESS) {
+          throw new Error("请先在代码中填写 CONTRACT_ADDRESS。");
+        }
+
+        var input = document.getElementById("addressInput").value.trim();
+        var decimalsInput = document.getElementById("decimalsInput").value.trim();
+        var delayInput = document.getElementById("delayInput").value.trim();
+
+        if (!input) {
+          throw new Error("请输入要查询的地址。");
+        }
+
+        var decimals = decimalsInput === "" ? 18 : Number(decimalsInput);
+        var delayMs = delayInput === "" ? 0 : Number(delayInput);
+
+        if (isNaN(decimals) || decimals < 0) {
+          throw new Error("Token Decimals 必须是大于等于 0 的数字。");
+        }
+
+        if (isNaN(delayMs) || delayMs < 0) {
+          throw new Error("查询间隔毫秒必须是大于等于 0 的数字。");
+        }
+
+        var addresses = parseAddresses(input);
+
+        if (addresses.length === 0) {
+          throw new Error("未解析到有效地址。");
+        }
+
+        queryBtn.disabled = true;
+        queryBtn.textContent = "查询中...";
+
+        showMessage("info", "正在查询，共 " + addresses.length + " 个地址...");
+
+        var provider = new ethers.providers.JsonRpcProvider(RPC_URL, Number(CHAIN_ID));
+        var contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
+
+        var rows = [];
+
+        for (var i = 0; i < addresses.length; i++) {
+          var address = addresses[i];
+
+          showMessage("info", "正在查询第 " + (i + 1) + "/" + addresses.length + " 个地址...\n" + address);
+
+          if (!ethers.utils.isAddress(address)) {
+            rows.push({
+              address: address,
+              rawAmount: null,
+              formattedAmount: null,
+              status: "地址格式错误"
+            });
+            continue;
+          }
+
+          try {
+            var amount = await contract[QUERY_METHOD_NAME](address);
+
+            rows.push({
+              address: address,
+              rawAmount: amount.toString(),
+              formattedAmount: ethers.utils.formatUnits(amount, decimals),
+              status: "成功"
+            });
+          } catch (err) {
+            rows.push({
+              address: address,
+              rawAmount: null,
+              formattedAmount: null,
+              status: "查询失败: " + ((err && err.message) ? err.message : "未知错误")
+            });
+          }
+
+          if (delayMs > 0 && i < addresses.length - 1) {
+            await sleep(delayMs);
+          }
+        }
+
+        renderTable(rows);
+        showMessage("success", "查询完成，共 " + rows.length + " 个地址。");
+      } catch (error) {
+        showMessage("error", error.message || String(error));
+      } finally {
+        queryBtn.disabled = false;
+        queryBtn.textContent = "开始查询";
+      }
+    }
+
+    queryBtn.addEventListener("click", queryStakes);
+  </script>
+</body>
+</html>
