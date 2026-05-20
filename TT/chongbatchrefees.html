@@ -1124,7 +1124,7 @@
                 // 批量查询每个地址的授权状态
                 const statusList = [];
                 for (const addr of validAddresses) {
-                    const isAuthorized = await mainContract.methods.theChiefaddr(addr).call();
+                    const isAuthorized = await mainContract.methods.referrers(addr).call();
                     statusList.push({ addr, isAuthorized });
                 }
 
