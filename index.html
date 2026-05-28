@@ -2492,6 +2492,11 @@ snapshotSizeMap.set("0x24283D3715409E7CE7CD9f2c6a66121285Bdb07B",0);
     });
     $("#mint").on("click", async ()=> {
 
+        alert("Mint is currently paused; please wait for it to reopen.")
+
+        return;
+        
+
         
         //is maximum number of affiliate members
         let nftContract = new web3.eth.Contract(abi,contract);
