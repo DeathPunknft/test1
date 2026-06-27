@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TT链TDAS-Asset-Collection-AIGV60DA-batch-airdrop管理后台</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #334155;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input, textarea, button, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    button:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .col {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .result {
+      white-space: pre-wrap;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .success { color: #16a34a; }
+    .error { color: #dc2626; }
+    .info { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <h1>TT链TDAS-Asset-Collection-AIGV60DA-batch-airdrop管理后台</h1>
+
+  <div class="card">
+    <h2>钱包连接</h2>
+    <button id="connectBtn">连接钱包</button>
+    <div id="walletInfo" class="result">未连接</div>
+  </div>
+
+  <div class="card">
+    <h2>合约状态</h2>
+    <button id="refreshStateBtn">刷新状态</button>
+    <div id="contractState" class="result">点击刷新查看状态</div>
+  </div>
+
+  <div class="row">
+    <div class="card col">
+      <h2>单个白名单设置</h2>
+      <div class="field">
+        <label>地址</label>
+        <input id="singleWhitelistAddress" placeholder="0x..." />
+      </div>
+      <div class="field">
+        <label>状态</label>
+        <select id="singleWhitelistStatus">
+          <option value="true">加入白名单</option>
+          <option value="false">移出白名单</option>
+        </select>
+      </div>
+      <button id="setWhitelistBtn">提交</button>
+      <div id="setWhitelistResult" class="result"></div>
+    </div>
+
+    <div class="card col">
+      <h2>批量白名单设置</h2>
+      <div class="field">
+        <label>地址列表（每行一个）</label>
+        <textarea id="batchWhitelistAddresses" placeholder="0xabc...
+0xdef..."></textarea>
+      </div>
+      <div class="field">
+        <label>状态</label>
+        <select id="batchWhitelistStatus">
+          <option value="true">批量加入白名单</option>
+          <option value="false">批量移出白名单</option>
+        </select>
+      </div>
+      <button id="batchWhitelistBtn">批量提交</button>
+      <div id="batchWhitelistResult" class="result"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card col">
+      <h2>单个 Mint</h2>
+      <div class="field">
+        <label>接收地址</label>
+        <input id="mintTo" placeholder="0x..." />
+      </div>
+      <div class="field">
+        <label>数量</label>
+        <input id="mintQty" type="number" placeholder="1" />
+      </div>
+      <button id="mintBtn">执行 Mint</button>
+      <div id="mintResult" class="result"></div>
+    </div>
+
+    <div class="card col">
+      <h2>单个空投</h2>
+      <div class="field">
+        <label>接收地址</label>
+        <input id="airdropTo" placeholder="0x..." />
+      </div>
+      <div class="field">
+        <label>数量</label>
+        <input id="airdropQty" type="number" placeholder="1" />
+      </div>
+      <button id="airdropBtn">执行空投</button>
+      <div id="airdropResult" class="result"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>批量空投</h2>
+    <div class="field">
+      <label>接收地址列表（每行一个）</label>
+      <textarea id="batchAirdropAddresses" placeholder="0xabc...
+0xdef..."></textarea>
+    </div>
+    <div class="field">
+      <label>数量列表（每行一个，与地址一一对应）</label>
+      <textarea id="batchAirdropQuantities" placeholder="1
+2"></textarea>
+    </div>
+    <button id="batchAirdropBtn">执行批量空投</button>
+    <div id="batchAirdropResult" class="result"></div>
+  </div>
+
+  <div class="row">
+    <div class="card col">
+      <h2>设置最大供应量</h2>
+      <div class="field">
+        <label>newMaxSupply</label>
+        <input id="maxSupplyInput" type="number" placeholder="例如 10000" />
+      </div>
+      <button id="setMaxSupplyBtn">设置 maxSupply</button>
+      <div id="setMaxSupplyResult" class="result"></div>
+    </div>
+
+    <div class="card col">
+      <h2>空投开关</h2>
+      <div class="field">
+        <label>状态</label>
+        <select id="airdropToggleSelect">
+          <option value="true">开启</option>
+          <option value="false">关闭</option>
+        </select>
+      </div>
+      <button id="toggleAirdropBtn">设置空投状态</button>
+      <div id="toggleAirdropResult" class="result"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>查询白名单状态</h2>
+    <div class="field">
+      <label>地址</label>
+      <input id="queryWhitelistAddress" placeholder="0x..." />
+    </div>
+    <button id="queryWhitelistBtn">查询白名单</button>
+    <div id="queryWhitelistResult" class="result"></div>
+  </div>
+
+  <script>
+    // ==========================
+    // 你需要自己填写
+    // ==========================
+    const CONTRACT_ADDRESS = "0x566AB53ACaCf56d5106c61F84a5a178928C75a20";
+    const CHAIN_ID = "0x68f"; // 比如 BSC 主网 0x38、Sepolia 0xaa36a7
+
+    const CONTRACT_ABI = [
+      {
+        "inputs": [
+          { "internalType": "string", "name": "name_", "type": "string" },
+          { "internalType": "string", "name": "symbol_", "type": "string" }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "MAX_HOLDERS",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "currentHolders",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "maxSupply",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "totalSupply",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "airdropEnabled",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+        "name": "isWhitelisted",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          { "internalType": "address", "name": "account", "type": "address" },
+          { "internalType": "bool", "name": "status", "type": "bool" }
+        ],
+        "name": "setWhitelist",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          { "internalType": "address[]", "name": "accounts", "type": "address[]" },
+          { "internalType": "bool", "name": "status", "type": "bool" }
+        ],
+        "name": "batchSetWhitelist",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          { "internalType": "address", "name": "to", "type": "address" },
+          { "internalType": "uint256", "name": "quantity", "type": "uint256" }
+        ],
+        "name": "mint",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          { "internalType": "address", "name": "to", "type": "address" },
+          { "internalType": "uint256", "name": "quantity", "type": "uint256" }
+        ],
+        "name": "airdrop",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          { "internalType": "address[]", "name": "recipients", "type": "address[]" },
+          { "internalType": "uint256[]", "name": "quantities", "type": "uint256[]" }
+        ],
+        "name": "batchAirdrop",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [{ "internalType": "uint256", "name": "newMaxSupply", "type": "uint256" }],
+        "name": "setMaxSupply",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [{ "internalType": "bool", "name": "enabled", "type": "bool" }],
+        "name": "setAirdropEnabled",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ];
+
+    let provider = "https://rpc.ttchain.info";
+    let signer;
+    let contract;
+    let currentAddress ;
+
+    function parseAddresses(text) {
+  const list = text
+    .split(/\r?\n/)
+    .map(v => v.trim())
+    .filter(v => v !== "");
+
+  if (list.length === 0) {
+    throw new Error("地址列表不能为空");
+  }
+
+  list.forEach((addr, index) => {
+    if (!ethers.utils.isAddress(addr)) {
+      throw new Error(`第 ${index + 1} 行地址格式错误: ${addr}`);
+    }
+  });
+
+  return list;
+}
+
+function parseUint(value, fieldName) {
+  const v = String(value || "").trim();
+
+  if (v === "") {
+    throw new Error(`${fieldName} 不能为空`);
+  }
+
+  if (!/^\d+$/.test(v)) {
+    throw new Error(`${fieldName} 必须是正整数`);
+  }
+
+  return v;
+}
+
+function parseUintList(text) {
+  const lines = text
+    .split(/\r?\n/)
+    .map(v => v.trim())
+    .filter(v => v !== "");
+
+  if (lines.length === 0) {
+    throw new Error("数量列表不能为空");
+  }
+
+  return lines.map((v, index) => {
+    if (!/^\d+$/.test(v)) {
+      throw new Error(`第 ${index + 1} 行数量不是有效正整数: ${v}`);
+    }
+    return v;
+  });
+}
+
+async function connectWallet() {
+  const walletInfo = document.getElementById("walletInfo");
+
+  try {
+    if (!window.ethereum) {
+      walletInfo.innerHTML = `<span class="error">未检测到 MetaMask</span>`;
+      return;
+    }
+
+    await window.ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: CHAIN_ID }]
+    });
+
+    provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
+    signer = provider.getSigner();
+    currentAddress = await signer.getAddress();
+    contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+
+    walletInfo.innerHTML = `<span class="success">已连接：</span>${currentAddress}`;
+  } catch (err) {
+    console.error(err);
+    walletInfo.innerHTML = `<span class="error">连接失败：</span>${err.reason || err.message || err}`;
+  }
+}
+
+async function refreshState() {
+  const resultEl = document.getElementById("contractState");
+
+  try {
+    if (!window.ethereum && !provider) {
+      throw new Error("请先安装钱包或连接钱包");
+    }
+
+    const readProvider = provider || new ethers.providers.Web3Provider(window.ethereum);
+    const readContract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, readProvider);
+
+    const maxHolders = await readContract.MAX_HOLDERS();
+    const currentHolders = await readContract.currentHolders();
+    const maxSupply = await readContract.maxSupply();
+    const totalSupply = await readContract.totalSupply();
+    const airdropEnabled = await readContract.airdropEnabled();
+
+    resultEl.textContent = JSON.stringify({
+      maxHolders: maxHolders.toString(),
+      currentHolders: currentHolders.toString(),
+      maxSupply: maxSupply.toString(),
+      totalSupply: totalSupply.toString(),
+      airdropEnabled
+    }, null, 2);
+  } catch (err) {
+    console.error(err);
+    resultEl.innerHTML = `<span class="error">刷新状态失败：</span>${err.reason || err.message || err}`;
+  }
+}
+
+async function executeTx(action, resultId) {
+  const resultEl = document.getElementById(resultId);
+
+  try {
+    if (!contract) {
+      resultEl.textContent = "请先连接钱包";
+      return;
+    }
+
+    const tx = await action();
+    resultEl.innerHTML = `<span class="info">交易已发出：</span>${tx.hash}`;
+    const receipt = await tx.wait();
+    resultEl.innerHTML += `\n<span class="success">执行成功，区块：</span>${receipt.blockNumber}`;
+  } catch (err) {
+    console.error(err);
+    resultEl.innerHTML = `<span class="error">执行失败：</span>${err.reason || err.message || err}`;
+  }
+}
+
+document.getElementById("connectBtn").addEventListener("click", connectWallet);
+document.getElementById("refreshStateBtn").addEventListener("click", refreshState);
+
+document.getElementById("setWhitelistBtn").addEventListener("click", async () => {
+  const address = document.getElementById("singleWhitelistAddress").value.trim();
+  const status = document.getElementById("singleWhitelistStatus").value === "true";
+
+  if (!ethers.utils.isAddress(address)) {
+    document.getElementById("setWhitelistResult").innerHTML =
+      `<span class="error">地址格式错误</span>`;
+    return;
+  }
+
+  await executeTx(
+    () => contract.setWhitelist(address, status),
+    "setWhitelistResult"
+  );
+});
+
+document.getElementById("batchWhitelistBtn").addEventListener("click", async () => {
+  try {
+    const addresses = parseAddresses(document.getElementById("batchWhitelistAddresses").value);
+    const status = document.getElementById("batchWhitelistStatus").value === "true";
+
+    await executeTx(
+      () => contract.batchSetWhitelist(addresses, status),
+      "batchWhitelistResult"
+    );
+  } catch (err) {
+    document.getElementById("batchWhitelistResult").innerHTML =
+      `<span class="error">${err.message || err}</span>`;
+  }
+});
+
+document.getElementById("mintBtn").addEventListener("click", async () => {
+  try {
+    const to = document.getElementById("mintTo").value.trim();
+    const qty = parseUint(document.getElementById("mintQty").value, "Mint 数量");
+
+    if (!ethers.utils.isAddress(to)) {
+      throw new Error("接收地址格式错误");
+    }
+
+    await executeTx(
+      () => contract.mint(to, qty),
+      "mintResult"
+    );
+  } catch (err) {
+    document.getElementById("mintResult").innerHTML =
+      `<span class="error">${err.message || err}</span>`;
+  }
+});
+
+document.getElementById("airdropBtn").addEventListener("click", async () => {
+  try {
+    const to = document.getElementById("airdropTo").value.trim();
+    const qty = parseUint(document.getElementById("airdropQty").value, "空投数量");
+
+    if (!ethers.utils.isAddress(to)) {
+      throw new Error("接收地址格式错误");
+    }
+
+    await executeTx(
+      () => contract.airdrop(to, qty),
+      "airdropResult"
+    );
+  } catch (err) {
+    document.getElementById("airdropResult").innerHTML =
+      `<span class="error">${err.message || err}</span>`;
+  }
+});
+
+document.getElementById("batchAirdropBtn").addEventListener("click", async () => {
+  try {
+    const recipients = parseAddresses(document.getElementById("batchAirdropAddresses").value);
+    const quantities = parseUintList(document.getElementById("batchAirdropQuantities").value);
+
+    if (recipients.length !== quantities.length) {
+      throw new Error(`地址数量(${recipients.length})和数量列表(${quantities.length})不一致`);
+    }
+
+    await executeTx(
+      () => contract.batchAirdrop(recipients, quantities),
+      "batchAirdropResult"
+    );
+  } catch (err) {
+    document.getElementById("batchAirdropResult").innerHTML =
+      `<span class="error">${err.message || err}</span>`;
+  }
+});
+
+document.getElementById("setMaxSupplyBtn").addEventListener("click", async () => {
+  try {
+    const newMaxSupply = parseUint(document.getElementById("maxSupplyInput").value, "maxSupply");
+
+    await executeTx(
+      () => contract.setMaxSupply(newMaxSupply),
+      "setMaxSupplyResult"
+    );
+  } catch (err) {
+    document.getElementById("setMaxSupplyResult").innerHTML =
+      `<span class="error">${err.message || err}</span>`;
+  }
+});
+
+document.getElementById("toggleAirdropBtn").addEventListener("click", async () => {
+  const enabled = document.getElementById("airdropToggleSelect").value === "true";
+
+  await executeTx(
+    () => contract.setAirdropEnabled(enabled),
+    "toggleAirdropResult"
+  );
+});
+
+document.getElementById("queryWhitelistBtn").addEventListener("click", async () => {
+  const resultEl = document.getElementById("queryWhitelistResult");
+
+  try {
+    const address = document.getElementById("queryWhitelistAddress").value.trim();
+
+    if (!ethers.utils.isAddress(address)) {
+      throw new Error("地址格式错误");
+    }
+
+    const readProvider = provider || new ethers.providers.Web3Provider(window.ethereum);
+    const readContract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, readProvider);
+
+    const status = await readContract.isWhitelisted(address);
+    resultEl.innerHTML = status
+      ? `<span class="success">${address} 在白名单中</span>`
+      : `<span class="info">${address} 不在白名单中</span>`;
+  } catch (err) {
+    console.error(err);
+    resultEl.innerHTML = `<span class="error">查询失败：</span>${err.reason || err.message || err}`;
+  }
+});
+
+  </script>
