@@ -2776,7 +2776,7 @@ $(function(){
 
     var tpRegisterContract = new web3.eth.Contract(tpAbi,tpRegisterContractAddress);
 
-    var claimed = await tpRegisterContract.methods.queryRegister(wallet.address).call();
+    var claimed = await tpRegisterContract.methods.register(wallet.address).call();
   
       if(claimed){
   
