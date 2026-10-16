@@ -48171,8 +48171,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x8c243edfa327c207eeb19716307c256675ba55a1",
@@ -48185,8 +48185,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0x8d4da7f58c3b7ea46ef3f530229a8978f05f7ae5",
@@ -48199,8 +48199,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x6bcbd856ca978eef46e70798f917fd2faa386cb1",
@@ -48213,8 +48213,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0xa62374c684ff4f8f3e7519aab690f34ca1126bf3",
@@ -48227,8 +48227,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0xcc49ba4cf5ba0d12599b6c85b089c83ef3b64d27",
@@ -48241,8 +48241,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0x4c763854d4084db72e88c45f3885ce6f5f4a7054",
@@ -48255,8 +48255,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x8b31700adcb923e3d51f7ece5a6b91fc50e39ca4",
@@ -48269,8 +48269,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xf776bd97e5a361c89cc0a640e5fb78ddeea5d1a6",
@@ -48283,8 +48283,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.00"
+    "s13TokenIds": null,
+    "tp": "3.00"
   },
   {
     "address": "0x4131dde9e4ef61e605815a032528d90c0a0cabc0",
@@ -48297,8 +48297,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.80"
+    "s13TokenIds": null,
+    "tp": "1.80"
   },
   {
     "address": "0x672928c361c6ce22c9ce32d5b8dc92841df1f997",
@@ -48311,8 +48311,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x965224564c665ab225644d4023282c01555f987a",
@@ -48325,8 +48325,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0xd3b45213be82853bd69fa41d67785bc7da678580",
@@ -48339,8 +48339,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "5.80"
+    "s13TokenIds": null,
+    "tp": "5.80"
   },
   {
     "address": "0xa62a64123091d58d5ee965832147973c29a5ee11",
@@ -48353,8 +48353,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "14.70"
+    "s13TokenIds": null,
+    "tp": "14.70"
   },
   {
     "address": "0x68076f5f5d6c3fe8cef96cba5b565d032bb51605",
@@ -48367,8 +48367,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x326f1f4628656cf8af127ad024c98b6d5b4599b8",
@@ -48381,8 +48381,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0xa9f6b3ad155ffa0ce69833c85ef010cb3bfd2a5c",
@@ -48395,8 +48395,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.10"
+    "s13TokenIds": null,
+    "tp": "3.10"
   },
   {
     "address": "0x67996746224a6f03ce6b998b4ecf0ecc23db05fd",
@@ -48409,8 +48409,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x5f19daaa8e1f722811bd16ce00178527c84c653e",
@@ -48423,8 +48423,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0xcc41a5d92708670b8ce0379c3937c77f7f979545",
@@ -48437,8 +48437,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.10"
+    "s13TokenIds": null,
+    "tp": "2.10"
   },
   {
     "address": "0x2cfede0d34d5c3db197267fee40e0ac252d0fa9c",
@@ -48451,8 +48451,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0xeabf893ec310dff071764a341a4127e141e2399d",
@@ -48465,8 +48465,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x596cd11f88ef906676112d364257462819d047eb",
@@ -48479,8 +48479,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xb74c2463f00e164cc8f26331d037c0a5a4d8cfef",
@@ -48493,8 +48493,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0xdc451774973160a817528076ad1d46c995dc8ad1",
@@ -48507,8 +48507,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "4.30"
+    "s13TokenIds": null,
+    "tp": "4.30"
   },
   {
     "address": "0x0b1a2d63b511bde22f5eae6f2e8a07ec1cc5957e",
@@ -48521,8 +48521,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x20deeb3708e1267e614442fe61cbb3bafd194476",
@@ -48535,8 +48535,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xa7b2ab9cf2ac44438770431215b5bac7b3c4d00e",
@@ -48549,8 +48549,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.80"
+    "s13TokenIds": null,
+    "tp": "2.80"
   },
   {
     "address": "0x5453391e931b34633575809366af7383a7eae7e7",
@@ -48563,8 +48563,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "8.80"
+    "s13TokenIds": null,
+    "tp": "8.80"
   },
   {
     "address": "0x4e5e5453e1d35ddd5c12b13946f6f5a10c188194",
@@ -48577,8 +48577,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0x862a404bd1537c703ab65126c41eb7c21df465fe",
@@ -48591,8 +48591,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xcd170c4a18e1f2d91acad1f577f11d2b8a0fd422",
@@ -48605,8 +48605,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "15.00"
+    "s13TokenIds": null,
+    "tp": "15.00"
   },
   {
     "address": "0xad9020d733a0e299ebcb53b84a8ed6cbbcbbf207",
@@ -48619,8 +48619,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0x115b56c0cb90962e02d21b409050604fa0eb9f36",
@@ -48633,8 +48633,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.50"
+    "s13TokenIds": null,
+    "tp": "2.50"
   },
   {
     "address": "0xd79dc61a651cee11fdea6c8df15e0f6bda12ae68",
@@ -48647,8 +48647,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "36.90"
+    "s13TokenIds": null,
+    "tp": "36.90"
   },
   {
     "address": "0x8c0e95023ae8e189535f2685f10a7abaee9b7bb6",
@@ -48661,8 +48661,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x9c0b251cdc75f81e99a29399f1efb0d950b7b301",
@@ -48675,8 +48675,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x38e468386a8329c9ca880a8896533f4dcf25caee",
@@ -48689,8 +48689,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x592028ddcd907faa5a4a34f7108f8bf45de1d96b",
@@ -48703,8 +48703,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "4.90"
+    "s13TokenIds": null,
+    "tp": "4.90"
   },
   {
     "address": "0x59ce11ddd88a51c4555c9490123c79295281ba12",
@@ -48717,8 +48717,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x8a81facb4525d7c6d208ddafbe7d9cf6eeb9dbc9",
@@ -48731,8 +48731,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x7812954e39e63ae4dfafd9c266a7b815e1d84a2e",
@@ -48745,8 +48745,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x8c0fe8071597874e3f6d4d877b83bb116b4ebe4f",
@@ -48759,8 +48759,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "5.10"
+    "s13TokenIds": null,
+    "tp": "5.10"
   },
   {
     "address": "0x9901b00f72af5d475625d89b38b9192f52fc914a",
@@ -48773,8 +48773,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0x5a95087ce6fa6867c19edab85d75abb36b4f1bb9",
@@ -48787,8 +48787,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x5e003b48b037a017bcc283a7c6362ff217735214",
@@ -48801,8 +48801,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xbc9d4cbe57abbe5f63b724a2dae0392d40f36261",
@@ -48815,8 +48815,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xd88fdc14647051d4038b381fc0717d128a8269f8",
@@ -48829,8 +48829,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xfac0ae28ab89903f75ea54757ff3b859fe69ddb2",
@@ -48843,8 +48843,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.30"
+    "s13TokenIds": null,
+    "tp": "2.30"
   },
   {
     "address": "0x3abe42f5d37518b2574ec268cb21282b1cd15d25",
@@ -48857,8 +48857,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x7a83f437a653d3ce50cbdde9659ebb398262524e",
@@ -48871,8 +48871,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x33202df25e295925731167efeb5177a4ced58c1c",
@@ -48885,8 +48885,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.80"
+    "s13TokenIds": null,
+    "tp": "1.80"
   },
   {
     "address": "0x1657b92e40cbe4cdc93696ab0fca5b5091ce7b2a",
@@ -48899,8 +48899,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0xa091d778eb41d3a1d1410bbc816bc0bee6470c11",
@@ -48913,8 +48913,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x0b0a247f8942e3194d6b60801eee00809649dc27",
@@ -48927,8 +48927,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x9c206d3ef3bbf486016035fbbc63853e162e9303",
@@ -48941,8 +48941,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x7a0eb265a021de62c64eabba9dc70e151478c2b7",
@@ -48955,8 +48955,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x223a9c3f00a38d683f9a615dc8e2b18af7740097",
@@ -48969,8 +48969,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xdf114b11e8ab12dd12a917f06a896a9e099554d3",
@@ -48983,8 +48983,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0xb036fc1f4b8dd78d3fc1257b1255e003218fab9f",
@@ -48997,8 +48997,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.10"
+    "s13TokenIds": null,
+    "tp": "3.10"
   },
   {
     "address": "0x55dd28661bc99676411565519cfdca1e539cd8e2",
@@ -49011,8 +49011,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.60"
+    "s13TokenIds": null,
+    "tp": "2.60"
   },
   {
     "address": "0x750731a3314fd410a83089423949b597d5d2eab1",
@@ -49025,8 +49025,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "9.10"
+    "s13TokenIds": null,
+    "tp": "9.10"
   },
   {
     "address": "0xb8164afae5da90b01e00d24e7f3cb6531899ec10",
@@ -49039,8 +49039,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.90"
+    "s13TokenIds": null,
+    "tp": "1.90"
   },
   {
     "address": "0xc762af0169a61b49a1396066c2986f5db5e086a6",
@@ -49053,8 +49053,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xce25d587509cec74d4fa2daf6963d77379998f0c",
@@ -49067,8 +49067,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0xc301b74ee77be855dcabc878801a1a9e82d30dc6",
@@ -49081,8 +49081,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x5dbaa2185668911221298de721f21ef6c2c489ae",
@@ -49095,8 +49095,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.30"
+    "s13TokenIds": null,
+    "tp": "3.30"
   },
   {
     "address": "0x7e0cf50589132fa49190d6f477972e7f674b592f",
@@ -49109,8 +49109,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.70"
+    "s13TokenIds": null,
+    "tp": "3.70"
   },
   {
     "address": "0x35ab2ea964a0df772454e233699a4176334fa7a2",
@@ -49123,8 +49123,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x6c24e8587ac3ebd043f46b692daed4ff481dce14",
@@ -49137,8 +49137,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x1d6a195794fed2643cb22137ad0b53e751404b55",
@@ -49151,8 +49151,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x034b8bf85a1c74b6ce90c92225f758d6ffefc19f",
@@ -49165,8 +49165,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.30"
+    "s13TokenIds": null,
+    "tp": "1.30"
   },
   {
     "address": "0x34827a6e5c154d2c3f1855bd896b45c4164c5501",
@@ -49179,8 +49179,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.90"
+    "s13TokenIds": null,
+    "tp": "1.90"
   },
   {
     "address": "0x4a194c6f51b06c9c0843c7046e6f01020bcedbe4",
@@ -49193,8 +49193,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.10"
+    "s13TokenIds": null,
+    "tp": "2.10"
   },
   {
     "address": "0xcc0da39b3769740a5f41db598580a52220301c19",
@@ -49207,8 +49207,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0x6680bcc1c9d2be2477149768786713f2a653acb6",
@@ -49221,8 +49221,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xe82f5b3244afeaec922efd5551080b232d3311df",
@@ -49235,8 +49235,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0x160832ac8d2459874cda2551b654265175736453",
@@ -49249,8 +49249,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0x4e9223dd644252db7cad6d7438a5096330cadbe5",
@@ -49263,8 +49263,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0xa68dd2541b47fcac5041f1e1cca29066aa6c08f4",
@@ -49277,8 +49277,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "4.60"
+    "s13TokenIds": null,
+    "tp": "4.60"
   },
   {
     "address": "0x2761e116a8d787f9cd261ec2d69bafead559a361",
@@ -49291,8 +49291,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x2a88af72524d0a6062d1fa2a71d623a00c5b2286",
@@ -49305,8 +49305,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x7be413d22018c1701e0048409808c27eb2f8a0e5",
@@ -49319,8 +49319,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xa0f5e6fd73b3b54a1ff7b121bb8aa604d09ead1f",
@@ -49333,8 +49333,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.60"
+    "s13TokenIds": null,
+    "tp": "2.60"
   },
   {
     "address": "0x06047546025219b4c14d8bfe7479acd0048ead7b",
@@ -49347,8 +49347,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x3a6409817da1e357fbb380f8fb9808c28cb01fb4",
@@ -49361,8 +49361,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x7d1c4874c4aae88870b210754d6063956994ede5",
@@ -49375,8 +49375,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x237b06c6a1a8c15bb7bfc1da218ab356f1993c5e",
@@ -49389,8 +49389,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x6dc15e6d66a64c7314ae6524cb58dae1f8f16c69",
@@ -49403,8 +49403,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0xe88ded35f0e93b52dc40ccac5e6c9db0a96c154b",
@@ -49417,8 +49417,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.10"
+    "s13TokenIds": null,
+    "tp": "2.10"
   },
   {
     "address": "0xc0b10455545039f035bac6420dc3f63c63ab9a21",
@@ -49431,8 +49431,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xc97c1c1f2fcd357b3c04d426a298d4ecba292be5",
@@ -49445,8 +49445,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x71bbf2c7a29900670821a0e507eb75f252567d07",
@@ -49459,8 +49459,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.10"
+    "s13TokenIds": null,
+    "tp": "3.10"
   },
   {
     "address": "0xb04b56fbdddb9ab84a37e6c8ba6bdddb99ec447b",
@@ -49473,8 +49473,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "5.80"
+    "s13TokenIds": null,
+    "tp": "5.80"
   },
   {
     "address": "0x81f7ab414b722b855dc137c0b1cabcfd3ac5875d",
@@ -49487,8 +49487,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.00"
+    "s13TokenIds": null,
+    "tp": "3.00"
   },
   {
     "address": "0x4a1551aa4bc1f3bf2ad8aba2bbfe52f92d571f48",
@@ -49501,8 +49501,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xce1bd594cb6c9e73a18aa498794ac73033d1b68c",
@@ -49515,8 +49515,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x949841b29718526bed616e45fa2b6cf25f523778",
@@ -49529,8 +49529,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x084c9d3c131fe7060757681bf87e81a288faa997",
@@ -49543,8 +49543,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xf240ebb1148d3770c8480dad685158c8639032b8",
@@ -49557,8 +49557,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.40"
+    "s13TokenIds": null,
+    "tp": "2.40"
   },
   {
     "address": "0x7afe6db7ac1a138d6a824ec6145367c2a5f886af",
@@ -49571,8 +49571,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x35cc23a5776f94ac925040f98e57eb78ed31e898",
@@ -49585,8 +49585,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "3.00"
+    "s13TokenIds": null,
+    "tp": "3.00"
   },
   {
     "address": "0x0f1accaee7925ed435b9fd97bad013cb4fdf8372",
@@ -49599,8 +49599,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0xa4739fe8de852d1031d72e819de80f8ca8fa58e3",
@@ -49613,8 +49613,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xa76348a9647fad19c002d7a9c3b4ba4f746a3474",
@@ -49627,8 +49627,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0x52129a6812521e9cae84367a050f70ca8ccdd6b2",
@@ -49641,8 +49641,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.90"
+    "s13TokenIds": null,
+    "tp": "1.90"
   },
   {
     "address": "0x7569436cf47fa42db32c8335b7ce45b6fad80455",
@@ -49655,8 +49655,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.90"
+    "s13TokenIds": null,
+    "tp": "0.90"
   },
   {
     "address": "0x9c4c0429e7ab2798b08870be808734788963414f",
@@ -49669,8 +49669,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x3bfaf77ef95814b431f5e5f4c4f54bc292ec4349",
@@ -49683,8 +49683,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x530046a8390ede68bd28f6ca536538968e11a90d",
@@ -49697,8 +49697,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x2c841ddb6e2f313a8e1bb7167a52c055a7b40354",
@@ -49711,8 +49711,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x427a7a3fa828de3d7a98a68e109a9e6c779551fb",
@@ -49725,8 +49725,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.30"
+    "s13TokenIds": null,
+    "tp": "1.30"
   },
   {
     "address": "0xe0ac7604611335f58d0100330c40f5298e0d102b",
@@ -49739,8 +49739,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xe817fad25995daf37db00dedfdb12d1067a29c1c",
@@ -49753,8 +49753,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "5.10"
+    "s13TokenIds": null,
+    "tp": "5.10"
   },
   {
     "address": "0xdb3a893399d662d42362aa71317fb6db0ea0c6c1",
@@ -49767,8 +49767,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.80"
+    "s13TokenIds": null,
+    "tp": "2.80"
   },
   {
     "address": "0xb78eceae922d7d7d0f7e7a37eab89d582db9dfe3",
@@ -49781,8 +49781,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.80"
+    "s13TokenIds": null,
+    "tp": "1.80"
   },
   {
     "address": "0x7cde1a5fb1da18fe7a5e0edac70c675ea7bbeee6",
@@ -49795,8 +49795,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x37f6eb5029e66e302fec7d206cce4ce0462c5427",
@@ -49809,8 +49809,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "26.40"
+    "s13TokenIds": null,
+    "tp": "26.40"
   },
   {
     "address": "0x22aca7067b2444976bd34677f60c9bcc728eea6d",
@@ -49823,8 +49823,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xf514b369286cda9c7f54018f9128ca775044fdf2",
@@ -49837,8 +49837,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x220115c46008b198b311697a83a2e97689c7ff22",
@@ -49851,8 +49851,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x3a71b63d0ceb0aa5af09863d490d0a782579b4cd",
@@ -49865,8 +49865,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x72c7e14b42ef9cb5044e494b47ce285c4b7c1596",
@@ -49879,8 +49879,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0x6903524851ea2a1d07a8c57f5cf6f0c6e99569fa",
@@ -49893,8 +49893,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xcac87eee63cb0af87a642ba0a57e4b933762ec72",
@@ -49907,8 +49907,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "7.30"
+    "s13TokenIds": null,
+    "tp": "7.30"
   },
   {
     "address": "0x2262f84cb875e13d905457f586273771ce9f6a88",
@@ -49921,8 +49921,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x7576565cae29bb742b16c9a01c073bc9c39ef31c",
@@ -49935,8 +49935,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x8f8196e8723570d0ded22fee1421cb8f258ff1e4",
@@ -49949,8 +49949,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x73bb57199a2f638167e3ab907e2339559f56c74b",
@@ -49963,8 +49963,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x97fe0e5893db9e30d9e2123424dcfe50bda6e2be",
@@ -49977,8 +49977,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xcbf7ee59e6c48820cb526cf4cc41395ff32ec2a7",
@@ -49991,8 +49991,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0x3a707ddc007aa58b20500712967b95d3040e47fb",
@@ -50005,8 +50005,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.80"
+    "s13TokenIds": null,
+    "tp": "1.80"
   },
   {
     "address": "0xd53960dc9a6690fdac675870d64270a583bc0b60",
@@ -50019,8 +50019,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x75c120bf64ba3adf95beb67c0e82ca3a3dccd3be",
@@ -50033,8 +50033,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x6257d73199b575d74ed4580cd74cbfaf8f26b007",
@@ -50047,8 +50047,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xbb1f690b78f9e52987456efb21355ec7e5156158",
@@ -50061,8 +50061,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.20"
+    "s13TokenIds": null,
+    "tp": "1.20"
   },
   {
     "address": "0x70d2de38b99270a28d36e89566903a910e20a964",
@@ -50075,8 +50075,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x6c33eaf9a9ae0ff81b030acf09480f629a2faa3e",
@@ -50089,8 +50089,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.30"
+    "s13TokenIds": null,
+    "tp": "1.30"
   },
   {
     "address": "0x613eae0d4e69ee118f140b84c648ab22f3afdedf",
@@ -50103,8 +50103,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0xb44623ae70399726b02f9c9daa1d85a5488c9c62",
@@ -50117,8 +50117,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x27fd62064f5b11fa8527cb1d803468f9672c89ff",
@@ -50131,8 +50131,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x4d6bd21c84396c7e09ed5706b6b1acd1d6374aea",
@@ -50145,8 +50145,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "26.80"
+    "s13TokenIds": null,
+    "tp": "26.80"
   },
   {
     "address": "0xd623cd1da36dc24266990fb2d8eb5f464a682660",
@@ -50159,8 +50159,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xd787d2852c3d4f05dc9cf313d9ccbab78686be43",
@@ -50173,8 +50173,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0xb9a8f3344953120374cc80688974d525df7f33f6",
@@ -50187,8 +50187,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x4cfce6fa169f1454787a9a6e1c121fd60eb1b701",
@@ -50201,8 +50201,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.20"
+    "s13TokenIds": null,
+    "tp": "2.20"
   },
   {
     "address": "0x4cd58e09a659e1dbc444641d04879b2a225d2872",
@@ -50215,8 +50215,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xa726deed7d951ec4d2417c67c02562c2c3f82fc7",
@@ -50229,8 +50229,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "6.40"
+    "s13TokenIds": null,
+    "tp": "6.40"
   },
   {
     "address": "0x9e65a1a9126f08b997433c85d5eefea20d8f6304",
@@ -50243,8 +50243,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "5.20"
+    "s13TokenIds": null,
+    "tp": "5.20"
   },
   {
     "address": "0x50b2a29f427e2363a8b056619b02b4918af4442f",
@@ -50257,8 +50257,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.60"
+    "s13TokenIds": null,
+    "tp": "2.60"
   },
   {
     "address": "0x7793a4cf963408271500261381e27ce2aa37e62e",
@@ -50271,8 +50271,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "6.80"
+    "s13TokenIds": null,
+    "tp": "6.80"
   },
   {
     "address": "0xfeb537dc2a8396027800dddf615ed344ab34fb68",
@@ -50285,8 +50285,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0xb815bb64fe388c9073952e69b03505e71d460eb1",
@@ -50299,8 +50299,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0x04a97699619df8f9fd929da056e41bb8d30c0911",
@@ -50313,8 +50313,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x67f7a1db474b0cd97e216ac441d61ae6f10185e7",
@@ -50327,8 +50327,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.30"
+    "s13TokenIds": null,
+    "tp": "1.30"
   },
   {
     "address": "0xe90eab294ad752f70b09ccb27ccb86801648ea5b",
@@ -50341,8 +50341,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x6ade7f46d2e9c77d9a4853c9c139eff97fe795f8",
@@ -50355,8 +50355,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.00"
+    "s13TokenIds": null,
+    "tp": "1.00"
   },
   {
     "address": "0x3d2c382f6dc2ab7601614713ea4d09d4c56413cd",
@@ -50369,8 +50369,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "6.30"
+    "s13TokenIds": null,
+    "tp": "6.30"
   },
   {
     "address": "0xd1d7c9dfc69afc5a5d6bdccb1c4c982f9f746ce2",
@@ -50383,8 +50383,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.30"
+    "s13TokenIds": null,
+    "tp": "1.30"
   },
   {
     "address": "0xb1a349d5c251aa1e850f06a44a79192b23b8ae6b",
@@ -50397,8 +50397,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x2587aa9ade2d687e39733c9e8decb2e5a8538514",
@@ -50411,8 +50411,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.90"
+    "s13TokenIds": null,
+    "tp": "1.90"
   },
   {
     "address": "0x45694acee980c5a905f12480d5a2f9e3e74085d2",
@@ -50425,8 +50425,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "1.50"
+    "s13TokenIds": null,
+    "tp": "1.50"
   },
   {
     "address": "0x37cfdcc724abe76bea889fb9cc9773eafc64a9ea",
@@ -50439,8 +50439,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "15.00"
+    "s13TokenIds": null,
+    "tp": "15.00"
   },
   {
     "address": "0x9c5cba934ab9397331616d4e7eb0bcaba7dbb06f",
@@ -50453,8 +50453,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "2.10"
+    "s13TokenIds": null,
+    "tp": "2.10"
   },
   {
     "address": "0xf5096f621ca7816593ae8db4e56de00c8c0379ed",
@@ -50467,8 +50467,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0xa0e50aa5fd72b77be08c5b3cb6b153bf8d5dc33e",
@@ -50481,8 +50481,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   },
   {
     "address": "0x5f5f0105d9f0e89c7c87e3a05a726589dc8573c0",
@@ -50495,8 +50495,8 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.30"
+    "s13TokenIds": null,
+    "tp": "0.30"
   },
   {
     "address": "0x0bffeb3cdc802595d4c1216f472d1f1a30ba48b4",
@@ -50509,7 +50509,7 @@ var  IdnSnapshot = [
     "s9TokenIds": null,
     "s10TokenIds": null,
     "s11TokenIds": null,
-    "tp": null,
-    "s13TokenIds": "0.60"
+    "s13TokenIds": null,
+    "tp": "0.60"
   }
 ]
