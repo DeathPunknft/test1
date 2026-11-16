@@ -48278,6 +48278,9 @@ var snapshotAddress = [
   },
   {
     "address": "0xe91c497578292eF54F46814971F413BbC0F1f558"
+  },
+  {
+    "address": "0xfd6eb4a9e5c441ac71e4f28d4b96a409468128e7"
   }
 ]
 
